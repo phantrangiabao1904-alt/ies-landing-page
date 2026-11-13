@@ -397,7 +397,7 @@ export default function DangKyPage() {
                         <span>Việc làm part-time</span>
                       </label>
                       <label className="flex items-center gap-2 p-2.5 bg-slate-50 border border-slate-200 rounded-lg cursor-pointer text-xs font-medium text-[#263849]">
-                        <input type="checkbox" name="needDocSupport" value="yes" defaultChecked />
+                        <input type="checkbox" name="needDocSupport" value="yes" />
                         <span>Hồ sơ miễn 100% học phí</span>
                       </label>
                     </div>
@@ -410,7 +410,7 @@ export default function DangKyPage() {
                 {/* CONFIRMATION & SUBMIT */}
                 <div className="pt-2 flex flex-col gap-4">
                   <label className="flex items-start gap-2.5 cursor-pointer">
-                    <input type="checkbox" name="consent" required defaultChecked className="mt-1 rounded" />
+                    <input type="checkbox" name="consent" required className="mt-1 rounded" />
                     <span className="text-xs text-[#5D6B78] leading-relaxed">
                       Tôi cam kết các thông tin khai báo trên là chính xác và đồng ý để Ban tuyển sinh Trường Trung cấp Tin học Kinh tế Sài Gòn (IES) liên hệ hướng dẫn thủ tục nhập học.
                     </span>
@@ -481,7 +481,7 @@ export default function DangKyPage() {
                 <ul className="flex flex-col gap-2.5 text-xs text-white/90">
                   <li className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-[#2DBEDC] text-[16px]">check</span>
-                    <span>Miễn 100% học phí theo Nghị định 81/CP</span>
+                    <span>Hỗ trợ học phí nghề theo điều kiện của Nghị định 81</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-[#2DBEDC] text-[16px]">check</span>
@@ -489,7 +489,7 @@ export default function DangKyPage() {
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-[#2DBEDC] text-[16px]">check</span>
-                    <span>Ký cam kết 100% việc làm bằng văn bản</span>
+                    <span>Hỗ trợ định hướng và giới thiệu việc làm phù hợp</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="material-symbols-outlined text-[#2DBEDC] text-[16px]">check</span>

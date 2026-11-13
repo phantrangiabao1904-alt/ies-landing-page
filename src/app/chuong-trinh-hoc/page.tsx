@@ -3,11 +3,11 @@ import Link from 'next/link';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import LeadForm from '@/components/forms/LeadForm';
-import { schoolContact } from '@/lib/school-info';
+import { decree81SearchUrl, schoolContact } from '@/lib/school-info';
 
 export const metadata = {
   title: 'Chương Trình Học — Trường Trung cấp Tin học Kinh tế Sài Gòn (IES)',
-  description: 'Lộ trình tinh gọn, 70% thực hành, đào tạo song bằng Hệ 9+ và Trung cấp chính quy cam kết 100% việc làm.',
+  description: 'Lộ trình tinh gọn, 70% thực hành, đào tạo song bằng Hệ 9+ và hỗ trợ kết nối việc làm.',
 };
 
 export default function ChuongTrinhHocPage() {
@@ -40,7 +40,11 @@ export default function ChuongTrinhHocPage() {
                 </div>
                 {/* Main Title */}
                 <h1 className="font-headline-lg text-2xl sm:text-4xl lg:text-5xl text-primary tracking-tight font-bold leading-tight">
-                  Lộ Trình Tinh Gọn — Vững Vàng Tay Nghề — <span className="text-[#F58232]">Tự Chủ Tương Lai</span> Ở Tuổi 18
+                  Lộ Trình Tinh Gọn — <span className="whitespace-nowrap">Vững Vàng</span> Tay Nghề —{' '}
+                  <span className="text-[#F58232]">
+                    <span className="whitespace-nowrap">Tự Chủ Tương Lai</span>
+                  </span>{' '}
+                  Ở Tuổi 18
                 </h1>
                 {/* Description */}
                 <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
@@ -52,8 +56,18 @@ export default function ChuongTrinhHocPage() {
                     <span className="material-symbols-outlined text-[24px]">verified_user</span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="font-title text-title text-primary text-sm font-bold">Chính Sách Nhà Nước Bảo Trợ 100%</span>
-                    <span className="font-body-sm text-body-sm text-on-surface-variant">Miễn 100% Học Phí Nghề theo Nghị định 81/2021/NĐ-CP của Chính Phủ</span>
+                    <span className="font-title text-title text-primary text-sm font-bold">Hỗ trợ học phí nghề theo chính sách Nhà nước</span>
+                    <a
+                      href={decree81SearchUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-body-sm text-body-sm text-on-surface-variant underline decoration-primary/40 underline-offset-2 hover:text-primary"
+                    >
+                      Tra cứu Nghị định 81/2021/NĐ-CP
+                    </a>
+                    <span className="text-[11px] leading-relaxed text-on-surface-variant">
+                      Áp dụng theo đối tượng, điều kiện và hồ sơ quy định.
+                    </span>
                   </div>
                 </div>
                 {/* CTA Buttons Group */}
@@ -77,33 +91,38 @@ export default function ChuongTrinhHocPage() {
 
               {/* Hero Visual Metric Collage */}
               <div className="lg:col-span-5 relative">
-                <div className="relative bg-surface-container-lowest p-space-md rounded-2xl shadow-xl overflow-hidden">
-                  <div className="w-full h-80 rounded-xl overflow-hidden relative">
+                <div className="relative rounded-2xl border border-outline-variant/50 bg-surface-container-lowest p-3 shadow-xl sm:p-space-md">
+                  <div className="relative h-72 w-full overflow-hidden rounded-xl sm:h-80">
                     <img
                       className="w-full h-full object-cover"
-                      alt="Lớp học thực hành IES"
+                      alt="Ảnh minh họa môi trường học tập thực hành"
                       src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
                     <div className="absolute bottom-4 left-4 right-4 text-white">
-                      <span className="font-label-md text-label-md uppercase tracking-wider text-tertiary-fixed bg-tertiary-container/80 px-2.5 py-0.5 rounded-full inline-block mb-1">Môi Trường Số Hóa</span>
-                      <p className="font-headline-sm text-headline-sm text-white font-bold leading-tight">Phòng Lab Chuẩn Doanh Nghiệp</p>
+                      <span className="font-label-md text-label-md uppercase tracking-wider text-tertiary-fixed bg-tertiary-container/80 px-2.5 py-0.5 rounded-full inline-block mb-1">Ảnh minh họa</span>
+                      <p className="font-headline-sm text-headline-sm text-white font-bold leading-tight">Không gian học tập thực hành</p>
                     </div>
                   </div>
-                  {/* Floating Stat Badge */}
-                  <div className="absolute -bottom-2 -left-2 bg-surface-container-lowest p-space-md rounded-xl shadow-lg flex items-center gap-space-sm">
-                    <div className="w-12 h-12 rounded-xl bg-tertiary/10 text-tertiary flex items-center justify-center font-bold">
-                      <span className="material-symbols-outlined text-[28px]">trending_up</span>
+                  <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                    <div className="flex min-h-[76px] items-center gap-3 rounded-xl border border-outline-variant/50 bg-surface-container-low p-3">
+                      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-tertiary/10 text-tertiary">
+                        <span className="material-symbols-outlined text-[24px]">menu_book</span>
+                      </div>
+                      <div>
+                        <p className="font-display-mobile text-lg font-bold leading-none text-primary">70 : 30</p>
+                        <p className="mt-1 text-xs leading-tight text-on-surface-variant">Thực hành / lý thuyết</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-display-mobile text-headline-md text-primary font-bold leading-none">100%</p>
-                      <p className="font-body-sm text-body-sm text-on-surface-variant font-medium">Cam kết cơ hội việc làm</p>
+                    <div className="flex min-h-[76px] items-center gap-3 rounded-xl border border-outline-variant/50 bg-surface-container-low p-3">
+                      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-secondary/10 text-secondary">
+                        <span className="material-symbols-outlined text-[24px]">work</span>
+                      </div>
+                      <div>
+                        <p className="font-title text-sm font-bold leading-tight text-primary">Hỗ trợ kết nối</p>
+                        <p className="mt-1 text-xs leading-tight text-on-surface-variant">Cơ hội thực tập, việc làm</p>
+                      </div>
                     </div>
-                  </div>
-                  {/* Ratio Pill Badge */}
-                  <div className="absolute top-4 right-4 bg-primary text-on-primary px-space-md py-space-xs rounded-xl shadow-md text-center">
-                    <span className="font-headline-md text-headline-md block font-extrabold leading-none text-tertiary-fixed">70 : 30</span>
-                    <span className="font-label-md text-[11px] uppercase tracking-wider">Thực hành / Lý thuyết</span>
                   </div>
                 </div>
               </div>
@@ -182,11 +201,11 @@ export default function ChuongTrinhHocPage() {
                       </li>
                       <li className="flex items-start gap-space-xs">
                         <span className="material-symbols-outlined text-[#0F5587] text-[20px] flex-shrink-0">check_circle</span>
-                        <span>Thực tập hưởng lương trực tiếp tại mạng lưới 100+ doanh nghiệp đối tác hàng đầu TP.HCM.</span>
+                        <span>Được tư vấn cơ hội thực tập tại doanh nghiệp theo ngành học và kế hoạch đào tạo.</span>
                       </li>
                       <li className="flex items-start gap-space-xs">
                         <span className="material-symbols-outlined text-[#0F5587] text-[20px] flex-shrink-0">check_circle</span>
-                        <span>Nhận ngay <strong className="text-on-surface">Bằng Trung Cấp Nghề Quốc Gia</strong> và cam kết giới thiệu việc làm mức lương từ 8 - 14 triệu/tháng.</span>
+                        <span>Nhận <strong className="text-on-surface">Bằng Trung Cấp Chính Quy</strong> khi hoàn thành chương trình; IES hỗ trợ giới thiệu việc làm phù hợp.</span>
                       </li>
                     </ul>
                   </div>

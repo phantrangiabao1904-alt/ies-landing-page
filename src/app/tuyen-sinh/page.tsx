@@ -3,6 +3,7 @@ import Link from 'next/link';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import LeadForm from '@/components/forms/LeadForm';
+import { decree81SearchUrl } from '@/lib/school-info';
 
 export const metadata = {
   title: 'Thông Tin Tuyển Sinh 2026 — IES Saigon',
@@ -45,16 +46,22 @@ export default function TuyenSinhPage() {
                       <span className="material-symbols-outlined text-[16px]">verified_user</span>
                       ĐỀ ÁN TUYỂN SINH NĂM 2026
                     </span>
-                    <span className="bg-[#F6EEE5] text-[#F58232] font-label-md text-label-md px-space-sm py-1 rounded-lg font-bold flex items-center gap-1">
+                    <a
+                      href={decree81SearchUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-[#F6EEE5] text-[#F58232] font-label-md text-label-md px-space-sm py-1 rounded-lg font-bold flex items-center gap-1 hover:bg-[#f9e3d2] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F58232]"
+                    >
                       <span className="material-symbols-outlined text-[16px]">savings</span>
-                      NGHỊ ĐỊNH 81/CP MIỄN 100% HỌC PHÍ
-                    </span>
+                      Nghị định 81/2021/NĐ-CP
+                      <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
+                    </a>
                   </div>
                   <h1 className="font-headline-lg text-2xl sm:text-4xl lg:text-5xl text-primary tracking-tight leading-tight">
-                    Thông Tin Tuyển Sinh 2026 — Khởi Đầu Nghề Nghiệp, <span className="text-[#F58232]">Học Phí 0 Đồng*</span>
+                    Thông Tin Tuyển Sinh 2026 — Khởi Đầu Nghề Nghiệp, <span className="text-[#F58232]">Học Phí 0 Đồng</span>
                   </h1>
                   <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-                    Xét tuyển thẳng hoàn toàn bằng học bạ THCS / THPT, xoá bỏ áp lực thi tuyển căng thẳng. Nhà nước cấp bù 100% học phí nghề theo chính sách quốc gia cùng cam kết 100% việc làm bằng văn bản pháp lý.
+                    Xét tuyển bằng học bạ THCS / THPT. Chính sách hỗ trợ học phí nghề được áp dụng theo đối tượng, điều kiện và hồ sơ quy định; Ban tuyển sinh sẽ tư vấn cụ thể. IES hỗ trợ định hướng và kết nối cơ hội thực tập, việc làm phù hợp.
                   </p>
 
                   {/* Quick Metrics Bar */}

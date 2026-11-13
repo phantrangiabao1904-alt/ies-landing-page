@@ -286,9 +286,9 @@ export default function GioiThieuPage() {
 
                   <p className="font-['Inter',sans-serif] text-[15px] text-[#5D6B78] leading-relaxed mb-6">
                     Trao quyền cho thế hệ trẻ từ 15 tuổi làm chủ tương lai thông qua chương trình
-                    đào tạo thực hành 70%, thụ hưởng trọn vẹn chính sách miễn 100% học phí nhà
-                    nước. IES cam kết rút ngắn lộ trình lập nghiệp, bảo đảm 100% cơ hội việc làm và
-                    xây dựng nền tảng đạo đức nghề nghiệp vững chắc cho từng người học.
+                    đào tạo thực hành 70% và được tư vấn điều kiện áp dụng chính sách hỗ trợ học phí
+                    nghề theo quy định. IES hỗ trợ xây dựng lộ trình nghề nghiệp, kết nối cơ hội việc
+                    làm phù hợp và phát triển nền tảng đạo đức nghề nghiệp.
                   </p>
                 </div>
 
@@ -404,8 +404,8 @@ export default function GioiThieuPage() {
                     Cam Kết (Commitment)
                   </h3>
                   <p className="text-[14px] text-[#5D6B78] leading-relaxed">
-                    Bảo đảm 100% sinh viên đủ điều kiện tốt nghiệp được giới thiệu việc làm đúng
-                    chuyên ngành và hỗ trợ lộ trình học liên thông lên Đại học.
+                    IES hỗ trợ sinh viên đủ điều kiện tốt nghiệp tìm cơ hội việc làm phù hợp với
+                    chuyên ngành, đồng thời tư vấn lộ trình học liên thông lên Đại học.
                   </p>
                 </div>
                 <div className="mt-4 pt-3 border-t border-[#D9E2EA]/60 text-[12px] text-[#3764AF] font-semibold font-['Montserrat',sans-serif]">
@@ -606,8 +606,8 @@ export default function GioiThieuPage() {
                       Chuyên gia Quan hệ Doanh nghiệp &amp; Việc làm
                     </p>
                     <p className="text-[14px] text-[#5D6B78] leading-relaxed">
-                      Cầu nối trực tiếp ký kết hợp tác tuyển dụng với 50+ tập đoàn và doanh nghiệp tại
-                      TP.HCM, cam kết cơ hội việc làm 100% cho sinh viên tốt nghiệp.
+                      Hỗ trợ phối hợp hoạt động thực tập, tuyển dụng với doanh nghiệp tại TP.HCM và
+                      tư vấn cơ hội việc làm phù hợp cho sinh viên tốt nghiệp.
                     </p>
                   </div>
                   <div className="mt-6 pt-4 border-t border-[#D9E2EA] flex items-center gap-2 text-[12px] text-[#5D6B78]">
@@ -1005,8 +1005,8 @@ export default function GioiThieuPage() {
                 </h2>
 
                 <p className="font-['Inter',sans-serif] text-[15px] sm:text-[16px] text-white/80 mt-4 leading-relaxed max-w-2xl">
-                  Nhận trọn vẹn chính sách hỗ trợ 100% học phí nghề của Chính phủ, cam kết việc làm
-                  và cơ hội phát triển sự nghiệp vững vàng ngay từ tuổi 15.
+                  Tìm hiểu điều kiện áp dụng chính sách hỗ trợ học phí nghề theo quy định, nhận tư
+                  vấn hướng nghiệp và kết nối cơ hội việc làm phù hợp.
                 </p>
 
                 <div className="flex flex-wrap items-center justify-center gap-4 mt-8">

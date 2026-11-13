@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import IESLogo from '@/components/brand/IESLogo';
 import { schoolContact } from '@/lib/school-info';
 
@@ -13,13 +14,20 @@ const navLinks = [
 ];
 
 export default function SiteHeader() {
+  const pathname = usePathname();
+  const isActiveLink = (href: string) =>
+    pathname === href || (href !== '/' && pathname.startsWith(`${href}/`));
+
   return (
     <header className="fixed top-0 w-full z-50 shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
       {/* Announcement Bar */}
       <div className="bg-[#0F5587] text-white py-1.5 px-4 md:px-8 text-center overflow-hidden">
-        <div className="max-w-[1240px] mx-auto flex items-center justify-center gap-2 font-['Montserrat',sans-serif] text-[11px] leading-5 font-semibold tracking-[0.04em]">
+        <div className="max-w-[1240px] mx-auto flex items-center justify-center gap-2 font-['Montserrat',sans-serif] text-[9px] leading-4 font-semibold tracking-[0.04em] sm:text-[11px] sm:leading-5">
           <span className="material-symbols-outlined text-[16px] text-[#acedff]">campaign</span>
-          <span className="truncate">
+          <span className="sm:hidden">
+            TUYỂN SINH 2026 • TƯ VẤN HỌC PHÍ NGHỀ
+          </span>
+          <span className="hidden sm:inline">
             TUYỂN SINH 2026: MIỄN 100% HỌC PHÍ NGHỀ CHO HỌC SINH TỐT NGHIỆP THCS THEO CHÍNH SÁCH HIỆN HÀNH
           </span>
         </div>
@@ -39,7 +47,12 @@ export default function SiteHeader() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="whitespace-nowrap px-1 py-2 text-[#5D6B78] hover:text-[#263849] hover:bg-[#e3efff]/50 rounded-lg transition-colors font-['Montserrat',sans-serif] text-[11px] font-semibold"
+                aria-current={isActiveLink(link.href) ? 'page' : undefined}
+                className={`whitespace-nowrap rounded-lg px-2 py-2 transition-colors font-['Montserrat',sans-serif] text-[11px] ${
+                  isActiveLink(link.href)
+                    ? 'bg-[#e3efff] text-[#0F5587] font-bold ring-1 ring-[#0F5587]/15'
+                    : 'text-[#5D6B78] hover:text-[#263849] hover:bg-[#e3efff]/50 font-semibold'
+                }`}
               >
                 {link.label}
               </Link>
@@ -49,17 +62,14 @@ export default function SiteHeader() {
           {/* Right Actions */}
           <div className="ml-auto flex flex-shrink-0 items-center gap-2">
             <div className="hidden lg:flex flex-col items-end text-right">
-              <span className="font-['Montserrat',sans-serif] text-[10px] text-[#5D6B78] uppercase tracking-wider font-semibold">
-                Hotline Tư Vấn
+              <span className="font-['Montserrat',sans-serif] text-[9px] text-[#5D6B78] uppercase tracking-wider font-semibold">
+                Hotline Tuyển Sinh
               </span>
-              <div className="flex items-center gap-1 whitespace-nowrap font-['Montserrat',sans-serif] text-[10px] text-[#0F5587] font-bold">
-                {schoolContact.phoneNumbers.map((phone, index) => (
-                  <span key={phone.number} className="inline-flex items-center gap-1">
-                    {index > 0 && <span className="text-[#5D6B78]">/</span>}
-                    <a href={phone.href} className="hover:underline">
-                      {phone.number}
-                    </a>
-                  </span>
+              <div className="flex flex-col items-end font-['Montserrat',sans-serif] text-[10px] leading-[1.2] text-[#0F5587] font-bold">
+                {schoolContact.phoneNumbers.map((phone) => (
+                  <a key={phone.number} href={phone.href} className="hover:underline">
+                    {phone.number}
+                  </a>
                 ))}
               </div>
             </div>
@@ -84,7 +94,12 @@ export default function SiteHeader() {
                     key={link.href}
                     href={link.href}
                     onClick={(event) => event.currentTarget.closest('details')?.removeAttribute('open')}
-                    className="min-h-[44px] rounded-lg px-4 py-3 font-['Montserrat',sans-serif] text-[16px] font-semibold text-[#263849] transition-colors hover:bg-[#F5F8FA]"
+                    aria-current={isActiveLink(link.href) ? 'page' : undefined}
+                    className={`min-h-[44px] rounded-lg px-4 py-3 font-['Montserrat',sans-serif] text-[16px] transition-colors ${
+                      isActiveLink(link.href)
+                        ? 'bg-[#e3efff] font-bold text-[#0F5587]'
+                        : 'font-semibold text-[#263849] hover:bg-[#F5F8FA]'
+                    }`}
                   >
                     {link.label}
                   </Link>

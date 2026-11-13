@@ -7,7 +7,7 @@ import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import StickyLeadForm from '@/app/components/forms/StickyLeadForm';
 import HomeCmsSection from '@/components/home/HomeCmsSection';
-import { schoolContact } from '@/lib/school-info';
+import { decree81SearchUrl, schoolContact } from '@/lib/school-info';
 
 export default function HomePage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -57,10 +57,17 @@ export default function HomePage() {
                   <span className="material-symbols-outlined text-[16px] animate-pulse">verified_user</span>
                   Tuyển Sinh Năm Học 2026
                 </span>
-                <span className="inline-flex items-center gap-space-xs bg-surface-container text-primary px-space-md py-1 rounded-full font-label-md text-label-md font-semibold">
+                <a
+                  href={decree81SearchUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-space-xs rounded-full bg-surface-container px-space-md py-1 font-label-md text-label-md font-semibold text-primary transition-colors hover:bg-[#e3efff] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                  aria-label="Tra cứu Nghị định 81 trên Cổng văn bản Chính phủ"
+                >
                   <span className="material-symbols-outlined text-[16px] text-tertiary-container">policy</span>
-                  Nghị định 81/2021/NĐ-CP Chính Phủ
-                </span>
+                  Nghị định 81/2021/NĐ-CP
+                  <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
+                </a>
               </div>
 
               {/* Main Headline Grid */}
@@ -70,12 +77,12 @@ export default function HomePage() {
                   <h1 className="font-headline-lg text-2xl sm:text-4xl lg:text-5xl text-primary leading-tight font-extrabold uppercase">
                     TRƯỜNG TRUNG CẤP <br className="hidden sm:inline" />
                     <span className="text-secondary">TIN HỌC KINH TẾ</span> SÀI GÒN (IES)
-                    <span className="block text-[#F58232] mt-2">MIỄN PHÍ 100% HỌC PHÍ*</span>
+                    <span className="block text-[#F58232] mt-2">MIỄN PHÍ 100% HỌC PHÍ</span>
                   </h1>
                   <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
                     <strong className="text-primary">Học thực tiễn - Làm chuyên nghiệp.</strong>{' '}
                     Xét tuyển học bạ - Nhập học ngay. Học sinh tốt nghiệp THCS được tư vấn điều kiện
-                    áp dụng chính sách hỗ trợ học phí nghề theo quy định.
+                    áp dụng chính sách hỗ trợ học phí nghề theo quy định hiện hành.
                   </p>
 
                   {/* THE MEGA VISUAL CARD: MIỄN 100% HỌC PHÍ */}
@@ -91,7 +98,15 @@ export default function HomePage() {
                           <span className="font-headline-md text-lg sm:text-xl text-white font-bold tracking-tight">HỌC PHÍ</span>
                         </div>
                         <p className="font-body-sm text-body-sm text-surface-container-high mt-space-xs leading-relaxed max-w-lg">
-                          Áp dụng chính sách hỗ trợ học phí 100% theo <strong className="text-white">Nghị định 81/2021/NĐ-CP</strong> của Chính phủ dành cho học sinh tốt nghiệp THCS &amp; gói tài trợ phát triển nhân lực công nghệ số từ đối tác IES.
+                          Chính sách hỗ trợ học phí nghề được áp dụng theo quy định hiện hành; quyền lợi cụ thể phụ thuộc điều kiện và hồ sơ xét duyệt.{' '}
+                          <a
+                            href={decree81SearchUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-bold text-white underline decoration-white/60 underline-offset-2 hover:decoration-white"
+                          >
+                            Tra cứu Nghị định 81/2021/NĐ-CP
+                          </a>
                         </p>
                       </div>
 
@@ -105,8 +120,8 @@ export default function HomePage() {
                     {/* 4 Quick Fact Pillars */}
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-space-sm pt-space-md mt-space-md bg-[#002f52] border-t border-white/20 -mx-space-lg -mb-space-lg px-space-lg pb-space-md">
                       <div className="flex flex-col">
-                        <span className="font-label-lg text-label-lg text-tertiary-fixed font-bold">100%</span>
-                        <span className="font-body-sm text-[13px] text-white/90 leading-tight">Cam kết giới thiệu việc làm</span>
+                        <span className="font-label-lg text-label-lg text-tertiary-fixed font-bold">Hỗ trợ</span>
+                        <span className="font-body-sm text-[13px] text-white/90 leading-tight">Giới thiệu việc làm</span>
                       </div>
                       <div className="flex flex-col">
                         <span className="font-label-lg text-label-lg text-tertiary-fixed font-bold">70%</span>
@@ -174,7 +189,7 @@ export default function HomePage() {
               <div className="flex flex-col md:flex-row items-center justify-between gap-space-md">
                 <div className="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md uppercase tracking-wider flex-shrink-0">
                   <span className="material-symbols-outlined text-primary text-[20px]">handshake</span>
-                  <span>Đối tác Doanh nghiệp Tuyển dụng Trực tiếp:</span>
+                  <span>Doanh nghiệp tiêu biểu trong các lĩnh vực đào tạo:</span>
                 </div>
                 <div className="flex flex-wrap items-center justify-center md:justify-end gap-space-lg opacity-85">
                   <span className="font-display text-[18px] font-black text-primary tracking-tighter">FPT<span className="text-[#F58232]">Software</span></span>
@@ -558,7 +573,6 @@ export default function HomePage() {
 
                       <div className="flex items-start gap-2 pt-1">
                         <input
-                          defaultChecked
                           className="mt-1 w-4 h-4 text-primary rounded focus:ring-0 accent-primary"
                           id="reg-policy"
                           name="consent"

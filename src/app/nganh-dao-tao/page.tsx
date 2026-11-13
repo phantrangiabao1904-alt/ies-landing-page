@@ -13,17 +13,6 @@ export const metadata = {
 const majors = [
   {
     id: '01',
-    code: 'TKDH',
-    title: 'Thiết kế Đồ họa & Đa Phương tiện',
-    enTitle: 'GRAPHIC DESIGN & MULTIMEDIA',
-    desc: 'Thành thạo hệ phần mềm Adobe (Photoshop, Illustrator, Premiere, After Effects). Đào tạo tư duy mỹ thuật ứng dụng, thiết kế ấn phẩm truyền thông, video viral mạng xã hội và đồ họa chuyển động đa kênh.',
-    skills: ['Thiết kế 2D/3D', 'Ấn phẩm thương hiệu', 'Biên tập Video & Motion', 'UI/UX cơ bản'],
-    salary: '9.000.000 - 15.000.000 VNĐ',
-    img: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=600&q=80',
-    category: 'cong-nghe',
-  },
-  {
-    id: '02',
     code: 'CNTT',
     title: 'Công nghệ thông tin',
     enTitle: 'INFORMATION TECHNOLOGY',
@@ -31,6 +20,17 @@ const majors = [
     skills: ['Lập trình ứng dụng', 'Cơ sở dữ liệu', 'Phát triển web', 'Làm việc nhóm'],
     salary: '10.000.000 - 18.000.000 VNĐ',
     img: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80',
+    category: 'cong-nghe',
+  },
+  {
+    id: '02',
+    code: 'TKĐH',
+    title: 'Thiết kế Đồ họa & Đa Phương tiện',
+    enTitle: 'GRAPHIC DESIGN & MULTIMEDIA',
+    desc: 'Thực hành Photoshop, Illustrator, Premiere và After Effects; rèn tư duy mỹ thuật ứng dụng để thiết kế ấn phẩm truyền thông, video cho mạng xã hội và đồ họa chuyển động.',
+    skills: ['Thiết kế 2D/3D', 'Ấn phẩm thương hiệu', 'Biên tập Video & Motion', 'UI/UX cơ bản'],
+    salary: '9.000.000 - 15.000.000 VNĐ',
+    img: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=600&q=80',
     category: 'cong-nghe',
   },
   {
@@ -46,17 +46,6 @@ const majors = [
   },
   {
     id: '04',
-    code: 'QTKD',
-    title: 'Quản trị kinh doanh',
-    enTitle: 'BUSINESS ADMINISTRATION',
-    desc: 'Học các nghiệp vụ quản trị, bán hàng, chăm sóc khách hàng và lập kế hoạch kinh doanh qua bài tập tình huống thực tế.',
-    skills: ['Nghiệp vụ kinh doanh', 'Bán hàng', 'Chăm sóc khách hàng', 'Lập kế hoạch'],
-    salary: '8.500.000 - 15.000.000 VNĐ',
-    img: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&q=80',
-    category: 'kinh-te',
-  },
-  {
-    id: '05',
     code: 'KT',
     title: 'Kế toán Doanh nghiệp Số',
     enTitle: 'DIGITAL ACCOUNTING & CORPORATE FINANCE',
@@ -67,8 +56,19 @@ const majors = [
     category: 'kinh-te',
   },
   {
+    id: '05',
+    code: 'QTKD',
+    title: 'Quản trị kinh doanh',
+    enTitle: 'BUSINESS ADMINISTRATION',
+    desc: 'Học các nghiệp vụ quản trị, bán hàng, chăm sóc khách hàng và lập kế hoạch kinh doanh qua bài tập tình huống thực tế.',
+    skills: ['Nghiệp vụ kinh doanh', 'Bán hàng', 'Chăm sóc khách hàng', 'Lập kế hoạch'],
+    salary: '8.500.000 - 15.000.000 VNĐ',
+    img: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&q=80',
+    category: 'kinh-te',
+  },
+  {
     id: '06',
-    code: 'TMDT',
+    code: 'TMĐT',
     title: 'Thương mại Điện tử & Logistics',
     enTitle: 'E-COMMERCE & SMART LOGISTICS',
     desc: 'Quản trị gian hàng đa sàn TMĐT (Shopee, Lazada, TikTok Shop), tối ưu chuỗi cung ứng, quản lý kho thông minh và xử lý đơn hàng tự động bám sát nhu cầu bùng nổ của nền kinh tế số.',
@@ -117,7 +117,7 @@ export default function NganhDaoTaoPage() {
                     Hệ Thống Ngành Đào Tạo Thực Chiến — Đón Đầu Nhu Cầu Tuyển Dụng 4.0
                   </h1>
                   <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                    Các chuyên ngành đào tạo tại IES được thiết kế bám sát thực tế nhu cầu doanh nghiệp. Sinh viên được học trực tiếp trên hệ thống phòng máy hiện đại, được cầm tay chỉ việc bởi đội ngũ giảng viên 100% học vị chuyên ngành thạc sĩ, kỹ sư có kinh nghiệm làm việc thực tế tại các tập đoàn lớn.
+                    Các chuyên ngành đào tạo tại IES được thiết kế theo định hướng ứng dụng. Học viên được thực hành trên phòng máy và làm bài tập, dự án gắn với nghiệp vụ của từng ngành.
                   </p>
                 </div>
 
@@ -127,12 +127,12 @@ export default function NganhDaoTaoPage() {
                       <span className="material-symbols-outlined text-[24px]">verified_user</span>
                     </div>
                     <div>
-                      <span className="font-label-md text-[11px] text-[#2DBEDC] uppercase tracking-wider block font-bold">Cam Kết Độc Quyền</span>
-                      <h4 className="font-title text-title text-white font-bold">100% VIỆC LÀM ĐẦU RA</h4>
+                      <span className="font-label-md text-[11px] text-[#2DBEDC] uppercase tracking-wider block font-bold">Hỗ trợ hướng nghiệp</span>
+                      <h4 className="font-title text-title text-white font-bold">Kết nối thực tập, việc làm</h4>
                     </div>
                   </div>
                   <p className="font-body-sm text-white/90 leading-relaxed text-sm">
-                    Ký hợp đồng cam kết việc làm bằng văn bản pháp lý ngay khi nhập học. Giới thiệu việc làm đúng chuyên ngành với mức thu nhập từ <strong className="text-[#F58232]">8.000.000 - 15.000.000đ/tháng</strong>.
+                    IES hỗ trợ định hướng và kết nối cơ hội thực tập, việc làm phù hợp. Vị trí tuyển dụng và thu nhập phụ thuộc năng lực, yêu cầu doanh nghiệp và nhu cầu thị trường.
                   </p>
                   <Link
                     href="/dang-ky"
@@ -155,12 +155,12 @@ export default function NganhDaoTaoPage() {
                   <span className="font-body-sm text-on-surface-variant">Thực hành trên máy tính</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-display text-display-sm text-primary font-bold">100%</span>
-                  <span className="font-body-sm text-on-surface-variant">Giảng viên từ doanh nghiệp</span>
+                  <span className="font-display text-display-sm text-primary font-bold">02</span>
+                  <span className="font-body-sm text-on-surface-variant">Khối ngành đào tạo</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-display text-display-sm text-primary font-bold">100+</span>
-                  <span className="font-body-sm text-on-surface-variant">Doanh nghiệp ký kết tuyển dụng</span>
+                  <span className="font-display text-display-sm text-primary font-bold">Hỗ trợ</span>
+                  <span className="font-body-sm text-on-surface-variant">Kết nối thực tập, việc làm</span>
                 </div>
               </div>
             </div>
@@ -245,7 +245,7 @@ export default function NganhDaoTaoPage() {
                       <div className="p-space-sm bg-[#F6EEE5]/60 border border-[#F58232]/20 rounded-xl flex items-center justify-between mt-auto">
                         <div className="flex items-center gap-2">
                           <span className="material-symbols-outlined text-[#F58232] text-[20px]">payments</span>
-                          <span className="font-label-md text-xs font-bold text-on-surface">Thu nhập khởi điểm:</span>
+                          <span className="font-label-md text-xs font-bold text-on-surface">Thu nhập tham khảo:</span>
                         </div>
                         <span className="font-title text-sm font-bold text-[#F58232]">{m.salary}</span>
                       </div>
@@ -304,7 +304,7 @@ export default function NganhDaoTaoPage() {
                   </div>
                   <h3 className="font-title text-title text-primary font-bold">Doanh Nghiệp Đồng Hành</h3>
                   <p className="font-body-sm text-on-surface-variant leading-relaxed">
-                    100+ doanh nghiệp đối tác tại TP.HCM tiếp nhận sinh viên thực tập có phụ cấp và tuyển dụng chính thức ngay sau khi tốt nghiệp.
+                    IES hỗ trợ học viên tìm hiểu cơ hội thực tập và việc làm phù hợp với ngành học, năng lực và nhu cầu tuyển dụng.
                   </p>
                 </div>
 

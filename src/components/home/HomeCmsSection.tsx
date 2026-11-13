@@ -47,7 +47,7 @@ export default function HomeCmsSection() {
           ) : (
             <article
               key={item.id}
-              className="flex min-h-48 flex-col rounded-xl border border-slate-200 bg-white p-5 shadow-sm"
+              className="flex min-h-48 flex-col rounded-xl border border-slate-200 border-t-4 border-t-[#F58232] bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-[#0F5587]/30 hover:shadow-lg"
             >
               <p className="text-xs font-bold uppercase tracking-wider text-[#F58232]">
                 Ngành đào tạo

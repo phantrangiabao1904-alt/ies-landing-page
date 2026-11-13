@@ -96,13 +96,19 @@ export default function IESLogo({
   return (
     <div className={`flex w-full min-w-0 items-center gap-2 ${className}`}>
       <div className="w-12 h-9 shrink-0">{BookEmblem}</div>
-      <div className="flex min-w-0 flex-col">
-        <span
-          className={`text-[10px] font-black tracking-tight uppercase leading-[1.2] ${
-            isWhite ? 'text-white' : 'text-[#0F5587]'
-          }`}
-        >
-          TRƯỜNG TRUNG CẤP TIN HỌC KINH TẾ SÀI GÒN
+      <div
+        className={`flex min-w-0 flex-col text-[8px] font-black uppercase leading-[1.15] tracking-[-0.02em] sm:text-[8px] md:text-[9px] ${
+          isWhite ? 'text-white' : 'text-[#0F5587]'
+        }`}
+      >
+        <span className="sm:hidden">
+          <span className="block">TRƯỜNG TRUNG CẤP</span>
+          <span className="block">TIN HỌC KINH TẾ</span>
+          <span className="block">SÀI GÒN</span>
+        </span>
+        <span className="hidden sm:block">
+          <span className="block">TRƯỜNG TRUNG CẤP</span>
+          <span className="block">TIN HỌC KINH TẾ SÀI GÒN</span>
         </span>
       </div>
     </div>

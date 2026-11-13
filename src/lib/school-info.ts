@@ -20,3 +20,6 @@ export const schoolContact = {
     },
   ],
 };
+
+export const decree81SearchUrl =
+  'https://vanban.chinhphu.vn/he-thong-van-ban?classid=1&mode=1&typegroupid=4';

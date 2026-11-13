@@ -156,7 +156,6 @@ export default function LeadForm({
             id={`${id}-consent`}
             type="checkbox"
             name="consent"
-            defaultChecked
             required
             className="mt-1 w-4 h-4 text-[#0F5587] rounded focus:ring-0 accent-[#0F5587]"
           />
