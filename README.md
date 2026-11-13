@@ -1,5 +1,26 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## IES application setup
+
+The project uses Tailwind CSS v4 through `@tailwindcss/postcss`. Start the site from this directory:
+
+```bash
+npm install
+npm run dev
+```
+
+Copy `.env.example` to `.env.local` and set the Supabase project URL, anon key, and service-role key. Keep the service-role key server-only; it is used by rate-limited Server Actions and after staff authorization checks.
+
+Apply the SQL files in `supabase/migrations/` to the Supabase project, in filename order. Public lead submissions go through a validated, rate-limited Next.js Server Action; the `anon` and `authenticated` database roles have no direct access to the `leads` table. RLS stays enabled, and the server-only service role is used for database writes.
+
+The second migration also creates:
+
+- Hashed, database-backed rate limits for lead submissions, staff login, and analytics events.
+- First-party page-view, form-click, and successful-submission events. Only aggregate analytics are shown to BA users.
+- Public-read-only homepage content and an Admin-only drag-and-drop editor at `/admin/content`.
+
+Admin and analytics pages require Supabase Auth users with `app_metadata.role` set to `ADMIN` or `BA`. Only `ADMIN` can view and export lead details or edit homepage content. The login page does not create staff accounts; provision roles through a trusted Supabase admin process.
+
 ## Getting Started
 
 First, run the development server:
