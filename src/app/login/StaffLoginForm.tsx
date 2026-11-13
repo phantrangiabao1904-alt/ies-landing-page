@@ -1,6 +1,7 @@
 'use client';
 
 import { useActionState } from 'react';
+import Link from 'next/link';
 import { loginStaff } from '@/actions/staff-auth';
 
 export default function StaffLoginForm() {
@@ -40,6 +41,12 @@ export default function StaffLoginForm() {
       >
         {isPending ? 'Đang đăng nhập...' : 'Đăng nhập'}
       </button>
+      <Link
+        href="/forgot-password"
+        className="block text-center text-sm font-semibold text-[#0F5587] hover:underline"
+      >
+        Quên mật khẩu?
+      </Link>
     </form>
   );
 }

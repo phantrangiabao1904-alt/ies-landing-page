@@ -96,6 +96,73 @@ export async function loginStaff(
   redirect(role === 'ADMIN' ? '/admin' : '/analytics');
 }
 
+export async function requestStaffPasswordReset(
+  _previousState: string,
+  formData: FormData,
+): Promise<string> {
+  const email = String(formData.get('email') || '').trim();
+
+  if (!email) {
+    return 'Vui lòng nhập email tài khoản.';
+  }
+
+  try {
+    const requestHeaders = await headers();
+    const ip = getClientIp(requestHeaders);
+    const userAgent = requestHeaders.get('user-agent')?.slice(0, 180) || 'unknown';
+    const identifier = ip
+      ? `staff-password-reset-ip:${ip}`
+      : `staff-password-reset-agent:${userAgent}`;
+    const rateLimitClient = createServiceRoleClient();
+    const allowed = await consumeRateLimit(
+      rateLimitClient,
+      identifier,
+      3,
+      60 * 60,
+    );
+    if (!allowed) {
+      return 'Bạn đã yêu cầu quá nhiều lần. Vui lòng thử lại sau 1 giờ.';
+    }
+
+    const emailAllowed = await consumeRateLimit(
+      rateLimitClient,
+      `staff-password-reset-email:${email.toLowerCase()}`,
+      3,
+      60 * 60,
+    );
+    if (!emailAllowed) {
+      return 'Bạn đã yêu cầu quá nhiều lần. Vui lòng thử lại sau 1 giờ.';
+    }
+  } catch (error) {
+    console.error('Staff password reset rate limit could not be checked.', error);
+    return 'Chức năng đặt lại mật khẩu chưa sẵn sàng. Vui lòng thử lại sau.';
+  }
+
+  let credentials: ReturnType<typeof getSupabaseCredentials>;
+  try {
+    credentials = getSupabaseCredentials();
+  } catch (error) {
+    console.error('Staff password reset is unavailable because Supabase is not configured.', error);
+    return 'Chức năng đặt lại mật khẩu chưa được cấu hình.';
+  }
+
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://ies-landing-page-ruby.vercel.app';
+  const supabase = createClient(credentials.url, credentials.anonKey, {
+    auth: { persistSession: false, autoRefreshToken: false },
+  });
+  const { error } = await supabase.auth.resetPasswordForEmail(email, {
+    redirectTo: new URL('/reset-password', siteUrl).toString(),
+  });
+
+  if (error) {
+    console.error('Staff password reset email could not be sent.', error);
+    return 'Không gửi được email đặt lại mật khẩu. Vui lòng thử lại hoặc liên hệ quản trị viên.';
+  }
+
+  return 'Nếu email này có tài khoản, hướng dẫn đặt lại mật khẩu đã được gửi.';
+}
+
 export async function logoutStaff() {
   const cookieStore = await cookies();
   cookieStore.delete('sb-access-token');
