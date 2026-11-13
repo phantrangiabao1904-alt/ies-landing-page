@@ -79,12 +79,7 @@ export default function HomePage() {
                   </p>
 
                   {/* THE MEGA VISUAL CARD: MIỄN 100% HỌC PHÍ */}
-                  <div className="relative mt-space-sm p-space-lg rounded-xl bg-gradient-to-br from-primary via-primary-container to-[#002f52] text-on-primary shadow-xl overflow-hidden">
-                    {/* Decorative diagonal watermark accent */}
-                    <div className="absolute -right-8 -bottom-10 opacity-10 select-none pointer-events-none">
-                      <span className="font-display text-[150px] font-black tracking-tighter text-white">0đ</span>
-                    </div>
-
+                  <div className="relative mt-space-sm p-space-lg rounded-xl bg-[#063b5e] border-t-4 border-t-[#F58232] ring-1 ring-white/10 text-on-primary shadow-xl overflow-hidden">
                     <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
                       <div className="flex flex-col">
                         <div className="flex items-center gap-space-xs text-[#F58232] font-label-lg text-label-lg tracking-wider uppercase mb-1">
@@ -108,22 +103,22 @@ export default function HomePage() {
                     </div>
 
                     {/* 4 Quick Fact Pillars */}
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-space-sm pt-space-md mt-space-md bg-white/5 -mx-space-lg -mb-space-lg px-space-lg pb-space-md">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-space-sm pt-space-md mt-space-md bg-[#002f52] border-t border-white/20 -mx-space-lg -mb-space-lg px-space-lg pb-space-md">
                       <div className="flex flex-col">
                         <span className="font-label-lg text-label-lg text-tertiary-fixed font-bold">100%</span>
-                        <span className="font-body-sm text-[12px] text-surface-variant leading-tight">Cam kết giới thiệu việc làm</span>
+                        <span className="font-body-sm text-[13px] text-white/90 leading-tight">Cam kết giới thiệu việc làm</span>
                       </div>
                       <div className="flex flex-col">
                         <span className="font-label-lg text-label-lg text-tertiary-fixed font-bold">70%</span>
-                        <span className="font-body-sm text-[12px] text-surface-variant leading-tight">Thực hành dự án</span>
+                        <span className="font-body-sm text-[13px] text-white/90 leading-tight">Thực hành dự án</span>
                       </div>
                       <div className="flex flex-col">
                         <span className="font-label-lg text-label-lg text-tertiary-fixed font-bold">1.5 - 2 Năm</span>
-                        <span className="font-body-sm text-[12px] text-surface-variant leading-tight">Nhận bằng chính quy</span>
+                        <span className="font-body-sm text-[13px] text-white/90 leading-tight">Nhận bằng chính quy</span>
                       </div>
                       <div className="flex flex-col">
                         <span className="font-label-lg text-label-lg text-tertiary-fixed font-bold">Song Bằng</span>
-                        <span className="font-body-sm text-[12px] text-surface-variant leading-tight">Văn hóa THPT + Nghề</span>
+                        <span className="font-body-sm text-[13px] text-white/90 leading-tight">Văn hóa THPT + Nghề</span>
                       </div>
                     </div>
                   </div>
