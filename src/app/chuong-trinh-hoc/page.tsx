@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import LeadForm from '@/components/forms/LeadForm';
@@ -93,15 +94,18 @@ export default function ChuongTrinhHocPage() {
               <div className="lg:col-span-5 relative">
                 <div className="relative rounded-2xl border border-outline-variant/50 bg-surface-container-lowest p-3 shadow-xl sm:p-space-md">
                   <div className="relative h-72 w-full overflow-hidden rounded-xl sm:h-80">
-                    <img
+                    <Image
                       className="w-full h-full object-cover"
-                      alt="Ảnh minh họa môi trường học tập thực hành"
-                      src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80"
+                      alt="Hai học viên cùng học và trao đổi bài trong lớp"
+                      src="/images/learning-practice.jpg"
+                      width={1200}
+                      height={630}
+                      sizes="(max-width: 1024px) 100vw, 42vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
                     <div className="absolute bottom-4 left-4 right-4 text-white">
-                      <span className="font-label-md text-label-md uppercase tracking-wider text-tertiary-fixed bg-tertiary-container/80 px-2.5 py-0.5 rounded-full inline-block mb-1">Ảnh minh họa</span>
-                      <p className="font-headline-sm text-headline-sm text-white font-bold leading-tight">Không gian học tập thực hành</p>
+                      <span className="font-label-md text-label-md uppercase tracking-wider text-tertiary-fixed bg-tertiary-container/80 px-2.5 py-0.5 rounded-full inline-block mb-1">Học cùng nhau</span>
+                      <p className="font-headline-sm text-headline-sm text-white font-bold leading-tight">Trao đổi và thực hành trong lớp</p>
                     </div>
                   </div>
                   <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">

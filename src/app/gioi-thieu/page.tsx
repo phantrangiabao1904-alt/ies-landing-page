@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import { schoolContact } from '@/lib/school-info';
@@ -105,26 +106,19 @@ export default function GioiThieuPage() {
 
               {/* Right Column (5 cols) - Visual Showcase */}
               <div className="lg:col-span-5 relative">
-                {/* Main Image Placeholder Card */}
+                {/* School activity photo */}
                 <div className="w-full h-[400px] sm:h-[460px] rounded-3xl overflow-hidden shadow-2xl relative border-4 border-white">
-                  <div className="w-full h-full bg-gradient-to-br from-[#0F5587] via-[#3764AF] to-[#2DBEDC] flex flex-col items-center justify-center text-center p-8 relative">
-                    {/* Background Pattern Elements */}
-                    <div className="absolute top-6 right-6 w-32 h-32 rounded-full bg-white/5 blur-xl"></div>
-                    <div className="absolute bottom-6 left-6 w-36 h-36 rounded-full bg-[#F58232]/10 blur-xl"></div>
-
-                    <div className="w-24 h-24 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center mb-4 border border-white/20">
-                      <span className="material-symbols-outlined text-white text-[56px]">school</span>
-                    </div>
-                    <span className="font-['Montserrat',sans-serif] text-white text-[20px] font-bold tracking-wide">
-                      TRƯỜNG TRUNG CẤP IES
-                    </span>
-                    <span className="text-[#acedff] text-[13px] font-medium mt-1">
-                      Khu Phức Hợp Giáo Dục &amp; Thực Hành Chuẩn Nghề Nghiệp
-                    </span>
-                  </div>
-
-                  {/* Gradient Overlay */}
+                  <Image
+                    src="/images/ies-classroom.jpg"
+                    alt="Học viên tham gia lớp học tại Trường Trung cấp Tin học Kinh tế Sài Gòn"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 42vw"
+                    className="object-cover"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0F5587]/80 via-transparent to-transparent pointer-events-none"></div>
+                  <p className="absolute bottom-5 left-5 max-w-[190px] text-sm font-bold text-white drop-shadow-md">
+                    Không gian học tập và trao đổi tại IES
+                  </p>
 
                   {/* Floating Card 1 - Top Left */}
                   <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md rounded-xl p-3 shadow-lg border border-[#D9E2EA] flex items-center gap-3">

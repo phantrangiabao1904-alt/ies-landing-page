@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import LeadForm from '@/components/forms/LeadForm';
@@ -154,10 +155,13 @@ export default function TuyenSinhPage() {
                   </div>
 
                   <div className="relative rounded-xl overflow-hidden shadow-md h-56 bg-surface-container-high">
-                    <img
+                    <Image
                       className="w-full h-full object-cover"
-                      alt="Sinh viên IES"
-                      src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80"
+                      alt="Cán bộ IES tư vấn lộ trình học nghề cho học sinh"
+                      src="/images/admissions-counseling.jpg"
+                      width={1024}
+                      height={768}
+                      sizes="(max-width: 1024px) 100vw, 56vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-space-md">
                       <div className="text-white">

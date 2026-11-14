@@ -2,6 +2,7 @@
 
 import React, { useState, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { submitLeadAction } from '@/actions/lead-submit';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
@@ -331,10 +332,13 @@ export default function HomePage() {
                 <div className="lg:col-span-6 grid grid-cols-2 gap-space-md">
                   <div className="flex flex-col gap-space-md">
                     <div className="h-64 rounded-2xl overflow-hidden shadow-md">
-                      <img
+                      <Image
                         className="w-full h-full object-cover"
-                        alt="Modern spacious computer lab at Saigon College of Economics and IT (IES)"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp2kaOfxJR8s-dLu4PrcPRa3VuEaA-Po6xX5habe4vHFqaQeSer4C1ejG4MfaYIKCPnWZ39cRxHgPe9r1sxxmpDpBHCZ0-cQj4ZgDIyGqndQpfhHMYbU6MjloXPJonzFGaVl3aymYDwm1PXABe5dHl53u2jjKkR2eFP8qAzUgxL2WBeIrhKvqGc_gFd2gnQF2qwa1W-lAkR3nIzO0yfJdU5065UUqRd2Ak9Ek06L4"
+                        alt="Học viên cùng nhau trao đổi trong giờ học thực hành"
+                        src="/images/learning-practice.jpg"
+                        width={1200}
+                        height={630}
+                        sizes="(max-width: 640px) 40vw, (max-width: 1024px) 30vw, 25vw"
                       />
                     </div>
                     <div className="h-44 rounded-2xl overflow-hidden shadow-md bg-primary p-space-md flex flex-col justify-end text-white">
@@ -351,10 +355,13 @@ export default function HomePage() {
                       </div>
                     </div>
                     <div className="h-64 rounded-2xl overflow-hidden shadow-md">
-                      <img
+                      <Image
                         className="w-full h-full object-cover"
-                        alt="Inspiring Vietnamese vocational college teacher mentoring a student"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbDqNJUdPooZplunxAozQ599A9-KfkYgu7fl6cC2z12ZYCkwz9sOS13wdkJ57oEYLrQzCmo0jHJyn8Wp9vhp8h2OYC5vxKnSJuQbMPoAGdxjAHu1sPkFh9GmqAciQG9LsmeFS3lXg1ZiblcLrRlv4cnTvIl7agB2LOiu8v4FR-0gMBNBtkIsUXOv-whdb7mC7RWJcuI-CopjCnOqqf10g2NCq5FEdCL3ht9zJ3XjA"
+                        alt="Học sinh tham gia hoạt động tư vấn hướng nghiệp tại trường"
+                        src="/images/school-outreach-event.jpg"
+                        width={1024}
+                        height={768}
+                        sizes="(max-width: 640px) 40vw, (max-width: 1024px) 30vw, 25vw"
                       />
                     </div>
                   </div>

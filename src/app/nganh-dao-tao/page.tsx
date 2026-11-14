@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import LeadForm from '@/components/forms/LeadForm';
@@ -19,7 +20,7 @@ const majors = [
     desc: 'Trang bị nền tảng công nghệ thông tin, lập trình ứng dụng, cơ sở dữ liệu và kỹ năng triển khai sản phẩm số theo yêu cầu thực tế.',
     skills: ['Lập trình ứng dụng', 'Cơ sở dữ liệu', 'Phát triển web', 'Làm việc nhóm'],
     salary: '10.000.000 - 18.000.000 VNĐ',
-    img: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80',
+    img: '/images/majors/information-technology.png',
     category: 'cong-nghe',
   },
   {
@@ -30,7 +31,7 @@ const majors = [
     desc: 'Thực hành Photoshop, Illustrator, Premiere và After Effects; rèn tư duy mỹ thuật ứng dụng để thiết kế ấn phẩm truyền thông, video cho mạng xã hội và đồ họa chuyển động.',
     skills: ['Thiết kế 2D/3D', 'Ấn phẩm thương hiệu', 'Biên tập Video & Motion', 'UI/UX cơ bản'],
     salary: '9.000.000 - 15.000.000 VNĐ',
-    img: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=600&q=80',
+    img: '/images/majors/graphic-design.png',
     category: 'cong-nghe',
   },
   {
@@ -41,7 +42,7 @@ const majors = [
     desc: 'Làm chủ hạ tầng CNTT doanh nghiệp: Thiết lập hệ thống mạng Cisco, máy chủ Windows Server/Linux, bảo mật tường lửa, phòng chống xâm nhập và quản trị đám mây AWS/Google Cloud.',
     skills: ['Hạ tầng mạng Cisco CCNA', 'Quản trị Linux / Windows Server', 'An toàn thông tin', 'Điện toán đám mây Cloud'],
     salary: '9.000.000 - 16.000.000 VNĐ',
-    img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80',
+    img: '/images/majors/network-administration.png',
     category: 'cong-nghe',
   },
   {
@@ -52,7 +53,7 @@ const majors = [
     desc: 'Thực hành kế toán thực tế trên phần mềm MISA, FAST. Nắm vững kê khai thuế điện tử, quyết toán thuế, lập báo cáo tài chính doanh nghiệp và ứng dụng chuyển đổi số trong quản trị tài chính.',
     skills: ['Phần mềm kế toán MISA/FAST', 'Kê khai thuế & Báo cáo tài chính', 'Hóa đơn điện tử', 'Tư duy tài chính doanh nghiệp'],
     salary: '8.000.000 - 14.000.000 VNĐ',
-    img: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80',
+    img: '/images/majors/accounting.png',
     category: 'kinh-te',
   },
   {
@@ -63,7 +64,7 @@ const majors = [
     desc: 'Học các nghiệp vụ quản trị, bán hàng, chăm sóc khách hàng và lập kế hoạch kinh doanh qua bài tập tình huống thực tế.',
     skills: ['Nghiệp vụ kinh doanh', 'Bán hàng', 'Chăm sóc khách hàng', 'Lập kế hoạch'],
     salary: '8.500.000 - 15.000.000 VNĐ',
-    img: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&q=80',
+    img: '/images/majors/business-administration.png',
     category: 'kinh-te',
   },
   {
@@ -74,7 +75,7 @@ const majors = [
     desc: 'Quản trị gian hàng đa sàn TMĐT (Shopee, Lazada, TikTok Shop), tối ưu chuỗi cung ứng, quản lý kho thông minh và xử lý đơn hàng tự động bám sát nhu cầu bùng nổ của nền kinh tế số.',
     skills: ['Vận hành gian hàng Shopee/TikTok Shop', 'Quản trị kho vận Logistics', 'Xử lý đơn hàng & CSKH tự động', 'Phân tích dữ liệu bán lẻ'],
     salary: '8.500.000 - 15.000.000 VNĐ',
-    img: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80',
+    img: '/images/majors/ecommerce.png',
     category: 'kinh-te',
   },
 ];
@@ -198,17 +199,22 @@ export default function NganhDaoTaoPage() {
                     className="bg-white rounded-2xl overflow-hidden border border-outline-variant/40 hover:border-primary/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group"
                   >
                     {/* Image Header with Badge */}
-                    <div className="relative h-56 w-full overflow-hidden bg-slate-100">
-                      <img
-                        src={m.img}
-                        alt={m.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                      <div className="absolute top-4 left-4 bg-primary text-white font-code text-xs px-2.5 py-1 rounded-md font-bold uppercase tracking-wide">
+                    <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-[#0F5587] to-[#063b5e]">
+                      <div className="absolute -right-8 -top-14 h-56 w-56 rounded-full bg-white/10" />
+                      <div className="absolute right-8 top-1/2 flex h-32 w-32 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 transition-transform duration-500 group-hover:scale-105">
+                        <Image
+                          src={m.img}
+                          alt=""
+                          width={120}
+                          height={120}
+                          className="h-full w-full object-contain p-1"
+                        />
+                      </div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#003d66]/95 via-[#003d66]/70 to-transparent" />
+                      <div className="absolute left-4 top-4 z-10 rounded-md bg-white/15 px-2.5 py-1 font-code text-xs font-bold uppercase tracking-wide text-white">
                         {m.code} • CHUYÊN NGÀNH {m.id}
                       </div>
-                      <div className="absolute bottom-4 left-4 right-4 text-white">
+                      <div className="absolute bottom-4 left-4 right-28 z-10 text-white">
                         <span className="font-label-md text-[10px] text-[#2DBEDC] uppercase tracking-wider block font-bold">
                           {m.enTitle}
                         </span>
