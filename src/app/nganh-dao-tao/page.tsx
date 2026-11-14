@@ -201,7 +201,8 @@ export default function NganhDaoTaoPage() {
                     {/* Image Header with Badge */}
                     <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-[#0F5587] to-[#063b5e]">
                       <div className="absolute -right-8 -top-14 h-56 w-56 rounded-full bg-white/10" />
-                      <div className="absolute right-8 top-1/2 flex h-32 w-32 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 transition-transform duration-500 group-hover:scale-105">
+                      <div className="absolute inset-0 bg-gradient-to-r from-[#003d66]/95 via-[#003d66]/70 to-transparent" />
+                      <div className="absolute right-8 top-1/2 z-10 flex h-32 w-32 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 transition-transform duration-500 group-hover:scale-105">
                         <Image
                           src={m.img}
                           alt=""
@@ -210,11 +211,10 @@ export default function NganhDaoTaoPage() {
                           className="h-full w-full object-contain p-1"
                         />
                       </div>
-                      <div className="absolute inset-0 bg-gradient-to-r from-[#003d66]/95 via-[#003d66]/70 to-transparent" />
-                      <div className="absolute left-4 top-4 z-10 rounded-md bg-white/15 px-2.5 py-1 font-code text-xs font-bold uppercase tracking-wide text-white">
+                      <div className="absolute left-4 top-4 z-20 rounded-md bg-white/15 px-2.5 py-1 font-code text-xs font-bold uppercase tracking-wide text-white">
                         {m.code} • CHUYÊN NGÀNH {m.id}
                       </div>
-                      <div className="absolute bottom-4 left-4 right-28 z-10 text-white">
+                      <div className="absolute bottom-4 left-4 right-28 z-20 text-white">
                         <span className="font-label-md text-[10px] text-[#2DBEDC] uppercase tracking-wider block font-bold">
                           {m.enTitle}
                         </span>

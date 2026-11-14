@@ -106,22 +106,23 @@ export default function GioiThieuPage() {
 
               {/* Right Column (5 cols) - Visual Showcase */}
               <div className="lg:col-span-5 relative">
-                {/* School activity photo */}
-                <div className="w-full h-[400px] sm:h-[460px] rounded-3xl overflow-hidden shadow-2xl relative border-4 border-white">
-                  <Image
-                    src="/images/ies-classroom.jpg"
-                    alt="Học viên tham gia lớp học tại Trường Trung cấp Tin học Kinh tế Sài Gòn"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 42vw"
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0F5587]/80 via-transparent to-transparent pointer-events-none"></div>
-                  <p className="absolute bottom-5 left-5 max-w-[190px] text-sm font-bold text-white drop-shadow-md">
-                    Không gian học tập và trao đổi tại IES
-                  </p>
+                <figure className="overflow-hidden rounded-3xl border-4 border-white bg-white shadow-2xl">
+                  <div className="relative aspect-[3/2] w-full bg-white">
+                    <Image
+                      src="/images/ies-classroom.jpg"
+                      alt="Lớp học tại Trường Trung cấp Tin học Kinh tế Sài Gòn"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 42vw"
+                      className="object-contain"
+                    />
+                  </div>
+                  <figcaption className="border-t border-[#D9E2EA] px-4 py-3 text-xs text-[#5D6B78]">
+                    Hoạt động học tập tại Trường Trung cấp Tin học Kinh tế Sài Gòn
+                  </figcaption>
+                </figure>
 
-                  {/* Floating Card 1 - Top Left */}
-                  <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md rounded-xl p-3 shadow-lg border border-[#D9E2EA] flex items-center gap-3">
+                <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                  <div className="flex items-center gap-3 rounded-xl border border-[#D9E2EA] bg-white p-3 shadow-sm">
                     <div className="w-10 h-10 rounded-lg bg-[#0F5587]/10 flex items-center justify-center text-[#0F5587]">
                       <span className="material-symbols-outlined text-[22px]">history_edu</span>
                     </div>
@@ -134,9 +135,7 @@ export default function GioiThieuPage() {
                       </div>
                     </div>
                   </div>
-
-                  {/* Floating Card 2 - Bottom Right */}
-                  <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-md rounded-xl p-3 shadow-lg border border-[#D9E2EA] flex items-center gap-3 max-w-[240px]">
+                  <div className="flex items-center gap-3 rounded-xl border border-[#D9E2EA] bg-white p-3 shadow-sm">
                     <div className="w-10 h-10 rounded-lg bg-[#2DBEDC]/10 flex items-center justify-center text-[#2DBEDC] flex-shrink-0">
                       <span className="material-symbols-outlined text-[22px]">verified_user</span>
                     </div>

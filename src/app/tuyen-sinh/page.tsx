@@ -154,22 +154,25 @@ export default function TuyenSinhPage() {
                     </a>
                   </div>
 
-                  <div className="relative rounded-xl overflow-hidden shadow-md h-56 bg-surface-container-high">
-                    <Image
-                      className="w-full h-full object-cover"
-                      alt="Cán bộ IES tư vấn lộ trình học nghề cho học sinh"
-                      src="/images/admissions-counseling.jpg"
-                      width={1024}
-                      height={768}
-                      sizes="(max-width: 1024px) 100vw, 56vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-space-md">
-                      <div className="text-white">
-                        <span className="font-label-md text-[11px] uppercase tracking-widest text-[#acedff] block">Môi trường thực chiến</span>
-                        <p className="font-title text-title font-bold">70% thời lượng thực hành phòng máy &amp; doanh nghiệp</p>
-                      </div>
+                  <figure className="overflow-hidden rounded-xl border border-outline-variant/50 bg-white shadow-md">
+                    <div className="relative aspect-[4/3] w-full bg-surface-container-high">
+                      <Image
+                        className="object-contain"
+                        alt="Cán bộ IES tư vấn lộ trình học nghề cho học sinh"
+                        src="/images/admissions-counseling.jpg"
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 56vw"
+                      />
                     </div>
-                  </div>
+                    <figcaption className="p-space-md">
+                      <span className="font-label-md text-[11px] uppercase tracking-widest text-secondary">
+                        Tư vấn tuyển sinh trực tiếp
+                      </span>
+                      <p className="mt-1 font-title text-title font-bold text-primary">
+                        Cán bộ IES hướng dẫn học sinh chọn lộ trình học nghề phù hợp
+                      </p>
+                    </figcaption>
+                  </figure>
                 </div>
               </div>
             </div>

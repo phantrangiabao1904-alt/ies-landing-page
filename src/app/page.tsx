@@ -331,9 +331,9 @@ export default function HomePage() {
                 {/* Left: Image grid showing real activities */}
                 <div className="lg:col-span-6 grid grid-cols-2 gap-space-md">
                   <div className="flex flex-col gap-space-md">
-                    <div className="h-64 rounded-2xl overflow-hidden shadow-md">
+                    <div className="h-64 rounded-2xl overflow-hidden bg-surface-container shadow-md">
                       <Image
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain"
                         alt="Học viên cùng nhau trao đổi trong giờ học thực hành"
                         src="/images/learning-practice.jpg"
                         width={1200}
@@ -354,9 +354,9 @@ export default function HomePage() {
                         <p className="font-body-sm text-[12px] text-on-surface-variant">Tỷ lệ có việc làm theo số liệu IES</p>
                       </div>
                     </div>
-                    <div className="h-64 rounded-2xl overflow-hidden shadow-md">
+                    <div className="h-64 rounded-2xl overflow-hidden bg-surface-container shadow-md">
                       <Image
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain"
                         alt="Học sinh tham gia hoạt động tư vấn hướng nghiệp tại trường"
                         src="/images/school-outreach-event.jpg"
                         width={1024}

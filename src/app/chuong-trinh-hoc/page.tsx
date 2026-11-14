@@ -93,21 +93,20 @@ export default function ChuongTrinhHocPage() {
               {/* Hero Visual Metric Collage */}
               <div className="lg:col-span-5 relative">
                 <div className="relative rounded-2xl border border-outline-variant/50 bg-surface-container-lowest p-3 shadow-xl sm:p-space-md">
-                  <div className="relative h-72 w-full overflow-hidden rounded-xl sm:h-80">
-                    <Image
-                      className="w-full h-full object-cover"
-                      alt="Hai học viên cùng học và trao đổi bài trong lớp"
-                      src="/images/learning-practice.jpg"
-                      width={1200}
-                      height={630}
-                      sizes="(max-width: 1024px) 100vw, 42vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 right-4 text-white">
-                      <span className="font-label-md text-label-md uppercase tracking-wider text-tertiary-fixed bg-tertiary-container/80 px-2.5 py-0.5 rounded-full inline-block mb-1">Học cùng nhau</span>
-                      <p className="font-headline-sm text-headline-sm text-white font-bold leading-tight">Trao đổi và thực hành trong lớp</p>
+                  <figure>
+                    <div className="relative aspect-[1200/630] w-full overflow-hidden rounded-xl bg-surface-container-low">
+                      <Image
+                        className="object-contain"
+                        alt="Hai học viên cùng học và trao đổi bài trong lớp"
+                        src="/images/learning-practice.jpg"
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 42vw"
+                      />
                     </div>
-                  </div>
+                    <figcaption className="mt-2 text-sm font-semibold text-primary">
+                      Trao đổi và thực hành trong lớp
+                    </figcaption>
+                  </figure>
                   <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
                     <div className="flex min-h-[76px] items-center gap-3 rounded-xl border border-outline-variant/50 bg-surface-container-low p-3">
                       <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-tertiary/10 text-tertiary">
