@@ -23,3 +23,5 @@ export const schoolContact = {
 
 export const decree81SearchUrl =
   'https://vanban.chinhphu.vn/he-thong-van-ban?classid=1&mode=1&typegroupid=4';
+
+export const decree24DocumentUrl = '/documents/nghi-dinh-24-2022-gdnn.pdf';

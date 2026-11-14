@@ -4,7 +4,7 @@ import Image from 'next/image';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import LeadForm from '@/components/forms/LeadForm';
-import { decree81SearchUrl, schoolContact } from '@/lib/school-info';
+import { decree24DocumentUrl, decree81SearchUrl, schoolContact } from '@/lib/school-info';
 
 export const metadata = {
   title: 'Chương Trình Học — Trường Trung cấp Tin học Kinh tế Sài Gòn (IES)',
@@ -65,6 +65,14 @@ export default function ChuongTrinhHocPage() {
                       className="font-body-sm text-body-sm text-on-surface-variant underline decoration-primary/40 underline-offset-2 hover:text-primary"
                     >
                       Tra cứu Nghị định 81/2021/NĐ-CP
+                    </a>
+                    <a
+                      href={decree24DocumentUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-body-sm text-body-sm text-primary underline decoration-primary/40 underline-offset-2 hover:text-primary-container"
+                    >
+                      Mở Nghị định 24/2022/NĐ-CP (PDF)
                     </a>
                     <span className="text-[11px] leading-relaxed text-on-surface-variant">
                       Áp dụng theo đối tượng, điều kiện và hồ sơ quy định.

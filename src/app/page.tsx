@@ -6,7 +6,7 @@ import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import StickyLeadForm from '@/app/components/forms/StickyLeadForm';
 import HomeCmsSection from '@/components/home/HomeCmsSection';
-import { decree81SearchUrl, schoolContact } from '@/lib/school-info';
+import { decree24DocumentUrl, decree81SearchUrl, schoolContact } from '@/lib/school-info';
 
 export default function HomePage() {
   return (
@@ -39,6 +39,15 @@ export default function HomePage() {
                   <span className="material-symbols-outlined text-[16px] text-tertiary-container">policy</span>
                   Nghị định 81/2021/NĐ-CP
                   <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
+                </a>
+                <a
+                  href={decree24DocumentUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-space-xs rounded-full bg-[#F6EEE5] px-space-md py-1 font-label-md text-label-md font-semibold text-[#F58232] transition-colors hover:bg-[#f9e3d2] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F58232]"
+                >
+                  <span className="material-symbols-outlined text-[16px]">picture_as_pdf</span>
+                  Nghị định 24/2022/NĐ-CP (PDF)
                 </a>
               </div>
 
@@ -78,6 +87,15 @@ export default function HomePage() {
                             className="font-bold text-white underline decoration-white/60 underline-offset-2 hover:decoration-white"
                           >
                             Tra cứu Nghị định 81/2021/NĐ-CP
+                          </a>
+                          {' · '}
+                          <a
+                            href={decree24DocumentUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-bold text-white underline decoration-white/60 underline-offset-2 hover:decoration-white"
+                          >
+                            Mở Nghị định 24/2022/NĐ-CP (PDF)
                           </a>
                         </p>
                       </div>
