@@ -1,9 +1,7 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { submitLeadAction } from '@/actions/lead-submit';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import StickyLeadForm from '@/app/components/forms/StickyLeadForm';
@@ -11,33 +9,6 @@ import HomeCmsSection from '@/components/home/HomeCmsSection';
 import { decree81SearchUrl, schoolContact } from '@/lib/school-info';
 
 export default function HomePage() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formMsg, setFormMsg] = useState('');
-  const [isSuccess, setIsSuccess] = useState(false);
-  const formRef = useRef<HTMLFormElement>(null);
-
-  async function handleRegisterSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setFormMsg('');
-
-    const formData = new FormData(e.currentTarget);
-    try {
-      const res = await submitLeadAction(formData);
-      setFormMsg(res.message);
-      setIsSuccess(res.success);
-
-      if (res.success) {
-        formRef.current?.reset();
-      }
-    } catch {
-      setIsSuccess(false);
-      setFormMsg('Không thể gửi đăng ký lúc này. Vui lòng thử lại sau.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  }
-
   return (
     <div className="bg-surface font-body-md text-on-surface min-h-screen flex flex-col pb-[76px] md:pb-0">
       <SiteHeader />
@@ -143,7 +114,7 @@ export default function HomePage() {
                   <div className="flex flex-wrap items-center gap-space-md pt-space-sm">
                     <a
                       className="bg-[#F58232] hover:bg-[#e07122] text-white px-space-xl py-space-md rounded-xl font-title text-title font-bold shadow-md hover:shadow-xl transition-all flex items-center gap-space-xs text-center group tracking-wide"
-                      href="#form-xet-tuyen"
+                      href="#home-sticky-lead-form"
                     >
                       <span>ĐĂNG KÝ XÉT TUYỂN NGAY</span>
                       <span className="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">arrow_forward</span>
@@ -419,7 +390,7 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* LEAD CAPTURE SECTION: FORM ĐĂNG KÝ XÉT TUYỂN TRỰC TUYẾN */}
+          {/* ADMISSIONS CTA: direct visitors to the single registration form in the hero. */}
           <section className="w-full py-space-2xl bg-[#0F5587] text-white relative overflow-hidden" id="form-xet-tuyen">
             {/* Abstract circular background decor */}
             <div className="absolute -right-24 -bottom-24 w-96 h-96 rounded-full bg-secondary opacity-20 blur-2xl"></div>
@@ -477,153 +448,23 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                {/* Form Right Card */}
+                {/* Keep the bottom section informational; the landing page has one registration form in the hero. */}
                 <div className="lg:col-span-7">
                   <div className="bg-surface-container-lowest text-on-surface p-space-lg md:p-space-xl rounded-2xl shadow-2xl">
-                    <div className="flex items-center justify-between pb-space-md mb-space-md">
+                    <div className="flex items-center gap-space-sm mb-space-md">
+                      <span className="material-symbols-outlined text-[32px] text-[#F58232]">assignment</span>
                       <div>
-                        <h3 className="font-headline-sm text-headline-sm text-primary font-bold">Phiếu Đăng Ký Xét Tuyển Trực Tuyến</h3>
-                        <p className="font-body-sm text-body-sm text-on-surface-variant">Dành cho học sinh tốt nghiệp THCS / THPT trên toàn quốc</p>
+                        <h3 className="font-headline-sm text-headline-sm text-primary font-bold">Đăng ký tư vấn trực tuyến</h3>
+                        <p className="font-body-sm text-body-sm text-on-surface-variant">Chỉ cần gửi thông tin một lần tại biểu mẫu đăng ký ở đầu trang.</p>
                       </div>
-                      <span className="material-symbols-outlined text-[28px] text-[#F58232]">assignment</span>
                     </div>
-
-                    <form ref={formRef} onSubmit={handleRegisterSubmit} className="space-y-space-md" id="ies-quick-register">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-space-md">
-                        <div className="flex flex-col gap-1">
-                          <label className="font-label-md text-label-md text-primary font-semibold" htmlFor="reg-name">
-                            Họ và Tên Thí Sinh <span className="text-red-500">*</span>
-                          </label>
-                          <input
-                            className="h-11 px-space-md rounded-lg bg-surface-container-low text-on-surface focus:bg-white focus:outline-none focus:ring-2 focus:ring-secondary font-body-md text-body-md transition-all"
-                            id="reg-name"
-                            name="fullName"
-                            autoComplete="name"
-                            autoCapitalize="words"
-                            placeholder="Ví dụ: Nguyễn Văn An"
-                            required
-                            type="text"
-                          />
-                        </div>
-                        <div className="flex flex-col gap-1">
-                          <label className="font-label-md text-label-md text-primary font-semibold" htmlFor="reg-phone">
-                            Số Điện Thoại / Zalo <span className="text-red-500">*</span>
-                          </label>
-                          <input
-                            className="h-11 px-space-md rounded-lg bg-surface-container-low text-on-surface focus:bg-white focus:outline-none focus:ring-2 focus:ring-secondary font-body-md text-body-md transition-all"
-                            id="reg-phone"
-                            name="phone"
-                            autoComplete="tel"
-                            inputMode="tel"
-                            placeholder="Ví dụ: 0908123456"
-                            required
-                            type="tel"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-space-md">
-                        <div className="flex flex-col gap-1">
-                          <label className="font-label-md text-label-md text-primary font-semibold" htmlFor="reg-edu">
-                            Trình Độ Học Vấn Hiện Tại <span className="text-red-500">*</span>
-                          </label>
-                          <select
-                            className="h-11 px-space-md rounded-lg bg-surface-container-low text-on-surface focus:bg-white focus:outline-none focus:ring-2 focus:ring-secondary font-body-md text-body-md transition-all"
-                            id="reg-edu"
-                            name="educationLevel"
-                            required
-                          >
-                            <option value="thcs">Tốt nghiệp THCS (Lớp 9) - Hưởng NĐ 81 Miễn 100% Học Phí</option>
-                            <option value="thpt">Tốt nghiệp THPT (Lớp 12)</option>
-                            <option value="danghoc">Đang theo học lớp 9 / 12</option>
-                            <option value="khac">Đi làm / Tốt nghiệp Cao đẳng, ĐH văn bằng 2</option>
-                          </select>
-                        </div>
-                        <div className="flex flex-col gap-1">
-                          <label className="font-label-md text-label-md text-primary font-semibold" htmlFor="reg-major">
-                            Ngành Đào Tạo Quan Tâm <span className="text-red-500">*</span>
-                          </label>
-                          <select
-                            className="h-11 px-space-md rounded-lg bg-surface-container-low text-on-surface focus:bg-white focus:outline-none focus:ring-2 focus:ring-secondary font-body-md text-body-md transition-all"
-                            id="reg-major"
-                            name="major"
-                            required
-                          >
-                            <option value="Công nghệ thông tin">Công nghệ thông tin</option>
-                            <option value="Thiết kế đồ họa">Thiết kế đồ họa</option>
-                            <option value="Quản trị mạng">Quản trị mạng</option>
-                            <option value="Kế toán">Kế toán</option>
-                            <option value="Quản trị kinh doanh">Quản trị kinh doanh</option>
-                            <option value="Thương mại điện tử">Thương mại điện tử</option>
-                            <option value="other">Cần Ban Tư Vấn Hướng Nghiệp Thêm</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div className="flex flex-col gap-1">
-                        <label className="font-label-md text-label-md text-primary font-semibold" htmlFor="reg-campus">
-                          Cơ Sở Đăng Ký Học Tập <span className="text-red-500">*</span>
-                        </label>
-                        <select
-                          className="h-11 px-space-md rounded-lg bg-surface-container-low text-on-surface focus:bg-white focus:outline-none focus:ring-2 focus:ring-secondary font-body-md text-body-md transition-all"
-                          id="reg-campus"
-                          name="campus"
-                          required
-                        >
-                          {schoolContact.campuses.map((campus) => (
-                            <option key={campus.value} value={campus.value}>
-                              {campus.name}: {campus.address}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-
-                      <div className="flex items-start gap-2 pt-1">
-                        <input
-                          className="mt-1 w-4 h-4 text-primary rounded focus:ring-0 accent-primary"
-                          id="reg-policy"
-                          name="consent"
-                          required
-                          type="checkbox"
-                        />
-                        <label className="font-body-sm text-[12px] text-on-surface-variant" htmlFor="reg-policy">
-                          Tôi đồng ý để Ban tuyển sinh IES liên hệ tư vấn lộ trình học tập và kiểm tra điều kiện thụ hưởng chính sách miễn 100% học phí theo Nghị định của Nhà nước.
-                        </label>
-                      </div>
-
-                      {formMsg && (
-                        <div
-                          role={isSuccess ? 'status' : 'alert'}
-                          aria-live="polite"
-                          className={`p-3 rounded-lg text-sm font-semibold border ${
-                            isSuccess
-                              ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
-                              : 'bg-rose-50 text-rose-800 border-rose-200'
-                          }`}
-                        >
-                          {formMsg}
-                        </div>
-                      )}
-
-                      <button
-                        className="w-full bg-[#F58232] hover:bg-[#e07122] text-white py-space-md rounded-xl font-title text-title font-extrabold shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-space-xs mt-space-sm tracking-wide disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
-                        type="submit"
-                        disabled={isSubmitting}
-                      >
-                        <span className="material-symbols-outlined text-[22px]">send</span>
-                        <span>{isSubmitting ? 'ĐANG GỬI HỒ SƠ...' : 'GỬI HỒ SƠ ĐĂNG KÝ XÉT TUYỂN & NHẬN ƯU ĐÃI 100% HỌC PHÍ'}</span>
-                      </button>
-
-                      <div className="flex items-center justify-center gap-space-md text-[12px] text-on-surface-variant font-label-md pt-2">
-                        <span className="flex items-center gap-1">
-                          <span className="material-symbols-outlined text-[16px] text-green-600">lock</span> Bảo mật tuyệt đối
-                        </span>
-                        <span>•</span>
-                        <span className="flex items-center gap-1">
-                          <span className="material-symbols-outlined text-[16px] text-green-600">schedule</span> Phản hồi trong 30 phút
-                        </span>
-                      </div>
-                    </form>
+                    <a
+                      className="inline-flex w-full items-center justify-center gap-space-xs bg-[#F58232] hover:bg-[#e07122] text-white py-space-md px-space-lg rounded-xl font-title text-title font-extrabold shadow-lg hover:shadow-xl transition-all tracking-wide"
+                      href="#home-sticky-lead-form"
+                    >
+                      <span>ĐI ĐẾN BIỂU MẪU ĐĂNG KÝ</span>
+                      <span className="material-symbols-outlined text-[20px]">arrow_upward</span>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -651,7 +492,7 @@ export default function HomePage() {
                   <Link className="px-space-lg py-space-sm bg-surface-container-lowest text-primary hover:bg-primary hover:text-white rounded-xl font-label-lg text-label-lg transition-all shadow-sm hover:shadow font-semibold" href="/tuyen-sinh">
                     Thông Tin Tuyển Sinh
                   </Link>
-                  <a className="px-space-lg py-space-sm bg-[#F58232] text-white hover:bg-[#e07122] rounded-xl font-label-lg text-label-lg transition-all shadow-sm hover:shadow-md font-bold tracking-wide cursor-pointer" href="#form-xet-tuyen">
+                  <a className="px-space-lg py-space-sm bg-[#F58232] text-white hover:bg-[#e07122] rounded-xl font-label-lg text-label-lg transition-all shadow-sm hover:shadow-md font-bold tracking-wide cursor-pointer" href="#home-sticky-lead-form">
                     Đăng Ký
                   </a>
                 </div>
