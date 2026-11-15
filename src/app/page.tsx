@@ -20,9 +20,11 @@ export default function HomePage() {
             <Image
               src="/images/home-admissions-banner-2026.png"
               alt="Tuyển sinh năm học 2026–2027 tại Trường Trung cấp Tin học Kinh tế Sài Gòn"
-              width={960}
-              height={365}
+              width={1920}
+              height={730}
               priority
+              quality={100}
+              unoptimized
               className="block h-auto w-full"
             />
           </section>

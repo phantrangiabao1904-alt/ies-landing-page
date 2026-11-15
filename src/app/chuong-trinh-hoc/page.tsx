@@ -35,9 +35,11 @@ export default function ChuongTrinhHocPage() {
             <Image
               src="/images/chuong-trinh-hoc-banner.jpg"
               alt="Chương trình đào tạo Hệ 9+ tại Trường Trung cấp Tin học Kinh tế Sài Gòn"
-              width={1024}
-              height={576}
+              width={2048}
+              height={1152}
               priority
+              quality={100}
+              unoptimized
               className="block h-auto w-full"
             />
           </section>

@@ -73,6 +73,8 @@ export default function AboutHeroSlider() {
                 alt={slide.alt}
                 fill
                 priority={index === 0}
+                quality={100}
+                unoptimized
                 className="object-cover object-center"
                 sizes="100vw"
               />
