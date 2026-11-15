@@ -300,6 +300,70 @@ export default function TuyenSinhPage() {
             </div>
           </section>
 
+          {/* HÌNH ẢNH TƯ VẤN TUYỂN SINH */}
+          <section className="w-full bg-surface py-space-2xl">
+            <div className="max-w-[1240px] mx-auto px-margin-sm md:px-margin">
+              <div className="text-center max-w-3xl mx-auto mb-space-xl">
+                <span className="font-label-md text-label-md text-secondary uppercase tracking-widest font-bold">
+                  Hoạt Động Thực Tế
+                </span>
+                <h2 className="font-headline-lg text-headline-lg text-primary font-bold mt-1">
+                  Hình Ảnh Tư Vấn Tuyển Sinh
+                </h2>
+                <p className="font-body-md text-body-md text-on-surface-variant mt-2">
+                  Cùng IES gặp gỡ học sinh và chia sẻ thông tin tuyển sinh tại các trường.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+                <figure className="overflow-hidden rounded-xl border border-outline-variant/30 bg-surface-container-lowest shadow-sm">
+                  <div className="relative aspect-[4/3] w-full bg-surface-container-high">
+                    <Image
+                      className="object-cover"
+                      alt="Học sinh tham dự buổi tư vấn tuyển sinh tại sân trường"
+                      src="/images/admissions-school-outreach.jpg"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+                  <figcaption className="p-space-md font-title text-title font-bold text-primary">
+                    Gặp gỡ học sinh tại trường
+                  </figcaption>
+                </figure>
+
+                <figure className="overflow-hidden rounded-xl border border-outline-variant/30 bg-surface-container-lowest shadow-sm">
+                  <div className="relative aspect-[4/3] w-full bg-surface-container-high">
+                    <Image
+                      className="object-cover"
+                      alt="Gian tư vấn tuyển sinh của IES tại sân trường"
+                      src="/images/admissions-event-booth.jpg"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+                  <figcaption className="p-space-md font-title text-title font-bold text-primary">
+                    Gian tư vấn tuyển sinh IES
+                  </figcaption>
+                </figure>
+
+                <figure className="overflow-hidden rounded-xl border border-outline-variant/30 bg-surface-container-lowest shadow-sm">
+                  <div className="relative aspect-[4/3] w-full bg-surface-container-high">
+                    <Image
+                      className="object-cover"
+                      alt="Cán bộ IES trao đổi và tư vấn cùng học sinh"
+                      src="/images/admissions-student-guidance.jpg"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+                  <figcaption className="p-space-md font-title text-title font-bold text-primary">
+                    Tư vấn và định hướng cho học sinh
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </section>
+
           {/* LEAD FORM SECTION */}
           <section className="w-full py-space-2xl bg-gradient-to-br from-primary via-[#0B4874] to-primary-container text-white relative overflow-hidden" id="form-xet-tuyen">
             <div className="max-w-[1240px] mx-auto px-margin-sm md:px-margin relative z-10">
