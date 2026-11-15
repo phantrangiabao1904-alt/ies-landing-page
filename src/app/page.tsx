@@ -16,6 +16,17 @@ export default function HomePage() {
       {/* MAIN */}
       <main className="w-full pt-28 bg-surface min-h-[calc(100vh-28rem)] flex-1">
         <div className="flex flex-col w-full">
+          <section className="w-full">
+            <Image
+              src="/images/home-admissions-banner-2026.png"
+              alt="Tuyển sinh năm học 2026–2027 tại Trường Trung cấp Tin học Kinh tế Sài Gòn"
+              width={960}
+              height={365}
+              priority
+              className="block h-auto w-full"
+            />
+          </section>
+
           {/* HERO SECTION WITH ULTRA PROMINENT 100% TUITION EXEMPTION */}
           <section className="relative w-full overflow-hidden bg-gradient-to-b from-surface-container-low via-surface to-surface-container-lowest py-space-xl md:py-space-2xl">
             {/* Ambient technical glow circles */}
