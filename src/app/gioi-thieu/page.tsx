@@ -302,7 +302,7 @@ export default function GioiThieuPage() {
                 Giá Trị Cốt Lõi
               </span>
               <h2 className="font-['Montserrat',sans-serif] text-[28px] sm:text-[36px] font-bold text-[#0F5587] mt-3">
-                4 Trụ Cột Giá Trị Vững Vàng
+                4 Giá trị Vững Vàng
               </h2>
               <p className="text-[#5D6B78] text-[15px] mt-2">
                 Kim chỉ nam định hướng toàn bộ hoạt động giảng dạy, rèn luyện và phục vụ xã hội tại IES
