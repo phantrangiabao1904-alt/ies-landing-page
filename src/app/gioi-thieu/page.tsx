@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
+import AboutHeroSlider from '@/components/about/AboutHeroSlider';
 import { schoolContact } from '@/lib/school-info';
 
 export const metadata = {
@@ -36,6 +37,9 @@ export default function GioiThieuPage() {
             </nav>
           </div>
         </section>
+
+        {/* Banner Slider tự động lướt qua 3 ảnh tốt nghiệp */}
+        <AboutHeroSlider />
 
         {/* 3. Hero Section */}
         <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-white to-[#F5F8FA] relative overflow-hidden">
