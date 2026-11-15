@@ -30,6 +30,18 @@ export default function ChuongTrinhHocPage() {
             </div>
           </section>
 
+          {/* BANNER CHƯƠNG TRÌNH HỌC (HỆ 9+) */}
+          <section className="w-full">
+            <Image
+              src="/images/chuong-trinh-hoc-banner.jpg"
+              alt="Chương trình đào tạo Hệ 9+ tại Trường Trung cấp Tin học Kinh tế Sài Gòn"
+              width={1024}
+              height={576}
+              priority
+              className="block h-auto w-full"
+            />
+          </section>
+
           {/* HERO SECTION */}
           <section className="w-full bg-surface py-space-xl md:py-space-2xl px-margin-sm md:px-margin relative overflow-hidden">
             <div className="max-w-[1240px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center relative z-10">
