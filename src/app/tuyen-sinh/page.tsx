@@ -365,7 +365,7 @@ export default function TuyenSinhPage() {
           </section>
 
           {/* LEAD FORM SECTION */}
-          <section className="w-full py-space-2xl bg-gradient-to-br from-primary via-[#0B4874] to-primary-container text-white relative overflow-hidden" id="form-xet-tuyen">
+          <section className="w-full py-space-2xl bg-primary text-white relative overflow-hidden" id="form-xet-tuyen">
             <div className="max-w-[1240px] mx-auto px-margin-sm md:px-margin relative z-10">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
                 <div className="lg:col-span-5 flex flex-col gap-space-md">
