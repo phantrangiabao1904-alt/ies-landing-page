@@ -6,9 +6,8 @@ export function proxy(request: NextRequest) {
   const authToken =
     request.cookies.get('sb-access-token')?.value ||
     request.cookies.get('sb-auth-token')?.value;
-  const userRole = request.cookies.get('user-role')?.value;
 
-  if (pathname.startsWith('/admin') && (!authToken || userRole !== 'ADMIN')) {
+  if (pathname.startsWith('/admin') && !authToken) {
     const loginUrl = new URL('/login', request.url);
     loginUrl.searchParams.set('redirect', pathname);
     loginUrl.searchParams.set('error', 'unauthorized_admin');
@@ -17,7 +16,7 @@ export function proxy(request: NextRequest) {
 
   if (
     (pathname.startsWith('/ba-dashboard') || pathname.startsWith('/analytics')) &&
-    (!authToken || (userRole !== 'BA' && userRole !== 'ADMIN'))
+    !authToken
   ) {
     const loginUrl = new URL('/login', request.url);
     loginUrl.searchParams.set('redirect', pathname);

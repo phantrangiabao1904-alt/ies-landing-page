@@ -91,8 +91,8 @@ export async function loginStaff(
     maxAge,
   };
 
+  cookieStore.delete('user-role');
   cookieStore.set('sb-access-token', data.session.access_token, cookieOptions);
-  cookieStore.set('user-role', role, cookieOptions);
   redirect(role === 'ADMIN' ? '/admin' : '/analytics');
 }
 
