@@ -177,7 +177,14 @@ export default function HomePage() {
                 </div>
 
                 <div className="home-entrance home-entrance-delay lg:col-span-5 w-full lg:pt-2">
-                  <StickyLeadForm id="home-sticky-lead-form" />
+                  <Image
+                    src="/images/home-dual-program-2026.png"
+                    alt="Học song bằng văn hóa và nghề tại IES"
+                    width={768}
+                    height={768}
+                    sizes="(min-width: 1024px) 42vw, 100vw"
+                    className="block h-auto w-full rounded-2xl shadow-xl ring-1 ring-black/5"
+                  />
                 </div>
               </div>
             </div>
@@ -420,7 +427,7 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* ADMISSIONS CTA: direct visitors to the single registration form in the hero. */}
+          {/* ADMISSIONS SECTION */}
           <section className="w-full py-space-2xl bg-[#0F5587] text-white relative overflow-hidden" id="form-xet-tuyen">
             {/* Abstract circular background decor */}
             <div className="absolute -right-24 -bottom-24 w-96 h-96 rounded-full bg-secondary opacity-20 blur-2xl"></div>
@@ -478,24 +485,8 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                {/* Keep the bottom section informational; the landing page has one registration form in the hero. */}
                 <div className="lg:col-span-7">
-                  <div className="home-hover-card bg-surface-container-lowest text-on-surface p-space-lg md:p-space-xl rounded-2xl shadow-2xl">
-                    <div className="flex items-center gap-space-sm mb-space-md">
-                      <span className="material-symbols-outlined text-[32px] text-[#F58232]">assignment</span>
-                      <div>
-                        <h3 className="font-headline-sm text-headline-sm text-primary font-bold">Đăng ký tư vấn trực tuyến</h3>
-                        <p className="font-body-sm text-body-sm text-on-surface-variant">Chỉ cần gửi thông tin một lần tại biểu mẫu đăng ký ở đầu trang.</p>
-                      </div>
-                    </div>
-                    <a
-                      className="inline-flex w-full items-center justify-center gap-space-xs bg-[#F58232] hover:bg-[#e07122] text-white py-space-md px-space-lg rounded-xl font-title text-title font-extrabold shadow-lg hover:shadow-xl transition-all tracking-wide"
-                      href="#home-sticky-lead-form"
-                    >
-                      <span>ĐI ĐẾN BIỂU MẪU ĐĂNG KÝ</span>
-                      <span className="material-symbols-outlined text-[20px]">arrow_upward</span>
-                    </a>
-                  </div>
+                  <StickyLeadForm id="home-sticky-lead-form" isSticky={false} />
                 </div>
               </div>
             </div>
