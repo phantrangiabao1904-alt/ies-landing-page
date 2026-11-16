@@ -101,13 +101,27 @@ function SortableContentItem({ item, onChange }: SortableContentItemProps) {
 }
 
 export default function CmsContentEditor({ initialItems }: CmsContentEditorProps) {
-  const [items, setItems] = useState(initialItems);
+  const [items, setItems] = useState<CmsContentItem[]>(initialItems);
   const [isSaving, setIsSaving] = useState(false);
   const [message, setMessage] = useState('');
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 6 } }),
     useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates }),
   );
+
+  function validateItems(nextItems: CmsContentItem[]) {
+    for (const item of nextItems) {
+      if (item.title.trim().length < 2 || item.title.trim().length > 120) {
+        return `Tiêu đề của "${item.id}" phải có từ 2 đến 120 ký tự.`;
+      }
+
+      if (item.body.trim().length < 2 || item.body.trim().length > 300) {
+        return `Mô tả của "${item.id}" phải có từ 2 đến 300 ký tự.`;
+      }
+    }
+
+    return '';
+  }
 
   function updateItem(
     id: string,
@@ -134,6 +148,12 @@ export default function CmsContentEditor({ initialItems }: CmsContentEditorProps
   }
 
   async function saveChanges() {
+    const validationMessage = validateItems(items);
+    if (validationMessage) {
+      setMessage(validationMessage);
+      return;
+    }
+
     setIsSaving(true);
     setMessage('');
     try {

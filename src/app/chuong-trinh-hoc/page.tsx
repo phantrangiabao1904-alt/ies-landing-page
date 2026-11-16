@@ -255,7 +255,7 @@ export default function ChuongTrinhHocPage() {
               <div className="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
                 <div className="flex flex-col gap-space-xs max-w-2xl">
                   <span className="font-label-md text-label-md text-[#3764AF] uppercase tracking-wider font-semibold">Khung Chương Trình Học Đột Phá</span>
-                  <h2 className="font-headline-lg text-headline-lg text-primary font-bold">Cấu Trúc 4 Trụ Cột Đào Tạo Thực Chiến 70%</h2>
+                  <h2 className="font-headline-lg text-headline-lg text-primary font-bold">Cấu Trúc Đào Tạo Thực Chiến 70%</h2>
                 </div>
                 <div className="flex items-center gap-space-xs bg-surface-container px-space-md py-2 rounded-xl text-primary font-label-md text-label-md">
                   <span className="material-symbols-outlined text-[20px] text-tertiary">tune</span>
