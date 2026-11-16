@@ -10,7 +10,7 @@ import { decree24DocumentUrl, decree81SearchUrl, schoolContact } from '@/lib/sch
 
 export default function HomePage() {
   return (
-    <div className="bg-surface font-body-md text-on-surface min-h-screen flex flex-col pb-[76px] md:pb-0">
+    <div className="home-page bg-surface font-body-md text-on-surface min-h-screen flex flex-col pb-[76px] md:pb-0">
       <SiteHeader />
 
       {/* MAIN */}
@@ -25,15 +25,15 @@ export default function HomePage() {
               priority
               quality={100}
               unoptimized
-              className="block h-auto w-full"
+              className="home-banner-image block h-auto w-full"
             />
           </section>
 
           {/* HERO SECTION WITH ULTRA PROMINENT 100% TUITION EXEMPTION */}
           <section className="relative w-full overflow-hidden bg-gradient-to-b from-surface-container-low via-surface to-surface-container-lowest py-space-xl md:py-space-2xl">
             {/* Ambient technical glow circles */}
-            <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-secondary-fixed opacity-40 blur-3xl pointer-events-none"></div>
-            <div className="absolute top-1/2 -right-32 w-[30rem] h-[30rem] rounded-full bg-tertiary-fixed opacity-30 blur-3xl pointer-events-none"></div>
+            <div className="home-ambient absolute -top-32 -left-32 w-96 h-96 rounded-full bg-secondary-fixed opacity-40 blur-3xl pointer-events-none"></div>
+            <div className="home-ambient-reverse absolute top-1/2 -right-32 w-[30rem] h-[30rem] rounded-full bg-tertiary-fixed opacity-30 blur-3xl pointer-events-none"></div>
 
             <div className="max-w-[1240px] mx-auto px-margin-sm md:px-margin relative z-10">
               {/* Top Eyebrow Badge */}
@@ -67,7 +67,7 @@ export default function HomePage() {
               {/* Main Headline Grid */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
                 {/* Left Hero Pitch */}
-                <div className="lg:col-span-7 flex flex-col gap-space-md">
+                <div className="home-entrance lg:col-span-7 flex flex-col gap-space-md">
                   <h1 className="font-headline-lg text-2xl sm:text-4xl lg:text-5xl text-primary leading-tight font-extrabold uppercase">
                     TRƯỜNG TRUNG CẤP <br className="hidden sm:inline" />
                     <span className="text-secondary">TIN HỌC KINH TẾ</span> SÀI GÒN (IES)
@@ -80,7 +80,7 @@ export default function HomePage() {
                   </p>
 
                   {/* THE MEGA VISUAL CARD: MIỄN 100% HỌC PHÍ */}
-                  <div className="relative mt-space-sm p-space-lg rounded-xl bg-[#063b5e] border-t-4 border-t-[#F58232] ring-1 ring-white/10 text-on-primary shadow-xl overflow-hidden">
+                  <div className="home-hover-card relative mt-space-sm p-space-lg rounded-xl bg-[#063b5e] border-t-4 border-t-[#F58232] ring-1 ring-white/10 text-on-primary shadow-xl overflow-hidden">
                     <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
                       <div className="flex flex-col">
                         <div className="flex items-center gap-space-xs text-[#F58232] font-label-lg text-label-lg tracking-wider uppercase mb-1">
@@ -144,14 +144,14 @@ export default function HomePage() {
                   {/* Dual CTAs */}
                   <div className="flex flex-wrap items-center gap-space-md pt-space-sm">
                     <a
-                      className="bg-[#F58232] hover:bg-[#e07122] text-white px-space-xl py-space-md rounded-xl font-title text-title font-bold shadow-md hover:shadow-xl transition-all flex items-center gap-space-xs text-center group tracking-wide"
+                      className="home-hover-card bg-[#F58232] hover:bg-[#e07122] text-white px-space-xl py-space-md rounded-xl font-title text-title font-bold shadow-md hover:shadow-xl transition-all flex items-center gap-space-xs text-center group tracking-wide"
                       href="#home-sticky-lead-form"
                     >
                       <span>ĐĂNG KÝ XÉT TUYỂN NGAY</span>
                       <span className="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">arrow_forward</span>
                     </a>
                     <Link
-                      className="bg-surface-container-high hover:bg-surface-container text-primary px-space-lg py-space-md rounded-xl font-title text-title font-semibold shadow-sm hover:shadow transition-all flex items-center gap-space-xs"
+                      className="home-hover-card bg-surface-container-high hover:bg-surface-container text-primary px-space-lg py-space-md rounded-xl font-title text-title font-semibold shadow-sm hover:shadow transition-all flex items-center gap-space-xs"
                       href="/gioi-thieu"
                     >
                       <span className="material-symbols-outlined text-[20px] text-secondary">domain</span>
@@ -177,7 +177,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="lg:col-span-5 w-full lg:pt-2">
+                <div className="home-entrance home-entrance-delay lg:col-span-5 w-full lg:pt-2">
                   <StickyLeadForm id="home-sticky-lead-form" />
                 </div>
               </div>
@@ -226,7 +226,7 @@ export default function HomePage() {
               {/* 4 Pillars Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-lg">
                 {/* Pillar 1 */}
-                <div className="p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+                <div className="home-hover-card p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                   <div className="flex flex-col gap-space-sm">
                     <div className="w-12 h-12 rounded-lg bg-primary text-on-primary flex items-center justify-center shadow-md">
                       <span className="material-symbols-outlined text-[28px]">gavel</span>
@@ -246,7 +246,7 @@ export default function HomePage() {
                 </div>
 
                 {/* Pillar 2 */}
-                <div className="p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+                <div className="home-hover-card p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                   <div className="flex flex-col gap-space-sm">
                     <div className="w-12 h-12 rounded-lg bg-secondary text-white flex items-center justify-center shadow-md">
                       <span className="material-symbols-outlined text-[28px]">corporate_fare</span>
@@ -266,7 +266,7 @@ export default function HomePage() {
                 </div>
 
                 {/* Pillar 3 */}
-                <div className="p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+                <div className="home-hover-card p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                   <div className="flex flex-col gap-space-sm">
                     <div className="w-12 h-12 rounded-lg bg-[#F58232] text-white flex items-center justify-center shadow-md">
                       <span className="material-symbols-outlined text-[28px]">card_membership</span>
@@ -286,7 +286,7 @@ export default function HomePage() {
                 </div>
 
                 {/* Pillar 4 */}
-                <div className="p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+                <div className="home-hover-card p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                   <div className="flex flex-col gap-space-sm">
                     <div className="w-12 h-12 rounded-lg bg-tertiary-container text-white flex items-center justify-center shadow-md">
                       <span className="material-symbols-outlined text-[28px]">receipt_long</span>
@@ -333,7 +333,7 @@ export default function HomePage() {
                 {/* Left: Image grid showing real activities */}
                 <div className="lg:col-span-6 grid grid-cols-2 gap-space-md">
                   <div className="flex flex-col gap-space-md">
-                    <div className="h-64 rounded-2xl overflow-hidden bg-surface-container shadow-md">
+                    <div className="home-image-frame h-64 rounded-2xl overflow-hidden bg-surface-container shadow-md">
                       <Image
                         className="w-full h-full object-contain"
                         alt="Học viên cùng nhau trao đổi trong giờ học thực hành"
@@ -343,20 +343,20 @@ export default function HomePage() {
                         sizes="(max-width: 640px) 40vw, (max-width: 1024px) 30vw, 25vw"
                       />
                     </div>
-                    <div className="h-44 rounded-2xl overflow-hidden shadow-md bg-primary p-space-md flex flex-col justify-end text-white">
+                    <div className="home-hover-card h-44 rounded-2xl overflow-hidden shadow-md bg-primary p-space-md flex flex-col justify-end text-white">
                       <span className="font-headline-lg text-headline-lg font-black text-[#F58232]">15+</span>
                       <span className="font-title text-title font-semibold">Năm Uy Tín Giáo Dục Nghề Nghiệp Tại Sài Gòn</span>
                     </div>
                   </div>
                   <div className="flex flex-col gap-space-md pt-space-lg">
-                    <div className="h-44 rounded-2xl overflow-hidden shadow-md bg-surface-container-lowest p-space-md flex flex-col justify-between">
+                    <div className="home-hover-card h-44 rounded-2xl overflow-hidden shadow-md bg-surface-container-lowest p-space-md flex flex-col justify-between">
                       <span className="material-symbols-outlined text-[36px] text-secondary">workspace_premium</span>
                       <div>
                         <span className="font-headline-md text-headline-md font-black text-primary">98,5%</span>
                         <p className="font-body-sm text-[12px] text-on-surface-variant">Tỷ lệ có việc làm theo số liệu IES</p>
                       </div>
                     </div>
-                    <div className="h-64 rounded-2xl overflow-hidden bg-surface-container shadow-md">
+                    <div className="home-image-frame h-64 rounded-2xl overflow-hidden bg-surface-container shadow-md">
                       <Image
                         className="w-full h-full object-contain"
                         alt="Học sinh tham gia hoạt động tư vấn hướng nghiệp tại trường"
@@ -481,7 +481,7 @@ export default function HomePage() {
 
                 {/* Keep the bottom section informational; the landing page has one registration form in the hero. */}
                 <div className="lg:col-span-7">
-                  <div className="bg-surface-container-lowest text-on-surface p-space-lg md:p-space-xl rounded-2xl shadow-2xl">
+                  <div className="home-hover-card bg-surface-container-lowest text-on-surface p-space-lg md:p-space-xl rounded-2xl shadow-2xl">
                     <div className="flex items-center gap-space-sm mb-space-md">
                       <span className="material-symbols-outlined text-[32px] text-[#F58232]">assignment</span>
                       <div>

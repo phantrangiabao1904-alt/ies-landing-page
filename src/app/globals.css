@@ -260,3 +260,91 @@ body {
 .about-page h1 {
   line-height: 1.18;
 }
+
+.home-page .home-entrance {
+  animation: home-rise-in 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.home-page .home-entrance-delay {
+  animation-delay: 140ms;
+}
+
+.home-page .home-ambient,
+.home-page .home-ambient-reverse {
+  animation: home-drift 16s ease-in-out infinite alternate;
+}
+
+.home-page .home-ambient-reverse {
+  animation-delay: -8s;
+}
+
+.home-page .home-banner-image {
+  animation: home-fade-in 800ms ease-out both;
+}
+
+.home-page .home-hover-card {
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+.home-page .home-image-frame img {
+  transition: transform 450ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .home-page .home-hover-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .home-page .home-image-frame:hover img {
+    transform: scale(1.04);
+  }
+}
+
+@keyframes home-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes home-fade-in {
+  from {
+    opacity: 0.65;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes home-drift {
+  from {
+    transform: translate3d(-10px, -8px, 0) scale(0.98);
+  }
+
+  to {
+    transform: translate3d(12px, 10px, 0) scale(1.04);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page .home-entrance,
+  .home-page .home-ambient,
+  .home-page .home-ambient-reverse,
+  .home-page .home-banner-image {
+    animation: none;
+  }
+
+  .home-page .home-hover-card,
+  .home-page .home-image-frame img {
+    transition: none;
+  }
+}
