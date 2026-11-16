@@ -34,9 +34,9 @@ export default async function AdminContentPage() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-50 px-4 py-8 sm:px-8">
+    <main className="staff-page min-h-screen px-4 py-8 sm:px-8">
       <div className="mx-auto max-w-5xl">
-        <header className="mb-8 flex flex-wrap items-center justify-between gap-4">
+        <header className="staff-card staff-hover-card mb-8 flex flex-wrap items-center justify-between gap-4 border border-slate-200 bg-white/90 p-5 shadow-sm backdrop-blur sm:p-6">
           <div>
             <p className="text-sm font-bold uppercase tracking-wider text-[#F58232]">
               IES • Quản trị nội dung
@@ -46,7 +46,7 @@ export default async function AdminContentPage() {
             </h1>
           </div>
           <div className="flex items-center gap-4">
-            <Link href="/admin" className="font-semibold text-[#0F5587] hover:underline">
+            <Link href="/admin" className="min-h-[44px] inline-flex items-center rounded-lg px-3 font-semibold text-[#0F5587] transition-colors hover:bg-sky-50 hover:underline">
               Danh sách hồ sơ
             </Link>
             <form action={logoutStaff}>

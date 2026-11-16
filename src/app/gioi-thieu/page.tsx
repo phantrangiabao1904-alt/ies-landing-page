@@ -13,7 +13,7 @@ export const metadata = {
 
 export default function GioiThieuPage() {
   return (
-    <div className="about-page min-h-screen bg-[#F5F8FA] flex flex-col font-['Inter',sans-serif] text-[#263849]">
+    <div className="site-page about-page min-h-screen bg-[#F5F8FA] flex flex-col font-['Inter',sans-serif] text-[#263849]">
       {/* 1. Header */}
       <SiteHeader />
 
@@ -236,7 +236,7 @@ export default function GioiThieuPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Vision Card: Top border cyan #2DBEDC */}
-              <div className="bg-white rounded-2xl p-8 sm:p-10 shadow-sm border border-[#D9E2EA] border-t-4 border-t-[#2DBEDC] flex flex-col justify-between hover:shadow-md transition-shadow">
+              <div className="site-card bg-white rounded-2xl p-8 sm:p-10 shadow-sm border border-[#D9E2EA] border-t-4 border-t-[#2DBEDC] flex flex-col justify-between hover:shadow-md transition-shadow">
                 <div>
                   <div className="flex items-center justify-between mb-6">
                     <div className="w-14 h-14 rounded-2xl bg-[#2DBEDC]/10 flex items-center justify-center text-[#2DBEDC]">
@@ -266,7 +266,7 @@ export default function GioiThieuPage() {
               </div>
 
               {/* Mission Card: Top border orange #F58232 */}
-              <div className="bg-white rounded-2xl p-8 sm:p-10 shadow-sm border border-[#D9E2EA] border-t-4 border-t-[#F58232] flex flex-col justify-between hover:shadow-md transition-shadow">
+              <div className="site-card bg-white rounded-2xl p-8 sm:p-10 shadow-sm border border-[#D9E2EA] border-t-4 border-t-[#F58232] flex flex-col justify-between hover:shadow-md transition-shadow">
                 <div>
                   <div className="flex items-center justify-between mb-6">
                     <div className="w-14 h-14 rounded-2xl bg-[#F58232]/10 flex items-center justify-center text-[#F58232]">
@@ -315,7 +315,7 @@ export default function GioiThieuPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {/* Value 1 */}
-              <div className="bg-white rounded-2xl p-6 sm:p-7 border border-[#D9E2EA] shadow-sm flex flex-col justify-between hover:-translate-y-1 hover:shadow-lg transition-all group">
+              <div className="site-card bg-white rounded-2xl p-6 sm:p-7 border border-[#D9E2EA] shadow-sm flex flex-col justify-between hover:-translate-y-1 hover:shadow-lg transition-all group">
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <span className="font-['Montserrat',sans-serif] text-[36px] font-black text-[#0F5587]/20 group-hover:text-[#0F5587] transition-colors">
@@ -339,7 +339,7 @@ export default function GioiThieuPage() {
               </div>
 
               {/* Value 2 */}
-              <div className="bg-white rounded-2xl p-6 sm:p-7 border border-[#D9E2EA] shadow-sm flex flex-col justify-between hover:-translate-y-1 hover:shadow-lg transition-all group">
+              <div className="site-card bg-white rounded-2xl p-6 sm:p-7 border border-[#D9E2EA] shadow-sm flex flex-col justify-between hover:-translate-y-1 hover:shadow-lg transition-all group">
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <span className="font-['Montserrat',sans-serif] text-[36px] font-black text-[#F58232]/25 group-hover:text-[#F58232] transition-colors">
@@ -363,7 +363,7 @@ export default function GioiThieuPage() {
               </div>
 
               {/* Value 3 */}
-              <div className="bg-white rounded-2xl p-6 sm:p-7 border border-[#D9E2EA] shadow-sm flex flex-col justify-between hover:-translate-y-1 hover:shadow-lg transition-all group">
+              <div className="site-card bg-white rounded-2xl p-6 sm:p-7 border border-[#D9E2EA] shadow-sm flex flex-col justify-between hover:-translate-y-1 hover:shadow-lg transition-all group">
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <span className="font-['Montserrat',sans-serif] text-[36px] font-black text-[#2DBEDC]/30 group-hover:text-[#2DBEDC] transition-colors">
@@ -387,7 +387,7 @@ export default function GioiThieuPage() {
               </div>
 
               {/* Value 4 */}
-              <div className="bg-white rounded-2xl p-6 sm:p-7 border border-[#D9E2EA] shadow-sm flex flex-col justify-between hover:-translate-y-1 hover:shadow-lg transition-all group">
+              <div className="site-card bg-white rounded-2xl p-6 sm:p-7 border border-[#D9E2EA] shadow-sm flex flex-col justify-between hover:-translate-y-1 hover:shadow-lg transition-all group">
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <span className="font-['Montserrat',sans-serif] text-[36px] font-black text-[#3764AF]/25 group-hover:text-[#3764AF] transition-colors">
@@ -431,7 +431,7 @@ export default function GioiThieuPage() {
             {/* Timeline Cards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
               {/* Milestone 1: 2008 */}
-              <div className="relative bg-[#F5F8FA] rounded-2xl p-6 border border-[#D9E2EA] hover:border-[#0F5587] transition-all">
+              <div className="site-card relative bg-[#F5F8FA] rounded-2xl p-6 border border-[#D9E2EA] hover:border-[#0F5587] transition-all">
                 <div className="inline-block px-3 py-1 rounded-lg bg-[#0F5587] text-white font-['Montserrat',sans-serif] font-extrabold text-[16px] mb-4">
                   2008
                 </div>

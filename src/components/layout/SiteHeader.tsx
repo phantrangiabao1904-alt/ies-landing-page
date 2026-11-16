@@ -19,7 +19,7 @@ export default function SiteHeader() {
     pathname === href || (href !== '/' && pathname.startsWith(`${href}/`));
 
   return (
-    <header className="fixed top-0 w-full z-50 shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+    <header className="fixed top-0 z-50 w-full shadow-[0_4px_18px_rgba(0,29,52,0.08)] transition-shadow duration-300">
       {/* Announcement Bar */}
       <div className="bg-[#0F5587] text-white py-1.5 px-4 md:px-8 text-center overflow-hidden">
         <div className="max-w-[1240px] mx-auto flex items-center justify-center gap-2 font-['Montserrat',sans-serif] text-[9px] leading-4 font-semibold tracking-[0.04em] sm:text-[11px] sm:leading-5">
@@ -42,13 +42,13 @@ export default function SiteHeader() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex flex-1 items-center justify-center gap-0.5">
+          <nav className="hidden flex-1 items-center justify-center gap-1 lg:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 aria-current={isActiveLink(link.href) ? 'page' : undefined}
-                className={`whitespace-nowrap rounded-lg px-2 py-2 transition-colors font-['Montserrat',sans-serif] text-[11px] ${
+                className={`whitespace-nowrap rounded-lg px-2.5 py-2 transition-colors font-['Montserrat',sans-serif] text-[11px] ${
                   isActiveLink(link.href)
                     ? 'bg-[#e3efff] text-[#0F5587] font-bold ring-1 ring-[#0F5587]/15'
                     : 'text-[#5D6B78] hover:text-[#263849] hover:bg-[#e3efff]/50 font-semibold'
@@ -75,13 +75,13 @@ export default function SiteHeader() {
             </div>
             <Link
               href="/dang-ky"
-              className="min-h-[44px] bg-[#F58232] hover:bg-[#e07122] text-white px-2.5 py-1.5 rounded-lg font-['Montserrat',sans-serif] text-[11px] font-bold tracking-[0.02em] shadow-sm hover:shadow-md transition-all flex items-center gap-1"
+              className="min-h-[44px] whitespace-nowrap bg-[#F58232] hover:bg-[#e07122] text-white px-3 py-1.5 rounded-lg font-['Montserrat',sans-serif] text-[11px] font-bold tracking-[0.02em] shadow-sm hover:shadow-md transition-all flex items-center gap-1"
             >
               <span className="material-symbols-outlined text-[14px]">how_to_reg</span>
               <span>Đăng Ký</span>
             </Link>
 
-            <details className="relative md:hidden">
+            <details className="relative lg:hidden">
               <summary
                 className="flex h-11 w-11 list-none cursor-pointer items-center justify-center rounded-lg transition-colors hover:bg-[#F5F8FA] [&::-webkit-details-marker]:hidden"
                 aria-label="Mở menu điều hướng"

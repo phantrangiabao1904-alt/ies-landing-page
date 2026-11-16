@@ -13,7 +13,7 @@ export const metadata = {
 
 export default function TuyenSinhPage() {
   return (
-    <div className="bg-surface font-body-md text-on-surface min-h-screen flex flex-col">
+    <div className="site-page bg-surface font-body-md text-on-surface min-h-screen flex flex-col">
       <SiteHeader />
 
       <main className="w-full pt-28 bg-surface min-h-[calc(100vh-28rem)] flex-1">
@@ -127,7 +127,7 @@ export default function TuyenSinhPage() {
 
                 {/* Right: Notification Card + Photo */}
                 <div className="lg:col-span-5 flex flex-col gap-space-md">
-                  <div className="bg-surface-container-lowest p-space-lg rounded-xl shadow-md relative overflow-hidden">
+                  <div className="site-card bg-surface-container-lowest p-space-lg rounded-xl shadow-md relative overflow-hidden">
                     <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#F58232]"></div>
                     <div className="flex items-start justify-between gap-space-sm mb-space-sm">
                       <span className="inline-flex items-center gap-1 text-[#F58232] font-label-md text-label-md uppercase tracking-wider font-bold">
@@ -204,7 +204,7 @@ export default function TuyenSinhPage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-space-xl">
                 {/* CARD 1: HỆ 9+ (THCS) */}
-                <div className="bg-surface-container-lowest rounded-xl shadow-md p-space-xl flex flex-col justify-between relative overflow-hidden transition-all hover:-translate-y-1">
+                <div className="site-card bg-surface-container-lowest rounded-xl shadow-md p-space-xl flex flex-col justify-between relative overflow-hidden transition-all hover:-translate-y-1">
                   <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#F58232]"></div>
                   <div>
                     <div className="flex items-center justify-between mb-space-md">
@@ -251,7 +251,7 @@ export default function TuyenSinhPage() {
                 </div>
 
                 {/* CARD 2: HỆ TRUNG CẤP CHÍNH QUY (THPT) */}
-                <div className="bg-surface-container-lowest rounded-xl shadow-md p-space-xl flex flex-col justify-between relative overflow-hidden transition-all hover:-translate-y-1">
+                <div className="site-card bg-surface-container-lowest rounded-xl shadow-md p-space-xl flex flex-col justify-between relative overflow-hidden transition-all hover:-translate-y-1">
                   <div className="absolute top-0 left-0 right-0 h-1.5 bg-primary"></div>
                   <div>
                     <div className="flex items-center justify-between mb-space-md">
@@ -419,7 +419,7 @@ export default function TuyenSinhPage() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
-                <div className="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm border border-outline-variant/30 flex flex-col gap-space-sm">
+                <div className="site-card bg-surface-container-lowest p-space-lg rounded-xl shadow-sm border border-outline-variant/30 flex flex-col gap-space-sm">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold">
                     <span className="material-symbols-outlined text-[22px]">description</span>
                   </div>
@@ -431,7 +431,7 @@ export default function TuyenSinhPage() {
                   </ul>
                 </div>
 
-                <div className="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm border border-outline-variant/30 flex flex-col gap-space-sm">
+                <div className="site-card bg-surface-container-lowest p-space-lg rounded-xl shadow-sm border border-outline-variant/30 flex flex-col gap-space-sm">
                   <div className="w-10 h-10 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center font-bold">
                     <span className="material-symbols-outlined text-[22px]">badge</span>
                   </div>
@@ -443,7 +443,7 @@ export default function TuyenSinhPage() {
                   </ul>
                 </div>
 
-                <div className="bg-surface-container-lowest p-space-lg rounded-xl shadow-sm border border-outline-variant/30 flex flex-col gap-space-sm">
+                <div className="site-card bg-surface-container-lowest p-space-lg rounded-xl shadow-sm border border-outline-variant/30 flex flex-col gap-space-sm">
                   <div className="w-10 h-10 rounded-lg bg-[#F58232]/10 text-[#F58232] flex items-center justify-center font-bold">
                     <span className="material-symbols-outlined text-[22px]">savings</span>
                   </div>

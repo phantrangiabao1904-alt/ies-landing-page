@@ -13,7 +13,7 @@ export const metadata = {
 
 export default function ChuongTrinhHocPage() {
   return (
-    <div className="bg-surface font-body-md text-on-surface min-h-screen flex flex-col">
+    <div className="site-page bg-surface font-body-md text-on-surface min-h-screen flex flex-col">
       <SiteHeader />
 
       <main className="w-full pt-28 bg-surface min-h-[calc(100vh-28rem)] flex-1">
@@ -38,8 +38,7 @@ export default function ChuongTrinhHocPage() {
               width={2048}
               height={1152}
               priority
-              quality={100}
-              unoptimized
+              sizes="100vw"
               className="block h-auto w-full"
             />
           </section>
@@ -165,7 +164,7 @@ export default function ChuongTrinhHocPage() {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-space-lg">
                 {/* Hệ 9+ */}
-                <div className="bg-surface-container-lowest rounded-2xl p-space-xl shadow-md flex flex-col justify-between relative group hover:shadow-xl transition-all">
+                <div className="site-card bg-surface-container-lowest rounded-2xl p-space-xl shadow-md flex flex-col justify-between relative group hover:shadow-xl transition-all">
                   <div className="w-full h-1.5 bg-[#F58232] absolute top-0 left-0 rounded-t-2xl"></div>
                   <div>
                     <div className="flex items-center justify-between gap-space-sm mb-space-md">
@@ -206,7 +205,7 @@ export default function ChuongTrinhHocPage() {
                 </div>
 
                 {/* Khối Trung Cấp Nghề (Sau THPT) */}
-                <div className="bg-surface-container-lowest rounded-2xl p-space-xl shadow-md flex flex-col justify-between relative group hover:shadow-xl transition-all">
+                <div className="site-card bg-surface-container-lowest rounded-2xl p-space-xl shadow-md flex flex-col justify-between relative group hover:shadow-xl transition-all">
                   <div className="w-full h-1.5 bg-[#2DBEDC] absolute top-0 left-0 rounded-t-2xl"></div>
                   <div>
                     <div className="flex items-center justify-between gap-space-sm mb-space-md">
@@ -265,7 +264,7 @@ export default function ChuongTrinhHocPage() {
 
               {/* 4 Pillars Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
-                <div className="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                <div className="site-card bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
                   <div>
                     <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-space-md font-bold">
                       <span className="material-symbols-outlined text-[26px]">terminal</span>
@@ -281,7 +280,7 @@ export default function ChuongTrinhHocPage() {
                   </div>
                 </div>
 
-                <div className="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                <div className="site-card bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
                   <div>
                     <div className="w-12 h-12 rounded-xl bg-tertiary/10 text-tertiary flex items-center justify-center mb-space-md font-bold">
                       <span className="material-symbols-outlined text-[26px]">devices</span>
@@ -297,7 +296,7 @@ export default function ChuongTrinhHocPage() {
                   </div>
                 </div>
 
-                <div className="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                <div className="site-card bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
                   <div>
                     <div className="w-12 h-12 rounded-xl bg-[#F58232]/10 text-[#F58232] flex items-center justify-center mb-space-md font-bold">
                       <span className="material-symbols-outlined text-[26px]">rocket_launch</span>
@@ -313,7 +312,7 @@ export default function ChuongTrinhHocPage() {
                   </div>
                 </div>
 
-                <div className="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                <div className="site-card bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
                   <div>
                     <div className="w-12 h-12 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center mb-space-md font-bold">
                       <span className="material-symbols-outlined text-[26px]">apartment</span>

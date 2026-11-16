@@ -44,7 +44,7 @@ function SortableContentItem({ item, onChange }: SortableContentItemProps) {
     <article
       ref={setNodeRef}
       style={{ transform: CSS.Transform.toString(transform), transition }}
-      className={`rounded-xl border bg-white p-4 shadow-sm ${
+      className={`staff-card rounded-xl border bg-white p-4 ${
         isDragging ? 'z-10 border-[#F58232] opacity-90 shadow-lg' : 'border-slate-200'
       }`}
     >

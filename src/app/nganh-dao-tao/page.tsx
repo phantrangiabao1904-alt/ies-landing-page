@@ -82,7 +82,7 @@ const majors = [
 
 export default function NganhDaoTaoPage() {
   return (
-    <div className="bg-surface font-body-md text-on-surface min-h-screen flex flex-col">
+    <div className="site-page bg-surface font-body-md text-on-surface min-h-screen flex flex-col">
       <SiteHeader />
 
       <main className="w-full pt-28 bg-surface min-h-[calc(100vh-28rem)] flex-1">
@@ -196,7 +196,7 @@ export default function NganhDaoTaoPage() {
                     {group.items.map((m) => (
                   <div
                     key={m.id}
-                    className="bg-white rounded-2xl overflow-hidden border border-outline-variant/40 hover:border-primary/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group"
+                    className="site-card bg-white rounded-2xl overflow-hidden border border-outline-variant/40 hover:border-primary/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group"
                   >
                     {/* Image Header with Badge */}
                     <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-[#0F5587] to-[#063b5e]">

@@ -17,9 +17,9 @@ export default async function AdminPage() {
   }
 
   return (
-    <main className="min-h-screen bg-slate-50 px-4 py-8 sm:px-8">
+    <main className="staff-page min-h-screen px-4 py-8 sm:px-8">
       <div className="mx-auto max-w-7xl">
-        <header className="mb-8 flex flex-wrap items-center justify-between gap-4">
+        <header className="staff-card staff-hover-card mb-8 flex flex-wrap items-center justify-between gap-4 border border-slate-200 bg-white/90 p-5 shadow-sm backdrop-blur sm:p-6">
           <div>
             <p className="text-sm font-bold uppercase tracking-wider text-[#F58232]">
               IES • Quản trị tuyển sinh
@@ -28,30 +28,30 @@ export default async function AdminPage() {
               Hồ sơ đăng ký mới
             </h1>
           </div>
-          <div className="flex items-center gap-3">
-            <Link href="/admin/content" className="font-semibold text-[#0F5587] hover:underline">
+          <div className="flex flex-wrap items-center gap-2">
+            <Link href="/admin/content" className="min-h-[44px] inline-flex items-center rounded-lg px-3 font-semibold text-[#0F5587] transition-colors hover:bg-sky-50 hover:underline">
               Quản lý Landing Page
             </Link>
-            <Link href="/analytics" className="font-semibold text-[#0F5587] hover:underline">
+            <Link href="/analytics" className="min-h-[44px] inline-flex items-center rounded-lg px-3 font-semibold text-[#0F5587] transition-colors hover:bg-sky-50 hover:underline">
               Xem Analytics
             </Link>
             <a
               href="/admin/leads/export"
-              className="rounded-lg bg-[#F58232] px-4 py-2 font-bold text-white hover:bg-[#df6f22]"
+              className="min-h-[44px] rounded-lg bg-[#F58232] px-4 font-bold text-white shadow-sm transition hover:bg-[#df6f22] hover:shadow-md"
             >
               Xuất CSV
             </a>
             <form action={logoutStaff}>
-              <button className="rounded-lg border border-slate-300 px-4 py-2 font-semibold text-slate-700 hover:bg-white">
+              <button className="min-h-[44px] rounded-lg border border-slate-300 bg-white px-4 font-semibold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50">
                 Đăng xuất
               </button>
             </form>
           </div>
         </header>
 
-        <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+        <div className="staff-card overflow-x-auto border border-slate-200 bg-white shadow-sm">
           <table className="w-full min-w-[850px] text-left text-sm">
-            <thead className="bg-slate-100 text-xs uppercase tracking-wide text-slate-600">
+            <thead className="sticky top-0 z-10 bg-slate-100 text-xs uppercase tracking-wide text-slate-600">
               <tr>
                 <th className="px-4 py-3">Thời gian</th>
                 <th className="px-4 py-3">Họ tên</th>
@@ -64,7 +64,7 @@ export default async function AdminPage() {
             </thead>
             <tbody className="divide-y divide-slate-100">
               {leads?.map((lead) => (
-                <tr key={lead.id} className="text-slate-700">
+                <tr key={lead.id} className="text-slate-700 transition-colors hover:bg-slate-50">
                   <td className="whitespace-nowrap px-4 py-3">
                     {new Date(lead.created_at).toLocaleString('vi-VN')}
                   </td>

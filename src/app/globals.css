@@ -293,7 +293,50 @@ body {
   transition: transform 450ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
+.site-page .site-card {
+  box-shadow: 0 12px 28px rgba(0, 29, 52, 0.07);
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+.site-page .site-card:focus-within {
+  outline: 2px solid color-mix(in srgb, var(--primary-container) 45%, transparent);
+  outline-offset: 2px;
+}
+
+.staff-page {
+  background:
+    radial-gradient(1200px 520px at 50% -220px, rgba(15, 85, 135, 0.12), transparent 72%),
+    #f8fafc;
+}
+
+.staff-page .staff-card {
+  border-radius: 1rem;
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    border-color 200ms ease;
+}
+
+.staff-page .staff-card:focus-within {
+  outline: 2px solid rgba(15, 85, 135, 0.35);
+  outline-offset: 2px;
+}
+
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .site-page .site-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 34px rgba(0, 29, 52, 0.11);
+  }
+
+  .staff-page .staff-hover-card:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 16px 30px rgba(15, 23, 42, 0.1);
+    transform: translateY(-2px);
+  }
+
   .home-page .home-hover-card:hover {
     transform: translateY(-4px);
   }
@@ -336,6 +379,25 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .site-page .animate-ping,
+  .site-page .animate-pulse,
+  .staff-page .animate-ping,
+  .staff-page .animate-pulse {
+    animation: none !important;
+  }
+
+  .site-page .site-card {
+    transition: none;
+  }
+
+  .staff-page .staff-card {
+    transition: none;
+  }
+
   .home-page .home-entrance,
   .home-page .home-ambient,
   .home-page .home-ambient-reverse,

@@ -41,9 +41,9 @@ export default async function AnalyticsPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-slate-50 px-4 py-8 sm:px-8">
+    <main className="staff-page min-h-screen px-4 py-8 sm:px-8">
       <div className="mx-auto max-w-6xl">
-        <header className="mb-8 flex flex-wrap items-center justify-between gap-4">
+        <header className="staff-card staff-hover-card mb-8 flex flex-wrap items-center justify-between gap-4 border border-slate-200 bg-white/90 p-5 shadow-sm backdrop-blur sm:p-6">
           <div>
             <p className="text-sm font-bold uppercase tracking-wider text-[#F58232]">
               IES • Phân tích tuyển sinh
@@ -52,12 +52,12 @@ export default async function AnalyticsPage() {
           </div>
           <div className="flex items-center gap-4">
             {role === 'ADMIN' && (
-              <Link href="/admin" className="font-semibold text-[#0F5587] hover:underline">
+              <Link href="/admin" className="min-h-[44px] inline-flex items-center rounded-lg px-3 font-semibold text-[#0F5587] transition-colors hover:bg-sky-50 hover:underline">
                 Danh sách hồ sơ
               </Link>
             )}
             <form action={logoutStaff}>
-              <button className="rounded-lg border border-slate-300 px-4 py-2 font-semibold text-slate-700 hover:bg-white">
+              <button className="min-h-[44px] rounded-lg border border-slate-300 bg-white px-4 font-semibold text-slate-700 transition hover:border-slate-400 hover:bg-slate-50">
                 Đăng xuất
               </button>
             </form>
@@ -65,7 +65,7 @@ export default async function AnalyticsPage() {
         </header>
         <section className="grid gap-4 sm:grid-cols-3">
           {metrics.map((metric) => (
-            <article key={metric.label} className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <article key={metric.label} className="staff-card staff-hover-card border border-slate-200 bg-white p-6 shadow-sm">
               <p className="text-sm font-semibold text-slate-500">{metric.label}</p>
               <p className="mt-3 text-4xl font-extrabold text-[#0F5587]">
                 {metric.value.toLocaleString('vi-VN')}

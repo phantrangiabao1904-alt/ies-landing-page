@@ -41,7 +41,7 @@ export default function StickyLeadForm({
 
   return (
     <div
-      className={`bg-white rounded-2xl shadow-xl p-6 sm:p-7 border border-[#D9E2EA] ring-1 ring-black/5 ${
+      className={`site-card bg-white rounded-2xl shadow-xl p-6 sm:p-7 border border-[#D9E2EA] ring-1 ring-black/5 ${
         isSticky ? 'lg:sticky lg:top-24 lg:z-30' : ''
       }`}
     >

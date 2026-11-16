@@ -16,6 +16,13 @@ export default function SiteFooter() {
               Trường Trung cấp Tin học Kinh tế Sài Gòn (IES) — Đào tạo thực hành chuẩn nghề nghiệp,
               hỗ trợ thực hành nghề nghiệp và giới thiệu việc làm theo chính sách của trường.
             </p>
+            <Link
+              href="/dang-ky"
+              className="inline-flex min-h-[44px] w-fit items-center gap-2 rounded-xl bg-[#F58232] px-5 font-['Montserrat',sans-serif] text-sm font-bold text-white shadow-sm transition motion-safe:hover:-translate-y-0.5 hover:bg-[#e07122] hover:shadow-md motion-reduce:transition-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              Đăng ký tư vấn
+              <span className="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
+            </Link>
             <div className="flex items-center gap-1 text-[#acedff] font-['Montserrat',sans-serif] text-[12px] font-semibold">
               <span className="material-symbols-outlined text-[18px]">verified</span>
               <span>Chứng nhận kiểm định chất lượng giáo dục nghề nghiệp</span>

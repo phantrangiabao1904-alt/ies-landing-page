@@ -24,6 +24,18 @@ interface AnalyticsChartsProps {
 
 const COLORS = ['#0F5587', '#F58232', '#3B82F6', '#16A34A', '#9333EA'];
 
+function formatAnalyticsDate(value: string, includeYear = false) {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value);
+  if (!match) return value;
+
+  const [, year, month, day] = match;
+  return new Intl.DateTimeFormat('vi-VN', {
+    day: '2-digit',
+    month: '2-digit',
+    ...(includeYear ? { year: 'numeric' as const } : {}),
+  }).format(new Date(Number(year), Number(month) - 1, Number(day)));
+}
+
 export default function AnalyticsCharts({ summary }: AnalyticsChartsProps) {
   const router = useRouter();
 
@@ -44,15 +56,20 @@ export default function AnalyticsCharts({ summary }: AnalyticsChartsProps) {
   return (
     <div className="mt-8 space-y-6">
       <div className="grid gap-6 lg:grid-cols-2">
-        <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+        <section className="staff-card staff-hover-card border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
           <h2 className="text-lg font-bold text-[#0F5587]">Lượt truy cập và chuyển đổi · 30 ngày</h2>
           <div className="mt-4 h-[280px]">
             <ResponsiveContainer width="100%" height="100%">
               <ComposedChart data={summary.daily} margin={{ top: 8, right: 12, bottom: 8, left: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="date" tick={{ fontSize: 11 }} minTickGap={24} />
+                <XAxis
+                  dataKey="date"
+                  tick={{ fontSize: 11 }}
+                  minTickGap={24}
+                  tickFormatter={(value: string) => formatAnalyticsDate(value)}
+                />
                 <YAxis allowDecimals={false} tick={{ fontSize: 11 }} />
-                <Tooltip />
+                <Tooltip labelFormatter={(label) => formatAnalyticsDate(String(label), true)} />
                 <Bar dataKey="page_views" name="Lượt xem" fill="#0F5587" />
                 <Bar dataKey="form_clicks" name="Nhấn đăng ký" fill="#F58232" />
                 <Line
@@ -67,7 +84,7 @@ export default function AnalyticsCharts({ summary }: AnalyticsChartsProps) {
           </div>
         </section>
 
-        <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+        <section className="staff-card staff-hover-card border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
           <h2 className="text-lg font-bold text-[#0F5587]">Nguồn truy cập · 30 ngày</h2>
           {summary.referrals.length ? (
             <div className="mt-4 h-[280px]">
@@ -96,7 +113,7 @@ export default function AnalyticsCharts({ summary }: AnalyticsChartsProps) {
         </section>
       </div>
 
-      <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+      <section className="staff-card staff-hover-card border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
         <div className="flex flex-wrap items-baseline justify-between gap-2">
           <h2 className="text-lg font-bold text-[#0F5587]">Phễu tuyển sinh · 30 ngày</h2>
           <p className="text-sm font-semibold text-slate-600">

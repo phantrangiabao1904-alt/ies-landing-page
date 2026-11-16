@@ -10,7 +10,7 @@ import { decree24DocumentUrl, decree81SearchUrl, schoolContact } from '@/lib/sch
 
 export default function HomePage() {
   return (
-    <div className="home-page bg-surface font-body-md text-on-surface min-h-screen flex flex-col pb-[76px] md:pb-0">
+    <div className="site-page home-page bg-surface font-body-md text-on-surface min-h-screen flex flex-col pb-[76px] md:pb-0">
       <SiteHeader />
 
       {/* MAIN */}
@@ -23,8 +23,7 @@ export default function HomePage() {
               width={1920}
               height={730}
               priority
-              quality={100}
-              unoptimized
+              sizes="100vw"
               className="home-banner-image block h-auto w-full"
             />
           </section>

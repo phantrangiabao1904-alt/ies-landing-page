@@ -37,7 +37,7 @@ export default function HomeCmsSection() {
             return (
               <article
                 key={item.id}
-                className="home-hover-card col-span-full flex flex-col items-start justify-between gap-5 rounded-2xl bg-[#0F5587] p-6 text-white shadow-lg sm:flex-row sm:items-center sm:p-8"
+                className="site-card home-hover-card col-span-full flex flex-col items-start justify-between gap-5 rounded-2xl bg-[#0F5587] p-6 text-white shadow-lg sm:flex-row sm:items-center sm:p-8"
               >
                 <div>
                   <p className="text-sm font-bold uppercase tracking-wider text-[#FFC18F]">
@@ -63,7 +63,7 @@ export default function HomeCmsSection() {
           return (
             <article
               key={item.id}
-              className="home-hover-card flex min-h-48 flex-col rounded-xl border border-slate-200 border-t-4 border-t-[#F58232] bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-[#0F5587]/30 hover:shadow-lg"
+              className="site-card home-hover-card flex min-h-48 flex-col rounded-xl border border-slate-200 border-t-4 border-t-[#F58232] bg-white p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-[#0F5587]/30 hover:shadow-lg"
             >
               <div className="flex items-center gap-3">
                 {imageSrc && (
