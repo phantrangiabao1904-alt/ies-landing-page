@@ -1,7 +1,10 @@
 'use client';
+import Icon from '@/components/ui/Icon';
 
 import Link from 'next/link';
 import Image from 'next/image';
+import HeroCarousel from '@/components/home/HeroCarousel';
+import HomeStats from '@/components/home/HomeStats';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import StickyLeadForm from '@/app/components/forms/StickyLeadForm';
@@ -38,157 +41,70 @@ export default function HomePage() {
               {/* Top Eyebrow Badge */}
               <div className="flex flex-wrap items-center gap-space-sm mb-space-md">
                 <span className="inline-flex items-center gap-space-xs bg-[#F58232] text-white px-space-md py-1 rounded-full font-label-md text-label-md tracking-wider uppercase shadow-sm">
-                  <span className="material-symbols-outlined text-[16px] animate-pulse">verified_user</span>
+                  <Icon name="verified_user" className="text-[16px]" />
                   Tuyển Sinh Năm Học 2026
                 </span>
                 <a
                   href={decree81SearchUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-space-xs rounded-full bg-surface-container px-space-md py-1 font-label-md text-label-md font-semibold text-primary transition-colors hover:bg-[#e3efff] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                  className="inline-flex items-center gap-space-xs rounded-full bg-surface-container px-space-md py-1 font-label-md text-label-md font-semibold text-primary hover:bg-[#e3efff] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                   aria-label="Tra cứu Nghị định 81 trên Cổng văn bản Chính phủ"
                 >
-                  <span className="material-symbols-outlined text-[16px] text-tertiary-container">policy</span>
+                  <Icon name="policy" className="text-[16px] text-tertiary-container" />
                   Nghị định 81/2021/NĐ-CP
-                  <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
+                  <Icon name="open_in_new" className="text-[14px]" />
                 </a>
                 <a
                   href={decree24DocumentUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-space-xs rounded-full bg-[#F6EEE5] px-space-md py-1 font-label-md text-label-md font-semibold text-[#F58232] transition-colors hover:bg-[#f9e3d2] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F58232]"
+                  className="inline-flex items-center gap-space-xs rounded-full bg-[#F6EEE5] px-space-md py-1 font-label-md text-label-md font-semibold text-[#F58232] hover:bg-[#f9e3d2] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F58232]"
                 >
-                  <span className="material-symbols-outlined text-[16px]">picture_as_pdf</span>
+                  <Icon name="picture_as_pdf" className="text-[16px]" />
                   Nghị định 24/2022/NĐ-CP (PDF)
                 </a>
               </div>
 
               {/* Main Headline Grid */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
-                {/* Left Hero Pitch */}
-                <div className="home-entrance lg:col-span-7 flex flex-col gap-space-md">
-                  <h1 className="font-headline-lg text-2xl sm:text-4xl lg:text-5xl text-primary leading-tight font-extrabold uppercase">
+              <div className="grid grid-cols-1 items-center gap-space-xl lg:grid-cols-12">
+                <div className="home-entrance order-last flex flex-col gap-space-md lg:order-first lg:col-span-7">
+                  <h1 className="font-headline-lg text-3xl font-extrabold leading-tight text-primary sm:text-4xl lg:text-5xl">
                     TRƯỜNG TRUNG CẤP <br className="hidden sm:inline" />
                     <span className="text-secondary">TIN HỌC KINH TẾ</span> SÀI GÒN (IES)
-                    <span className="block text-[#F58232] mt-2">MIỄN PHÍ 100% HỌC PHÍ</span>
+                    <span className="mt-2 block text-[#F58232]">MIỄN PHÍ 100% HỌC PHÍ</span>
                   </h1>
-                  <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+                  <p className="max-w-2xl text-base leading-relaxed text-on-surface-variant sm:text-lg">
                     <strong className="text-primary">Học thực tiễn - Làm chuyên nghiệp.</strong>{' '}
-                    Xét tuyển học bạ - Nhập học ngay. Học sinh tốt nghiệp THCS được tư vấn điều kiện
-                    áp dụng chính sách hỗ trợ học phí nghề theo quy định hiện hành.
+                    Xét tuyển học bạ - Nhập học ngay. Học sinh tốt nghiệp THCS được tư vấn điều kiện áp dụng chính sách hỗ trợ học phí nghề theo quy định hiện hành.
                   </p>
 
-                  {/* THE MEGA VISUAL CARD: MIỄN 100% HỌC PHÍ */}
-                  <div className="home-hover-card relative mt-space-sm p-space-lg rounded-xl bg-[#063b5e] border-t-4 border-t-[#F58232] ring-1 ring-white/10 text-on-primary shadow-xl overflow-hidden">
-                    <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
-                      <div className="flex flex-col">
-                        <div className="flex items-center gap-space-xs text-[#F58232] font-label-lg text-label-lg tracking-wider uppercase mb-1">
-                          <span className="material-symbols-outlined text-[20px]">stars</span>
-                          <span>Chính sách hỗ trợ học phí nghề</span>
-                        </div>
-                        <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                          <span className="font-display text-3xl sm:text-4xl lg:text-5xl text-[#F58232] font-black leading-none drop-shadow-sm">MIỄN 100%</span>
-                          <span className="font-headline-md text-lg sm:text-xl text-white font-bold tracking-tight">HỌC PHÍ</span>
-                        </div>
-                        <p className="font-body-sm text-body-sm text-surface-container-high mt-space-xs leading-relaxed max-w-lg">
-                          Chính sách hỗ trợ học phí nghề được áp dụng theo quy định hiện hành; quyền lợi cụ thể phụ thuộc điều kiện và hồ sơ xét duyệt.{' '}
-                          <a
-                            href={decree81SearchUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="font-bold text-white underline decoration-white/60 underline-offset-2 hover:decoration-white"
-                          >
-                            Tra cứu Nghị định 81/2021/NĐ-CP
-                          </a>
-                          {' · '}
-                          <a
-                            href={decree24DocumentUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="font-bold text-white underline decoration-white/60 underline-offset-2 hover:decoration-white"
-                          >
-                            Mở Nghị định 24/2022/NĐ-CP (PDF)
-                          </a>
-                        </p>
-                      </div>
-
-                      {/* Big Visual Badge */}
-                      <div className="flex-shrink-0 bg-white/10 backdrop-blur-md p-space-md rounded-xl text-center self-start sm:self-center border-0 shadow-inner">
-                        <span className="block font-headline-lg text-headline-lg text-tertiary-fixed font-black">0 ĐỒNG</span>
-                        <span className="block font-label-md text-label-md text-white/90 uppercase tracking-wide">Chi phí học nghề</span>
-                      </div>
-                    </div>
-
-                    {/* 4 Quick Fact Pillars */}
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-space-sm pt-space-md mt-space-md bg-[#002f52] border-t border-white/20 -mx-space-lg -mb-space-lg px-space-lg pb-space-md">
-                      <div className="flex flex-col">
-                        <span className="font-label-lg text-label-lg text-tertiary-fixed font-bold">Hỗ trợ</span>
-                        <span className="font-body-sm text-[13px] text-white/90 leading-tight">Giới thiệu việc làm</span>
-                      </div>
-                      <div className="flex flex-col">
-                        <span className="font-label-lg text-label-lg text-tertiary-fixed font-bold">70%</span>
-                        <span className="font-body-sm text-[13px] text-white/90 leading-tight">Thực hành dự án</span>
-                      </div>
-                      <div className="flex flex-col">
-                        <span className="font-label-lg text-label-lg text-tertiary-fixed font-bold">1.5 - 2 Năm</span>
-                        <span className="font-body-sm text-[13px] text-white/90 leading-tight">Nhận bằng chính quy</span>
-                      </div>
-                      <div className="flex flex-col">
-                        <span className="font-label-lg text-label-lg text-tertiary-fixed font-bold">Song Bằng</span>
-                        <span className="font-body-sm text-[13px] text-white/90 leading-tight">Văn hóa THPT + Nghề</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Dual CTAs */}
                   <div className="flex flex-wrap items-center gap-space-md pt-space-sm">
                     <a
-                      className="home-hover-card bg-[#F58232] hover:bg-[#e07122] text-white px-space-xl py-space-md rounded-xl font-title text-title font-bold shadow-md hover:shadow-xl transition-all flex items-center gap-space-xs text-center group tracking-wide"
+                      className="group flex min-h-12 items-center gap-space-xs rounded-xl bg-[#F58232] px-space-xl py-space-md text-center font-title text-title font-bold tracking-wide text-white shadow-md transition-transform hover:-translate-y-0.5 hover:bg-[#e07122] hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F58232]"
                       href="#home-sticky-lead-form"
                     >
                       <span>ĐĂNG KÝ XÉT TUYỂN NGAY</span>
-                      <span className="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">arrow_forward</span>
+                      <Icon name="arrow_forward" className="text-[20px] transition-transform group-hover:translate-x-1" />
                     </a>
                     <Link
-                      className="home-hover-card bg-surface-container-high hover:bg-surface-container text-primary px-space-lg py-space-md rounded-xl font-title text-title font-semibold shadow-sm hover:shadow transition-all flex items-center gap-space-xs"
+                      className="flex min-h-12 items-center gap-space-xs rounded-xl bg-surface-container-high px-space-lg py-space-md font-title text-title font-semibold text-primary shadow-sm transition-transform hover:-translate-y-0.5 hover:bg-surface-container hover:shadow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                       href="/gioi-thieu"
                     >
-                      <span className="material-symbols-outlined text-[20px] text-secondary">domain</span>
+                      <Icon name="domain" className="text-[20px] text-secondary" />
                       <span>Khám Phá Giới Thiệu Trường</span>
                     </Link>
                   </div>
-
-                  <div className="flex flex-wrap items-center gap-space-xs text-on-surface-variant font-label-md text-label-md pt-1">
-                    <div className="flex items-center gap-1 text-primary font-semibold">
-                      <span className="material-symbols-outlined text-[18px] text-green-600">check_circle</span>
-                      <span>Không thi tuyển</span>
-                    </div>
-                    <span className="text-outline-variant">•</span>
-                    <div className="flex items-center gap-1 text-primary font-semibold">
-                      <span className="material-symbols-outlined text-[18px] text-green-600">check_circle</span>
-                      <span>Xét tuyển học bạ</span>
-                    </div>
-                    <span className="text-outline-variant">•</span>
-                    <div className="flex items-center gap-1 text-primary font-semibold">
-                      <span className="material-symbols-outlined text-[18px] text-green-600">check_circle</span>
-                      <span>Hỗ trợ hồ sơ 24/7</span>
-                    </div>
-                  </div>
                 </div>
 
-                <div className="home-entrance home-entrance-delay lg:col-span-5 w-full lg:pt-2">
-                  <Image
-                    src="/images/home-dual-program-2026.png"
-                    alt="Học song bằng văn hóa và nghề tại IES"
-                    width={768}
-                    height={768}
-                    sizes="(min-width: 1024px) 42vw, 100vw"
-                    className="block h-auto w-full rounded-2xl shadow-xl ring-1 ring-black/5"
-                  />
+                <div className="home-entrance home-entrance-delay order-first w-full lg:order-last lg:col-span-5 lg:pt-2">
+                  <HeroCarousel />
                 </div>
               </div>
             </div>
           </section>
+
+          <HomeStats decree81Url={decree81SearchUrl} decree24Url={decree24DocumentUrl} />
 
           <HomeCmsSection />
 
@@ -197,7 +113,7 @@ export default function HomePage() {
             <div className="max-w-[1240px] mx-auto px-margin-sm md:px-margin">
               <div className="flex flex-col md:flex-row items-center justify-between gap-space-md">
                 <div className="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md uppercase tracking-wider flex-shrink-0">
-                  <span className="material-symbols-outlined text-primary text-[20px]">handshake</span>
+                  <Icon name="handshake" className="text-primary text-[20px]" />
                   <span>Doanh nghiệp tiêu biểu trong các lĩnh vực đào tạo:</span>
                 </div>
                 <div className="flex flex-wrap items-center justify-center md:justify-end gap-space-lg opacity-85">
@@ -218,7 +134,7 @@ export default function HomePage() {
             <div className="max-w-[1240px] mx-auto px-margin-sm md:px-margin">
               <div className="text-center max-w-3xl mx-auto mb-space-xl flex flex-col gap-space-xs">
                 <div className="inline-flex items-center justify-center gap-space-xs mx-auto text-secondary font-label-lg text-label-lg uppercase tracking-wider">
-                  <span className="material-symbols-outlined text-[18px]">verified</span>
+                  <Icon name="verified" className="text-[18px]" />
                   <span>Đặc Quyền Tài Chính Dành Cho Sinh Viên IES</span>
                 </div>
                 <h2 className="font-headline-lg text-headline-lg text-primary font-bold">
@@ -235,7 +151,7 @@ export default function HomePage() {
                 <div className="home-hover-card p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                   <div className="flex flex-col gap-space-sm">
                     <div className="w-12 h-12 rounded-lg bg-primary text-on-primary flex items-center justify-center shadow-md">
-                      <span className="material-symbols-outlined text-[28px]">gavel</span>
+                      <Icon name="gavel" className="text-[28px]" />
                     </div>
                     <span className="font-label-md text-label-md text-secondary uppercase font-bold tracking-wide">Trụ cột 01</span>
                     <h3 className="font-headline-sm text-headline-sm text-primary font-bold group-hover:text-secondary transition-colors">
@@ -246,7 +162,7 @@ export default function HomePage() {
                     </p>
                   </div>
                   <div className="pt-space-md mt-space-md flex items-center gap-space-xs text-primary font-label-md text-label-md">
-                    <span className="material-symbols-outlined text-[16px] text-green-600">check</span>
+                    <Icon name="check" className="text-[16px] text-green-600" />
                     <span>Chi trả đúng định kỳ</span>
                   </div>
                 </div>
@@ -255,7 +171,7 @@ export default function HomePage() {
                 <div className="home-hover-card p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                   <div className="flex flex-col gap-space-sm">
                     <div className="w-12 h-12 rounded-lg bg-secondary text-white flex items-center justify-center shadow-md">
-                      <span className="material-symbols-outlined text-[28px]">corporate_fare</span>
+                      <Icon name="corporate_fare" className="text-[28px]" />
                     </div>
                     <span className="font-label-md text-label-md text-secondary uppercase font-bold tracking-wide">Trụ cột 02</span>
                     <h3 className="font-headline-sm text-headline-sm text-primary font-bold group-hover:text-secondary transition-colors">
@@ -266,7 +182,7 @@ export default function HomePage() {
                     </p>
                   </div>
                   <div className="pt-space-md mt-space-md flex items-center gap-space-xs text-primary font-label-md text-label-md">
-                    <span className="material-symbols-outlined text-[16px] text-green-600">check</span>
+                    <Icon name="check" className="text-[16px] text-green-600" />
                     <span>Không thu phụ phí lab</span>
                   </div>
                 </div>
@@ -275,7 +191,7 @@ export default function HomePage() {
                 <div className="home-hover-card p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                   <div className="flex flex-col gap-space-sm">
                     <div className="w-12 h-12 rounded-lg bg-[#F58232] text-white flex items-center justify-center shadow-md">
-                      <span className="material-symbols-outlined text-[28px]">card_membership</span>
+                      <Icon name="card_membership" className="text-[28px]" />
                     </div>
                     <span className="font-label-md text-label-md text-[#F58232] uppercase font-bold tracking-wide">Trụ cột 03</span>
                     <h3 className="font-headline-sm text-headline-sm text-primary font-bold group-hover:text-[#F58232] transition-colors">
@@ -286,7 +202,7 @@ export default function HomePage() {
                     </p>
                   </div>
                   <div className="pt-space-md mt-space-md flex items-center gap-space-xs text-primary font-label-md text-label-md">
-                    <span className="material-symbols-outlined text-[16px] text-green-600">check</span>
+                    <Icon name="check" className="text-[16px] text-green-600" />
                     <span>Hàng trăm suất mỗi khóa</span>
                   </div>
                 </div>
@@ -295,7 +211,7 @@ export default function HomePage() {
                 <div className="home-hover-card p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
                   <div className="flex flex-col gap-space-sm">
                     <div className="w-12 h-12 rounded-lg bg-tertiary-container text-white flex items-center justify-center shadow-md">
-                      <span className="material-symbols-outlined text-[28px]">receipt_long</span>
+                      <Icon name="receipt_long" className="text-[28px]" />
                     </div>
                     <span className="font-label-md text-label-md text-tertiary uppercase font-bold tracking-wide">Trụ cột 04</span>
                     <h3 className="font-headline-sm text-headline-sm text-primary font-bold group-hover:text-tertiary transition-colors">
@@ -306,7 +222,7 @@ export default function HomePage() {
                     </p>
                   </div>
                   <div className="pt-space-md mt-space-md flex items-center gap-space-xs text-primary font-label-md text-label-md">
-                    <span className="material-symbols-outlined text-[16px] text-green-600">check</span>
+                    <Icon name="check" className="text-[16px] text-green-600" />
                     <span>Ký cam kết nhập học</span>
                   </div>
                 </div>
@@ -315,7 +231,7 @@ export default function HomePage() {
               {/* Action Anchor to Admissions Details */}
               <div className="mt-space-xl p-space-lg bg-surface-container rounded-xl flex flex-col sm:flex-row items-center justify-between gap-space-md">
                 <div className="flex items-center gap-space-md">
-                  <span className="material-symbols-outlined text-[36px] text-primary">contact_support</span>
+                  <Icon name="contact_support" className="text-[36px] text-primary" />
                   <div>
                     <h4 className="font-title text-title text-primary font-bold">Bạn cần hướng dẫn thủ tục nhận bù học phí 100%?</h4>
                     <p className="font-body-sm text-body-sm text-on-surface-variant">Bộ phận tuyển sinh sẽ hỗ trợ hoàn thiện hồ sơ gửi phòng GD&amp;ĐT địa phương nhanh nhất.</p>
@@ -326,7 +242,7 @@ export default function HomePage() {
                   href="/tuyen-sinh"
                 >
                   <span>Tìm Hiểu Chi Tiết Đề Án Tuyển Sinh</span>
-                  <span className="material-symbols-outlined text-[18px]">open_in_new</span>
+                  <Icon name="open_in_new" className="text-[18px]" />
                 </Link>
               </div>
             </div>
@@ -339,13 +255,13 @@ export default function HomePage() {
                 {/* Left: Image grid showing real activities */}
                 <div className="lg:col-span-6 grid grid-cols-2 gap-space-md">
                   <div className="flex flex-col gap-space-md">
-                    <div className="home-image-frame h-64 rounded-2xl overflow-hidden bg-surface-container shadow-md">
+                    <div className="home-image-frame aspect-square rounded-2xl overflow-hidden bg-surface-container shadow-md">
                       <Image
-                        className="w-full h-full object-contain"
-                        alt="Học viên cùng nhau trao đổi trong giờ học thực hành"
-                        src="/images/learning-practice.jpg"
-                        width={1200}
-                        height={630}
+                        className="w-full h-full object-cover"
+                        alt="Học sinh IES nhận chứng nhận trong hoạt động tại trường"
+                        src="/images/ies-student-awards.png"
+                        width={206}
+                        height={206}
                         sizes="(max-width: 640px) 40vw, (max-width: 1024px) 30vw, 25vw"
                       />
                     </div>
@@ -356,19 +272,19 @@ export default function HomePage() {
                   </div>
                   <div className="flex flex-col gap-space-md pt-space-lg">
                     <div className="home-hover-card h-44 rounded-2xl overflow-hidden shadow-md bg-surface-container-lowest p-space-md flex flex-col justify-between">
-                      <span className="material-symbols-outlined text-[36px] text-secondary">workspace_premium</span>
+                      <Icon name="workspace_premium" className="text-[36px] text-secondary" />
                       <div>
                         <span className="font-headline-md text-headline-md font-black text-primary">98,5%</span>
                         <p className="font-body-sm text-[12px] text-on-surface-variant">Tỷ lệ có việc làm theo số liệu IES</p>
                       </div>
                     </div>
-                    <div className="home-image-frame h-64 rounded-2xl overflow-hidden bg-surface-container shadow-md">
+                    <div className="home-image-frame aspect-square rounded-2xl overflow-hidden bg-surface-container shadow-md">
                       <Image
-                        className="w-full h-full object-contain"
-                        alt="Học sinh tham gia hoạt động tư vấn hướng nghiệp tại trường"
-                        src="/images/school-outreach-event.jpg"
-                        width={1024}
-                        height={768}
+                        className="w-full h-full object-cover"
+                        alt="Học sinh IES tham gia hoạt động tập thể tại trường"
+                        src="/images/ies-student-event.png"
+                        width={206}
+                        height={206}
                         sizes="(max-width: 640px) 40vw, (max-width: 1024px) 30vw, 25vw"
                       />
                     </div>
@@ -387,7 +303,7 @@ export default function HomePage() {
                   <div className="space-y-space-md pt-space-xs">
                     <div className="flex items-start gap-space-md">
                       <div className="w-10 h-10 rounded-lg bg-surface-container-highest text-primary flex items-center justify-center flex-shrink-0 mt-1">
-                        <span className="material-symbols-outlined text-[24px]">badge</span>
+                        <Icon name="badge" className="text-[24px]" />
                       </div>
                       <div className="flex flex-col">
                         <h3 className="font-title text-title text-primary font-bold">100% Giảng Viên Là Chuyên Gia Doanh Nghiệp</h3>
@@ -396,7 +312,7 @@ export default function HomePage() {
                     </div>
                     <div className="flex items-start gap-space-md">
                       <div className="w-10 h-10 rounded-lg bg-surface-container-highest text-primary flex items-center justify-center flex-shrink-0 mt-1">
-                        <span className="material-symbols-outlined text-[24px]">desktop_mac</span>
+                        <Icon name="desktop_mac" className="text-[24px]" />
                       </div>
                       <div className="flex flex-col">
                         <h3 className="font-title text-title text-primary font-bold">Cơ Sở Vật Chất Hiện Đại &amp; Studio Sáng Tạo</h3>
@@ -405,7 +321,7 @@ export default function HomePage() {
                     </div>
                     <div className="flex items-start gap-space-md">
                       <div className="w-10 h-10 rounded-lg bg-surface-container-highest text-primary flex items-center justify-center flex-shrink-0 mt-1">
-                        <span className="material-symbols-outlined text-[24px]">work_history</span>
+                        <Icon name="work_history" className="text-[24px]" />
                       </div>
                       <div className="flex flex-col">
                         <h3 className="font-title text-title text-primary font-bold">Cam Kết Hỗ Trợ Giới Thiệu Việc Làm</h3>
@@ -419,7 +335,7 @@ export default function HomePage() {
                       href="/gioi-thieu"
                     >
                       <span>Tìm Hiểu Lịch Sử &amp; Sứ Mệnh IES</span>
-                      <span className="material-symbols-outlined text-[20px]">arrow_forward</span>
+                      <Icon name="arrow_forward" className="text-[20px]" />
                     </Link>
                   </div>
                 </div>
@@ -438,7 +354,7 @@ export default function HomePage() {
                 {/* Form Left Information */}
                 <div className="lg:col-span-5 flex flex-col gap-space-md">
                   <div className="inline-flex items-center gap-space-xs bg-[#F58232] text-white px-space-md py-1 rounded-full font-label-md text-label-md uppercase tracking-wider w-fit shadow">
-                    <span className="material-symbols-outlined text-[16px]">how_to_reg</span>
+                    <Icon name="how_to_reg" className="text-[16px]" />
                     <span>Cổng Tiếp Nhận Hồ Sơ 2026</span>
                   </div>
                   <h2 className="font-headline-lg text-headline-lg font-bold leading-tight text-white">
@@ -451,26 +367,26 @@ export default function HomePage() {
                   <div className="space-y-space-sm pt-space-xs">
                     <div className="flex items-center gap-space-sm">
                       <div className="w-8 h-8 rounded-full bg-tertiary-fixed/20 text-tertiary-fixed flex items-center justify-center flex-shrink-0">
-                        <span className="material-symbols-outlined text-[18px]">task_alt</span>
+                        <Icon name="task_alt" className="text-[18px]" />
                       </div>
                       <span className="font-body-md text-body-md">Xét tuyển bằng học bạ - Tuyệt đối không thi cử căng thẳng</span>
                     </div>
                     <div className="flex items-center gap-space-sm">
                       <div className="w-8 h-8 rounded-full bg-tertiary-fixed/20 text-tertiary-fixed flex items-center justify-center flex-shrink-0">
-                        <span className="material-symbols-outlined text-[18px]">task_alt</span>
+                        <Icon name="task_alt" className="text-[18px]" />
                       </div>
                       <span className="font-body-md text-body-md">Hỗ trợ trọn gói thủ tục hồ sơ hỗ trợ học phí cấp phường/xã</span>
                     </div>
                     <div className="flex items-center gap-space-sm">
                       <div className="w-8 h-8 rounded-full bg-tertiary-fixed/20 text-tertiary-fixed flex items-center justify-center flex-shrink-0">
-                        <span className="material-symbols-outlined text-[18px]">task_alt</span>
+                        <Icon name="task_alt" className="text-[18px]" />
                       </div>
                       <span className="font-body-md text-body-md">Ký túc xá tiện nghi, an ninh cho học sinh ở xa</span>
                     </div>
                   </div>
                   <div className="p-space-md bg-white/10 rounded-xl backdrop-blur-sm mt-space-sm">
                     <div className="flex items-center gap-space-sm">
-                      <span className="material-symbols-outlined text-[32px] text-[#F58232]">headset_mic</span>
+                      <Icon name="headset_mic" className="text-[32px] text-[#F58232]" />
                       <div className="flex flex-col">
                         <span className="font-label-md text-label-md uppercase tracking-wider text-white/90">Tổng Đài Tư Vấn Tuyển Sinh Miễn Phí</span>
                         <div className="flex flex-wrap gap-x-3">
@@ -497,7 +413,7 @@ export default function HomePage() {
             <div className="max-w-[1240px] mx-auto px-margin-sm md:px-margin">
               <div className="flex flex-col sm:flex-row items-center justify-between gap-space-md">
                 <div className="flex items-center gap-space-sm text-primary font-title text-title">
-                  <span className="material-symbols-outlined text-[24px] text-secondary">explore</span>
+                  <Icon name="explore" className="text-[24px] text-secondary" />
                   <span>Khám phá thêm thông tin hữu ích về IES:</span>
                 </div>
                 <div className="flex flex-wrap items-center gap-space-sm">

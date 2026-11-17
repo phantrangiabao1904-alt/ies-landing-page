@@ -1,4 +1,5 @@
 'use client';
+import Icon from '@/components/ui/Icon';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -23,7 +24,7 @@ export default function SiteHeader() {
       {/* Announcement Bar */}
       <div className="bg-[#0F5587] text-white py-1.5 px-4 md:px-8 text-center overflow-hidden">
         <div className="max-w-[1240px] mx-auto flex items-center justify-center gap-2 font-['Montserrat',sans-serif] text-[9px] leading-4 font-semibold tracking-[0.04em] sm:text-[11px] sm:leading-5">
-          <span className="material-symbols-outlined text-[16px] text-[#acedff]">campaign</span>
+          <Icon name="campaign" className="text-[16px] text-[#acedff]" />
           <span className="sm:hidden">
             TUYỂN SINH 2026 • TƯ VẤN HỌC PHÍ NGHỀ
           </span>
@@ -77,7 +78,7 @@ export default function SiteHeader() {
               href="/dang-ky"
               className="min-h-[44px] whitespace-nowrap bg-[#F58232] hover:bg-[#e07122] text-white px-3 py-1.5 rounded-lg font-['Montserrat',sans-serif] text-[11px] font-bold tracking-[0.02em] shadow-sm hover:shadow-md transition-all flex items-center gap-1"
             >
-              <span className="material-symbols-outlined text-[14px]">how_to_reg</span>
+              <Icon name="how_to_reg" className="text-[14px]" />
               <span>Đăng Ký</span>
             </Link>
 
@@ -86,7 +87,7 @@ export default function SiteHeader() {
                 className="flex h-11 w-11 list-none cursor-pointer items-center justify-center rounded-lg transition-colors hover:bg-[#F5F8FA] [&::-webkit-details-marker]:hidden"
                 aria-label="Mở menu điều hướng"
               >
-                <span className="material-symbols-outlined text-[24px] text-[#0F5587]">menu</span>
+                <Icon name="menu" className="text-[24px] text-[#0F5587]" />
               </summary>
               <nav className="absolute right-0 top-[calc(100%+10px)] flex w-[calc(100vw-2rem)] max-w-[22rem] flex-col gap-1 border-t border-[#D9E2EA] bg-white px-4 py-4 shadow-lg">
                 {navLinks.map((link) => (

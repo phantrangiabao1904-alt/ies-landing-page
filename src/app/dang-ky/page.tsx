@@ -1,4 +1,5 @@
 'use client';
+import Icon from '@/components/ui/Icon';
 
 import React, { useState, useRef } from 'react';
 import Link from 'next/link';
@@ -45,12 +46,12 @@ export default function DangKyPage() {
           <div className="max-w-[1240px] mx-auto px-4 md:px-8 flex items-center justify-between">
             <nav aria-label="Breadcrumb" className="flex items-center gap-2 font-label-md text-xs text-on-surface-variant">
               <Link href="/" className="hover:text-primary transition-colors flex items-center gap-1">
-                <span className="material-symbols-outlined text-[15px]">home</span>
+                <Icon name="home" className="text-[15px]" />
                 <span>Trang Chủ</span>
               </Link>
-              <span className="material-symbols-outlined text-[13px] text-outline">chevron_right</span>
+              <Icon name="chevron_right" className="text-[13px] text-outline" />
               <Link href="/tuyen-sinh" className="hover:text-primary transition-colors">Tuyển Sinh</Link>
-              <span className="material-symbols-outlined text-[13px] text-outline">chevron_right</span>
+              <Icon name="chevron_right" className="text-[13px] text-outline" />
               <span className="text-primary font-bold">Đăng Ký Xét Tuyển Trực Tuyến</span>
             </nav>
             <div className="hidden sm:flex items-center gap-2 font-code text-xs text-primary bg-primary/5 px-3 py-1 rounded-full border border-primary/10">
@@ -64,7 +65,7 @@ export default function DangKyPage() {
         <div className="max-w-[1240px] mx-auto px-4 md:px-8 pt-8 pb-6">
           <div className="flex flex-col gap-2">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F6EEE5] text-[#F58232] font-label-md text-xs font-bold w-fit border border-[#F58232]/20">
-              <span className="material-symbols-outlined text-[15px]">verified</span>
+              <Icon name="verified" className="text-[15px]" />
               <span>TUYỂN SINH NĂM 2026 • TOÀN QUỐC</span>
             </div>
             <h1 className="font-display text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F5587] tracking-tight leading-tight">
@@ -78,7 +79,7 @@ export default function DangKyPage() {
           <div className="site-card mt-4 rounded-xl border border-primary/20 bg-white p-4 shadow-sm">
             <div className="flex items-start gap-3">
               <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                <span className="material-symbols-outlined text-[20px]">checklist</span>
+                <Icon name="checklist" className="text-[20px]" />
               </div>
               <div>
                 <p className="text-sm font-bold text-[#0F5587]">Biểu mẫu gồm 3 phần</p>
@@ -434,7 +435,7 @@ export default function DangKyPage() {
                       </>
                     ) : (
                       <>
-                        <span className="material-symbols-outlined text-[22px]">send</span>
+                        <Icon name="send" className="text-[22px]" />
                         <span>GỬI HỒ SƠ XÉT TUYỂN &amp; GIỮ SUẤT HỌC BỔNG</span>
                       </>
                     )}
@@ -452,7 +453,7 @@ export default function DangKyPage() {
               <div className="site-card bg-white rounded-2xl p-6 border border-[#D9E2EA] shadow-sm flex flex-col gap-4">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
-                    <span className="material-symbols-outlined text-[28px]">support_agent</span>
+                    <Icon name="support_agent" className="text-[28px]" />
                   </div>
                   <div>
                     <span className="text-[11px] font-bold text-primary uppercase tracking-wider block">Hỗ Trợ Nhanh 24/7</span>
@@ -473,30 +474,30 @@ export default function DangKyPage() {
               {/* 5 PRIVILEGES */}
               <div className="site-card bg-gradient-to-br from-[#0F5587] to-[#3764AF] text-white rounded-2xl p-6 shadow-md flex flex-col gap-4 border border-white/10">
                 <div className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-[#2DBEDC]">verified</span>
+                  <Icon name="verified" className="text-[#2DBEDC]" />
                   <h4 className="font-title text-base font-bold text-white uppercase tracking-wide">
                     5 ĐẶC QUYỀN THÍ SINH 2026
                   </h4>
                 </div>
                 <ul className="flex flex-col gap-2.5 text-xs text-white/90">
                   <li className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-[#2DBEDC] text-[16px]">check</span>
+                    <Icon name="check" className="text-[#2DBEDC] text-[16px]" />
                     <span>Hỗ trợ học phí nghề theo điều kiện của Nghị định 81</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-[#2DBEDC] text-[16px]">check</span>
+                    <Icon name="check" className="text-[#2DBEDC] text-[16px]" />
                     <span>Tặng ngay 2.000.000đ học bổng đầu khóa</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-[#2DBEDC] text-[16px]">check</span>
+                    <Icon name="check" className="text-[#2DBEDC] text-[16px]" />
                     <span>Hỗ trợ định hướng và giới thiệu việc làm phù hợp</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-[#2DBEDC] text-[16px]">check</span>
+                    <Icon name="check" className="text-[#2DBEDC] text-[16px]" />
                     <span>Miễn 100% lệ phí xét tuyển và nhập học</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-[#2DBEDC] text-[16px]">check</span>
+                    <Icon name="check" className="text-[#2DBEDC] text-[16px]" />
                     <span>Được hỗ trợ thủ tục hồ sơ vay vốn ưu đãi</span>
                   </li>
                 </ul>
@@ -506,7 +507,7 @@ export default function DangKyPage() {
               <div className="site-card bg-white rounded-2xl p-5 border border-[#D9E2EA] shadow-sm flex flex-col gap-3">
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#0F5587]/10 text-[#0F5587]">
-                    <span className="material-symbols-outlined">support_agent</span>
+                    <Icon name="support_agent" />
                   </div>
                   <div>
                     <h5 className="font-title text-xs font-bold text-[#0F5587]">Tư vấn tuyển sinh IES</h5>

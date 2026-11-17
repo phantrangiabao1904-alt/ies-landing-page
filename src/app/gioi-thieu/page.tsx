@@ -1,3 +1,4 @@
+import Icon from '@/components/ui/Icon';
 import Link from 'next/link';
 import Image from 'next/image';
 import SiteHeader from '@/components/layout/SiteHeader';
@@ -27,7 +28,7 @@ export default function GioiThieuPage() {
                 href="/"
                 className="hover:text-[#0F5587] flex items-center gap-1 transition-colors"
               >
-                <span className="material-symbols-outlined text-[16px]">home</span>
+                <Icon name="home" className="text-[16px]" />
                 <span>Trang Chủ</span>
               </Link>
               <span className="text-[#D9E2EA]">/</span>
@@ -48,9 +49,7 @@ export default function GioiThieuPage() {
               {/* Left Column (7 cols) */}
               <div className="lg:col-span-7 flex flex-col gap-6">
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0F5587]/10 text-[#0F5587] text-[13px] font-semibold font-['Montserrat',sans-serif] w-fit border border-[#0F5587]/20">
-                  <span className="material-symbols-outlined text-[18px] text-[#F58232]">
-                    verified
-                  </span>
+                  <Icon name="verified" className="text-[18px] text-[#F58232]" />
                   <span>Hành Trình Kiến Tạo Tương Lai</span>
                 </div>
 
@@ -73,14 +72,14 @@ export default function GioiThieuPage() {
                     className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#F58232] text-white font-['Montserrat',sans-serif] font-bold text-[14px] shadow-md hover:bg-[#e07328] transition-all transform hover:-translate-y-0.5"
                   >
                     <span>Đăng Ký Tư Vấn Ngay</span>
-                    <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    <Icon name="arrow_forward" className="text-[18px]" />
                   </Link>
 
                   <a
                     href="#tam-nhin-su-menh"
                     className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border-2 border-[#0F5587] text-[#0F5587] font-['Montserrat',sans-serif] font-bold text-[14px] hover:bg-[#0F5587]/5 transition-all"
                   >
-                    <span className="material-symbols-outlined text-[18px]">explore</span>
+                    <Icon name="explore" className="text-[18px]" />
                     <span>Khám Phá IES</span>
                   </a>
                 </div>
@@ -88,21 +87,15 @@ export default function GioiThieuPage() {
                 {/* Trust Badges */}
                 <div className="pt-4 flex flex-wrap items-center gap-6 border-t border-[#D9E2EA] text-[13px] text-[#5D6B78]">
                   <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-[#2DBEDC] text-[20px]">
-                      check_circle
-                    </span>
+                    <Icon name="check_circle" className="text-[#2DBEDC] text-[20px]" />
                     <span>Bằng chính quy toàn quốc</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-[#F58232] text-[20px]">
-                      payments
-                    </span>
+                    <Icon name="payments" className="text-[#F58232] text-[20px]" />
                     <span>Miễn 100% học phí nghề</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-[#0F5587] text-[20px]">
-                      work
-                    </span>
+                    <Icon name="work" className="text-[#0F5587] text-[20px]" />
                     <span>Cam kết giới thiệu việc làm</span>
                   </div>
                 </div>
@@ -128,7 +121,7 @@ export default function GioiThieuPage() {
                 <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
                   <div className="flex items-center gap-3 rounded-xl border border-[#D9E2EA] bg-white p-3 shadow-sm">
                     <div className="w-10 h-10 rounded-lg bg-[#0F5587]/10 flex items-center justify-center text-[#0F5587]">
-                      <span className="material-symbols-outlined text-[22px]">history_edu</span>
+                      <Icon name="history_edu" className="text-[22px]" />
                     </div>
                     <div>
                       <div className="text-[11px] font-semibold text-[#5D6B78] uppercase tracking-wider font-['Montserrat',sans-serif]">
@@ -141,7 +134,7 @@ export default function GioiThieuPage() {
                   </div>
                   <div className="flex items-center gap-3 rounded-xl border border-[#D9E2EA] bg-white p-3 shadow-sm">
                     <div className="w-10 h-10 rounded-lg bg-[#2DBEDC]/10 flex items-center justify-center text-[#2DBEDC] flex-shrink-0">
-                      <span className="material-symbols-outlined text-[22px]">verified_user</span>
+                      <Icon name="verified_user" className="text-[22px]" />
                     </div>
                     <div>
                       <div className="font-['Montserrat',sans-serif] font-bold text-[13px] text-[#0F5587] leading-tight">
@@ -240,7 +233,7 @@ export default function GioiThieuPage() {
                 <div>
                   <div className="flex items-center justify-between mb-6">
                     <div className="w-14 h-14 rounded-2xl bg-[#2DBEDC]/10 flex items-center justify-center text-[#2DBEDC]">
-                      <span className="material-symbols-outlined text-[32px]">visibility</span>
+                      <Icon name="visibility" className="text-[32px]" />
                     </div>
                     <span className="font-['Montserrat',sans-serif] text-[12px] font-extrabold uppercase tracking-widest text-[#2DBEDC] bg-[#2DBEDC]/10 px-3 py-1 rounded-full">
                       Vision 2030
@@ -260,7 +253,7 @@ export default function GioiThieuPage() {
                 </div>
 
                 <div className="pt-4 border-t border-[#D9E2EA] flex items-center gap-2 text-[#2DBEDC] font-['Montserrat',sans-serif] text-[13px] font-bold">
-                  <span className="material-symbols-outlined text-[18px]">verified</span>
+                  <Icon name="verified" className="text-[18px]" />
                   <span>Định vị trường trung cấp công nghệ thực chiến chuẩn mực</span>
                 </div>
               </div>
@@ -270,7 +263,7 @@ export default function GioiThieuPage() {
                 <div>
                   <div className="flex items-center justify-between mb-6">
                     <div className="w-14 h-14 rounded-2xl bg-[#F58232]/10 flex items-center justify-center text-[#F58232]">
-                      <span className="material-symbols-outlined text-[32px]">track_changes</span>
+                      <Icon name="track_changes" className="text-[32px]" />
                     </div>
                     <span className="font-['Montserrat',sans-serif] text-[12px] font-extrabold uppercase tracking-widest text-[#F58232] bg-[#F58232]/10 px-3 py-1 rounded-full">
                       Our Mission
@@ -290,7 +283,7 @@ export default function GioiThieuPage() {
                 </div>
 
                 <div className="pt-4 border-t border-[#D9E2EA] flex items-center gap-2 text-[#F58232] font-['Montserrat',sans-serif] text-[13px] font-bold">
-                  <span className="material-symbols-outlined text-[18px]">handshake</span>
+                  <Icon name="handshake" className="text-[18px]" />
                   <span>Đồng hành cùng phụ huynh &amp; tương lai con em</span>
                 </div>
               </div>
@@ -322,7 +315,7 @@ export default function GioiThieuPage() {
                       01
                     </span>
                     <div className="w-10 h-10 rounded-xl bg-[#0F5587]/10 flex items-center justify-center text-[#0F5587]">
-                      <span className="material-symbols-outlined text-[20px]">precision_manufacturing</span>
+                      <Icon name="precision_manufacturing" className="text-[20px]" />
                     </div>
                   </div>
                   <h3 className="font-['Montserrat',sans-serif] text-[18px] font-bold text-[#0F5587] mb-2">
@@ -346,7 +339,7 @@ export default function GioiThieuPage() {
                       02
                     </span>
                     <div className="w-10 h-10 rounded-xl bg-[#F58232]/10 flex items-center justify-center text-[#F58232]">
-                      <span className="material-symbols-outlined text-[20px]">favorite</span>
+                      <Icon name="favorite" className="text-[20px]" />
                     </div>
                   </div>
                   <h3 className="font-['Montserrat',sans-serif] text-[18px] font-bold text-[#0F5587] mb-2">
@@ -370,7 +363,7 @@ export default function GioiThieuPage() {
                       03
                     </span>
                     <div className="w-10 h-10 rounded-xl bg-[#2DBEDC]/10 flex items-center justify-center text-[#2DBEDC]">
-                      <span className="material-symbols-outlined text-[20px]">rocket_launch</span>
+                      <Icon name="rocket_launch" className="text-[20px]" />
                     </div>
                   </div>
                   <h3 className="font-['Montserrat',sans-serif] text-[18px] font-bold text-[#0F5587] mb-2">
@@ -394,7 +387,7 @@ export default function GioiThieuPage() {
                       04
                     </span>
                     <div className="w-10 h-10 rounded-xl bg-[#3764AF]/10 flex items-center justify-center text-[#3764AF]">
-                      <span className="material-symbols-outlined text-[20px]">verified</span>
+                      <Icon name="verified" className="text-[20px]" />
                     </div>
                   </div>
                   <h3 className="font-['Montserrat',sans-serif] text-[18px] font-bold text-[#0F5587] mb-2">
@@ -443,7 +436,7 @@ export default function GioiThieuPage() {
                   của UBND TP.HCM, đặt nền móng chuyên sâu về Tin học và Kinh tế ứng dụng.
                 </p>
                 <div className="mt-4 flex items-center gap-1.5 text-[12px] text-[#0F5587] font-semibold">
-                  <span className="material-symbols-outlined text-[16px]">flag</span>
+                  <Icon name="flag" className="text-[16px]" />
                   <span>Khởi đầu sứ mệnh giáo dục nghề</span>
                 </div>
               </div>
@@ -461,7 +454,7 @@ export default function GioiThieuPage() {
                   nghề, giúp học sinh tốt nghiệp THCS nhận bằng trung cấp ở tuổi 18.
                 </p>
                 <div className="mt-4 flex items-center gap-1.5 text-[12px] text-[#2DBEDC] font-semibold">
-                  <span className="material-symbols-outlined text-[16px]">school</span>
+                  <Icon name="school" className="text-[16px]" />
                   <span>Chuẩn hóa chương trình 9+</span>
                 </div>
               </div>
@@ -479,7 +472,7 @@ export default function GioiThieuPage() {
                   công nghệ, tài chính và truyền thông nhằm bao tiêu đầu ra cho sinh viên.
                 </p>
                 <div className="mt-4 flex items-center gap-1.5 text-[12px] text-[#F58232] font-semibold">
-                  <span className="material-symbols-outlined text-[16px]">business_center</span>
+                  <Icon name="business_center" className="text-[16px]" />
                   <span>Mạng lưới đối tác doanh nghiệp</span>
                 </div>
               </div>
@@ -497,7 +490,7 @@ export default function GioiThieuPage() {
                   mại điện tử số và mở rộng liên thông thẳng lên Đại học uy tín.
                 </p>
                 <div className="mt-4 flex items-center gap-1.5 text-[12px] text-[#3764AF] font-semibold">
-                  <span className="material-symbols-outlined text-[16px]">trending_up</span>
+                  <Icon name="trending_up" className="text-[16px]" />
                   <span>Đổi mới toàn diện kỷ nguyên số</span>
                 </div>
               </div>
@@ -524,9 +517,7 @@ export default function GioiThieuPage() {
               {/* Leader 1 */}
               <div className="bg-white rounded-2xl overflow-hidden border border-[#D9E2EA] shadow-sm hover:shadow-lg transition-all flex flex-col">
                 <div className="w-full h-64 bg-gradient-to-br from-[#0F5587] to-[#3764AF] flex items-center justify-center relative">
-                  <span className="material-symbols-outlined text-white/30 text-[80px]">
-                    account_circle
-                  </span>
+                  <Icon name="account_circle" className="text-white/30 text-[80px]" />
                   <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-[12px] font-bold text-[#0F5587] font-['Montserrat',sans-serif]">
                     Hiệu Trưởng
                   </div>
@@ -546,7 +537,7 @@ export default function GioiThieuPage() {
                     </p>
                   </div>
                   <div className="mt-6 pt-4 border-t border-[#D9E2EA] flex items-center gap-2 text-[12px] text-[#5D6B78]">
-                    <span className="material-symbols-outlined text-[#0F5587] text-[16px]">mail</span>
+                    <Icon name="mail" className="text-[#0F5587] text-[16px]" />
                     <a href={`mailto:${schoolContact.email}`}>{schoolContact.email}</a>
                   </div>
                 </div>
@@ -555,9 +546,7 @@ export default function GioiThieuPage() {
               {/* Leader 2 */}
               <div className="bg-white rounded-2xl overflow-hidden border border-[#D9E2EA] shadow-sm hover:shadow-lg transition-all flex flex-col">
                 <div className="w-full h-64 bg-gradient-to-br from-[#3764AF] to-[#2DBEDC] flex items-center justify-center relative">
-                  <span className="material-symbols-outlined text-white/30 text-[80px]">
-                    account_circle
-                  </span>
+                  <Icon name="account_circle" className="text-white/30 text-[80px]" />
                   <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-[12px] font-bold text-[#0F5587] font-['Montserrat',sans-serif]">
                     Phó Hiệu Trưởng Đào Tạo
                   </div>
@@ -577,7 +566,7 @@ export default function GioiThieuPage() {
                     </p>
                   </div>
                   <div className="mt-6 pt-4 border-t border-[#D9E2EA] flex items-center gap-2 text-[12px] text-[#5D6B78]">
-                    <span className="material-symbols-outlined text-[#0F5587] text-[16px]">mail</span>
+                    <Icon name="mail" className="text-[#0F5587] text-[16px]" />
                     <a href={`mailto:${schoolContact.email}`}>{schoolContact.email}</a>
                   </div>
                 </div>
@@ -586,9 +575,7 @@ export default function GioiThieuPage() {
               {/* Leader 3 */}
               <div className="bg-white rounded-2xl overflow-hidden border border-[#D9E2EA] shadow-sm hover:shadow-lg transition-all flex flex-col">
                 <div className="w-full h-64 bg-gradient-to-br from-[#0F5587] to-[#F58232] flex items-center justify-center relative">
-                  <span className="material-symbols-outlined text-white/30 text-[80px]">
-                    account_circle
-                  </span>
+                  <Icon name="account_circle" className="text-white/30 text-[80px]" />
                   <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-[12px] font-bold text-[#0F5587] font-['Montserrat',sans-serif]">
                     Trưởng Ban Hợp Tác Doanh Nghiệp
                   </div>
@@ -608,7 +595,7 @@ export default function GioiThieuPage() {
                     </p>
                   </div>
                   <div className="mt-6 pt-4 border-t border-[#D9E2EA] flex items-center gap-2 text-[12px] text-[#5D6B78]">
-                    <span className="material-symbols-outlined text-[#0F5587] text-[16px]">mail</span>
+                    <Icon name="mail" className="text-[#0F5587] text-[16px]" />
                     <a href={`mailto:${schoolContact.email}`}>{schoolContact.email}</a>
                   </div>
                 </div>
@@ -637,13 +624,11 @@ export default function GioiThieuPage() {
               {/* Item 1: 8-col Lab */}
               <div className="lg:col-span-8 h-[340px] rounded-3xl overflow-hidden relative shadow-md group">
                 <div className="w-full h-full bg-gradient-to-br from-[#0F5587] via-[#3764AF] to-[#2DBEDC] flex items-center justify-center">
-                  <span className="material-symbols-outlined text-white/20 text-[100px] group-hover:scale-110 transition-transform duration-300">
-                    desktop_windows
-                  </span>
+                  <Icon name="desktop_windows" className="text-white/20 text-[100px] group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0F5587] via-[#0F5587]/40 to-transparent flex flex-col justify-end p-8 text-white">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md w-fit text-[12px] font-bold font-['Montserrat',sans-serif] mb-2">
-                    <span className="material-symbols-outlined text-[16px] text-[#acedff]">memory</span>
+                    <Icon name="memory" className="text-[16px] text-[#acedff]" />
                     <span>Phòng Lab Chuyên Dụng</span>
                   </div>
                   <h3 className="font-['Montserrat',sans-serif] text-[22px] sm:text-[24px] font-bold">
@@ -659,13 +644,11 @@ export default function GioiThieuPage() {
               {/* Item 2: 4-col Studio */}
               <div className="lg:col-span-4 h-[340px] rounded-3xl overflow-hidden relative shadow-md group">
                 <div className="w-full h-full bg-gradient-to-br from-[#3764AF] to-[#0F5587] flex items-center justify-center">
-                  <span className="material-symbols-outlined text-white/20 text-[90px] group-hover:scale-110 transition-transform duration-300">
-                    videocam
-                  </span>
+                  <Icon name="videocam" className="text-white/20 text-[90px] group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0F5587] via-[#0F5587]/40 to-transparent flex flex-col justify-end p-6 text-white">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md w-fit text-[12px] font-bold font-['Montserrat',sans-serif] mb-2">
-                    <span className="material-symbols-outlined text-[16px] text-[#acedff]">podcasts</span>
+                    <Icon name="podcasts" className="text-[16px] text-[#acedff]" />
                     <span>Sáng Tạo Nội Dung</span>
                   </div>
                   <h3 className="font-['Montserrat',sans-serif] text-[20px] font-bold">
@@ -680,13 +663,11 @@ export default function GioiThieuPage() {
               {/* Item 3: 4-col Library */}
               <div className="lg:col-span-4 h-[320px] rounded-3xl overflow-hidden relative shadow-md group">
                 <div className="w-full h-full bg-gradient-to-br from-[#0F5587] to-[#F58232] flex items-center justify-center">
-                  <span className="material-symbols-outlined text-white/20 text-[90px] group-hover:scale-110 transition-transform duration-300">
-                    menu_book
-                  </span>
+                  <Icon name="menu_book" className="text-white/20 text-[90px] group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0F5587] via-[#0F5587]/40 to-transparent flex flex-col justify-end p-6 text-white">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md w-fit text-[12px] font-bold font-['Montserrat',sans-serif] mb-2">
-                    <span className="material-symbols-outlined text-[16px] text-[#F58232]">local_library</span>
+                    <Icon name="local_library" className="text-[16px] text-[#F58232]" />
                     <span>Không Gian Tự Học</span>
                   </div>
                   <h3 className="font-['Montserrat',sans-serif] text-[20px] font-bold">
@@ -701,13 +682,11 @@ export default function GioiThieuPage() {
               {/* Item 4: 8-col Dormitory */}
               <div className="lg:col-span-8 h-[320px] rounded-3xl overflow-hidden relative shadow-md group">
                 <div className="w-full h-full bg-gradient-to-br from-[#2DBEDC] via-[#3764AF] to-[#0F5587] flex items-center justify-center">
-                  <span className="material-symbols-outlined text-white/20 text-[100px] group-hover:scale-110 transition-transform duration-300">
-                    apartment
-                  </span>
+                  <Icon name="apartment" className="text-white/20 text-[100px] group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0F5587] via-[#0F5587]/40 to-transparent flex flex-col justify-end p-8 text-white">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md w-fit text-[12px] font-bold font-['Montserrat',sans-serif] mb-2">
-                    <span className="material-symbols-outlined text-[16px] text-[#acedff]">sports_soccer</span>
+                    <Icon name="sports_soccer" className="text-[16px] text-[#acedff]" />
                     <span>Tiện Ích Toàn Diện</span>
                   </div>
                   <h3 className="font-['Montserrat',sans-serif] text-[22px] sm:text-[24px] font-bold">
@@ -741,7 +720,7 @@ export default function GioiThieuPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
               <div className="bg-white rounded-2xl p-6 border border-[#D9E2EA] shadow-sm flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-[#0F5587]/10 flex items-center justify-center text-[#0F5587] flex-shrink-0">
-                  <span className="material-symbols-outlined text-[24px]">gavel</span>
+                  <Icon name="gavel" className="text-[24px]" />
                 </div>
                 <div>
                   <h3 className="font-['Montserrat',sans-serif] text-[16px] font-bold text-[#0F5587] mb-1">
@@ -756,7 +735,7 @@ export default function GioiThieuPage() {
 
               <div className="bg-white rounded-2xl p-6 border border-[#D9E2EA] shadow-sm flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-[#2DBEDC]/10 flex items-center justify-center text-[#2DBEDC] flex-shrink-0">
-                  <span className="material-symbols-outlined text-[24px]">verified</span>
+                  <Icon name="verified" className="text-[24px]" />
                 </div>
                 <div>
                   <h3 className="font-['Montserrat',sans-serif] text-[16px] font-bold text-[#0F5587] mb-1">
@@ -771,7 +750,7 @@ export default function GioiThieuPage() {
 
               <div className="bg-white rounded-2xl p-6 border border-[#D9E2EA] shadow-sm flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-[#F58232]/10 flex items-center justify-center text-[#F58232] flex-shrink-0">
-                  <span className="material-symbols-outlined text-[24px]">price_check</span>
+                  <Icon name="price_check" className="text-[24px]" />
                 </div>
                 <div>
                   <h3 className="font-['Montserrat',sans-serif] text-[16px] font-bold text-[#0F5587] mb-1">
@@ -788,7 +767,7 @@ export default function GioiThieuPage() {
             {/* IES 9+ Pathway Diagram (Progress Steps) */}
             <div className="bg-white rounded-3xl p-8 sm:p-10 border border-[#D9E2EA] shadow-sm">
               <h3 className="font-['Montserrat',sans-serif] text-[20px] font-bold text-[#0F5587] mb-6 flex items-center gap-2">
-                <span className="material-symbols-outlined text-[#F58232]">alt_route</span>
+                <Icon name="alt_route" className="text-[#F58232]" />
                 <span>Sơ Đồ Lộ Trình Đào Tạo IES 9+ Tối Ưu Thời Gian</span>
               </h3>
 
@@ -819,7 +798,7 @@ export default function GioiThieuPage() {
                     trợ 100% học phí nghề theo quy định.
                   </p>
                   <div className="mt-3 text-[12px] text-[#0F5587] font-semibold flex items-center gap-1">
-                    <span className="material-symbols-outlined text-[16px]">check</span>
+                    <Icon name="check" className="text-[16px]" />
                     <span>Vững kiến thức nền tảng</span>
                   </div>
                 </div>
@@ -850,7 +829,7 @@ export default function GioiThieuPage() {
                     Trung cấp chính quy và Chứng nhận hoàn thành văn hóa THPT.
                   </p>
                   <div className="mt-3 text-[12px] text-[#2DBEDC] font-semibold flex items-center gap-1">
-                    <span className="material-symbols-outlined text-[16px]">check</span>
+                    <Icon name="check" className="text-[16px]" />
                     <span>Tốt nghiệp nghề ở tuổi 18</span>
                   </div>
                 </div>
@@ -881,7 +860,7 @@ export default function GioiThieuPage() {
                     1.5 — 2 năm lấy bằng Cử nhân / Kỹ sư Đại học chính quy.
                   </p>
                   <div className="mt-3 text-[12px] text-[#F58232] font-semibold flex items-center gap-1">
-                    <span className="material-symbols-outlined text-[16px]">check</span>
+                    <Icon name="check" className="text-[16px]" />
                     <span>Tiết kiệm 3 năm so với lộ trình thường</span>
                   </div>
                 </div>
@@ -913,7 +892,7 @@ export default function GioiThieuPage() {
                     {schoolContact.campuses.map((campus, index) => (
                       <div key={campus.value} className="flex items-start gap-3.5 p-3.5 rounded-xl bg-[#F5F8FA] border border-[#D9E2EA]/70">
                         <div className={`w-10 h-10 rounded-lg ${index === 0 ? 'bg-[#0F5587]/10 text-[#0F5587]' : 'bg-[#2DBEDC]/10 text-[#2DBEDC]'} flex items-center justify-center flex-shrink-0 mt-0.5`}>
-                          <span className="material-symbols-outlined text-[20px]">location_on</span>
+                          <Icon name="location_on" className="text-[20px]" />
                         </div>
                         <div>
                           <div className="font-['Montserrat',sans-serif] font-bold text-[14px] text-[#0F5587]">
@@ -929,26 +908,20 @@ export default function GioiThieuPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-[13px]">
                     {schoolContact.phoneNumbers.map((phone) => (
                       <div key={phone.number} className="flex items-center gap-2 text-[#5D6B78]">
-                        <span className="material-symbols-outlined text-[#F58232] text-[18px]">call</span>
+                        <Icon name="call" className="text-[#F58232] text-[18px]" />
                         <a href={phone.href}>Hotline: {phone.number}</a>
                       </div>
                     ))}
                     <div className="flex items-center gap-2 text-[#5D6B78]">
-                      <span className="material-symbols-outlined text-[#0F5587] text-[18px]">
-                        mail
-                      </span>
+                      <Icon name="mail" className="text-[#0F5587] text-[18px]" />
                       <a href={`mailto:${schoolContact.email}`}>{schoolContact.email}</a>
                     </div>
                     <div className="flex items-center gap-2 text-[#5D6B78]">
-                      <span className="material-symbols-outlined text-[#2DBEDC] text-[18px]">
-                        schedule
-                      </span>
+                      <Icon name="schedule" className="text-[#2DBEDC] text-[18px]" />
                       <span>T2 - T7: 07:30 - 17:30</span>
                     </div>
                     <div className="flex items-center gap-2 text-[#5D6B78]">
-                      <span className="material-symbols-outlined text-[#3764AF] text-[18px]">
-                        language
-                      </span>
+                      <Icon name="language" className="text-[#3764AF] text-[18px]" />
                       <a href={schoolContact.websiteUrl} target="_blank" rel="noreferrer">{schoolContact.website}</a>
                     </div>
                   </div>
@@ -959,7 +932,7 @@ export default function GioiThieuPage() {
                   <div className="w-full h-[320px] sm:h-[380px] rounded-2xl overflow-hidden border border-[#D9E2EA] bg-gradient-to-br from-[#0F5587]/5 via-[#2DBEDC]/10 to-[#F58232]/5 flex flex-col items-center justify-center p-8 text-center relative group">
                     {/* Simulated Map Elements */}
                     <div className="w-16 h-16 rounded-full bg-white shadow-xl flex items-center justify-center text-[#F58232] mb-3 group-hover:scale-110 transition-transform">
-                      <span className="material-symbols-outlined text-[36px]">location_on</span>
+                      <Icon name="location_on" className="text-[36px]" />
                     </div>
                     <div className="font-['Montserrat',sans-serif] font-bold text-[17px] text-[#0F5587]">
                       Bản Đồ Chỉ Đường Đến IES Sài Gòn
@@ -974,7 +947,7 @@ export default function GioiThieuPage() {
                       rel="noopener noreferrer"
                       className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0F5587] text-white text-[13px] font-['Montserrat',sans-serif] font-semibold hover:bg-[#3764AF] transition-colors shadow-sm"
                     >
-                      <span className="material-symbols-outlined text-[16px]">directions</span>
+                      <Icon name="directions" className="text-[16px]" />
                       <span>Mở Bản Đồ Google Maps</span>
                     </a>
                   </div>
@@ -1012,14 +985,14 @@ export default function GioiThieuPage() {
                     className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#F58232] text-white font-['Montserrat',sans-serif] font-bold text-[15px] shadow-lg hover:bg-[#e07328] transition-all transform hover:-translate-y-0.5"
                   >
                     <span>Nộp Hồ Sơ Trực Tuyến</span>
-                    <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    <Icon name="arrow_forward" className="text-[18px]" />
                   </Link>
 
                   <a
                     href={schoolContact.phoneNumbers[0].href}
                     className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-white/30 text-white font-['Montserrat',sans-serif] font-semibold text-[15px] hover:bg-white/10 transition-all"
                   >
-                    <span className="material-symbols-outlined text-[18px]">call</span>
+                    <Icon name="call" className="text-[18px]" />
                     <span>Liên Hệ Tư Vấn 1-1</span>
                   </a>
                 </div>

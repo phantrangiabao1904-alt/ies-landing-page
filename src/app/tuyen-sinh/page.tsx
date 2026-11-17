@@ -1,3 +1,4 @@
+import Icon from '@/components/ui/Icon';
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -23,10 +24,10 @@ export default function TuyenSinhPage() {
             <div className="max-w-[1240px] mx-auto px-margin-sm md:px-margin flex items-center justify-between">
               <nav aria-label="Breadcrumb" className="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
                 <Link href="/" className="hover:text-primary transition-colors flex items-center gap-1">
-                  <span className="material-symbols-outlined text-[16px]">home</span>
+                  <Icon name="home" className="text-[16px]" />
                   <span>Trang Chủ</span>
                 </Link>
-                <span className="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+                <Icon name="chevron_right" className="text-[14px] text-outline" />
                 <span className="text-primary font-bold">Tuyển Sinh 2026</span>
               </nav>
               <div className="hidden md:flex items-center gap-space-xs font-code text-code text-primary bg-surface-container px-space-sm py-1 rounded-lg">
@@ -44,7 +45,7 @@ export default function TuyenSinhPage() {
                 <div className="lg:col-span-7 flex flex-col gap-space-md">
                   <div className="flex flex-wrap items-center gap-space-xs">
                     <span className="bg-primary/10 text-primary font-label-md text-label-md px-space-sm py-1 rounded-lg font-bold tracking-wide flex items-center gap-1">
-                      <span className="material-symbols-outlined text-[16px]">verified_user</span>
+                      <Icon name="verified_user" className="text-[16px]" />
                       ĐỀ ÁN TUYỂN SINH NĂM 2026
                     </span>
                     <a
@@ -53,9 +54,9 @@ export default function TuyenSinhPage() {
                       rel="noopener noreferrer"
                       className="bg-[#F6EEE5] text-[#F58232] font-label-md text-label-md px-space-sm py-1 rounded-lg font-bold flex items-center gap-1 hover:bg-[#f9e3d2] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F58232]"
                     >
-                      <span className="material-symbols-outlined text-[16px]">savings</span>
+                      <Icon name="savings" className="text-[16px]" />
                       Nghị định 81/2021/NĐ-CP
-                      <span className="material-symbols-outlined text-[14px]" aria-hidden="true">open_in_new</span>
+                      <Icon name="open_in_new" className="text-[14px]" />
                     </a>
                     <a
                       href={decree24DocumentUrl}
@@ -63,7 +64,7 @@ export default function TuyenSinhPage() {
                       rel="noopener noreferrer"
                       className="bg-[#F6EEE5] text-[#F58232] font-label-md text-label-md px-space-sm py-1 rounded-lg font-bold flex items-center gap-1 hover:bg-[#f9e3d2] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F58232]"
                     >
-                      <span className="material-symbols-outlined text-[16px]">picture_as_pdf</span>
+                      <Icon name="picture_as_pdf" className="text-[16px]" />
                       Nghị định 24/2022/NĐ-CP (PDF)
                     </a>
                   </div>
@@ -100,27 +101,27 @@ export default function TuyenSinhPage() {
                       href="#form-xet-tuyen"
                       className="bg-[#F58232] hover:bg-[#e07122] text-white px-space-xl py-3 rounded-xl font-label-lg text-label-lg shadow-md hover:shadow-lg transition-all flex items-center gap-space-xs text-center font-bold tracking-wide"
                     >
-                      <span className="material-symbols-outlined text-[20px]">how_to_reg</span>
+                      <Icon name="how_to_reg" className="text-[20px]" />
                       <span>Nộp Hồ Sơ Xét Tuyển Online</span>
                     </a>
                     <a
                       href="#checklist-ho-so"
                       className="bg-surface-container hover:bg-surface-container-high text-primary px-space-lg py-3 rounded-xl font-label-lg text-label-lg transition-all flex items-center gap-space-xs font-bold"
                     >
-                      <span className="material-symbols-outlined text-[20px]">download</span>
+                      <Icon name="download" className="text-[20px]" />
                       <span>Quy Trình Hồ Sơ</span>
                     </a>
                   </div>
 
                   <div className="flex items-center gap-space-md pt-space-xs text-on-surface-variant font-body-sm text-body-sm">
                     <span className="flex items-center gap-1 text-primary font-medium">
-                      <span className="material-symbols-outlined text-[16px] text-tertiary-container">check_circle</span> Phê duyệt 24h
+                      <Icon name="check_circle" className="text-[16px] text-tertiary-container" /> Phê duyệt 24h
                     </span>
                     <span className="flex items-center gap-1 text-primary font-medium">
-                      <span className="material-symbols-outlined text-[16px] text-tertiary-container">check_circle</span> Ký kết việc làm
+                      <Icon name="check_circle" className="text-[16px] text-tertiary-container" /> Ký kết việc làm
                     </span>
                     <span className="flex items-center gap-1 text-primary font-medium">
-                      <span className="material-symbols-outlined text-[16px] text-tertiary-container">check_circle</span> Hỗ trợ vay vốn 0%
+                      <Icon name="check_circle" className="text-[16px] text-tertiary-container" /> Hỗ trợ vay vốn 0%
                     </span>
                   </div>
                 </div>
@@ -131,7 +132,7 @@ export default function TuyenSinhPage() {
                     <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#F58232]"></div>
                     <div className="flex items-start justify-between gap-space-sm mb-space-sm">
                       <span className="inline-flex items-center gap-1 text-[#F58232] font-label-md text-label-md uppercase tracking-wider font-bold">
-                        <span className="material-symbols-outlined text-[18px]">emergency_home</span> Đợt Tuyển Sinh 1 Mở Cổng
+                        <Icon name="emergency_home" className="text-[18px]" /> Đợt Tuyển Sinh 1 Mở Cổng
                       </span>
                       <span className="bg-secondary-fixed text-on-secondary-fixed font-code text-code px-2 py-0.5 rounded">Tuyển sinh 2026</span>
                     </div>
@@ -219,21 +220,21 @@ export default function TuyenSinhPage() {
                     </p>
                     <div className="space-y-space-sm mb-space-lg">
                       <div className="flex items-start gap-space-sm bg-surface-container-low p-space-sm rounded-lg">
-                        <span className="material-symbols-outlined text-primary text-[20px] mt-0.5">verified</span>
+                        <Icon name="verified" className="text-primary text-[20px] mt-0.5" />
                         <div>
                           <span className="font-title text-title text-primary block font-bold">Điều kiện xét tuyển</span>
                           <p className="font-body-sm text-body-sm text-on-surface-variant">Xét học bạ THCS (Điểm trung bình cả năm lớp 9 đạt từ 5.0 trở lên, hạnh kiểm Khá).</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-space-sm bg-[#F6EEE5]/60 p-space-sm rounded-lg">
-                        <span className="material-symbols-outlined text-[#F58232] text-[20px] mt-0.5">payments</span>
+                        <Icon name="payments" className="text-[#F58232] text-[20px] mt-0.5" />
                         <div>
                           <span className="font-title text-title text-[#F58232] block font-bold">Đặc quyền Học phí 0 Đồng</span>
                           <p className="font-body-sm text-body-sm text-on-surface-variant">Nhà nước cấp bù 100% học phí nghề theo NĐ 81/2021/NĐ-CP trong toàn bộ khóa đào tạo.</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-space-sm bg-surface-container-low p-space-sm rounded-lg">
-                        <span className="material-symbols-outlined text-primary text-[20px] mt-0.5">school</span>
+                        <Icon name="school" className="text-primary text-[20px] mt-0.5" />
                         <div>
                           <span className="font-title text-title text-primary block font-bold">Bằng cấp sau tốt nghiệp</span>
                           <p className="font-body-sm text-body-sm text-on-surface-variant">Bằng Trung cấp Chính quy + Chứng chỉ hoàn thành chương trình Giáo dục Phổ thông.</p>
@@ -246,7 +247,7 @@ export default function TuyenSinhPage() {
                     className="w-full bg-[#F58232] hover:bg-[#e07122] text-white py-3 rounded-lg font-label-lg text-label-lg text-center font-bold shadow-sm transition-all flex items-center justify-center gap-space-xs"
                   >
                     <span>Đăng Ký Xét Tuyển Hệ 9+</span>
-                    <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    <Icon name="arrow_forward" className="text-[18px]" />
                   </a>
                 </div>
 
@@ -266,21 +267,21 @@ export default function TuyenSinhPage() {
                     </p>
                     <div className="space-y-space-sm mb-space-lg">
                       <div className="flex items-start gap-space-sm bg-surface-container-low p-space-sm rounded-lg">
-                        <span className="material-symbols-outlined text-primary text-[20px] mt-0.5">verified</span>
+                        <Icon name="verified" className="text-primary text-[20px] mt-0.5" />
                         <div>
                           <span className="font-title text-title text-primary block font-bold">Điều kiện xét tuyển</span>
                           <p className="font-body-sm text-body-sm text-on-surface-variant">Xét tuyển học bạ lớp 12 (hoặc kết quả thi tốt nghiệp THPT Quốc gia).</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-space-sm bg-surface-container-low p-space-sm rounded-lg">
-                        <span className="material-symbols-outlined text-primary text-[20px] mt-0.5">business_center</span>
+                        <Icon name="business_center" className="text-primary text-[20px] mt-0.5" />
                         <div>
                           <span className="font-title text-title text-primary block font-bold">Đặc quyền Chuyên Môn Tinh Gọn</span>
                           <p className="font-body-sm text-body-sm text-on-surface-variant">1 học kỳ thực tập hưởng lương tại doanh nghiệp đối tác, nhận chứng nhận kinh nghiệm.</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-space-sm bg-surface-container-low p-space-sm rounded-lg">
-                        <span className="material-symbols-outlined text-primary text-[20px] mt-0.5">trending_up</span>
+                        <Icon name="trending_up" className="text-primary text-[20px] mt-0.5" />
                         <div>
                           <span className="font-title text-title text-primary block font-bold">Cơ hội liên thông Đại học</span>
                           <p className="font-body-sm text-body-sm text-on-surface-variant">Liên thông thẳng lên Đại học Kinh tế, ĐH Mở, Sư phạm Kỹ thuật chỉ từ 1 đến 1.5 năm.</p>
@@ -293,7 +294,7 @@ export default function TuyenSinhPage() {
                     className="w-full bg-primary hover:bg-primary-container text-white py-3 rounded-lg font-label-lg text-label-lg text-center font-bold shadow-sm transition-all flex items-center justify-center gap-space-xs"
                   >
                     <span>Đăng Ký Xét Tuyển Hệ Tốt Nghiệp 12</span>
-                    <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    <Icon name="arrow_forward" className="text-[18px]" />
                   </a>
                 </div>
               </div>
@@ -320,8 +321,8 @@ export default function TuyenSinhPage() {
                   <div className="relative aspect-[4/3] w-full bg-surface-container-high">
                     <Image
                       className="object-cover"
-                      alt="Học sinh tham dự buổi tư vấn tuyển sinh tại sân trường"
-                      src="/images/admissions-school-outreach.jpg"
+                      alt="Học sinh tham gia hoạt động học tập tại trường"
+                      src="/images/ies-classroom-activities.png"
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
@@ -350,8 +351,8 @@ export default function TuyenSinhPage() {
                   <div className="relative aspect-[4/3] w-full bg-surface-container-high">
                     <Image
                       className="object-cover"
-                      alt="Cán bộ IES trao đổi và tư vấn cùng học sinh"
-                      src="/images/admissions-student-guidance.jpg"
+                      alt="Giáo viên hướng dẫn học sinh thực hành máy tính"
+                      src="/images/ies-computer-practice.png"
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
@@ -370,7 +371,7 @@ export default function TuyenSinhPage() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
                 <div className="lg:col-span-5 flex flex-col gap-space-md">
                   <div className="inline-flex items-center gap-space-xs bg-[#F58232] text-white px-space-md py-1 rounded-full font-label-md text-label-md uppercase tracking-wider w-fit shadow">
-                    <span className="material-symbols-outlined text-[16px]">how_to_reg</span>
+                    <Icon name="how_to_reg" className="text-[16px]" />
                     <span>Cổng Tiếp Nhận Hồ Sơ 2026</span>
                   </div>
                   <h2 className="font-headline-lg text-headline-lg font-bold leading-tight">
@@ -383,19 +384,19 @@ export default function TuyenSinhPage() {
                   <div className="space-y-space-sm pt-space-xs">
                     <div className="flex items-center gap-space-sm">
                       <div className="w-8 h-8 rounded-full bg-tertiary-fixed/20 text-tertiary-fixed flex items-center justify-center flex-shrink-0">
-                        <span className="material-symbols-outlined text-[18px]">task_alt</span>
+                        <Icon name="task_alt" className="text-[18px]" />
                       </div>
                       <span className="font-body-md text-body-md">Xét tuyển bằng học bạ - Tuyệt đối không thi cử căng thẳng</span>
                     </div>
                     <div className="flex items-center gap-space-sm">
                       <div className="w-8 h-8 rounded-full bg-tertiary-fixed/20 text-tertiary-fixed flex items-center justify-center flex-shrink-0">
-                        <span className="material-symbols-outlined text-[18px]">task_alt</span>
+                        <Icon name="task_alt" className="text-[18px]" />
                       </div>
                       <span className="font-body-md text-body-md">Hỗ trợ trọn gói thủ tục hồ sơ hỗ trợ học phí cấp phường/xã</span>
                     </div>
                     <div className="flex items-center gap-space-sm">
                       <div className="w-8 h-8 rounded-full bg-tertiary-fixed/20 text-tertiary-fixed flex items-center justify-center flex-shrink-0">
-                        <span className="material-symbols-outlined text-[18px]">task_alt</span>
+                        <Icon name="task_alt" className="text-[18px]" />
                       </div>
                       <span className="font-body-md text-body-md">Ký túc xá tiện nghi, an ninh cho học sinh ở xa</span>
                     </div>
@@ -421,7 +422,7 @@ export default function TuyenSinhPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
                 <div className="site-card bg-surface-container-lowest p-space-lg rounded-xl shadow-sm border border-outline-variant/30 flex flex-col gap-space-sm">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center font-bold">
-                    <span className="material-symbols-outlined text-[22px]">description</span>
+                    <Icon name="description" className="text-[22px]" />
                   </div>
                   <h3 className="font-title text-title text-primary font-bold">1. Giấy Tờ Học Tập</h3>
                   <ul className="space-y-2 text-body-sm text-on-surface-variant">
@@ -433,7 +434,7 @@ export default function TuyenSinhPage() {
 
                 <div className="site-card bg-surface-container-lowest p-space-lg rounded-xl shadow-sm border border-outline-variant/30 flex flex-col gap-space-sm">
                   <div className="w-10 h-10 rounded-lg bg-secondary/10 text-secondary flex items-center justify-center font-bold">
-                    <span className="material-symbols-outlined text-[22px]">badge</span>
+                    <Icon name="badge" className="text-[22px]" />
                   </div>
                   <h3 className="font-title text-title text-primary font-bold">2. Giấy Tờ Tùy Thân</h3>
                   <ul className="space-y-2 text-body-sm text-on-surface-variant">
@@ -445,7 +446,7 @@ export default function TuyenSinhPage() {
 
                 <div className="site-card bg-surface-container-lowest p-space-lg rounded-xl shadow-sm border border-outline-variant/30 flex flex-col gap-space-sm">
                   <div className="w-10 h-10 rounded-lg bg-[#F58232]/10 text-[#F58232] flex items-center justify-center font-bold">
-                    <span className="material-symbols-outlined text-[22px]">savings</span>
+                    <Icon name="savings" className="text-[22px]" />
                   </div>
                   <h3 className="font-title text-title text-primary font-bold">3. Hồ Sơ Nhận Miễn Học Phí</h3>
                   <ul className="space-y-2 text-body-sm text-on-surface-variant">

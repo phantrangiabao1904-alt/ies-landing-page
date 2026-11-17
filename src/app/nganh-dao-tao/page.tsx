@@ -1,3 +1,4 @@
+import Icon from '@/components/ui/Icon';
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -92,10 +93,10 @@ export default function NganhDaoTaoPage() {
             <div className="max-w-[1240px] mx-auto px-margin-sm md:px-margin flex items-center justify-between">
               <nav aria-label="Breadcrumb" className="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
                 <Link href="/" className="hover:text-primary transition-colors flex items-center gap-1">
-                  <span className="material-symbols-outlined text-[16px]">home</span>
+                  <Icon name="home" className="text-[16px]" />
                   <span>Trang Chủ</span>
                 </Link>
-                <span className="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+                <Icon name="chevron_right" className="text-[14px] text-outline" />
                 <span className="text-primary font-bold">Ngành Đào Tạo</span>
               </nav>
               <div className="hidden md:flex items-center gap-space-xs font-code text-code text-primary bg-surface-container px-space-sm py-1 rounded-lg">
@@ -111,7 +112,7 @@ export default function NganhDaoTaoPage() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
                 <div className="lg:col-span-8 flex flex-col gap-space-md">
                   <div className="inline-flex items-center gap-space-xs bg-[#e3efff] text-primary px-space-md py-1.5 rounded-full font-label-md text-label-md font-bold w-fit border border-primary/20">
-                    <span className="material-symbols-outlined text-[18px]">verified</span>
+                    <Icon name="verified" className="text-[18px]" />
                     <span>ĐÀO TẠO THỰC HÀNH CHIẾM 70% THỜI LƯỢNG HỌC TẬP</span>
                   </div>
                   <h1 className="font-display text-2xl sm:text-4xl lg:text-5xl text-primary tracking-tight font-extrabold leading-tight">
@@ -125,7 +126,7 @@ export default function NganhDaoTaoPage() {
                 <div className="lg:col-span-4 bg-gradient-to-br from-[#0F5587] to-[#3764AF] text-white p-space-lg rounded-2xl shadow-xl flex flex-col gap-space-md border border-white/10">
                   <div className="flex items-center gap-space-sm">
                     <div className="w-10 h-10 rounded-xl bg-[#F58232] flex items-center justify-center text-white font-bold shadow-md">
-                      <span className="material-symbols-outlined text-[24px]">verified_user</span>
+                      <Icon name="verified_user" className="text-[24px]" />
                     </div>
                     <div>
                       <span className="font-label-md text-[11px] text-[#2DBEDC] uppercase tracking-wider block font-bold">Hỗ trợ hướng nghiệp</span>
@@ -140,7 +141,7 @@ export default function NganhDaoTaoPage() {
                     className="inline-flex items-center justify-center gap-space-xs bg-[#F58232] hover:bg-[#d96a1e] text-white font-title text-title font-bold py-space-sm px-space-md rounded-xl transition-all shadow-md text-center"
                   >
                     <span>Đăng Ký Nhận Tư Vấn Ngay</span>
-                    <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    <Icon name="arrow_forward" className="text-[18px]" />
                   </Link>
                 </div>
               </div>
@@ -250,7 +251,7 @@ export default function NganhDaoTaoPage() {
                       {/* Salary Bar */}
                       <div className="p-space-sm bg-[#F6EEE5]/60 border border-[#F58232]/20 rounded-xl flex items-center justify-between mt-auto">
                         <div className="flex items-center gap-2">
-                          <span className="material-symbols-outlined text-[#F58232] text-[20px]">payments</span>
+                          <Icon name="payments" className="text-[#F58232] text-[20px]" />
                           <span className="font-label-md text-xs font-bold text-on-surface">Thu nhập tham khảo:</span>
                         </div>
                         <span className="font-title text-sm font-bold text-[#F58232]">{m.salary}</span>
@@ -269,7 +270,7 @@ export default function NganhDaoTaoPage() {
                           className="min-h-[44px] w-full px-3 py-2.5 rounded-xl bg-primary hover:bg-[#0c446c] text-white font-title text-sm font-bold text-center transition-colors shadow-sm flex items-center justify-center gap-1"
                         >
                           <span>Đăng ký ngành này</span>
-                          <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                          <Icon name="arrow_forward" className="text-[16px]" />
                         </Link>
                       </div>
                     </div>
@@ -296,7 +297,7 @@ export default function NganhDaoTaoPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
                 <div className="bg-surface-container-low p-space-lg rounded-2xl border border-outline-variant/40 flex flex-col gap-space-sm">
                   <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold">
-                    <span className="material-symbols-outlined text-[28px]">school</span>
+                    <Icon name="school" className="text-[28px]" />
                   </div>
                   <h3 className="font-title text-title text-primary font-bold">Học Bằng Thực Lực</h3>
                   <p className="font-body-sm text-on-surface-variant leading-relaxed">
@@ -306,7 +307,7 @@ export default function NganhDaoTaoPage() {
 
                 <div className="bg-surface-container-low p-space-lg rounded-2xl border border-outline-variant/40 flex flex-col gap-space-sm">
                   <div className="w-12 h-12 rounded-xl bg-[#2DBEDC]/10 text-[#0F5587] flex items-center justify-center font-bold">
-                    <span className="material-symbols-outlined text-[28px]">handshake</span>
+                    <Icon name="handshake" className="text-[28px]" />
                   </div>
                   <h3 className="font-title text-title text-primary font-bold">Doanh Nghiệp Đồng Hành</h3>
                   <p className="font-body-sm text-on-surface-variant leading-relaxed">
@@ -316,7 +317,7 @@ export default function NganhDaoTaoPage() {
 
                 <div className="bg-surface-container-low p-space-lg rounded-2xl border border-outline-variant/40 flex flex-col gap-space-sm">
                   <div className="w-12 h-12 rounded-xl bg-[#F58232]/10 text-[#F58232] flex items-center justify-center font-bold">
-                    <span className="material-symbols-outlined text-[28px]">savings</span>
+                    <Icon name="savings" className="text-[28px]" />
                   </div>
                   <h3 className="font-title text-title text-primary font-bold">Học Phí 0 Đồng</h3>
                   <p className="font-body-sm text-on-surface-variant leading-relaxed">
@@ -333,7 +334,7 @@ export default function NganhDaoTaoPage() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
                 <div className="lg:col-span-6 flex flex-col gap-space-md">
                   <div className="inline-flex items-center gap-space-xs bg-[#F58232] text-white px-space-sm py-1 rounded-full font-label-md text-label-md font-bold w-fit">
-                    <span className="material-symbols-outlined text-[16px]">redeem</span>
+                    <Icon name="redeem" className="text-[16px]" />
                     <span>SUẤT HỌC BỔNG ĐẦU VÀO 2.000.000Đ</span>
                   </div>
                   <h2 className="font-display text-display-md text-white font-bold leading-tight">
@@ -344,20 +345,20 @@ export default function NganhDaoTaoPage() {
                   </p>
                   <ul className="flex flex-col gap-space-xs text-white/95 font-body-sm">
                     <li className="flex items-center gap-2">
-                      <span className="material-symbols-outlined text-[#2DBEDC]">check_circle</span>
+                      <Icon name="check_circle" className="text-[#2DBEDC]" />
                       <span>Xét tuyển thẳng bằng học bạ — Không thi tuyển áp lực</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="material-symbols-outlined text-[#2DBEDC]">check_circle</span>
+                      <Icon name="check_circle" className="text-[#2DBEDC]" />
                       <span>Tặng gói học bổng tân sinh viên trị giá 2.000.000đ</span>
                     </li>
                     <li className="flex items-center gap-2">
-                      <span className="material-symbols-outlined text-[#2DBEDC]">check_circle</span>
+                      <Icon name="check_circle" className="text-[#2DBEDC]" />
                       <span>Miễn 100% lệ phí xét tuyển &amp; tư vấn hồ sơ miễn phí</span>
                     </li>
                   </ul>
                   <div className="mt-space-sm flex items-center gap-space-sm font-code text-sm">
-                    <span className="material-symbols-outlined text-[#2DBEDC]">call</span>
+                    <Icon name="call" className="text-[#2DBEDC]" />
                     <span>
                       Hotline Tuyển sinh:{' '}
                       {schoolContact.phoneNumbers.map((phone, index) => (

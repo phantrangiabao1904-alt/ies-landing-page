@@ -1,3 +1,4 @@
+import Icon from '@/components/ui/Icon';
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -22,10 +23,10 @@ export default function ChuongTrinhHocPage() {
           <section className="w-full bg-surface-container-low py-space-sm px-margin-sm md:px-margin">
             <div className="max-w-[1240px] mx-auto flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
               <Link href="/" className="hover:text-primary transition-colors flex items-center gap-1">
-                <span className="material-symbols-outlined text-[16px]">home</span>
+                <Icon name="home" className="text-[16px]" />
                 <span>Trang Chủ</span>
               </Link>
-              <span className="material-symbols-outlined text-[14px]">chevron_right</span>
+              <Icon name="chevron_right" className="text-[14px]" />
               <span className="text-primary font-semibold">Chương Trình Học</span>
             </div>
           </section>
@@ -49,7 +50,7 @@ export default function ChuongTrinhHocPage() {
               <div className="lg:col-span-7 flex flex-col gap-space-md">
                 {/* Badge Tag */}
                 <div className="inline-flex items-center gap-space-xs bg-surface-container px-space-sm py-1 rounded-full text-primary w-fit font-label-md text-label-md shadow-sm">
-                  <span className="material-symbols-outlined text-[16px] text-tertiary">school</span>
+                  <Icon name="school" className="text-[16px] text-tertiary" />
                   <span>CHƯƠNG TRÌNH ĐÀO TẠO THỰC CHIẾN 9+ &amp; TRUNG CẤP CHÍNH QUY</span>
                 </div>
                 {/* Main Title */}
@@ -67,7 +68,7 @@ export default function ChuongTrinhHocPage() {
                 {/* Highlights Policy Pill */}
                 <div className="flex items-center gap-space-sm bg-surface-container-lowest p-space-sm rounded-xl shadow-sm">
                   <div className="w-10 h-10 rounded-lg bg-[#F58232]/10 flex items-center justify-center flex-shrink-0 text-[#F58232]">
-                    <span className="material-symbols-outlined text-[24px]">verified_user</span>
+                    <Icon name="verified_user" className="text-[24px]" />
                   </div>
                   <div className="flex flex-col">
                     <span className="font-title text-title text-primary text-sm font-bold">Hỗ trợ học phí nghề theo chính sách Nhà nước</span>
@@ -98,14 +99,14 @@ export default function ChuongTrinhHocPage() {
                     href="#dang-ky-tu-van"
                     className="bg-[#F58232] hover:bg-[#e07122] text-white px-space-lg py-3 rounded-xl font-label-lg text-label-lg shadow-md hover:shadow-lg transition-all flex items-center gap-space-xs text-center font-bold tracking-wide"
                   >
-                    <span className="material-symbols-outlined text-[20px]">how_to_reg</span>
+                    <Icon name="how_to_reg" className="text-[20px]" />
                     <span>Đăng Ký Xét Tuyển Ngay</span>
                   </a>
                   <a
                     href="#khung-chuong-trinh"
                     className="bg-primary text-white hover:bg-primary-container px-space-lg py-3 rounded-xl font-label-lg text-label-lg shadow-sm hover:shadow-md transition-all flex items-center gap-space-xs"
                   >
-                    <span className="material-symbols-outlined text-[20px]">download</span>
+                    <Icon name="download" className="text-[20px]" />
                     <span>Tải Khung Đào Tạo</span>
                   </a>
                 </div>
@@ -131,7 +132,7 @@ export default function ChuongTrinhHocPage() {
                   <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
                     <div className="flex min-h-[76px] items-center gap-3 rounded-xl border border-outline-variant/50 bg-surface-container-low p-3">
                       <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-tertiary/10 text-tertiary">
-                        <span className="material-symbols-outlined text-[24px]">menu_book</span>
+                        <Icon name="menu_book" className="text-[24px]" />
                       </div>
                       <div>
                         <p className="font-display-mobile text-lg font-bold leading-none text-primary">70 : 30</p>
@@ -140,7 +141,7 @@ export default function ChuongTrinhHocPage() {
                     </div>
                     <div className="flex min-h-[76px] items-center gap-3 rounded-xl border border-outline-variant/50 bg-surface-container-low p-3">
                       <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-secondary/10 text-secondary">
-                        <span className="material-symbols-outlined text-[24px]">work</span>
+                        <Icon name="work" className="text-[24px]" />
                       </div>
                       <div>
                         <p className="font-title text-sm font-bold leading-tight text-primary">Hỗ trợ kết nối</p>
@@ -170,7 +171,7 @@ export default function ChuongTrinhHocPage() {
                     <div className="flex items-center justify-between gap-space-sm mb-space-md">
                       <span className="bg-[#F58232]/10 text-[#F58232] font-label-md text-label-md px-space-sm py-1 rounded-full uppercase font-bold">Tuyển sinh tốt nghiệp THCS</span>
                       <span className="font-label-md text-label-md text-on-surface-variant flex items-center gap-1 font-semibold">
-                        <span className="material-symbols-outlined text-[16px] text-primary">schedule</span> 2.5 - 3 Năm
+                        <Icon name="schedule" className="text-[16px] text-primary" /> 2.5 - 3 Năm
                       </span>
                     </div>
                     <h3 className="font-headline-md text-headline-md text-primary font-bold mb-space-sm">Khối Hệ 9+ (Học Nghề &amp; THPT Song Bằng)</h3>
@@ -179,15 +180,15 @@ export default function ChuongTrinhHocPage() {
                     </p>
                     <ul className="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant mb-space-lg">
                       <li className="flex items-start gap-space-xs">
-                        <span className="material-symbols-outlined text-[#F58232] text-[20px] flex-shrink-0">check_circle</span>
+                        <Icon name="check_circle" className="text-[#F58232] text-[20px] flex-shrink-0" />
                         <span><strong className="text-on-surface">Miễn 100% học phí chuyên ngành nghề</strong> theo quy định cấp bù học phí Nghị định 81 của Nhà nước.</span>
                       </li>
                       <li className="flex items-start gap-space-xs">
-                        <span className="material-symbols-outlined text-[#F58232] text-[20px] flex-shrink-0">check_circle</span>
+                        <Icon name="check_circle" className="text-[#F58232] text-[20px] flex-shrink-0" />
                         <span>Nhận <strong className="text-on-surface">Bằng Trung Cấp Chính Quy</strong> và Giấy chứng nhận hoàn thành chương trình THPT.</span>
                       </li>
                       <li className="flex items-start gap-space-xs">
-                        <span className="material-symbols-outlined text-[#F58232] text-[20px] flex-shrink-0">check_circle</span>
+                        <Icon name="check_circle" className="text-[#F58232] text-[20px] flex-shrink-0" />
                         <span>Rút ngắn thời gian đại học: Đủ điều kiện thi liên thông thẳng lên Đại học/Cao đẳng chỉ từ 1.5 năm tiếp theo.</span>
                       </li>
                     </ul>
@@ -199,7 +200,7 @@ export default function ChuongTrinhHocPage() {
                       className="bg-primary hover:bg-primary-container text-white px-space-md py-2 rounded-lg font-label-md text-label-md inline-flex items-center gap-1 transition-colors"
                     >
                       <span>Đăng ký Hệ 9+</span>
-                      <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                      <Icon name="arrow_forward" className="text-[16px]" />
                     </a>
                   </div>
                 </div>
@@ -211,7 +212,7 @@ export default function ChuongTrinhHocPage() {
                     <div className="flex items-center justify-between gap-space-sm mb-space-md">
                       <span className="bg-[#2DBEDC]/15 text-[#0F5587] font-label-md text-label-md px-space-sm py-1 rounded-full uppercase font-bold">Tuyển sinh tốt nghiệp THPT</span>
                       <span className="font-label-md text-label-md text-on-surface-variant flex items-center gap-1 font-semibold">
-                        <span className="material-symbols-outlined text-[16px] text-primary">schedule</span> 1.5 - 2 Năm
+                        <Icon name="schedule" className="text-[16px] text-primary" /> 1.5 - 2 Năm
                       </span>
                     </div>
                     <h3 className="font-headline-md text-headline-md text-primary font-bold mb-space-sm">Khối Trung Cấp Nghề Thực Chiến</h3>
@@ -220,15 +221,15 @@ export default function ChuongTrinhHocPage() {
                     </p>
                     <ul className="space-y-space-sm font-body-sm text-body-sm text-on-surface-variant mb-space-lg">
                       <li className="flex items-start gap-space-xs">
-                        <span className="material-symbols-outlined text-[#0F5587] text-[20px] flex-shrink-0">check_circle</span>
+                        <Icon name="check_circle" className="text-[#0F5587] text-[20px] flex-shrink-0" />
                         <span><strong className="text-on-surface">Đào tạo theo đơn đặt hàng doanh nghiệp</strong>, làm quen với quy trình thực tế ngay từ học kỳ 2.</span>
                       </li>
                       <li className="flex items-start gap-space-xs">
-                        <span className="material-symbols-outlined text-[#0F5587] text-[20px] flex-shrink-0">check_circle</span>
+                        <Icon name="check_circle" className="text-[#0F5587] text-[20px] flex-shrink-0" />
                         <span>Được tư vấn cơ hội thực tập tại doanh nghiệp theo ngành học và kế hoạch đào tạo.</span>
                       </li>
                       <li className="flex items-start gap-space-xs">
-                        <span className="material-symbols-outlined text-[#0F5587] text-[20px] flex-shrink-0">check_circle</span>
+                        <Icon name="check_circle" className="text-[#0F5587] text-[20px] flex-shrink-0" />
                         <span>Nhận <strong className="text-on-surface">Bằng Trung Cấp Chính Quy</strong> khi hoàn thành chương trình; IES hỗ trợ giới thiệu việc làm phù hợp.</span>
                       </li>
                     </ul>
@@ -240,7 +241,7 @@ export default function ChuongTrinhHocPage() {
                       className="bg-[#F58232] hover:bg-[#e07122] text-white px-space-md py-2 rounded-lg font-label-md text-label-md inline-flex items-center gap-1 transition-colors"
                     >
                       <span>Đăng ký Xét Tuyển</span>
-                      <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                      <Icon name="arrow_forward" className="text-[16px]" />
                     </a>
                   </div>
                 </div>
@@ -257,7 +258,7 @@ export default function ChuongTrinhHocPage() {
                   <h2 className="font-headline-lg text-headline-lg text-primary font-bold">Cấu Trúc Đào Tạo Thực Chiến 70%</h2>
                 </div>
                 <div className="flex items-center gap-space-xs bg-surface-container px-space-md py-2 rounded-xl text-primary font-label-md text-label-md">
-                  <span className="material-symbols-outlined text-[20px] text-tertiary">tune</span>
+                  <Icon name="tune" className="text-[20px] text-tertiary" />
                   <span>Chuẩn Khung Năng Lực Quốc Gia</span>
                 </div>
               </div>
@@ -267,7 +268,7 @@ export default function ChuongTrinhHocPage() {
                 <div className="site-card bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
                   <div>
                     <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-space-md font-bold">
-                      <span className="material-symbols-outlined text-[26px]">terminal</span>
+                      <Icon name="terminal" className="text-[26px]" />
                     </div>
                     <span className="font-label-md text-[11px] uppercase tracking-wider text-on-surface-variant font-bold">Trụ cột 01</span>
                     <h3 className="font-headline-sm text-headline-sm text-primary font-bold mt-1 mb-space-xs">Nền Tảng Cơ Sở &amp; Tin Học</h3>
@@ -283,7 +284,7 @@ export default function ChuongTrinhHocPage() {
                 <div className="site-card bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
                   <div>
                     <div className="w-12 h-12 rounded-xl bg-tertiary/10 text-tertiary flex items-center justify-center mb-space-md font-bold">
-                      <span className="material-symbols-outlined text-[26px]">devices</span>
+                      <Icon name="devices" className="text-[26px]" />
                     </div>
                     <span className="font-label-md text-[11px] uppercase tracking-wider text-on-surface-variant font-bold">Trụ cột 02</span>
                     <h3 className="font-headline-sm text-headline-sm text-primary font-bold mt-1 mb-space-xs">Chuyên Môn &amp; Công Nghệ</h3>
@@ -299,7 +300,7 @@ export default function ChuongTrinhHocPage() {
                 <div className="site-card bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
                   <div>
                     <div className="w-12 h-12 rounded-xl bg-[#F58232]/10 text-[#F58232] flex items-center justify-center mb-space-md font-bold">
-                      <span className="material-symbols-outlined text-[26px]">rocket_launch</span>
+                      <Icon name="rocket_launch" className="text-[26px]" />
                     </div>
                     <span className="font-label-md text-[11px] uppercase tracking-wider text-on-surface-variant font-bold">Trụ cột 03</span>
                     <h3 className="font-headline-sm text-headline-sm text-primary font-bold mt-1 mb-space-xs">Dự Án Doanh Nghiệp (Capstone)</h3>
@@ -315,7 +316,7 @@ export default function ChuongTrinhHocPage() {
                 <div className="site-card bg-surface-container-lowest rounded-xl p-space-lg shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
                   <div>
                     <div className="w-12 h-12 rounded-xl bg-secondary/10 text-secondary flex items-center justify-center mb-space-md font-bold">
-                      <span className="material-symbols-outlined text-[26px]">apartment</span>
+                      <Icon name="apartment" className="text-[26px]" />
                     </div>
                     <span className="font-label-md text-[11px] uppercase tracking-wider text-on-surface-variant font-bold">Trụ cột 04</span>
                     <h3 className="font-headline-sm text-headline-sm text-primary font-bold mt-1 mb-space-xs">Thực Tập Tốt Nghiệp On-Job</h3>
@@ -420,7 +421,7 @@ export default function ChuongTrinhHocPage() {
                       <th className="p-space-md md:p-space-lg font-bold">Tiêu Chí Đánh Giá</th>
                       <th className="p-space-md md:p-space-lg font-bold bg-primary-container text-tertiary-fixed">
                         <div className="flex items-center gap-space-xs">
-                          <span className="material-symbols-outlined text-[20px]">stars</span>
+                          <Icon name="stars" className="text-[20px]" />
                           <span>Chương Trình 9+ Tại IES</span>
                         </div>
                       </th>
@@ -441,7 +442,7 @@ export default function ChuongTrinhHocPage() {
                       <td className="p-space-md md:p-space-lg font-semibold text-primary">Học Phí Chuyên Ngành</td>
                       <td className="p-space-md md:p-space-lg font-bold text-primary bg-primary/5">
                         <div className="flex items-center gap-2">
-                          <span className="material-symbols-outlined text-green-600 text-[20px]">verified</span>
+                          <Icon name="verified" className="text-green-600 text-[20px]" />
                           <span className="text-green-700 font-bold">Miễn 100% Học Phí Nghề</span>
                         </div>
                         <span className="text-xs text-on-surface-variant font-normal block mt-1">Được nhà nước cấp bù chi phí theo NĐ 81/2021/NĐ-CP.</span>
@@ -489,7 +490,7 @@ export default function ChuongTrinhHocPage() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center relative z-10">
                 <div className="lg:col-span-6 flex flex-col gap-space-md">
                   <div className="inline-flex items-center gap-space-xs bg-white/10 px-space-sm py-1 rounded-full text-tertiary-fixed w-fit font-label-md text-label-md">
-                    <span className="material-symbols-outlined text-[16px]">celebration</span>
+                    <Icon name="celebration" className="text-[16px]" />
                     <span>CHÍNH SÁCH TUYỂN SINH 2026</span>
                   </div>
                   <h2 className="font-headline-lg text-headline-lg text-white font-bold leading-tight">
@@ -500,7 +501,7 @@ export default function ChuongTrinhHocPage() {
                   </p>
                   <div className="flex flex-col sm:flex-row gap-space-md pt-space-xs">
                     <div className="flex items-center gap-space-xs">
-                      <span className="material-symbols-outlined text-[#F58232] text-[24px]">call</span>
+                      <Icon name="call" className="text-[#F58232] text-[24px]" />
                       <div>
                         <p className="font-label-md text-[11px] text-surface-variant/75 uppercase">Hotline Tư Vấn 24/7</p>
                         <div className="flex flex-wrap gap-x-2">
@@ -513,7 +514,7 @@ export default function ChuongTrinhHocPage() {
                       </div>
                     </div>
                     <div className="flex items-center gap-space-xs">
-                      <span className="material-symbols-outlined text-tertiary-fixed text-[24px]">location_on</span>
+                      <Icon name="location_on" className="text-tertiary-fixed text-[24px]" />
                       <div>
                         <p className="font-label-md text-[11px] text-surface-variant/75 uppercase">Trụ sở nộp hồ sơ</p>
                         <div className="font-body-sm text-body-sm text-white">
@@ -545,14 +546,14 @@ export default function ChuongTrinhHocPage() {
                   href="/tuyen-sinh"
                   className="bg-primary hover:bg-primary-container text-white px-space-lg py-3 rounded-xl font-label-lg text-label-lg shadow-sm hover:shadow-md transition-all flex items-center gap-space-xs font-semibold"
                 >
-                  <span className="material-symbols-outlined text-[18px]">list_alt</span>
+                  <Icon name="list_alt" className="text-[18px]" />
                   <span>Đề Án Tuyển Sinh</span>
                 </Link>
                 <a
                   href="#dang-ky-tu-van"
                   className="bg-[#F58232] hover:bg-[#e07122] text-white px-space-lg py-3 rounded-xl font-label-lg text-label-lg shadow-sm hover:shadow-md transition-all flex items-center gap-space-xs font-bold"
                 >
-                  <span className="material-symbols-outlined text-[18px]">how_to_reg</span>
+                  <Icon name="how_to_reg" className="text-[18px]" />
                   <span>Đăng Ký Xét Tuyển</span>
                 </a>
               </div>

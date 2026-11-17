@@ -1,3 +1,4 @@
+import Icon from '@/components/ui/Icon';
 import Link from 'next/link';
 import IESLogo from '@/components/brand/IESLogo';
 import { schoolContact } from '@/lib/school-info';
@@ -21,10 +22,10 @@ export default function SiteFooter() {
               className="inline-flex min-h-[44px] w-fit items-center gap-2 rounded-xl bg-[#F58232] px-5 font-['Montserrat',sans-serif] text-sm font-bold text-white shadow-sm transition motion-safe:hover:-translate-y-0.5 hover:bg-[#e07122] hover:shadow-md motion-reduce:transition-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
             >
               Đăng ký tư vấn
-              <span className="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
+              <Icon name="arrow_forward" className="text-[18px]" />
             </Link>
             <div className="flex items-center gap-1 text-[#acedff] font-['Montserrat',sans-serif] text-[12px] font-semibold">
-              <span className="material-symbols-outlined text-[18px]">verified</span>
+              <Icon name="verified" className="text-[18px]" />
               <span>Chứng nhận kiểm định chất lượng giáo dục nghề nghiệp</span>
             </div>
           </div>
@@ -37,12 +38,12 @@ export default function SiteFooter() {
             <ul className="space-y-3 font-['Inter',sans-serif] text-[13px] text-white/70">
               {schoolContact.campuses.map((campus) => (
                 <li key={campus.value} className="flex items-start gap-1">
-                  <span className="material-symbols-outlined text-[#84aefe] mt-0.5 text-[18px]">location_on</span>
+                  <Icon name="location_on" className="text-[#84aefe] mt-0.5 text-[18px]" />
                   <span>{campus.name}: {campus.address}</span>
                 </li>
               ))}
               <li className="flex items-start gap-1">
-                <span className="material-symbols-outlined text-[#84aefe] mt-0.5 text-[18px]">call</span>
+                <Icon name="call" className="text-[#84aefe] mt-0.5 text-[18px]" />
                 <span className="flex flex-wrap gap-x-2">
                   <strong>Hotline Tuyển sinh:</strong>
                   {schoolContact.phoneNumbers.map((phone) => (
@@ -53,13 +54,13 @@ export default function SiteFooter() {
                 </span>
               </li>
               <li className="flex items-start gap-1">
-                <span className="material-symbols-outlined text-[#84aefe] mt-0.5 text-[18px]">mail</span>
+                <Icon name="mail" className="text-[#84aefe] mt-0.5 text-[18px]" />
                 <a href={`mailto:${schoolContact.email}`} className="hover:text-white">
                   Email tiếp nhận hồ sơ: {schoolContact.email}
                 </a>
               </li>
               <li className="flex items-start gap-1">
-                <span className="material-symbols-outlined text-[#84aefe] mt-0.5 text-[18px]">language</span>
+                <Icon name="language" className="text-[#84aefe] mt-0.5 text-[18px]" />
                 <a href={schoolContact.websiteUrl} className="hover:text-white">
                   Website: {schoolContact.website}
                 </a>
@@ -85,7 +86,7 @@ export default function SiteFooter() {
                     href={item.href}
                     className="text-white/70 hover:text-white transition-colors flex items-center gap-1"
                   >
-                    <span className="material-symbols-outlined text-[16px]">chevron_right</span>
+                    <Icon name="chevron_right" className="text-[16px]" />
                     {item.label}
                   </Link>
                 </li>

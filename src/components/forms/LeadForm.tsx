@@ -1,4 +1,5 @@
 'use client';
+import Icon from '@/components/ui/Icon';
 
 import { useState, useRef } from 'react';
 import { submitLeadAction } from '@/actions/lead-submit';
@@ -58,7 +59,7 @@ export default function LeadForm({
             Dành cho học sinh tốt nghiệp THCS / THPT trên toàn quốc
           </p>
         </div>
-        <span className="material-symbols-outlined text-[28px] text-[#F58232]">assignment</span>
+        <Icon name="assignment" className="text-[28px] text-[#F58232]" />
       </div>
 
       <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
@@ -185,17 +186,17 @@ export default function LeadForm({
           disabled={isSubmitting}
           className="w-full bg-[#F58232] hover:bg-[#e07122] text-white py-4 rounded-xl font-['Montserrat',sans-serif] text-[16px] font-extrabold shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 mt-2 tracking-wide disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
         >
-          <span className="material-symbols-outlined text-[22px]">send</span>
+          <Icon name="send" className="text-[22px]" />
           <span>{isSubmitting ? 'ĐANG XỬ LÝ...' : 'GỬI HỒ SƠ ĐĂNG KÝ XÉT TUYỂN & NHẬN ƯU ĐÃI 100% HỌC PHÍ'}</span>
         </button>
 
         <div className="flex items-center justify-center gap-4 text-[12px] text-[#5D6B78] font-['Montserrat',sans-serif] font-semibold pt-2">
           <span className="flex items-center gap-1">
-            <span className="material-symbols-outlined text-[16px] text-green-600">lock</span> Bảo mật tuyệt đối
+            <Icon name="lock" className="text-[16px] text-green-600" /> Bảo mật tuyệt đối
           </span>
           <span>•</span>
           <span className="flex items-center gap-1">
-            <span className="material-symbols-outlined text-[16px] text-green-600">schedule</span> Phản hồi trong 30 phút
+            <Icon name="schedule" className="text-[16px] text-green-600" /> Phản hồi trong 30 phút
           </span>
         </div>
       </form>
