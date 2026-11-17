@@ -316,15 +316,17 @@ export default function TuyenSinhPage() {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
-                <figure className="overflow-hidden rounded-xl border border-outline-variant/30 bg-surface-container-lowest shadow-sm">
-                  <div className="relative aspect-[4/3] w-full bg-surface-container-high">
+              <div className="grid grid-cols-1 justify-items-center gap-space-lg md:grid-cols-3">
+                <figure className="w-full max-w-[260px] overflow-hidden rounded-xl border border-outline-variant/30 bg-surface-container-lowest shadow-sm">
+                  <div className="relative mx-auto aspect-[4/3] w-full max-w-[260px] bg-surface-container-high">
                     <Image
-                      className="object-cover"
+                      className="object-contain"
                       alt="Học sinh tham gia hoạt động học tập tại trường"
                       src="/images/ies-classroom-activities.png"
                       fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      sizes="206px"
+                      unoptimized
+                      loading="lazy"
                     />
                   </div>
                   <figcaption className="p-space-md font-title text-title font-bold text-primary">
@@ -332,14 +334,14 @@ export default function TuyenSinhPage() {
                   </figcaption>
                 </figure>
 
-                <figure className="overflow-hidden rounded-xl border border-outline-variant/30 bg-surface-container-lowest shadow-sm">
-                  <div className="relative aspect-[4/3] w-full bg-surface-container-high">
+                <figure className="w-full max-w-[260px] overflow-hidden rounded-xl border border-outline-variant/30 bg-surface-container-lowest shadow-sm">
+                  <div className="relative mx-auto aspect-[4/3] w-full max-w-[260px] bg-surface-container-high">
                     <Image
                       className="object-cover"
                       alt="Gian tư vấn tuyển sinh của IES tại sân trường"
                       src="/images/admissions-event-booth.jpg"
                       fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      sizes="260px"
                     />
                   </div>
                   <figcaption className="p-space-md font-title text-title font-bold text-primary">
@@ -347,14 +349,16 @@ export default function TuyenSinhPage() {
                   </figcaption>
                 </figure>
 
-                <figure className="overflow-hidden rounded-xl border border-outline-variant/30 bg-surface-container-lowest shadow-sm">
-                  <div className="relative aspect-[4/3] w-full bg-surface-container-high">
+                <figure className="w-full max-w-[260px] overflow-hidden rounded-xl border border-outline-variant/30 bg-surface-container-lowest shadow-sm">
+                  <div className="relative mx-auto aspect-[4/3] w-full max-w-[260px] bg-surface-container-high">
                     <Image
-                      className="object-cover"
+                      className="object-contain"
                       alt="Giáo viên hướng dẫn học sinh thực hành máy tính"
                       src="/images/ies-computer-practice.png"
                       fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      sizes="206px"
+                      unoptimized
+                      loading="lazy"
                     />
                   </div>
                   <figcaption className="p-space-md font-title text-title font-bold text-primary">

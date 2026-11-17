@@ -255,14 +255,15 @@ export default function HomePage() {
                 {/* Left: Image grid showing real activities */}
                 <div className="lg:col-span-6 grid grid-cols-2 gap-space-md">
                   <div className="flex flex-col gap-space-md">
-                    <div className="home-image-frame aspect-square rounded-2xl overflow-hidden bg-surface-container shadow-md">
+                    <div className="home-image-frame mx-auto aspect-square w-full max-w-[206px] rounded-2xl overflow-hidden bg-surface-container shadow-md">
                       <Image
                         className="w-full h-full object-cover"
                         alt="Học sinh IES nhận chứng nhận trong hoạt động tại trường"
                         src="/images/ies-student-awards.png"
                         width={206}
                         height={206}
-                        sizes="(max-width: 640px) 40vw, (max-width: 1024px) 30vw, 25vw"
+                        unoptimized
+                        loading="lazy"
                       />
                     </div>
                     <div className="home-hover-card h-44 rounded-2xl overflow-hidden shadow-md bg-primary p-space-md flex flex-col justify-end text-white">
@@ -278,14 +279,15 @@ export default function HomePage() {
                         <p className="font-body-sm text-[12px] text-on-surface-variant">Tỷ lệ có việc làm theo số liệu IES</p>
                       </div>
                     </div>
-                    <div className="home-image-frame aspect-square rounded-2xl overflow-hidden bg-surface-container shadow-md">
+                    <div className="home-image-frame mx-auto aspect-square w-full max-w-[206px] rounded-2xl overflow-hidden bg-surface-container shadow-md">
                       <Image
                         className="w-full h-full object-cover"
                         alt="Học sinh IES tham gia hoạt động tập thể tại trường"
                         src="/images/ies-student-event.png"
                         width={206}
                         height={206}
-                        sizes="(max-width: 640px) 40vw, (max-width: 1024px) 30vw, 25vw"
+                        unoptimized
+                        loading="lazy"
                       />
                     </div>
                   </div>

@@ -209,7 +209,7 @@ export default function NganhDaoTaoPage() {
                           alt=""
                           width={120}
                           height={120}
-                          className="h-full w-full object-contain p-1"
+                          className="h-full w-full max-h-[120px] max-w-[120px] object-contain p-1"
                         />
                       </div>
                       <div className="absolute left-4 top-4 z-20 rounded-md bg-white/15 px-2.5 py-1 font-code text-xs font-bold uppercase tracking-wide text-white">
