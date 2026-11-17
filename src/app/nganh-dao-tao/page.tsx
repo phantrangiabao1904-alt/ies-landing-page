@@ -21,7 +21,7 @@ const majors = [
     desc: 'Trang bị nền tảng công nghệ thông tin, lập trình ứng dụng, cơ sở dữ liệu và kỹ năng triển khai sản phẩm số theo yêu cầu thực tế.',
     skills: ['Lập trình ứng dụng', 'Cơ sở dữ liệu', 'Phát triển web', 'Làm việc nhóm'],
     salary: '10.000.000 - 18.000.000 VNĐ',
-    img: '/images/majors/information-technology.png',
+    img: '/images/majors/cong-nghe-thong-tin.svg',
     category: 'cong-nghe',
   },
   {
@@ -32,7 +32,7 @@ const majors = [
     desc: 'Thực hành Photoshop, Illustrator, Premiere và After Effects; rèn tư duy mỹ thuật ứng dụng để thiết kế ấn phẩm truyền thông, video cho mạng xã hội và đồ họa chuyển động.',
     skills: ['Thiết kế 2D/3D', 'Ấn phẩm thương hiệu', 'Biên tập Video & Motion', 'UI/UX cơ bản'],
     salary: '9.000.000 - 15.000.000 VNĐ',
-    img: '/images/majors/graphic-design.png',
+    img: '/images/majors/thiet-ke-do-hoa.svg',
     category: 'cong-nghe',
   },
   {
@@ -43,7 +43,7 @@ const majors = [
     desc: 'Làm chủ hạ tầng CNTT doanh nghiệp: Thiết lập hệ thống mạng Cisco, máy chủ Windows Server/Linux, bảo mật tường lửa, phòng chống xâm nhập và quản trị đám mây AWS/Google Cloud.',
     skills: ['Hạ tầng mạng Cisco CCNA', 'Quản trị Linux / Windows Server', 'An toàn thông tin', 'Điện toán đám mây Cloud'],
     salary: '9.000.000 - 16.000.000 VNĐ',
-    img: '/images/majors/network-administration.png',
+    img: '/images/majors/quan-tri-mang.svg',
     category: 'cong-nghe',
   },
   {
@@ -54,7 +54,7 @@ const majors = [
     desc: 'Thực hành kế toán thực tế trên phần mềm MISA, FAST. Nắm vững kê khai thuế điện tử, quyết toán thuế, lập báo cáo tài chính doanh nghiệp và ứng dụng chuyển đổi số trong quản trị tài chính.',
     skills: ['Phần mềm kế toán MISA/FAST', 'Kê khai thuế & Báo cáo tài chính', 'Hóa đơn điện tử', 'Tư duy tài chính doanh nghiệp'],
     salary: '8.000.000 - 14.000.000 VNĐ',
-    img: '/images/majors/accounting.png',
+    img: '/images/majors/ke-toan.svg',
     category: 'kinh-te',
   },
   {
@@ -65,7 +65,7 @@ const majors = [
     desc: 'Học các nghiệp vụ quản trị, bán hàng, chăm sóc khách hàng và lập kế hoạch kinh doanh qua bài tập tình huống thực tế.',
     skills: ['Nghiệp vụ kinh doanh', 'Bán hàng', 'Chăm sóc khách hàng', 'Lập kế hoạch'],
     salary: '8.500.000 - 15.000.000 VNĐ',
-    img: '/images/majors/business-administration.png',
+    img: '/images/majors/quan-tri-kinh-doanh.svg',
     category: 'kinh-te',
   },
   {
@@ -76,7 +76,7 @@ const majors = [
     desc: 'Quản trị gian hàng đa sàn TMĐT (Shopee, Lazada, TikTok Shop), tối ưu chuỗi cung ứng, quản lý kho thông minh và xử lý đơn hàng tự động bám sát nhu cầu bùng nổ của nền kinh tế số.',
     skills: ['Vận hành gian hàng Shopee/TikTok Shop', 'Quản trị kho vận Logistics', 'Xử lý đơn hàng & CSKH tự động', 'Phân tích dữ liệu bán lẻ'],
     salary: '8.500.000 - 15.000.000 VNĐ',
-    img: '/images/majors/ecommerce.png',
+    img: '/images/majors/thuong-mai-dien-tu.svg',
     category: 'kinh-te',
   },
 ];
@@ -203,19 +203,19 @@ export default function NganhDaoTaoPage() {
                     <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-[#0F5587] to-[#063b5e]">
                       <div className="absolute -right-8 -top-14 h-56 w-56 rounded-full bg-white/10" />
                       <div className="absolute inset-0 bg-gradient-to-r from-[#003d66]/95 via-[#003d66]/70 to-transparent" />
-                      <div className="absolute right-8 top-1/2 z-10 flex h-32 w-32 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 transition-transform duration-500 group-hover:scale-105">
+                      <div className="absolute right-4 top-1/2 z-10 flex aspect-[4/3] w-[42%] max-w-[190px] -translate-y-1/2 items-center justify-center overflow-hidden rounded-xl border border-white/20 shadow-lg transition-transform duration-500 group-hover:scale-[1.03]">
                         <Image
                           src={m.img}
-                          alt=""
-                          width={120}
-                          height={120}
-                          className="h-full w-full max-h-[120px] max-w-[120px] object-contain p-1"
+                          alt={`Minh họa ngành ${m.title}`}
+                          width={800}
+                          height={600}
+                          className="h-full w-full object-cover"
                         />
                       </div>
                       <div className="absolute left-4 top-4 z-20 rounded-md bg-white/15 px-2.5 py-1 font-code text-xs font-bold uppercase tracking-wide text-white">
                         {m.code} • CHUYÊN NGÀNH {m.id}
                       </div>
-                      <div className="absolute bottom-4 left-4 right-28 z-20 text-white">
+                      <div className="absolute bottom-4 left-4 right-[45%] z-20 text-white">
                         <span className="font-label-md text-[10px] text-[#2DBEDC] uppercase tracking-wider block font-bold">
                           {m.enTitle}
                         </span>
