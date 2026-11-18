@@ -7,12 +7,12 @@ import { getHomepageCmsContent } from '@/actions/cms-content';
 import { DEFAULT_CMS_CONTENT, type CmsContentItem } from '@/lib/cms/content';
 
 const courseImages: Record<string, string> = {
-  'course-it': '/images/majors/information-technology.png',
-  'course-design': '/images/majors/graphic-design.png',
-  'course-network': '/images/majors/network-administration.png',
-  'course-accounting': '/images/majors/accounting.png',
-  'course-business': '/images/majors/business-administration.png',
-  'course-ecommerce': '/images/majors/ecommerce.png',
+  'course-it': '/images/majors/cong-nghe-thong-tin.svg',
+  'course-design': '/images/majors/thiet-ke-do-hoa.svg',
+  'course-network': '/images/majors/quan-tri-mang.svg',
+  'course-accounting': '/images/majors/ke-toan.svg',
+  'course-business': '/images/majors/quan-tri-kinh-doanh.svg',
+  'course-ecommerce': '/images/majors/thuong-mai-dien-tu.svg',
 };
 
 export default function HomeCmsSection() {
