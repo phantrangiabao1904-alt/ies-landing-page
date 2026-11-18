@@ -40,7 +40,7 @@ export default function DangKyPage() {
     <div className="site-page bg-surface font-body-md text-on-surface min-h-screen flex flex-col">
       <SiteHeader />
 
-      <main className="w-full pt-28 bg-[#f5f8fa] min-h-[calc(100vh-28rem)] flex-1 pb-16">
+      <main id="main-content" tabIndex={-1} className="w-full pt-28 bg-[#f5f8fa] min-h-[calc(100vh-28rem)] flex-1 pb-16">
         {/* BREADCRUMB STRIP */}
         <div className="w-full bg-white border-b border-outline-variant/40 py-3">
           <div className="max-w-[1240px] mx-auto px-4 md:px-8 flex items-center justify-between">

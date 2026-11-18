@@ -88,7 +88,7 @@ export default function SiteHeader({ enableScrollEffects = false }: SiteHeaderPr
             TUYỂN SINH 2026 • TƯ VẤN HỌC PHÍ NGHỀ
           </span>
           <span className="hidden sm:inline">
-            TUYỂN SINH 2026: MIỄN 100% HỌC PHÍ NGHỀ CHO HỌC SINH TỐT NGHIỆP THCS THEO CHÍNH SÁCH HIỆN HÀNH
+            TUYỂN SINH 2026: TƯ VẤN CHÍNH SÁCH HỖ TRỢ HỌC PHÍ NGHỀ THEO QUY ĐỊNH HIỆN HÀNH
           </span>
         </div>
       </div>
@@ -135,7 +135,7 @@ export default function SiteHeader({ enableScrollEffects = false }: SiteHeaderPr
             </div>
             <Link
               href="/dang-ky"
-              className="min-h-[44px] whitespace-nowrap bg-[#F58232] hover:bg-[#e07122] text-white px-3 py-1.5 rounded-lg font-['Montserrat',sans-serif] text-[11px] font-bold tracking-[0.02em] shadow-sm hover:shadow-md transition-all flex items-center gap-1"
+              className="min-h-[44px] whitespace-nowrap bg-[#A84300] hover:bg-[#873400] text-white px-3 py-1.5 rounded-lg font-['Montserrat',sans-serif] text-[11px] font-bold tracking-[0.02em] shadow-sm hover:shadow-md transition-all flex items-center gap-1"
             >
               <Icon name="how_to_reg" className="text-[14px]" />
               <span>Đăng Ký</span>
@@ -167,7 +167,7 @@ export default function SiteHeader({ enableScrollEffects = false }: SiteHeaderPr
                 <Link
                   href="/tuyen-sinh#form-xet-tuyen"
                   onClick={(event) => event.currentTarget.closest('details')?.removeAttribute('open')}
-                  className="mt-2 min-h-[44px] rounded-lg bg-[#F58232] px-4 py-3 text-center font-['Montserrat',sans-serif] text-[14px] font-bold text-white"
+                  className="mt-2 min-h-[44px] rounded-lg bg-[#A84300] px-4 py-3 text-center font-['Montserrat',sans-serif] text-[14px] font-bold text-white"
                 >
                   Đăng Ký Xét Tuyển
                 </Link>

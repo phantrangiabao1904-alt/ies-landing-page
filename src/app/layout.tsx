@@ -19,13 +19,13 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Trường Trung cấp Tin học Kinh tế Sài Gòn (IES) - Miễn 100% Học Phí',
+  title: 'Trường Trung cấp Tin học Kinh tế Sài Gòn (IES) - Tuyển sinh 2026',
   description:
-    'Tuyển sinh Trung cấp chính quy 2026: Miễn 100% học phí theo Nghị định 81/CP cho học sinh tốt nghiệp THCS. Đào tạo CNTT, Thiết kế đồ họa, Quản trị mạng, Kế toán, Quản trị kinh doanh và Thương mại điện tử.',
+    'Tuyển sinh Trung cấp chính quy 2026 với các ngành CNTT, Thiết kế đồ họa, Quản trị mạng, Kế toán, Quản trị kinh doanh và Thương mại điện tử. Tìm hiểu điều kiện hỗ trợ học phí theo quy định hiện hành.',
   keywords: [
     'Trường Trung cấp Tin học Kinh tế Sài Gòn',
     'IES',
-    'học nghề miễn phí 100%',
+    'hỗ trợ học phí nghề',
     'tuyển sinh trung cấp',
     'xét tuyển học bạ',
     'trung cấp tin học',
@@ -48,6 +48,9 @@ export default function RootLayout({
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
       </head>
       <body className="bg-surface font-body-md text-on-surface antialiased">
+        <a className="site-skip-link" href="#main-content">
+          Bỏ qua điều hướng, đến nội dung chính
+        </a>
         <AnalyticsTracker />
         {children}
       </body>

@@ -18,7 +18,7 @@ export default function ChuongTrinhHocPage() {
     <div className="site-page bg-surface font-body-md text-on-surface min-h-screen flex flex-col">
       <SiteHeader />
 
-      <main className="w-full pt-28 bg-surface min-h-[calc(100vh-28rem)] flex-1">
+      <main id="main-content" tabIndex={-1} className="w-full pt-28 bg-surface min-h-[calc(100vh-28rem)] flex-1">
         <div className="flex flex-col w-full">
           {/* BREADCRUMB STRIP */}
           <section className="w-full bg-surface-container-low py-space-sm px-margin-sm md:px-margin">

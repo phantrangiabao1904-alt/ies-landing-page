@@ -39,21 +39,9 @@ export default function HomePage() {
       <SiteHeader enableScrollEffects />
 
       {/* MAIN */}
-      <main className="w-full pt-28 bg-surface min-h-[calc(100vh-28rem)] flex-1">
+      <main id="main-content" tabIndex={-1} className="w-full pt-28 bg-surface min-h-[calc(100vh-28rem)] flex-1">
         <div className="flex flex-col w-full">
-          <section className="w-full">
-            <Image
-              src="/images/home-admissions-banner-2026.png"
-              alt="Tuyển sinh năm học 2026–2027 tại Trường Trung cấp Tin học Kinh tế Sài Gòn"
-              width={1920}
-              height={730}
-              priority
-              sizes="100vw"
-              className="home-banner-image block h-auto w-full"
-            />
-          </section>
-
-          {/* HERO SECTION WITH ULTRA PROMINENT 100% TUITION EXEMPTION */}
+          {/* HERO SECTION */}
           <section
             ref={heroSectionRef}
             data-motion-in-view={isHeroInView}
@@ -92,7 +80,7 @@ export default function HomePage() {
 
               {/* Main Headline Grid */}
               <div className="grid grid-cols-1 items-center gap-space-xl lg:grid-cols-12">
-                <div className="order-last flex flex-col gap-space-md lg:order-first lg:col-span-7">
+                <div className="order-first flex flex-col gap-space-md lg:order-first lg:col-span-7">
                   <HeroTitle />
                   <p className="hero-description max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
                     <strong className="text-[#7AA2F7]">Học thực tiễn - Làm chuyên nghiệp.</strong>{' '}
@@ -101,7 +89,7 @@ export default function HomePage() {
 
                   <div className="flex flex-wrap items-center gap-space-md pt-space-sm">
                     <MagneticCta
-                      className="hero-cta hero-cta--primary group flex min-h-12 items-center gap-space-xs rounded-xl bg-[#F58232] px-space-xl py-space-md text-center font-title text-title font-bold tracking-wide text-white shadow-md hover:bg-[#e07122] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F58232]"
+                      className="hero-cta hero-cta--primary group flex min-h-12 items-center gap-space-xs rounded-xl bg-[#A84300] px-space-xl py-space-md text-center font-title text-title font-bold tracking-wide text-white shadow-md hover:bg-[#873400] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A84300]"
                       href="#home-sticky-lead-form"
                     >
                       <span>ĐĂNG KÝ XÉT TUYỂN NGAY</span>
@@ -117,11 +105,22 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div className="order-first w-full lg:order-last lg:col-span-5 lg:pt-2">
+                <div className="order-last w-full lg:order-last lg:col-span-5 lg:pt-2">
                   <HeroCarousel />
                 </div>
               </div>
             </div>
+          </section>
+
+          <section className="w-full">
+            <Image
+              src="/images/home-admissions-banner-2026.png"
+              alt="Tuyển sinh năm học 2026–2027 tại Trường Trung cấp Tin học Kinh tế Sài Gòn"
+              width={1920}
+              height={730}
+              sizes="100vw"
+              className="home-banner-image block h-auto w-full"
+            />
           </section>
 
           <HomeStats decree81Url={decree81SearchUrl} decree24Url={decree24DocumentUrl} />
@@ -367,16 +366,16 @@ export default function HomePage() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
                 {/* Form Left Information */}
                 <div className="lg:col-span-5 flex flex-col gap-space-md">
-                  <div className="inline-flex items-center gap-space-xs bg-[#F58232] text-white px-space-md py-1 rounded-full font-label-md text-label-md uppercase tracking-wider w-fit shadow">
+                  <div className="inline-flex items-center gap-space-xs bg-[#A84300] text-white px-space-md py-1 rounded-full font-label-md text-label-md uppercase tracking-wider w-fit shadow">
                     <Icon name="how_to_reg" className="text-[16px]" />
                     <span>Cổng Tiếp Nhận Hồ Sơ 2026</span>
                   </div>
                   <h2 className="font-headline-lg text-headline-lg font-bold leading-tight text-white">
                     Đăng Ký Xét Tuyển Ngay <br />
-                    <span className="text-[#F58232]">Nhận Ưu Đãi Miễn 100% Học Phí</span>
+                    <span className="text-[#acedff]">Nhận tư vấn hỗ trợ học phí nghề</span>
                   </h2>
                   <p className="font-body-md text-body-md text-white/90 leading-relaxed">
-                    Chỉ mất 1 phút để đăng ký giữ suất học bổng nghề và nhận trọn vẹn quyền lợi cấp bù học phí nhà nước. Ban tư vấn tuyển sinh IES sẽ liên hệ hướng dẫn chi tiết trong vòng 30 phút.
+                    Gửi thông tin xét tuyển ban đầu để Ban tư vấn liên hệ xác nhận điều kiện và hướng dẫn hồ sơ. Chính sách hỗ trợ học phí áp dụng theo đối tượng, hồ sơ và quy định hiện hành.
                   </p>
                   <div className="space-y-space-sm pt-space-xs">
                     <div className="flex items-center gap-space-sm">
@@ -443,7 +442,7 @@ export default function HomePage() {
                   <Link className="px-space-lg py-space-sm bg-surface-container-lowest text-primary hover:bg-primary hover:text-white rounded-xl font-label-lg text-label-lg transition-all shadow-sm hover:shadow font-semibold" href="/tuyen-sinh">
                     Thông Tin Tuyển Sinh
                   </Link>
-                  <a className="px-space-lg py-space-sm bg-[#F58232] text-white hover:bg-[#e07122] rounded-xl font-label-lg text-label-lg transition-all shadow-sm hover:shadow-md font-bold tracking-wide cursor-pointer" href="#home-sticky-lead-form">
+                  <a className="px-space-lg py-space-sm bg-[#A84300] text-white hover:bg-[#873400] rounded-xl font-label-lg text-label-lg transition-colors shadow-sm hover:shadow-md font-bold tracking-wide cursor-pointer" href="#home-sticky-lead-form">
                     Đăng Ký
                   </a>
                 </div>
@@ -462,11 +461,11 @@ export default function HomePage() {
           aria-hidden={isLeadSectionInView}
           className="mobile-sticky-cta__offer text-xs font-extrabold leading-tight sm:text-sm"
         >
-          MIỄN PHÍ 100% HỌC PHÍ
+          HỖ TRỢ HỌC PHÍ NGHỀ
         </span>
         <a
           href="#home-sticky-lead-form"
-          className="mobile-sticky-cta__button inline-flex min-h-[44px] flex-shrink-0 items-center justify-center rounded-lg bg-[#F58232] px-4 text-sm font-bold text-white hover:bg-[#e07122]"
+          className="mobile-sticky-cta__button inline-flex min-h-[44px] flex-shrink-0 items-center justify-center rounded-lg bg-[#A84300] px-4 text-sm font-bold text-white hover:bg-[#873400]"
         >
           ĐĂNG KÝ NGAY
         </a>

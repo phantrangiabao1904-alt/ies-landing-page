@@ -3,7 +3,7 @@ import ForgotPasswordForm from './ForgotPasswordForm';
 
 export default function ForgotPasswordPage() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-slate-50 px-4 py-12">
+    <main id="main-content" tabIndex={-1} className="flex min-h-screen items-center justify-center bg-slate-50 px-4 py-12">
       <section className="w-full max-w-md rounded-2xl bg-white p-8 shadow-xl">
         <p className="text-sm font-bold uppercase tracking-wider text-[#F58232]">
           IES • Cổng nội bộ

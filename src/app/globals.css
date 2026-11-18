@@ -82,6 +82,36 @@ body {
   line-height: 24px;
 }
 
+.site-skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 100;
+  max-width: calc(100vw - 1.5rem);
+  border-radius: 0.75rem;
+  background: #003d66;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  transform: translateY(calc(-100% - 1rem));
+  transition: transform 180ms ease;
+}
+
+.site-skip-link:focus {
+  transform: translateY(0);
+  outline: 3px solid #f58232;
+  outline-offset: 3px;
+}
+
+#main-content {
+  scroll-margin-top: 8rem;
+}
+
+#main-content:focus {
+  outline: none;
+}
+
 /* Stitch Font Families */
 .font-display { font-family: var(--font-montserrat), sans-serif !important; }
 .font-display-mobile { font-family: var(--font-montserrat), sans-serif !important; }
@@ -1518,6 +1548,10 @@ html[data-custom-cursor='true'] [contenteditable='true'] {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .site-skip-link {
+    transition: none;
   }
 
   .site-page .animate-ping,

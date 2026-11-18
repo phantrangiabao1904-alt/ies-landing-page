@@ -40,7 +40,7 @@ export default function TuyenSinhPage() {
     <div className="site-page bg-surface font-body-md text-on-surface min-h-screen flex flex-col">
       <SiteHeader />
 
-      <main className="w-full pt-28 bg-surface min-h-[calc(100vh-28rem)] flex-1">
+      <main id="main-content" tabIndex={-1} className="w-full pt-28 bg-surface min-h-[calc(100vh-28rem)] flex-1">
         <div className="flex flex-col w-full">
           {/* BREADCRUMB & CONTEXT STRIP */}
           <section className="w-full bg-surface-container-low py-space-sm">
@@ -75,7 +75,7 @@ export default function TuyenSinhPage() {
                       href={decree81SearchUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-[#F6EEE5] text-[#F58232] font-label-md text-label-md px-space-sm py-1 rounded-lg font-bold flex items-center gap-1 hover:bg-[#f9e3d2] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F58232]"
+                      className="bg-[#F6EEE5] text-[#A84300] font-label-md text-label-md px-space-sm py-1 rounded-lg font-bold flex items-center gap-1 hover:bg-[#f9e3d2] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A84300]"
                     >
                       <Icon name="savings" className="text-[16px]" />
                       Nghị định 81/2021/NĐ-CP
@@ -85,14 +85,14 @@ export default function TuyenSinhPage() {
                       href={decree24DocumentUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-[#F6EEE5] text-[#F58232] font-label-md text-label-md px-space-sm py-1 rounded-lg font-bold flex items-center gap-1 hover:bg-[#f9e3d2] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F58232]"
+                      className="bg-[#F6EEE5] text-[#A84300] font-label-md text-label-md px-space-sm py-1 rounded-lg font-bold flex items-center gap-1 hover:bg-[#f9e3d2] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#A84300]"
                     >
                       <Icon name="picture_as_pdf" className="text-[16px]" />
                       Nghị định 24/2022/NĐ-CP (PDF)
                     </a>
                   </div>
-                  <h1 className="font-headline-lg text-2xl sm:text-4xl lg:text-5xl text-primary tracking-tight leading-tight">
-                    Thông Tin Tuyển Sinh 2026 — Khởi Đầu Nghề Nghiệp, <span className="text-[#F58232]">Học Phí 0 Đồng</span>
+                  <h1 className="font-headline-lg text-2xl font-bold tracking-tight leading-tight text-primary sm:text-4xl lg:text-5xl">
+                    Thông Tin Tuyển Sinh 2026 — Khởi Đầu Nghề Nghiệp, <span className="text-[#A84300]">Hỗ Trợ Học Phí Nghề</span>
                   </h1>
                   <p className="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
                     Xét tuyển bằng học bạ THCS / THPT. Chính sách hỗ trợ học phí nghề được áp dụng theo đối tượng, điều kiện và hồ sơ quy định; Ban tuyển sinh sẽ tư vấn cụ thể. IES hỗ trợ định hướng và kết nối cơ hội thực tập, việc làm phù hợp.
@@ -101,28 +101,31 @@ export default function TuyenSinhPage() {
                   {/* Quick Metrics Bar */}
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-space-sm pt-space-xs">
                     <div className="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm">
-                      <span className="font-display-mobile text-headline-lg text-primary block leading-none">1.200</span>
-                      <span className="font-label-md text-[11px] text-on-surface-variant uppercase tracking-wider block mt-1">Chỉ tiêu toàn khóa</span>
+                      <span className="font-display-mobile text-headline-lg text-primary block leading-none">06</span>
+                      <span className="font-label-md text-[11px] text-on-surface-variant uppercase tracking-wider block mt-1">Ngành đào tạo</span>
                     </div>
                     <div className="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm">
-                      <span className="font-display-mobile text-headline-lg text-primary block leading-none">06</span>
-                      <span className="font-label-md text-[11px] text-on-surface-variant uppercase tracking-wider block mt-1">Ngành mũi nhọn</span>
+                      <span className="font-display-mobile text-headline-lg text-primary block leading-none">9+</span>
+                      <span className="font-label-md text-[11px] text-on-surface-variant uppercase tracking-wider block mt-1">Lộ trình sau THCS</span>
                     </div>
                     <div className="bg-[#F6EEE5] p-space-sm rounded-xl shadow-sm">
-                      <span className="font-display-mobile text-headline-lg text-[#F58232] block leading-none">0 ĐỒNG</span>
-                      <span className="font-label-md text-[11px] text-[#F58232] uppercase tracking-wider block mt-1 font-bold">Học phí hệ 9+</span>
+                      <span className="font-display-mobile text-headline-lg text-[#A84300] block leading-none">NĐ 81</span>
+                      <span className="font-label-md text-[11px] text-[#A84300] uppercase tracking-wider block mt-1 font-bold">Chính sách hỗ trợ*</span>
                     </div>
                     <div className="bg-surface-container-lowest p-space-sm rounded-xl shadow-sm">
-                      <span className="font-display-mobile text-headline-lg text-tertiary-container block leading-none">100%</span>
-                      <span className="font-label-md text-[11px] text-on-surface-variant uppercase tracking-wider block mt-1">Xét tuyển học bạ</span>
+                      <span className="font-display-mobile text-headline-lg text-tertiary-container block leading-none">THPT</span>
+                      <span className="font-label-md text-[11px] text-on-surface-variant uppercase tracking-wider block mt-1">Lộ trình trung cấp</span>
                     </div>
                   </div>
+                  <p className="text-xs leading-relaxed text-on-surface-variant">
+                    * Điều kiện và mức hỗ trợ học phí được áp dụng theo đối tượng, hồ sơ và quy định hiện hành.
+                  </p>
 
                   {/* CTAs */}
                   <div className="flex flex-wrap items-center gap-space-md pt-space-xs">
                     <a
                       href="#form-xet-tuyen"
-                      className="bg-[#F58232] hover:bg-[#e07122] text-white px-space-xl py-3 rounded-xl font-label-lg text-label-lg shadow-md hover:shadow-lg transition-all flex items-center gap-space-xs text-center font-bold tracking-wide"
+                      className="bg-[#A84300] hover:bg-[#873400] text-white px-space-xl py-3 rounded-xl font-label-lg text-label-lg shadow-md hover:shadow-lg transition-colors flex items-center gap-space-xs text-center font-bold tracking-wide"
                     >
                       <Icon name="how_to_reg" className="text-[20px]" />
                       <span>Nộp Hồ Sơ Xét Tuyển Online</span>
@@ -136,15 +139,15 @@ export default function TuyenSinhPage() {
                     </a>
                   </div>
 
-                  <div className="flex items-center gap-space-md pt-space-xs text-on-surface-variant font-body-sm text-body-sm">
+                  <div className="flex flex-wrap items-center gap-2 pt-space-xs text-on-surface-variant font-body-sm text-body-sm sm:gap-4">
                     <span className="flex items-center gap-1 text-primary font-medium">
-                      <Icon name="check_circle" className="text-[16px] text-tertiary-container" /> Phê duyệt 24h
+                      <Icon name="check_circle" className="text-[16px] text-tertiary-container" /> Tư vấn hồ sơ
                     </span>
                     <span className="flex items-center gap-1 text-primary font-medium">
-                      <Icon name="check_circle" className="text-[16px] text-tertiary-container" /> Ký kết việc làm
+                      <Icon name="check_circle" className="text-[16px] text-tertiary-container" /> Hỗ trợ định hướng nghề
                     </span>
                     <span className="flex items-center gap-1 text-primary font-medium">
-                      <Icon name="check_circle" className="text-[16px] text-tertiary-container" /> Hỗ trợ vay vốn 0%
+                      <Icon name="check_circle" className="text-[16px] text-tertiary-container" /> Kết nối cơ hội thực tập
                     </span>
                   </div>
                 </div>
@@ -154,8 +157,8 @@ export default function TuyenSinhPage() {
                   <div className="site-card bg-surface-container-lowest p-space-lg rounded-xl shadow-md relative overflow-hidden">
                     <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#F58232]"></div>
                     <div className="flex items-start justify-between gap-space-sm mb-space-sm">
-                      <span className="inline-flex items-center gap-1 text-[#F58232] font-label-md text-label-md uppercase tracking-wider font-bold">
-                        <Icon name="emergency_home" className="text-[18px]" /> Đợt Tuyển Sinh 1 Mở Cổng
+                      <span className="inline-flex items-center gap-1 text-[#A84300] font-label-md text-label-md uppercase tracking-wider font-bold">
+                        <Icon name="emergency_home" className="text-[18px]" /> Thông Tin Tuyển Sinh
                       </span>
                       <span className="bg-secondary-fixed text-on-secondary-fixed font-code text-code px-2 py-0.5 rounded">Tuyển sinh 2026</span>
                     </div>
@@ -163,27 +166,16 @@ export default function TuyenSinhPage() {
                       Học bổng Khởi Nghiệp 2.000.000đ
                     </h3>
                     <p className="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
-                      Áp dụng thẳng cho <strong>100 thí sinh đầu tiên</strong> hoàn tất hồ sơ xét tuyển sớm tại trường hoặc qua cổng trực tuyến.
+                      Học bổng đầu vào 2.000.000đ. Mức hỗ trợ và điều kiện áp dụng tùy theo đợt tuyển sinh; vui lòng liên hệ Ban tư vấn để được xác nhận.
                     </p>
-                    <div className="grid grid-cols-3 gap-space-xs text-center mb-space-md">
-                      <div className="bg-surface-container p-2 rounded-lg">
-                        <span className="font-headline-sm text-headline-sm text-primary block font-bold">68</span>
-                        <span className="font-label-md text-[11px] text-on-surface-variant">Suất đã nhận</span>
-                      </div>
-                      <div className="bg-surface-container p-2 rounded-lg">
-                        <span className="font-headline-sm text-headline-sm text-[#F58232] block font-bold">32</span>
-                        <span className="font-label-md text-[11px] text-[#F58232] font-bold">Suất còn lại</span>
-                      </div>
-                      <div className="bg-surface-container p-2 rounded-lg">
-                        <span className="font-headline-sm text-headline-sm text-primary block font-bold">24h</span>
-                        <span className="font-label-md text-[11px] text-on-surface-variant">Trả kết quả</span>
-                      </div>
-                    </div>
+                    <p className="mb-space-md rounded-lg bg-surface-container p-space-sm text-xs leading-relaxed text-on-surface-variant">
+                      Ban tư vấn sẽ xác nhận điều kiện và thời hạn áp dụng theo từng đợt tuyển sinh.
+                    </p>
                     <a
                       href="#form-xet-tuyen"
                       className="w-full bg-primary hover:bg-primary-container text-on-primary py-2.5 rounded-lg font-label-md text-label-md text-center block font-bold transition-all"
                     >
-                      Đăng Ký Giữ Suất Học Bổng Sớm
+                      Tư Vấn Điều Kiện Học Bổng
                     </a>
                   </div>
 
@@ -232,7 +224,7 @@ export default function TuyenSinhPage() {
                   <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#F58232]"></div>
                   <div>
                     <div className="flex items-center justify-between mb-space-md">
-                      <span className="font-code text-code px-2 py-1 bg-[#F6EEE5] text-[#F58232] rounded-lg font-bold">TUYẾN 01 • HỆ 9+</span>
+                      <span className="font-code text-code px-2 py-1 bg-[#F6EEE5] text-[#A84300] rounded-lg font-bold">TUYẾN 01 • HỆ 9+</span>
                       <span className="font-label-md text-label-md text-on-surface-variant bg-surface-container px-space-sm py-1 rounded-full">2.5 - 3 Năm</span>
                     </div>
                     <h3 className="font-headline-md text-headline-md text-primary mb-space-xs font-bold">
@@ -252,8 +244,8 @@ export default function TuyenSinhPage() {
                       <div className="flex items-start gap-space-sm bg-[#F6EEE5]/60 p-space-sm rounded-lg">
                         <Icon name="payments" className="text-[#F58232] text-[20px] mt-0.5" />
                         <div>
-                          <span className="font-title text-title text-[#F58232] block font-bold">Đặc quyền Học phí 0 Đồng</span>
-                          <p className="font-body-sm text-body-sm text-on-surface-variant">Nhà nước cấp bù 100% học phí nghề theo NĐ 81/2021/NĐ-CP trong toàn bộ khóa đào tạo.</p>
+                          <span className="font-title text-title text-[#A84300] block font-bold">Chính sách hỗ trợ học phí</span>
+                          <p className="font-body-sm text-body-sm text-on-surface-variant">Mức hỗ trợ học phí nghề theo Nghị định 81/2021/NĐ-CP phụ thuộc đối tượng, hồ sơ và quy định hiện hành.</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-space-sm bg-surface-container-low p-space-sm rounded-lg">
@@ -267,7 +259,7 @@ export default function TuyenSinhPage() {
                   </div>
                   <a
                     href="#form-xet-tuyen"
-                    className="w-full bg-[#F58232] hover:bg-[#e07122] text-white py-3 rounded-lg font-label-lg text-label-lg text-center font-bold shadow-sm transition-all flex items-center justify-center gap-space-xs"
+                    className="w-full bg-[#A84300] hover:bg-[#873400] text-white py-3 rounded-lg font-label-lg text-label-lg text-center font-bold shadow-sm transition-colors flex items-center justify-center gap-space-xs"
                   >
                     <span>Đăng Ký Xét Tuyển Hệ 9+</span>
                     <Icon name="arrow_forward" className="text-[18px]" />
@@ -403,10 +395,10 @@ export default function TuyenSinhPage() {
                   </div>
                   <h2 className="font-headline-lg text-headline-lg font-bold leading-tight">
                     Đăng Ký Xét Tuyển Ngay <br />
-                    <span className="text-[#F58232]">Nhận Ưu Đãi Miễn 100% Học Phí</span>
+                    <span className="text-[#acedff]">Nhận tư vấn hỗ trợ học phí nghề</span>
                   </h2>
                   <p className="font-body-md text-body-md text-surface-variant/90 leading-relaxed">
-                    Chỉ mất 1 phút để đăng ký giữ suất học bổng nghề và nhận trọn vẹn quyền lợi cấp bù học phí nhà nước. Ban tư vấn tuyển sinh IES sẽ liên hệ hướng dẫn chi tiết trong vòng 30 phút.
+                    Gửi thông tin xét tuyển ban đầu để Ban tư vấn liên hệ xác nhận điều kiện và hướng dẫn hồ sơ. Chính sách hỗ trợ học phí áp dụng theo đối tượng, hồ sơ và quy định hiện hành.
                   </p>
                   <div className="space-y-space-sm pt-space-xs">
                     <div className="flex items-center gap-space-sm">
@@ -431,7 +423,7 @@ export default function TuyenSinhPage() {
                 </div>
 
                 <div className="lg:col-span-7">
-                  <LeadForm source="tuyen_sinh" />
+                  <LeadForm id="form-xet-tuyen-fields" source="tuyen_sinh" />
                 </div>
               </div>
             </div>

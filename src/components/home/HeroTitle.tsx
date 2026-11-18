@@ -18,7 +18,7 @@ function renderWords(text: string, startIndex: number) {
 export default function HeroTitle() {
   return (
     <h1
-      aria-label="TRƯỜNG TRUNG CẤP TIN HỌC KINH TẾ SÀI GÒN (IES) MIỄN PHÍ 100% HỌC PHÍ"
+      aria-label="Trường Trung cấp Tin học Kinh tế Sài Gòn IES — Hỗ trợ học phí nghề theo chính sách hiện hành"
       className="font-headline-lg text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl"
     >
       <span aria-hidden="true">
@@ -29,7 +29,7 @@ export default function HeroTitle() {
         {renderWords('SÀI GÒN (IES)', 5)}
       </span>
       <span aria-hidden="true" className="hero-tuition-line mt-2 block text-[#E0AF68]">
-        {renderWords('MIỄN PHÍ 100% HỌC PHÍ', 8)}
+        {renderWords('HỖ TRỢ HỌC PHÍ NGHỀ', 8)}
       </span>
     </h1>
   );

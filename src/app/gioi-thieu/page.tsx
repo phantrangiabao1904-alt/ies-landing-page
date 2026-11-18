@@ -20,7 +20,7 @@ export default function GioiThieuPage() {
       <SiteHeader />
 
       {/* Main Content with pt-28 to clear fixed SiteHeader */}
-      <main className="flex-1 pt-28">
+      <main id="main-content" tabIndex={-1} className="flex-1 pt-28">
         {/* 2. Breadcrumb */}
         <section className="bg-white border-b border-[#D9E2EA] py-3.5">
           <div className="max-w-[1240px] mx-auto px-4 md:px-8">

@@ -17,7 +17,7 @@ export default async function AdminPage() {
   }
 
   return (
-    <main className="staff-page min-h-screen px-4 py-8 sm:px-8">
+    <main id="main-content" tabIndex={-1} className="staff-page min-h-screen px-4 py-8 sm:px-8">
       <div className="mx-auto max-w-7xl">
         <header className="staff-card staff-hover-card mb-8 flex flex-wrap items-center justify-between gap-4 border border-slate-200 bg-white/90 p-5 shadow-sm backdrop-blur sm:p-6">
           <div>
