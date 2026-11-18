@@ -1,12 +1,12 @@
 'use client';
 
+import Image from 'next/image';
 import React from 'react';
 import {
   Newspaper,
   Calendar,
   Share2,
   ChevronRight,
-  Sparkles,
   BookOpen,
   Award,
   CheckCircle2,
@@ -106,11 +106,13 @@ export default function PortalNewsGrid() {
                     className="flex gap-3.5 pb-3.5 border-b border-[#D9E2EA]/70 last:border-b-0 group"
                   >
                     <div className="w-20 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-slate-200 border border-[#D9E2EA]">
-                      <img
+                      <Image
                         src={item.imgUrl}
                         alt={item.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                        loading="lazy"
+                        width={80}
+                        height={64}
+                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        unoptimized
                       />
                     </div>
                     <div className="flex-1 min-w-0">
@@ -173,11 +175,13 @@ export default function PortalNewsGrid() {
                     className="flex gap-3.5 pb-3.5 border-b border-[#D9E2EA]/70 last:border-b-0 group"
                   >
                     <div className="w-20 h-16 rounded-xl overflow-hidden flex-shrink-0 bg-slate-200 border border-[#D9E2EA]">
-                      <img
+                      <Image
                         src={item.imgUrl}
                         alt={item.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                        loading="lazy"
+                        width={80}
+                        height={64}
+                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        unoptimized
                       />
                     </div>
                     <div className="flex-1 min-w-0">

@@ -2,6 +2,8 @@
 
 import Image from 'next/image';
 import { useEffect, useRef, useState, type FocusEvent, type KeyboardEvent, type PointerEvent } from 'react';
+import { useInView } from '@/hooks/useInView';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 const slides = [
   {
@@ -26,18 +28,11 @@ export default function HeroCarousel() {
   const [isHovering, setIsHovering] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const pointerStartX = useRef<number | null>(null);
-  const isPaused = isHovering || isFocused || isDragging || prefersReducedMotion;
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const updatePreference = () => setPrefersReducedMotion(mediaQuery.matches);
-
-    updatePreference();
-    mediaQuery.addEventListener('change', updatePreference);
-    return () => mediaQuery.removeEventListener('change', updatePreference);
-  }, []);
+  const { ref, isInView } = useInView<HTMLDivElement>({ threshold: 0.1 });
+  const prefersReducedMotion = usePrefersReducedMotion();
+  const isPaused =
+    isHovering || isFocused || isDragging || prefersReducedMotion || !isInView;
 
   useEffect(() => {
     if (isPaused) return;
@@ -91,10 +86,12 @@ export default function HeroCarousel() {
 
   return (
     <div
+      ref={ref}
       role="region"
       aria-label="Ảnh tuyển sinh IES"
       aria-roledescription="carousel"
-      className="w-full"
+      className="hero-carousel w-full"
+      data-motion-paused={isPaused}
       onPointerEnter={() => setIsHovering(true)}
       onPointerLeave={() => setIsHovering(false)}
       onFocus={() => setIsFocused(true)}
@@ -129,7 +126,9 @@ export default function HeroCarousel() {
                 fill
                 priority={index === 0}
                 sizes="(min-width: 1024px) 42vw, 100vw"
-                className={slide.fit === 'contain' ? 'object-contain p-2' : 'object-cover'}
+                className={`hero-carousel-image ${
+                  slide.fit === 'contain' ? 'object-contain p-2' : 'object-cover'
+                } ${index === activeIndex ? 'is-active' : ''}`}
               />
             </div>
           ))}

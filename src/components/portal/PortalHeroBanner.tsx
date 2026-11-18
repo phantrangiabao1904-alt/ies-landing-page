@@ -10,8 +10,6 @@ import {
   Building2,
   Sparkles,
   ArrowRight,
-  BookOpen,
-  Award,
 } from 'lucide-react';
 
 export default function PortalHeroBanner() {

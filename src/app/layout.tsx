@@ -1,6 +1,22 @@
 import type { Metadata } from 'next';
+import { Inter, JetBrains_Mono, Montserrat } from 'next/font/google';
 import AnalyticsTracker from '@/components/home/AnalyticsTracker';
 import './globals.css';
+
+const inter = Inter({
+  subsets: ['latin', 'vietnamese'],
+  variable: '--font-inter',
+});
+
+const montserrat = Montserrat({
+  subsets: ['latin', 'vietnamese'],
+  variable: '--font-montserrat',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-jetbrains-mono',
+});
 
 export const metadata: Metadata = {
   title: 'Trường Trung cấp Tin học Kinh tế Sài Gòn (IES) - Miễn 100% Học Phí',
@@ -23,16 +39,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi" className="scroll-smooth">
+    <html
+      lang="vi"
+      className={`${inter.variable} ${montserrat.variable} ${jetbrainsMono.variable} scroll-smooth`}
+    >
       <head>
         <meta charSet="utf-8" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
-          rel="stylesheet"
-        />
       </head>
       <body className="bg-surface font-body-md text-on-surface antialiased">
         <AnalyticsTracker />

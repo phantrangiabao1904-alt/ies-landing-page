@@ -1,7 +1,60 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import {
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type ChangeEvent,
+  type FormEvent,
+} from 'react';
 import { submitLeadAction } from '@/actions/lead-submit';
+import { useInView } from '@/hooks/useInView';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
+
+type FormFieldName = 'fullName' | 'phone' | 'major' | 'consent';
+
+interface ConfettiStyle extends CSSProperties {
+  '--confetti-x': string;
+  '--confetti-y': string;
+  '--confetti-rotation': string;
+  '--confetti-color': string;
+}
+
+const confettiParticles: ConfettiStyle[] = [
+  { '--confetti-x': '-142px', '--confetti-y': '-110px', '--confetti-rotation': '190deg', '--confetti-color': '#F58232' },
+  { '--confetti-x': '-108px', '--confetti-y': '-164px', '--confetti-rotation': '280deg', '--confetti-color': '#7AA2F7' },
+  { '--confetti-x': '-66px', '--confetti-y': '-126px', '--confetti-rotation': '230deg', '--confetti-color': '#9ECE6A' },
+  { '--confetti-x': '-28px', '--confetti-y': '-176px', '--confetti-rotation': '160deg', '--confetti-color': '#E0AF68' },
+  { '--confetti-x': '22px', '--confetti-y': '-150px', '--confetti-rotation': '300deg', '--confetti-color': '#BB9AF7' },
+  { '--confetti-x': '70px', '--confetti-y': '-178px', '--confetti-rotation': '200deg', '--confetti-color': '#F58232' },
+  { '--confetti-x': '116px', '--confetti-y': '-136px', '--confetti-rotation': '330deg', '--confetti-color': '#7AA2F7' },
+  { '--confetti-x': '158px', '--confetti-y': '-96px', '--confetti-rotation': '250deg', '--confetti-color': '#9ECE6A' },
+  { '--confetti-x': '-156px', '--confetti-y': '18px', '--confetti-rotation': '310deg', '--confetti-color': '#E0AF68' },
+  { '--confetti-x': '-112px', '--confetti-y': '42px', '--confetti-rotation': '210deg', '--confetti-color': '#BB9AF7' },
+  { '--confetti-x': '-62px', '--confetti-y': '18px', '--confetti-rotation': '290deg', '--confetti-color': '#F58232' },
+  { '--confetti-x': '56px', '--confetti-y': '30px', '--confetti-rotation': '180deg', '--confetti-color': '#7AA2F7' },
+  { '--confetti-x': '104px', '--confetti-y': '10px', '--confetti-rotation': '270deg', '--confetti-color': '#9ECE6A' },
+  { '--confetti-x': '152px', '--confetti-y': '38px', '--confetti-rotation': '220deg', '--confetti-color': '#E0AF68' },
+];
+
+function isFormFieldName(name: string): name is FormFieldName {
+  return name === 'fullName' || name === 'phone' || name === 'major' || name === 'consent';
+}
+
+function getValidationMessage(field: HTMLInputElement | HTMLSelectElement) {
+  if (field.validity.valueMissing) {
+    return field.name === 'consent'
+      ? 'Vui lòng đồng ý để IES liên hệ tư vấn.'
+      : 'Vui lòng điền thông tin này.';
+  }
+
+  if (field.validity.patternMismatch || field.validity.typeMismatch) {
+    return 'Số điện thoại chưa đúng định dạng.';
+  }
+
+  return field.validationMessage || 'Vui lòng kiểm tra lại thông tin này.';
+}
 
 interface StickyLeadFormProps {
   id?: string;
@@ -15,7 +68,48 @@ export default function StickyLeadForm({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
+  const [fieldErrors, setFieldErrors] = useState<Partial<Record<FormFieldName, string>>>({});
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [confettiRun, setConfettiRun] = useState(0);
   const formRef = useRef<HTMLFormElement>(null);
+  const confettiTimerRef = useRef<number | null>(null);
+  const { ref: cardRef, isInView } = useInView<HTMLDivElement>({ threshold: 0.1 });
+  const prefersReducedMotion = usePrefersReducedMotion();
+
+  useEffect(
+    () => () => {
+      if (confettiTimerRef.current !== null) {
+        window.clearTimeout(confettiTimerRef.current);
+      }
+    },
+    [],
+  );
+
+  function handleInvalidCapture(e: FormEvent<HTMLFormElement>) {
+    const field = e.target;
+    if (!(field instanceof HTMLInputElement || field instanceof HTMLSelectElement)) return;
+    if (!isFormFieldName(field.name)) return;
+
+    field.dataset.invalid = 'true';
+    setFieldErrors((current) => ({
+      ...current,
+      [field.name]: getValidationMessage(field),
+    }));
+  }
+
+  function clearResolvedError(e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
+    const field = e.currentTarget;
+    const fieldName = field.name;
+    if (!isFormFieldName(fieldName) || !field.validity.valid) return;
+
+    delete field.dataset.invalid;
+    setFieldErrors((current) => {
+      if (!current[fieldName]) return current;
+      const next = { ...current };
+      delete next[fieldName];
+      return next;
+    });
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -30,6 +124,19 @@ export default function StickyLeadForm({
 
       if (response.success) {
         formRef.current?.reset();
+        setFieldErrors({});
+
+        if (!prefersReducedMotion) {
+          setShowConfetti(true);
+          setConfettiRun((run) => run + 1);
+          if (confettiTimerRef.current !== null) {
+            window.clearTimeout(confettiTimerRef.current);
+          }
+          confettiTimerRef.current = window.setTimeout(() => {
+            setShowConfetti(false);
+            confettiTimerRef.current = null;
+          }, 1900);
+        }
       }
     } catch {
       setIsSuccess(false);
@@ -41,10 +148,19 @@ export default function StickyLeadForm({
 
   return (
     <div
-      className={`site-card bg-white rounded-2xl shadow-xl p-6 sm:p-7 border border-[#D9E2EA] ring-1 ring-black/5 ${
+      ref={cardRef}
+      data-motion-in-view={isInView}
+      className={`lead-form-card site-card relative overflow-hidden bg-white rounded-2xl shadow-xl p-6 sm:p-7 border border-[#D9E2EA] ring-1 ring-black/5 ${
         isSticky ? 'lg:sticky lg:top-24 lg:z-30' : ''
       }`}
     >
+      {showConfetti && isInView && !prefersReducedMotion && (
+        <div key={confettiRun} className="lead-form-confetti" aria-hidden="true">
+          {confettiParticles.map((particle, index) => (
+            <span key={index} className="lead-form-confetti__particle" style={particle} />
+          ))}
+        </div>
+      )}
       <div className="text-center mb-5">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F6EEE5] text-[#F58232] font-black text-xs uppercase tracking-wider mb-2 border border-[#F58232]/20">
           <span className="w-2 h-2 rounded-full bg-[#F58232] animate-ping" />
@@ -58,9 +174,15 @@ export default function StickyLeadForm({
         </p>
       </div>
 
-      <form id={id} ref={formRef} onSubmit={handleSubmit} className="scroll-mt-28 space-y-4">
-        <div>
-          <label htmlFor={`${id}-full-name`} className="block text-xs font-bold uppercase text-[#263849] mb-1">
+      <form
+        id={id}
+        ref={formRef}
+        onSubmit={handleSubmit}
+        onInvalidCapture={handleInvalidCapture}
+        className="scroll-mt-28 space-y-4"
+      >
+        <div className="lead-form-field" data-invalid={Boolean(fieldErrors.fullName)}>
+          <label htmlFor={`${id}-full-name`} className="lead-form-label block text-base font-bold uppercase text-[#263849] mb-1">
             Họ và tên thí sinh <span className="text-rose-500">*</span>
           </label>
           <input
@@ -70,13 +192,21 @@ export default function StickyLeadForm({
             required
             autoComplete="name"
             autoCapitalize="words"
+            aria-invalid={Boolean(fieldErrors.fullName)}
+            aria-describedby={fieldErrors.fullName ? `${id}-full-name-error` : undefined}
+            onChange={clearResolvedError}
             placeholder="Ví dụ: Nguyễn Văn An"
-            className="min-h-[44px] w-full px-3.5 py-2.5 text-sm bg-[#F5F8FA] border border-[#D9E2EA] rounded-xl focus:bg-white focus:ring-2 focus:ring-[#0F5587] focus:border-[#0F5587] outline-none transition-all placeholder:text-[#5D6B78]/60 text-[#263849]"
+            className="lead-form-control min-h-[48px] w-full px-3.5 py-2.5 text-base bg-[#F5F8FA] border border-[#D9E2EA] rounded-xl focus:bg-white focus:ring-2 focus:ring-[#0F5587] focus:border-[#0F5587] outline-none placeholder:text-[#5D6B78]/60 text-[#263849]"
           />
+          {fieldErrors.fullName && (
+            <p id={`${id}-full-name-error`} className="lead-form-error" role="alert">
+              {fieldErrors.fullName}
+            </p>
+          )}
         </div>
 
-        <div>
-          <label htmlFor={`${id}-phone`} className="block text-xs font-bold uppercase text-[#263849] mb-1">
+        <div className="lead-form-field" data-invalid={Boolean(fieldErrors.phone)}>
+          <label htmlFor={`${id}-phone`} className="lead-form-label block text-base font-bold uppercase text-[#263849] mb-1">
             Số điện thoại / Zalo <span className="text-rose-500">*</span>
           </label>
           <input
@@ -87,13 +217,21 @@ export default function StickyLeadForm({
             autoComplete="tel"
             inputMode="tel"
             pattern="^(0|\+84)[0-9]{9}$"
+            aria-invalid={Boolean(fieldErrors.phone)}
+            aria-describedby={fieldErrors.phone ? `${id}-phone-error` : undefined}
+            onChange={clearResolvedError}
             placeholder="Ví dụ: 0912345678"
-            className="min-h-[44px] w-full px-3.5 py-2.5 text-sm bg-[#F5F8FA] border border-[#D9E2EA] rounded-xl focus:bg-white focus:ring-2 focus:ring-[#0F5587] focus:border-[#0F5587] outline-none transition-all placeholder:text-[#5D6B78]/60 text-[#263849]"
+            className="lead-form-control min-h-[48px] w-full px-3.5 py-2.5 text-base bg-[#F5F8FA] border border-[#D9E2EA] rounded-xl focus:bg-white focus:ring-2 focus:ring-[#0F5587] focus:border-[#0F5587] outline-none placeholder:text-[#5D6B78]/60 text-[#263849]"
           />
+          {fieldErrors.phone && (
+            <p id={`${id}-phone-error`} className="lead-form-error" role="alert">
+              {fieldErrors.phone}
+            </p>
+          )}
         </div>
 
-        <div>
-          <label htmlFor={`${id}-major`} className="block text-xs font-bold uppercase text-[#263849] mb-1">
+        <div className="lead-form-field" data-invalid={Boolean(fieldErrors.major)}>
+          <label htmlFor={`${id}-major`} className="lead-form-label block text-base font-bold uppercase text-[#263849] mb-1">
             Ngành học quan tâm <span className="text-rose-500">*</span>
           </label>
           <select
@@ -101,7 +239,10 @@ export default function StickyLeadForm({
             name="major"
             required
             defaultValue=""
-            className="min-h-[44px] w-full px-3.5 py-2.5 text-sm bg-[#F5F8FA] border border-[#D9E2EA] rounded-xl focus:bg-white focus:ring-2 focus:ring-[#0F5587] focus:border-[#0F5587] outline-none transition-all text-[#263849]"
+            aria-invalid={Boolean(fieldErrors.major)}
+            aria-describedby={fieldErrors.major ? `${id}-major-error` : undefined}
+            onChange={clearResolvedError}
+            className="lead-form-control min-h-[48px] w-full px-3.5 py-2.5 text-base bg-[#F5F8FA] border border-[#D9E2EA] rounded-xl focus:bg-white focus:ring-2 focus:ring-[#0F5587] focus:border-[#0F5587] outline-none text-[#263849]"
           >
             <option value="" disabled>
               -- Chọn ngành học của bạn --
@@ -113,19 +254,40 @@ export default function StickyLeadForm({
             <option value="Quản trị kinh doanh">Quản trị kinh doanh</option>
             <option value="Thương mại điện tử">Thương mại điện tử</option>
           </select>
+          {fieldErrors.major && (
+            <p id={`${id}-major-error`} className="lead-form-error" role="alert">
+              {fieldErrors.major}
+            </p>
+          )}
         </div>
 
         <input type="hidden" name="source" value="landing_sticky_brand" />
-        <label className="flex items-start gap-2 text-xs text-[#5D6B78]">
-          <input type="checkbox" name="consent" required className="mt-0.5 accent-[#0F5587]" />
-          Tôi đồng ý để IES liên hệ tư vấn về chương trình tuyển sinh.
-        </label>
+        <div className="lead-form-field" data-invalid={Boolean(fieldErrors.consent)}>
+          <label className="flex min-h-11 items-start gap-2 text-base text-[#5D6B78]">
+            <input
+              type="checkbox"
+              name="consent"
+              required
+              aria-invalid={Boolean(fieldErrors.consent)}
+              aria-describedby={fieldErrors.consent ? `${id}-consent-error` : undefined}
+              onChange={clearResolvedError}
+              className="mt-1 h-5 w-5 shrink-0 accent-[#0F5587]"
+            />
+            Tôi đồng ý để IES liên hệ tư vấn về chương trình tuyển sinh.
+          </label>
+          {fieldErrors.consent && (
+            <p id={`${id}-consent-error`} className="lead-form-error" role="alert">
+              {fieldErrors.consent}
+            </p>
+          )}
+        </div>
 
         {message && (
           <div
             role={isSuccess ? 'status' : 'alert'}
             aria-live="polite"
-            className={`p-3.5 rounded-xl text-xs sm:text-sm font-semibold leading-relaxed border ${
+            data-success={isSuccess}
+            className={`lead-form-status p-3.5 rounded-xl text-base font-semibold leading-relaxed border ${
               isSuccess
                 ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
                 : 'bg-rose-50 text-rose-800 border-rose-200'
@@ -134,18 +296,23 @@ export default function StickyLeadForm({
             {message}
           </div>
         )}
+        {isSuccess && (
+          <p className="text-center text-base font-semibold text-[#0F5587]">
+            Cảm ơn bạn đã quan tâm đến IES.
+          </p>
+        )}
 
         {/* Nút hành động chính theo Brand Guideline: màu cam Learning Orange #F58232 */}
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full relative group overflow-hidden bg-[#F58232] hover:bg-[#E06F20] text-white font-extrabold py-3.5 px-4 rounded-xl shadow-lg shadow-[#F58232]/30 transition-all duration-300 transform active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
+          className="w-full relative group overflow-hidden bg-[#F58232] hover:bg-[#E06F20] text-white font-extrabold py-3.5 px-4 rounded-xl shadow-lg shadow-[#F58232]/30 active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed"
         >
-          <span className="relative z-10 flex items-center justify-center gap-2 tracking-wide uppercase text-sm">
+          <span className="relative z-10 flex items-center justify-center gap-2 tracking-wide uppercase text-base">
             {isSubmitting ? (
               <>
                 <svg
-                  className="animate-spin h-4 w-4 text-white"
+                  className="lead-form-spinner animate-spin h-4 w-4 text-white"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -172,7 +339,7 @@ export default function StickyLeadForm({
           </span>
         </button>
 
-        <p className="text-center text-[11px] text-[#5D6B78] font-medium">
+        <p className="text-center text-sm text-[#5D6B78] font-medium">
           🔒 Bảo mật thông tin thí sinh 100% theo quy chuẩn Bộ GD&ĐT
         </p>
       </form>

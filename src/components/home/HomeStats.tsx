@@ -1,6 +1,9 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { useInView } from '@/hooks/useInView';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
+import Reveal from '@/components/home/Reveal';
 
 interface HomeStatsProps {
   decree81Url: string;
@@ -32,43 +35,13 @@ const metrics = [
 ] as const;
 
 export default function HomeStats({ decree81Url, decree24Url }: HomeStatsProps) {
-  const sectionRef = useRef<HTMLElement>(null);
+  const { ref: sectionRef, isInView } = useInView<HTMLElement>({ threshold: 0.25 });
   const progressRef = useRef(0);
-  const [hasEntered, setHasEntered] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const updatePreference = () => setPrefersReducedMotion(mediaQuery.matches);
-    const section = sectionRef.current;
-
-    updatePreference();
-    mediaQuery.addEventListener('change', updatePreference);
-
-    if (!section) {
-      return () => mediaQuery.removeEventListener('change', updatePreference);
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry?.isIntersecting) {
-          setHasEntered(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.25 },
-    );
-
-    observer.observe(section);
-    return () => {
-      observer.disconnect();
-      mediaQuery.removeEventListener('change', updatePreference);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!hasEntered || prefersReducedMotion || progressRef.current >= 1) return;
+    if (!isInView || prefersReducedMotion || progressRef.current >= 1) return;
 
     const startProgress = progressRef.current;
     const duration = 1200 * (1 - startProgress);
@@ -78,7 +51,8 @@ export default function HomeStats({ decree81Url, decree24Url }: HomeStatsProps) 
     function animate(timestamp: number) {
       if (startTime === undefined) startTime = timestamp;
       const elapsed = Math.min((timestamp - startTime) / duration, 1);
-      const nextProgress = startProgress + elapsed * (1 - startProgress);
+      const easedProgress = 1 - (1 - elapsed) ** 3;
+      const nextProgress = startProgress + easedProgress * (1 - startProgress);
       progressRef.current = nextProgress;
       setProgress(nextProgress);
       if (nextProgress < 1) frameId = window.requestAnimationFrame(animate);
@@ -86,7 +60,7 @@ export default function HomeStats({ decree81Url, decree24Url }: HomeStatsProps) 
 
     frameId = window.requestAnimationFrame(animate);
     return () => window.cancelAnimationFrame(frameId);
-  }, [hasEntered, prefersReducedMotion]);
+  }, [isInView, prefersReducedMotion]);
 
   const displayedProgress = prefersReducedMotion ? 1 : progress;
 
@@ -106,24 +80,31 @@ export default function HomeStats({ decree81Url, decree24Url }: HomeStatsProps) 
 
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {metrics.map((metric, index) => (
-            <div
-              key={metric.label}
-              className={`flex min-h-32 flex-col items-center justify-center rounded-2xl border p-4 text-center ${
-                index === 0
-                  ? 'border-[#F58232]/40 bg-[#FFF6EF]'
-                  : 'border-[#D9E2EA] bg-[#F5F8FA]'
-              }`}
-            >
-              <span className="font-headline-lg text-xl font-black leading-tight text-primary sm:text-2xl">
-                {metric.value(displayedProgress)}
-                {index === 0 && <span className="ml-1">HỌC PHÍ</span>}
-              </span>
-              {index !== 0 && (
-                <span className="mt-2 text-base font-semibold leading-snug text-on-surface-variant">
-                  {metric.label}
+            <Reveal key={metric.label} delayMs={index * 80} className="h-full">
+              <div
+                className={`flex min-h-32 flex-col items-center justify-center rounded-2xl border p-4 text-center ${
+                  index === 0
+                    ? 'border-[#F58232]/40 bg-[#FFF6EF]'
+                    : 'border-[#D9E2EA] bg-[#F5F8FA]'
+                }`}
+              >
+                <span className="font-headline-lg text-xl font-black leading-tight text-primary sm:text-2xl">
+                  {metric.value(displayedProgress)}
+                  {index === 0 && <span className="ml-1">HỌC PHÍ</span>}
                 </span>
-              )}
-            </div>
+                {index !== 0 && (
+                  <span className="mt-2 text-base font-semibold leading-snug text-on-surface-variant">
+                    {metric.label}
+                  </span>
+                )}
+                <span aria-hidden="true" className="home-stat-progress mt-3">
+                  <span
+                    className="home-stat-progress__fill"
+                    style={{ transform: `scaleX(${displayedProgress})` }}
+                  />
+                </span>
+              </div>
+            </Reveal>
           ))}
         </div>
 

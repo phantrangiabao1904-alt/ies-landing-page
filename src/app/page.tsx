@@ -4,17 +4,39 @@ import Icon from '@/components/ui/Icon';
 import Link from 'next/link';
 import Image from 'next/image';
 import HeroCarousel from '@/components/home/HeroCarousel';
+import HeroAtmosphere from '@/components/home/HeroAtmosphere';
+import HeroTitle from '@/components/home/HeroTitle';
+import MagneticCta from '@/components/home/MagneticCta';
 import HomeStats from '@/components/home/HomeStats';
+import LearningPath from '@/components/home/LearningPath';
+import PartnersMarquee from '@/components/home/PartnersMarquee';
+import ScrollTimeline from '@/components/home/ScrollTimeline';
+import StudentLifeCarousel from '@/components/home/StudentLifeCarousel';
+import HomeGallery from '@/components/home/HomeGallery';
+import MajorQuiz from '@/components/home/MajorQuiz';
+import FloatingContactActions from '@/components/home/FloatingContactActions';
+import CustomCursor from '@/components/home/CustomCursor';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import StickyLeadForm from '@/app/components/forms/StickyLeadForm';
 import HomeCmsSection from '@/components/home/HomeCmsSection';
+import ScrollProgress from '@/components/home/ScrollProgress';
+import { useInView } from '@/hooks/useInView';
 import { decree24DocumentUrl, decree81SearchUrl, schoolContact } from '@/lib/school-info';
 
 export default function HomePage() {
+  const { ref: heroSectionRef, isInView: isHeroInView } = useInView<HTMLElement>({
+    threshold: 0.05,
+  });
+  const { ref: leadSectionRef, isInView: isLeadSectionInView } = useInView<HTMLElement>({
+    threshold: 0.01,
+    rootMargin: '120px 0px 120px 0px',
+  });
+
   return (
     <div className="site-page home-page bg-surface font-body-md text-on-surface min-h-screen flex flex-col pb-[76px] md:pb-0">
-      <SiteHeader />
+      <ScrollProgress />
+      <SiteHeader enableScrollEffects />
 
       {/* MAIN */}
       <main className="w-full pt-28 bg-surface min-h-[calc(100vh-28rem)] flex-1">
@@ -32,10 +54,12 @@ export default function HomePage() {
           </section>
 
           {/* HERO SECTION WITH ULTRA PROMINENT 100% TUITION EXEMPTION */}
-          <section className="relative w-full overflow-hidden bg-gradient-to-b from-surface-container-low via-surface to-surface-container-lowest py-space-xl md:py-space-2xl">
-            {/* Ambient technical glow circles */}
-            <div className="home-ambient absolute -top-32 -left-32 w-96 h-96 rounded-full bg-secondary-fixed opacity-40 blur-3xl pointer-events-none"></div>
-            <div className="home-ambient-reverse absolute top-1/2 -right-32 w-[30rem] h-[30rem] rounded-full bg-tertiary-fixed opacity-30 blur-3xl pointer-events-none"></div>
+          <section
+            ref={heroSectionRef}
+            data-motion-in-view={isHeroInView}
+            className="home-hero-section relative w-full overflow-hidden py-space-xl text-white md:py-space-2xl"
+          >
+            <HeroAtmosphere />
 
             <div className="max-w-[1240px] mx-auto px-margin-sm md:px-margin relative z-10">
               {/* Top Eyebrow Badge */}
@@ -68,36 +92,32 @@ export default function HomePage() {
 
               {/* Main Headline Grid */}
               <div className="grid grid-cols-1 items-center gap-space-xl lg:grid-cols-12">
-                <div className="home-entrance order-last flex flex-col gap-space-md lg:order-first lg:col-span-7">
-                  <h1 className="font-headline-lg text-3xl font-extrabold leading-tight text-primary sm:text-4xl lg:text-5xl">
-                    TRƯỜNG TRUNG CẤP <br className="hidden sm:inline" />
-                    <span className="text-secondary">TIN HỌC KINH TẾ</span> SÀI GÒN (IES)
-                    <span className="mt-2 block text-[#F58232]">MIỄN PHÍ 100% HỌC PHÍ</span>
-                  </h1>
-                  <p className="max-w-2xl text-base leading-relaxed text-on-surface-variant sm:text-lg">
-                    <strong className="text-primary">Học thực tiễn - Làm chuyên nghiệp.</strong>{' '}
+                <div className="order-last flex flex-col gap-space-md lg:order-first lg:col-span-7">
+                  <HeroTitle />
+                  <p className="hero-description max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
+                    <strong className="text-[#7AA2F7]">Học thực tiễn - Làm chuyên nghiệp.</strong>{' '}
                     Xét tuyển học bạ - Nhập học ngay. Học sinh tốt nghiệp THCS được tư vấn điều kiện áp dụng chính sách hỗ trợ học phí nghề theo quy định hiện hành.
                   </p>
 
                   <div className="flex flex-wrap items-center gap-space-md pt-space-sm">
-                    <a
-                      className="group flex min-h-12 items-center gap-space-xs rounded-xl bg-[#F58232] px-space-xl py-space-md text-center font-title text-title font-bold tracking-wide text-white shadow-md transition-transform hover:-translate-y-0.5 hover:bg-[#e07122] hover:shadow-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F58232]"
+                    <MagneticCta
+                      className="hero-cta hero-cta--primary group flex min-h-12 items-center gap-space-xs rounded-xl bg-[#F58232] px-space-xl py-space-md text-center font-title text-title font-bold tracking-wide text-white shadow-md hover:bg-[#e07122] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F58232]"
                       href="#home-sticky-lead-form"
                     >
                       <span>ĐĂNG KÝ XÉT TUYỂN NGAY</span>
                       <Icon name="arrow_forward" className="text-[20px] transition-transform group-hover:translate-x-1" />
-                    </a>
+                    </MagneticCta>
                     <Link
-                      className="flex min-h-12 items-center gap-space-xs rounded-xl bg-surface-container-high px-space-lg py-space-md font-title text-title font-semibold text-primary shadow-sm transition-transform hover:-translate-y-0.5 hover:bg-surface-container hover:shadow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                      className="hero-cta hero-cta--secondary flex min-h-12 items-center gap-space-xs rounded-xl border border-white/20 bg-white/10 px-space-lg py-space-md font-title text-title font-semibold text-white shadow-sm hover:bg-white/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                       href="/gioi-thieu"
                     >
-                      <Icon name="domain" className="text-[20px] text-secondary" />
+                      <Icon name="domain" className="text-[20px] text-[#7AA2F7]" />
                       <span>Khám Phá Giới Thiệu Trường</span>
                     </Link>
                   </div>
                 </div>
 
-                <div className="home-entrance home-entrance-delay order-first w-full lg:order-last lg:col-span-5 lg:pt-2">
+                <div className="order-first w-full lg:order-last lg:col-span-5 lg:pt-2">
                   <HeroCarousel />
                 </div>
               </div>
@@ -108,26 +128,7 @@ export default function HomePage() {
 
           <HomeCmsSection />
 
-          {/* ENTERPRISE PARTNERS MARQUEE SECTION */}
-          <section className="w-full bg-surface-container-low py-space-lg">
-            <div className="max-w-[1240px] mx-auto px-margin-sm md:px-margin">
-              <div className="flex flex-col md:flex-row items-center justify-between gap-space-md">
-                <div className="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md uppercase tracking-wider flex-shrink-0">
-                  <Icon name="handshake" className="text-primary text-[20px]" />
-                  <span>Doanh nghiệp tiêu biểu trong các lĩnh vực đào tạo:</span>
-                </div>
-                <div className="flex flex-wrap items-center justify-center md:justify-end gap-space-lg opacity-85">
-                  <span className="font-display text-[18px] font-black text-primary tracking-tighter">FPT<span className="text-[#F58232]">Software</span></span>
-                  <span className="font-title text-title font-black text-secondary tracking-widest">VIETTEL</span>
-                  <span className="font-display text-[18px] font-bold text-tertiary-container tracking-tight">HPT <span className="text-[12px] font-normal">Vietnam</span></span>
-                  <span className="font-title text-title font-extrabold text-primary">VNPT Group</span>
-                  <span className="font-headline-sm text-headline-sm font-black text-secondary tracking-tighter">Sacombank</span>
-                  <span className="font-title text-title font-bold text-[#F58232]">MWG Tech</span>
-                  <span className="font-title text-title font-extrabold text-primary">VNG Corporation</span>
-                </div>
-              </div>
-            </div>
-          </section>
+          <PartnersMarquee />
 
           {/* SPECIAL SECTION: CHÍNH SÁCH "HỌC NGHỀ 0 ĐỒNG - VỮNG VÀNG TƯƠNG LAI" */}
           <section className="w-full py-space-2xl bg-surface-container-lowest">
@@ -146,9 +147,9 @@ export default function HomePage() {
               </div>
 
               {/* 4 Pillars Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-lg">
+              <ScrollTimeline className="scroll-timeline--steps grid grid-cols-1 gap-space-lg lg:grid-cols-4">
                 {/* Pillar 1 */}
-                <div className="home-hover-card p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+                <div data-timeline-step style={{ transitionDelay: '0ms' }} className="scroll-timeline__step home-pillar-card home-hover-card flex flex-col justify-between rounded-xl bg-surface-container-low p-space-lg shadow-sm group">
                   <div className="flex flex-col gap-space-sm">
                     <div className="w-12 h-12 rounded-lg bg-primary text-on-primary flex items-center justify-center shadow-md">
                       <Icon name="gavel" className="text-[28px]" />
@@ -157,7 +158,7 @@ export default function HomePage() {
                     <h3 className="font-headline-sm text-headline-sm text-primary font-bold group-hover:text-secondary transition-colors">
                       Nghị Định 81 Chính Phủ
                     </h3>
-                    <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                    <p className="text-base leading-relaxed text-on-surface-variant">
                       Nhà nước thực hiện cấp bù 100% kinh phí học phí cho học sinh tốt nghiệp THCS tham gia học nghề trình độ trung cấp theo khung chuẩn quy định.
                     </p>
                   </div>
@@ -168,7 +169,7 @@ export default function HomePage() {
                 </div>
 
                 {/* Pillar 2 */}
-                <div className="home-hover-card p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+                <div data-timeline-step style={{ transitionDelay: '80ms' }} className="scroll-timeline__step home-pillar-card home-hover-card flex flex-col justify-between rounded-xl bg-surface-container-low p-space-lg shadow-sm group">
                   <div className="flex flex-col gap-space-sm">
                     <div className="w-12 h-12 rounded-lg bg-secondary text-white flex items-center justify-center shadow-md">
                       <Icon name="corporate_fare" className="text-[28px]" />
@@ -177,7 +178,7 @@ export default function HomePage() {
                     <h3 className="font-headline-sm text-headline-sm text-primary font-bold group-hover:text-secondary transition-colors">
                       Quỹ IES Talent Fund
                     </h3>
-                    <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                    <p className="text-base leading-relaxed text-on-surface-variant">
                       Hệ thống doanh nghiệp công nghệ đối tác tài trợ toàn bộ chi phí sử dụng hệ thống máy chủ, phòng Lab iMac cao cấp và bản quyền phần mềm quốc tế.
                     </p>
                   </div>
@@ -188,7 +189,7 @@ export default function HomePage() {
                 </div>
 
                 {/* Pillar 3 */}
-                <div className="home-hover-card p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+                <div data-timeline-step style={{ transitionDelay: '160ms' }} className="scroll-timeline__step home-pillar-card home-hover-card flex flex-col justify-between rounded-xl bg-surface-container-low p-space-lg shadow-sm group">
                   <div className="flex flex-col gap-space-sm">
                     <div className="w-12 h-12 rounded-lg bg-[#F58232] text-white flex items-center justify-center shadow-md">
                       <Icon name="card_membership" className="text-[28px]" />
@@ -197,7 +198,7 @@ export default function HomePage() {
                     <h3 className="font-headline-sm text-headline-sm text-primary font-bold group-hover:text-[#F58232] transition-colors">
                       Học Bổng Khuyến Học
                     </h3>
-                    <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                    <p className="text-base leading-relaxed text-on-surface-variant">
                       Trao tặng học bổng sinh hoạt phí toàn phần cho tân sinh viên hoàn cảnh khó khăn nhưng hiếu học, đạt danh hiệu sinh viên xuất sắc từng kỳ.
                     </p>
                   </div>
@@ -208,7 +209,7 @@ export default function HomePage() {
                 </div>
 
                 {/* Pillar 4 */}
-                <div className="home-hover-card p-space-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-all shadow-sm hover:shadow-md flex flex-col justify-between group">
+                <div data-timeline-step style={{ transitionDelay: '240ms' }} className="scroll-timeline__step home-pillar-card home-hover-card flex flex-col justify-between rounded-xl bg-surface-container-low p-space-lg shadow-sm group">
                   <div className="flex flex-col gap-space-sm">
                     <div className="w-12 h-12 rounded-lg bg-tertiary-container text-white flex items-center justify-center shadow-md">
                       <Icon name="receipt_long" className="text-[28px]" />
@@ -217,7 +218,7 @@ export default function HomePage() {
                     <h3 className="font-headline-sm text-headline-sm text-primary font-bold group-hover:text-tertiary transition-colors">
                       Minh Bạch Tuyệt Đối
                     </h3>
-                    <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                    <p className="text-base leading-relaxed text-on-surface-variant">
                       Cam kết không phát sinh các chi phí ẩn trong suốt thời gian học tập. Mọi quy chế, khoản thu được công khai trên cổng thông tin sinh viên IES.
                     </p>
                   </div>
@@ -226,7 +227,7 @@ export default function HomePage() {
                     <span>Ký cam kết nhập học</span>
                   </div>
                 </div>
-              </div>
+              </ScrollTimeline>
 
               {/* Action Anchor to Admissions Details */}
               <div className="mt-space-xl p-space-lg bg-surface-container rounded-xl flex flex-col sm:flex-row items-center justify-between gap-space-md">
@@ -247,6 +248,8 @@ export default function HomePage() {
               </div>
             </div>
           </section>
+
+          <LearningPath />
 
           {/* WHY CHOOSE IES SECTION */}
           <section className="w-full py-space-2xl bg-surface-container-low">
@@ -345,8 +348,17 @@ export default function HomePage() {
             </div>
           </section>
 
+          <StudentLifeCarousel />
+          <HomeGallery />
+          <MajorQuiz />
+
           {/* ADMISSIONS SECTION */}
-          <section className="w-full py-space-2xl bg-[#0F5587] text-white relative overflow-hidden" id="form-xet-tuyen">
+          <section
+            ref={leadSectionRef}
+            data-lead-form-in-view={isLeadSectionInView}
+            className="w-full py-space-2xl bg-[#0F5587] text-white relative overflow-hidden"
+            id="form-xet-tuyen"
+          >
             {/* Abstract circular background decor */}
             <div className="absolute -right-24 -bottom-24 w-96 h-96 rounded-full bg-secondary opacity-20 blur-2xl"></div>
             <div className="absolute left-1/3 -top-24 w-72 h-72 rounded-full bg-tertiary-fixed opacity-15 blur-2xl"></div>
@@ -442,15 +454,25 @@ export default function HomePage() {
       </main>
 
       <SiteFooter />
-      <div className="fixed inset-x-0 bottom-0 z-[60] flex items-center justify-between gap-3 border-t border-white/20 bg-[#0F5587] px-4 py-3 text-white shadow-[0_-4px_16px_rgba(0,0,0,0.16)] md:hidden">
-        <span className="text-xs font-extrabold leading-tight sm:text-sm">MIỄN PHÍ 100% HỌC PHÍ</span>
+      <div
+        data-compact={isLeadSectionInView}
+        className="mobile-sticky-cta fixed inset-x-0 bottom-0 z-[60] flex items-center justify-between gap-3 border-t border-white/20 bg-[#0F5587] px-4 py-3 text-white shadow-[0_-4px_16px_rgba(0,0,0,0.16)] md:hidden"
+      >
+        <span
+          aria-hidden={isLeadSectionInView}
+          className="mobile-sticky-cta__offer text-xs font-extrabold leading-tight sm:text-sm"
+        >
+          MIỄN PHÍ 100% HỌC PHÍ
+        </span>
         <a
           href="#home-sticky-lead-form"
-          className="inline-flex min-h-[44px] flex-shrink-0 items-center justify-center rounded-lg bg-[#F58232] px-4 text-sm font-bold text-white transition-colors hover:bg-[#e07122]"
+          className="mobile-sticky-cta__button inline-flex min-h-[44px] flex-shrink-0 items-center justify-center rounded-lg bg-[#F58232] px-4 text-sm font-bold text-white hover:bg-[#e07122]"
         >
           ĐĂNG KÝ NGAY
         </a>
       </div>
+      <FloatingContactActions />
+      <CustomCursor />
     </div>
   );
 }

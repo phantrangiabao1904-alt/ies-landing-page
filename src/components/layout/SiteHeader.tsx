@@ -3,8 +3,10 @@ import Icon from '@/components/ui/Icon';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useEffect, useRef, useState } from 'react';
 import IESLogo from '@/components/brand/IESLogo';
 import { schoolContact } from '@/lib/school-info';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 const navLinks = [
   { label: 'Trang Chủ', href: '/' },
@@ -14,13 +16,70 @@ const navLinks = [
   { label: 'Tuyển Sinh', href: '/tuyen-sinh' },
 ];
 
-export default function SiteHeader() {
+interface SiteHeaderProps {
+  enableScrollEffects?: boolean;
+}
+
+export default function SiteHeader({ enableScrollEffects = false }: SiteHeaderProps) {
   const pathname = usePathname();
+  const headerRef = useRef<HTMLElement>(null);
+  const [isCompact, setIsCompact] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+  const prefersReducedMotion = usePrefersReducedMotion();
   const isActiveLink = (href: string) =>
     pathname === href || (href !== '/' && pathname.startsWith(`${href}/`));
 
+  useEffect(() => {
+    if (!enableScrollEffects || prefersReducedMotion) return;
+
+    let lastScrollY = window.scrollY;
+    let frameId = 0;
+    let showOnStart = true;
+
+    const handleScroll = () => {
+      if (frameId) return;
+
+      frameId = window.requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+        const hasFocusInsideHeader =
+          headerRef.current?.contains(document.activeElement) ?? false;
+
+        setIsCompact(currentScrollY > 24);
+        if (showOnStart || currentScrollY <= 24) {
+          setIsHidden(false);
+        } else if (currentScrollY - lastScrollY > 4 && !hasFocusInsideHeader) {
+          setIsHidden(true);
+        } else if (lastScrollY - currentScrollY > 4) {
+          setIsHidden(false);
+        }
+
+        lastScrollY = currentScrollY;
+        showOnStart = false;
+        frameId = 0;
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (frameId) window.cancelAnimationFrame(frameId);
+    };
+  }, [enableScrollEffects, prefersReducedMotion]);
+
+  const shouldHide = enableScrollEffects && !prefersReducedMotion && isHidden;
+  const shouldCompact = enableScrollEffects && !prefersReducedMotion && isCompact;
+
   return (
-    <header className="fixed top-0 z-50 w-full shadow-[0_4px_18px_rgba(0,29,52,0.08)] transition-shadow duration-300">
+    <header
+      ref={headerRef}
+      aria-hidden={shouldHide || undefined}
+      inert={shouldHide || undefined}
+      className={`site-header-motion fixed top-0 z-50 w-full shadow-[0_4px_18px_rgba(0,29,52,0.08)] ${
+        shouldCompact ? 'is-compact' : ''
+      } ${shouldHide ? 'is-hidden' : ''}`}
+    >
       {/* Announcement Bar */}
       <div className="bg-[#0F5587] text-white py-1.5 px-4 md:px-8 text-center overflow-hidden">
         <div className="max-w-[1240px] mx-auto flex items-center justify-center gap-2 font-['Montserrat',sans-serif] text-[9px] leading-4 font-semibold tracking-[0.04em] sm:text-[11px] sm:leading-5">

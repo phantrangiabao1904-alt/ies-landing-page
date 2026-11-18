@@ -1,18 +1,15 @@
 'use client';
 
+import Image from 'next/image';
 import React, { useState } from 'react';
 import {
   Building,
   Globe2,
   Play,
   ExternalLink,
-  ChevronLeft,
-  ChevronRight,
-  Sparkles,
 } from 'lucide-react';
 
 export default function PortalPartnersAndVideo() {
-  const [partnerIndex, setPartnerIndex] = useState(0);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   const domesticPartners = [
@@ -132,10 +129,13 @@ export default function PortalPartnersAndVideo() {
               </div>
 
               <div className="relative rounded-xl overflow-hidden shadow-md border border-[#D9E2EA] group">
-                <img
+                <Image
                   src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&auto=format&fit=crop&q=80"
                   alt="Video Giới thiệu trường IES"
-                  className="w-full h-48 sm:h-52 object-cover group-hover:scale-105 transition-transform duration-500"
+                  width={600}
+                  height={240}
+                  className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:h-52"
+                  unoptimized
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-between p-4">
                   <span className="self-start text-[10px] font-black uppercase bg-[#F58232] text-white px-2.5 py-1 rounded-md shadow-sm">
