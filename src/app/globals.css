@@ -499,6 +499,10 @@ body {
   background: linear-gradient(90deg, var(--ies-blue), var(--ies-violet), var(--ies-green));
 }
 
+.site-scroll-progress .home-scroll-progress__bar {
+  background: linear-gradient(90deg, #0f5587, #2dbedc, #f58232);
+}
+
 .site-header-motion {
   transform-origin: top center;
   transition: transform 260ms ease;
@@ -716,6 +720,24 @@ body {
 
 .home-learning-path .scroll-timeline__step::before {
   background: var(--ies-night-950);
+}
+
+.program-timeline.scroll-timeline--steps::before {
+  background: rgba(15, 85, 135, 0.18);
+}
+
+.program-timeline.scroll-timeline--steps::after {
+  background: linear-gradient(180deg, #0f5587, #2dbedc, #f58232);
+}
+
+.program-timeline .scroll-timeline__step::before {
+  border-color: #0f5587;
+  background: white;
+}
+
+.program-timeline .scroll-timeline__step::after {
+  border-color: rgba(15, 85, 135, 0.2);
+  box-shadow: 0 0 24px rgba(15, 85, 135, 0.12);
 }
 
 .partners-marquee__viewport {

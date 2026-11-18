@@ -5,6 +5,7 @@ import Image from 'next/image';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import LeadForm from '@/components/forms/LeadForm';
+import MajorQuiz from '@/components/home/MajorQuiz';
 import { schoolContact } from '@/lib/school-info';
 
 export const metadata = {
@@ -281,6 +282,8 @@ export default function NganhDaoTaoPage() {
               ))}
             </div>
           </section>
+
+          <MajorQuiz consultationHref="#form-xet-tuyen-nganh" />
 
           {/* 3 PILLARS: DAC QUYEN DAO TAO */}
           <section className="w-full bg-surface py-space-xl">

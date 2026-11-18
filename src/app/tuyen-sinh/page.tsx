@@ -12,6 +12,29 @@ export const metadata = {
   description: 'Thông tin tuyển sinh 2026: Chính sách hỗ trợ học phí nghề, xét tuyển học bạ THCS/THPT và hỗ trợ giới thiệu việc làm.',
 };
 
+const admissionFaq = [
+  {
+    question: 'Học sinh tốt nghiệp THCS có thể đăng ký học không?',
+    answer:
+      'IES có lộ trình đào tạo dành cho học sinh sau THCS. Liên hệ Ban tư vấn để được xác nhận điều kiện và lộ trình phù hợp với hồ sơ của bạn.',
+  },
+  {
+    question: 'Đăng ký trực tuyến có thay thế hồ sơ nhập học không?',
+    answer:
+      'Biểu mẫu trực tuyến giúp nhà trường tiếp nhận thông tin ban đầu. Ban tư vấn sẽ hướng dẫn các giấy tờ cần bổ sung để hoàn thiện hồ sơ.',
+  },
+  {
+    question: 'Cần chuẩn bị những giấy tờ nào?',
+    answer:
+      'Hồ sơ thường gồm giấy tờ học tập, giấy tờ tùy thân và phiếu đăng ký. Xem checklist trên trang để biết danh sách chi tiết và chuẩn bị theo hướng dẫn của tư vấn viên.',
+  },
+  {
+    question: 'Chưa biết chọn ngành nào thì có thể được tư vấn không?',
+    answer:
+      'Bạn có thể tìm hiểu sáu ngành đào tạo hoặc làm bài khám phá sở thích ở trang Ngành đào tạo, sau đó trao đổi thêm với Ban tư vấn.',
+  },
+] as const;
+
 export default function TuyenSinhPage() {
   return (
     <div className="site-page bg-surface font-body-md text-on-surface min-h-screen flex flex-col">
@@ -459,6 +482,60 @@ export default function TuyenSinhPage() {
                     <li>• Hỗ trợ hoàn thiện hồ sơ gửi về địa phương miễn phí</li>
                   </ul>
                 </div>
+              </div>
+            </div>
+          </section>
+
+          <section
+            aria-labelledby="admission-faq-title"
+            className="admissions-faq w-full bg-surface-container-low py-space-2xl"
+          >
+            <div className="mx-auto max-w-[900px] px-margin-sm md:px-margin">
+              <div className="mb-space-xl text-center">
+                <span className="font-label-md text-label-md font-bold uppercase tracking-widest text-secondary">
+                  Cần biết trước khi đăng ký
+                </span>
+                <h2
+                  id="admission-faq-title"
+                  className="mt-1 font-headline-lg text-headline-lg font-bold text-primary"
+                >
+                  Giải đáp nhanh về tuyển sinh
+                </h2>
+                <p className="mt-2 text-body-md text-on-surface-variant">
+                  Mở câu hỏi để xem thông tin và tiếp tục khám phá lộ trình phù hợp.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                {admissionFaq.map((item) => (
+                  <details
+                    key={item.question}
+                    className="group rounded-xl border border-outline-variant/40 bg-white p-space-md shadow-sm"
+                  >
+                    <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 font-title text-title font-bold text-primary">
+                      <span>{item.question}</span>
+                      <Icon
+                        name="chevron_right"
+                        className="shrink-0 rotate-90 text-[22px] transition-transform group-open:-rotate-90"
+                      />
+                    </summary>
+                    <p className="pt-space-sm text-body-sm leading-relaxed text-on-surface-variant">
+                      {item.answer}
+                      {item.question.startsWith('Chưa biết chọn ngành') && (
+                        <>
+                          {' '}
+                          <Link
+                            href="/nganh-dao-tao"
+                            className="font-bold text-primary underline underline-offset-2"
+                          >
+                            Khám phá ngành học
+                          </Link>
+                          .
+                        </>
+                      )}
+                    </p>
+                  </details>
+                ))}
               </div>
             </div>
           </section>

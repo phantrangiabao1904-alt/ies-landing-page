@@ -4,6 +4,7 @@ import Image from 'next/image';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import AboutHeroSlider from '@/components/about/AboutHeroSlider';
+import HomeGallery from '@/components/home/HomeGallery';
 import { schoolContact } from '@/lib/school-info';
 
 export const metadata = {
@@ -700,6 +701,8 @@ export default function GioiThieuPage() {
             </div>
           </div>
         </section>
+
+        <HomeGallery />
 
         {/* 10. Legal/Credentials & IES 9+ Pathway Diagram */}
         <section className="py-16 md:py-20 bg-[#F5F8FA]">

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import LeadForm from '@/components/forms/LeadForm';
+import ScrollTimeline from '@/components/home/ScrollTimeline';
 import { decree24DocumentUrl, decree81SearchUrl, schoolContact } from '@/lib/school-info';
 
 export const metadata = {
@@ -341,8 +342,8 @@ export default function ChuongTrinhHocPage() {
                 <p className="font-body-md text-body-md text-on-surface-variant">Thiết kế khoa học giúp học viên tích lũy năng lực từ mức cơ bản đến thuần thục nghiệp vụ độc lập.</p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-space-md relative">
-                <div className="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+              <ScrollTimeline className="scroll-timeline--steps program-timeline grid grid-cols-1 lg:grid-cols-5 gap-space-md relative">
+                <article data-timeline-step className="scroll-timeline__step bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                   <div>
                     <div className="w-9 h-9 rounded-lg bg-primary text-white font-title text-title flex items-center justify-center mb-space-sm font-bold">01</div>
                     <span className="font-label-md text-[11px] uppercase tracking-wider text-secondary font-bold">Học Kỳ I</span>
@@ -352,9 +353,9 @@ export default function ChuongTrinhHocPage() {
                     </p>
                   </div>
                   <div className="mt-space-md pt-space-xs text-on-surface-variant font-label-md text-[11px]">Học phần: 5 môn cơ sở</div>
-                </div>
+                </article>
 
-                <div className="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                <article data-timeline-step className="scroll-timeline__step bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                   <div>
                     <div className="w-9 h-9 rounded-lg bg-primary text-white font-title text-title flex items-center justify-center mb-space-sm font-bold">02</div>
                     <span className="font-label-md text-[11px] uppercase tracking-wider text-secondary font-bold">Học Kỳ II</span>
@@ -364,9 +365,9 @@ export default function ChuongTrinhHocPage() {
                     </p>
                   </div>
                   <div className="mt-space-md pt-space-xs text-on-surface-variant font-label-md text-[11px]">Học phần: 6 môn thực hành</div>
-                </div>
+                </article>
 
-                <div className="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                <article data-timeline-step className="scroll-timeline__step bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                   <div>
                     <div className="w-9 h-9 rounded-lg bg-primary text-white font-title text-title flex items-center justify-center mb-space-sm font-bold">03</div>
                     <span className="font-label-md text-[11px] uppercase tracking-wider text-secondary font-bold">Học Kỳ III</span>
@@ -376,9 +377,9 @@ export default function ChuongTrinhHocPage() {
                     </p>
                   </div>
                   <div className="mt-space-md pt-space-xs text-on-surface-variant font-label-md text-[11px]">Học phần: 5 môn chuyên môn</div>
-                </div>
+                </article>
 
-                <div className="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                <article data-timeline-step className="scroll-timeline__step bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                   <div>
                     <div className="w-9 h-9 rounded-lg bg-primary text-white font-title text-title flex items-center justify-center mb-space-sm font-bold">04</div>
                     <span className="font-label-md text-[11px] uppercase tracking-wider text-secondary font-bold">Học Kỳ IV</span>
@@ -388,9 +389,9 @@ export default function ChuongTrinhHocPage() {
                     </p>
                   </div>
                   <div className="mt-space-md pt-space-xs text-on-surface-variant font-label-md text-[11px]">Học phần: Đồ án ứng dụng</div>
-                </div>
+                </article>
 
-                <div className="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                <article data-timeline-step className="scroll-timeline__step bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                   <div>
                     <div className="w-9 h-9 rounded-lg bg-[#F58232] text-white font-title text-title flex items-center justify-center mb-space-sm font-bold">05+</div>
                     <span className="font-label-md text-[11px] uppercase tracking-wider text-[#F58232] font-bold">Học Kỳ V - VI</span>
@@ -400,8 +401,8 @@ export default function ChuongTrinhHocPage() {
                     </p>
                   </div>
                   <div className="mt-space-md pt-space-xs text-on-surface-variant font-label-md text-[11px]">Tốt nghiệp &amp; Đi làm</div>
-                </div>
-              </div>
+                </article>
+              </ScrollTimeline>
             </div>
           </section>
 

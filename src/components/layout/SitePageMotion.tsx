@@ -1,15 +1,23 @@
 'use client';
 
-import { useEffect, useRef, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
+import ScrollProgress from '@/components/home/ScrollProgress';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 export default function SitePageMotion({ children }: { children: ReactNode }) {
   const rootRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = usePrefersReducedMotion();
+  const [hasProgress, setHasProgress] = useState(false);
 
   useEffect(() => {
     const root = rootRef.current;
-    if (!root || prefersReducedMotion || typeof IntersectionObserver === 'undefined') return;
+    if (!root) return;
+
+    const isNonHomeSitePage = Boolean(root.querySelector('.site-page:not(.home-page)'));
+    setHasProgress(isNonHomeSitePage);
+    if (!isNonHomeSitePage || prefersReducedMotion || typeof IntersectionObserver === 'undefined') {
+      return;
+    }
 
     const targets = root.querySelectorAll<HTMLElement>(
       '.site-page main section, .site-page main .site-card',
@@ -40,5 +48,10 @@ export default function SitePageMotion({ children }: { children: ReactNode }) {
     return () => observer.disconnect();
   }, [prefersReducedMotion]);
 
-  return <div ref={rootRef}>{children}</div>;
+  return (
+    <div ref={rootRef}>
+      {hasProgress && <ScrollProgress className="site-scroll-progress" />}
+      {children}
+    </div>
+  );
 }

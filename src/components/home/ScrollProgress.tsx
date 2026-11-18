@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 
-export default function ScrollProgress() {
+export default function ScrollProgress({ className = '' }: { className?: string }) {
   const progressRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function ScrollProgress() {
   }, []);
 
   return (
-    <div className="home-scroll-progress" aria-hidden="true">
+    <div className={`home-scroll-progress ${className}`.trim()} aria-hidden="true">
       <div ref={progressRef} className="home-scroll-progress__bar" />
     </div>
   );

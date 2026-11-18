@@ -116,7 +116,11 @@ const questions: readonly QuizQuestion[] = [
   },
 ];
 
-export default function MajorQuiz() {
+export default function MajorQuiz({
+  consultationHref = '#home-sticky-lead-form',
+}: {
+  consultationHref?: string;
+}) {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 });
   const prefersReducedMotion = usePrefersReducedMotion();
   const [answers, setAnswers] = useState<(MajorId | null)[]>(
@@ -262,7 +266,7 @@ export default function MajorQuiz() {
                     Tìm hiểu ngành học
                   </Link>
                   <a
-                    href="#home-sticky-lead-form"
+                    href={consultationHref}
                     className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[#F58232] px-5 font-bold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white hover:bg-[#df6f22]"
                   >
                     Đăng ký xét tuyển
