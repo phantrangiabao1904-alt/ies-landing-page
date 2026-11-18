@@ -9,7 +9,7 @@ import {
   Mail,
   Globe,
   Users,
-  Activity,
+  Activity, 
   BarChart3,
   ShieldCheck,
 } from 'lucide-react';
@@ -31,7 +31,7 @@ export default function PortalFooter() {
             <h3 className="font-black text-base sm:text-lg text-white uppercase tracking-wider">
               <span className="text-cyan-200 text-lg sm:text-xl">
                 TRƯỜNG TRUNG CẤP TIN HỌC KINH TẾ SÀI GÒN (IES)
-              </span>
+              </span> 
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-sm text-slate-100 pt-2">
@@ -95,7 +95,7 @@ export default function PortalFooter() {
                     title="YouTube"
                   >
                     ▶
-                  </a>
+                  </a>  
                   <a
                     href="https://zalo.me"
                     target="_blank"
