@@ -12,8 +12,8 @@ interface HomeStatsProps {
 
 const metrics = [
   {
-    value: (progress: number) => `MIỄN ${Math.round(100 * progress)}%`,
-    label: 'HỌC PHÍ',
+    value: (progress: number) => `MIỄN ${Math.round(100 * progress)}% HỌC PHÍ`,
+    label: 'Chi phí học nghề',
   },
   {
     value: (progress: number) => `${Math.round(0 * progress)} ĐỒNG`,
@@ -90,7 +90,6 @@ export default function HomeStats({ decree81Url, decree24Url }: HomeStatsProps) 
               >
                 <span className="font-headline-lg text-xl font-black leading-tight text-primary sm:text-2xl">
                   {metric.value(displayedProgress)}
-                  {index === 0 && <span className="ml-1">HỌC PHÍ</span>}
                 </span>
                 {index !== 0 && (
                   <span className="mt-2 text-base font-semibold leading-snug text-on-surface-variant">

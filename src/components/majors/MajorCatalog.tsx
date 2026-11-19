@@ -105,7 +105,7 @@ export default function MajorCatalog({ majors }: { majors: Major[] }) {
                     </div>
                   </div>
                   <p className="mt-4 rounded-lg bg-[#F5F8FA] p-3 text-xs leading-relaxed text-[#5D6B78]">
-                    Thời lượng và đầu ra theo từng ngành: [CẦN XÁC NHẬN]
+                    Thời lượng và chương trình theo từng lộ trình: trao đổi trực tiếp với Ban tư vấn để được xác nhận theo hồ sơ.
                   </p>
                   <div className="mt-3 flex items-center justify-between gap-2 rounded-xl border border-[#F58232]/20 bg-[#F6EEE5]/60 p-3">
                     <span className="text-xs font-bold text-on-surface">Thu nhập tham khảo:</span>
@@ -143,7 +143,7 @@ export default function MajorCatalog({ majors }: { majors: Major[] }) {
                     <th scope="row">{major.title}</th>
                     <td>{major.category === 'cong-nghe' ? 'Công nghệ' : 'Kinh tế'}</td>
                     <td>{major.skills.slice(0, 2).join(' · ')}</td>
-                    <td>[CẦN XÁC NHẬN]</td>
+                    <td>Xác nhận theo ngành và lộ trình đăng ký</td>
                   </tr>
                 ))}
               </tbody>

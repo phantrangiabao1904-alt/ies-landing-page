@@ -42,7 +42,7 @@ const admissionFaq = [
   },
   {
     question: 'Ký túc xá có điều kiện và chi phí như thế nào?',
-    answer: 'Thông tin về khả năng tiếp nhận, điều kiện và chi phí: [CẦN XÁC NHẬN].',
+    answer: 'Điều kiện chỗ ở, khả năng tiếp nhận và chi phí được xác nhận trực tiếp với Ban tư vấn.',
   },
   {
     question: 'Thời gian học của từng hệ là bao lâu?',
@@ -456,7 +456,7 @@ export default function TuyenSinhPage() {
                 <p className="font-body-md text-body-md text-on-surface-variant mt-2">Thí sinh có thể nộp trực tiếp tại văn phòng tuyển sinh hoặc gửi qua đường bưu điện.</p>
               </div>
               <p className="mb-space-lg text-center text-sm font-semibold text-[#5D6B78]">
-                Hạn nộp hồ sơ: [CẦN BỔ SUNG ngày chính thức]
+                Hạn nộp hồ sơ: Theo từng đợt tuyển sinh; liên hệ Ban tư vấn để nhận lịch mới nhất
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-space-lg">

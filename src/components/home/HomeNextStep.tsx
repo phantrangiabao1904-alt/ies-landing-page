@@ -24,9 +24,6 @@ export default function HomeNextStep() {
             { label: 'Đăng ký xét tuyển', href: '/dang-ky', variant: 'primary' },
           ]}
         />
-        {!zaloUrl && (
-          <p className="mt-4 text-center text-sm text-white/75">Đường dẫn chat Zalo: [CẦN BỔ SUNG]</p>
-        )}
       </div>
     </section>
   );

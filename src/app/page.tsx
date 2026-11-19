@@ -53,7 +53,7 @@ export default function HomePage() {
               <div className="flex flex-wrap items-center gap-space-sm mb-space-md">
                 <span className="inline-flex items-center gap-space-xs bg-[#F58232] text-white px-space-md py-1 rounded-full font-label-md text-label-md tracking-wider uppercase shadow-sm">
                   <Icon name="verified_user" className="text-[16px]" />
-                  Tuyển Sinh Năm Học 2026
+                Miễn 100% Học Phí Nghề
                 </span>
                 <a
                   href={decree81SearchUrl}
@@ -83,7 +83,7 @@ export default function HomePage() {
                   <HeroTitle />
                   <p className="hero-description max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
                     <strong className="text-[#7AA2F7]">Học thực tiễn - Làm chuyên nghiệp.</strong>{' '}
-                    Xét tuyển học bạ - Nhập học ngay. Học sinh tốt nghiệp THCS được tư vấn điều kiện áp dụng chính sách hỗ trợ học phí nghề theo quy định hiện hành.
+                    Xét tuyển học bạ - Nhập học ngay. Học sinh tốt nghiệp THCS có thể được miễn 100% học phí nghề theo điều kiện, hồ sơ và quy định hiện hành.
                   </p>
 
                   <div className="flex flex-wrap items-center gap-space-md pt-space-sm">
@@ -516,9 +516,7 @@ export default function HomePage() {
           >
             <Icon name="chat" className="text-[18px]" /> Zalo
           </a>
-        ) : (
-          <span className="px-1 text-[11px] font-semibold text-white/75">Zalo [CẦN BỔ SUNG]</span>
-        )}
+        ) : null}
         <a
           href="#home-sticky-lead-form"
           className="mobile-sticky-cta__button inline-flex min-h-[44px] flex-shrink-0 items-center justify-center rounded-lg bg-[#A84300] px-3 text-sm font-bold text-white hover:bg-[#873400]"

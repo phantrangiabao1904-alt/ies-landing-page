@@ -13,7 +13,7 @@ Copy `.env.example` to `.env.local` and set the Supabase project URL, anon key, 
 
 Optional public experience settings:
 
-- `NEXT_PUBLIC_ZALO_URL`: the school's verified Zalo contact link. Leave it empty until the official URL is confirmed; the UI shows a `[CẦN BỔ SUNG]` placeholder instead of linking to an unverified account.
+- `NEXT_PUBLIC_ZALO_URL`: the school's verified Zalo contact link. Leave it empty until the official URL is confirmed; the UI will omit unverified Zalo links.
 - `NEXT_PUBLIC_HERO_VIDEO_URL`: an optional muted, looping hero video. The first hero image is used as its poster, and the video is not loaded when this setting is empty.
 
 Apply the SQL files in `supabase/migrations/` to the Supabase project, in filename order. Public lead submissions go through a validated, rate-limited Next.js Server Action; the `anon` and `authenticated` database roles have no direct access to the `leads` table. RLS stays enabled, and the server-only service role is used for database writes.

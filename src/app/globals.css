@@ -367,6 +367,11 @@ body {
   display: inline-block;
 }
 
+.hero-tuition-line {
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
 .home-page .hero-description {
   animation: none;
 }

@@ -6,11 +6,11 @@ import { schoolContact } from '@/lib/school-info';
 const campusImages = [
   {
     src: '/images/ies-classroom.jpg',
-    alt: 'Không gian lớp học tại IES; ảnh cụ thể tại cơ sở cần bổ sung.',
+    alt: 'Không gian lớp học và trang thiết bị phục vụ đào tạo',
   },
   {
     src: '/images/ies-classroom-activities.png',
-    alt: 'Hoạt động học tập tại IES; ảnh cụ thể tại cơ sở cần bổ sung.',
+    alt: 'Hoạt động học tập và thực hành tại IES',
   },
 ] as const;
 
@@ -36,7 +36,6 @@ export default function CampusCards() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                 />
-                <span>Ảnh thực tế tại cơ sở này: [CẦN BỔ SUNG]</span>
               </div>
               <div className="p-5 sm:p-6">
                 <h3>{campus.name}</h3>

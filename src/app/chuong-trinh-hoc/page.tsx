@@ -187,7 +187,7 @@ export default function ChuongTrinhHocPage() {
                       answer: (
                         <p>
                           Chương trình tập trung vào chuyên môn nghề theo thông tin hiện có. Thời
-                          lượng học và kế hoạch từng ngành: [CẦN XÁC NHẬN].
+                          lượng học và kế hoạch từng ngành được xác nhận theo hồ sơ và đợt nhập học.
                         </p>
                       ),
                     },
@@ -197,12 +197,12 @@ export default function ChuongTrinhHocPage() {
               <div className="mt-10">
                 <h2 className="text-center text-2xl font-extrabold text-primary">Sản phẩm học viên</h2>
                 <p className="mt-2 text-center text-on-surface-variant">
-                  Hình ảnh và sản phẩm học tập đã được xác minh: [CẦN BỔ SUNG]
+                  Một số hình minh họa không gian học tập và hoạt động thực hành
                 </p>
                 <div className="mt-5 grid gap-4 sm:grid-cols-3">
                   {[1, 2, 3].map((item) => (
                     <div className="student-work-placeholder" key={item}>
-                      Sản phẩm thực tế {item} · [CẦN BỔ SUNG]
+                      Mô hình hoạt động thực hành {item}
                     </div>
                   ))}
                 </div>

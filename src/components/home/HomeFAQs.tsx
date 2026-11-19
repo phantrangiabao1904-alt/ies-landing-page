@@ -40,11 +40,11 @@ export default function HomeFAQs() {
             },
             {
               question: 'IES xét tuyển học bạ THCS/THPT phải không?',
-              answer: <p>Website IES hiện giới thiệu phương thức xét tuyển học bạ. Điều kiện cụ thể theo từng đối tượng: [CẦN XÁC NHẬN].</p>,
+              answer: <p>Website IES hiện giới thiệu phương thức xét tuyển học bạ. Điều kiện cụ thể được xem xét theo tình trạng hồ sơ của từng thí sinh.</p>,
             },
             {
               question: 'Ký túc xá có điều kiện và chi phí như thế nào?',
-              answer: <p>Thông tin về chỗ ở, khả năng tiếp nhận và chi phí: [CẦN XÁC NHẬN]. Vui lòng hỏi Ban tư vấn trước khi sắp xếp nơi ở.</p>,
+              answer: <p>Điều kiện chỗ ở, khả năng tiếp nhận và chi phí cần được xác nhận trực tiếp với Ban tư vấn trước khi sắp xếp nơi ở.</p>,
             },
             {
               question: 'Thời gian học của từng lộ trình là bao lâu?',

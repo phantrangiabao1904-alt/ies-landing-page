@@ -40,7 +40,7 @@ const audienceItems = [
         <h3>Tìm hiểu kỹ trước khi chọn nơi học</h3>
         <ul>
           <li>Chia sẻ khu vực đang sinh sống để được tư vấn cơ sở phù hợp.</li>
-          <li>Hỏi trực tiếp về ký túc xá, điều kiện tiếp nhận và chi phí: [CẦN XÁC NHẬN].</li>
+          <li>Hỏi trực tiếp về khu vực chỗ ở, điều kiện tiếp nhận và chi phí trước khi sắp xếp.</li>
           <li>Trao đổi với gia đình trước khi sắp xếp đi lại hoặc chỗ ở.</li>
         </ul>
         <Link href="/dang-ky">Trao đổi với Ban tư vấn</Link>
