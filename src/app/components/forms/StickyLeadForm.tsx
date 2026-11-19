@@ -11,6 +11,7 @@ import {
 import { submitLeadAction } from '@/actions/lead-submit';
 import { useInView } from '@/hooks/useInView';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
+import { resolveAdmissionMajor } from '@/lib/majors';
 
 type FormFieldName = 'fullName' | 'phone' | 'major' | 'consent';
 
@@ -75,6 +76,15 @@ export default function StickyLeadForm({
   const confettiTimerRef = useRef<number | null>(null);
   const { ref: cardRef, isInView } = useInView<HTMLDivElement>({ threshold: 0.1 });
   const prefersReducedMotion = usePrefersReducedMotion();
+  const majorSelectRef = useRef<HTMLSelectElement>(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const requestedMajor = resolveAdmissionMajor(params.get('major') ?? params.get('nganh'));
+    if (requestedMajor && majorSelectRef.current) {
+      majorSelectRef.current.value = requestedMajor;
+    }
+  }, []);
 
   useEffect(
     () => () => {
@@ -109,6 +119,15 @@ export default function StickyLeadForm({
       delete next[fieldName];
       return next;
     });
+  }
+
+  function validatePhoneChange(e: ChangeEvent<HTMLInputElement>) {
+    const phone = e.currentTarget.value.trim();
+    if (phone && phone.length >= 10 && !/^(0|\+84)[0-9]{9}$/.test(phone)) {
+      setFieldErrors((current) => ({ ...current, phone: 'Số điện thoại cần có 10 số hoặc đầu số +84.' }));
+      return;
+    }
+    clearResolvedError(e);
   }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -219,7 +238,16 @@ export default function StickyLeadForm({
             pattern="^(0|\+84)[0-9]{9}$"
             aria-invalid={Boolean(fieldErrors.phone)}
             aria-describedby={fieldErrors.phone ? `${id}-phone-error` : undefined}
-            onChange={clearResolvedError}
+            onChange={validatePhoneChange}
+            onBlur={(event) => {
+              const phone = event.currentTarget.value.trim();
+              if (phone && !/^(0|\+84)[0-9]{9}$/.test(phone)) {
+                setFieldErrors((current) => ({
+                  ...current,
+                  phone: 'Vui lòng nhập số điện thoại Việt Nam hợp lệ.',
+                }));
+              }
+            }}
             placeholder="Ví dụ: 0912345678"
             className="lead-form-control min-h-[48px] w-full px-3.5 py-2.5 text-base bg-[#F5F8FA] border border-[#D9E2EA] rounded-xl focus:bg-white focus:ring-2 focus:ring-[#0F5587] focus:border-[#0F5587] outline-none placeholder:text-[#5D6B78]/60 text-[#263849]"
           />
@@ -235,13 +263,15 @@ export default function StickyLeadForm({
             Ngành học quan tâm <span className="text-rose-500">*</span>
           </label>
           <select
+            ref={majorSelectRef}
             id={`${id}-major`}
             name="major"
             required
-            defaultValue=""
             aria-invalid={Boolean(fieldErrors.major)}
             aria-describedby={fieldErrors.major ? `${id}-major-error` : undefined}
-            onChange={clearResolvedError}
+            onChange={(event) => {
+              clearResolvedError(event);
+            }}
             className="lead-form-control min-h-[48px] w-full px-3.5 py-2.5 text-base bg-[#F5F8FA] border border-[#D9E2EA] rounded-xl focus:bg-white focus:ring-2 focus:ring-[#0F5587] focus:border-[#0F5587] outline-none text-[#263849]"
           >
             <option value="" disabled>

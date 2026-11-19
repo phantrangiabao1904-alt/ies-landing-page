@@ -6,6 +6,8 @@ import SiteFooter from '@/components/layout/SiteFooter';
 import AboutHeroSlider from '@/components/about/AboutHeroSlider';
 import HomeGallery from '@/components/home/HomeGallery';
 import { schoolContact } from '@/lib/school-info';
+import Counter from '@/components/ui/Counter';
+import PolicyDisclosure from '@/components/ui/PolicyDisclosure';
 
 export const metadata = {
   title: 'Giới Thiệu — Trường Trung cấp Tin học Kinh tế Sài Gòn (IES)',
@@ -15,7 +17,7 @@ export const metadata = {
 
 export default function GioiThieuPage() {
   return (
-    <div className="site-page about-page min-h-screen bg-[#F5F8FA] flex flex-col font-['Inter',sans-serif] text-[#263849]">
+    <div className="site-page vibe-site about-page min-h-screen bg-[#F5F8FA] flex flex-col font-['Inter',sans-serif] text-[#263849]">
       {/* 1. Header */}
       <SiteHeader />
 
@@ -65,6 +67,7 @@ export default function GioiThieuPage() {
                   vững vàng, thụ hưởng trọn vẹn chính sách miễn 100% học phí từ Nhà nước và tự tin
                   hòa nhập thị trường lao động số.
                 </p>
+                <PolicyDisclosure className="mt-3" />
 
                 {/* Dual CTAs */}
                 <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -160,7 +163,7 @@ export default function GioiThieuPage() {
                 {/* Metric 1 */}
                 <div className="flex flex-col items-center text-center px-4 pt-4 lg:pt-0">
                   <div className="font-['Montserrat',sans-serif] text-[36px] sm:text-[44px] font-extrabold tracking-tight leading-none text-[#acedff]">
-                    15<span className="text-[#F58232]">+</span>
+                    <Counter value={15} suffix="+" />
                   </div>
                   <div className="font-['Montserrat',sans-serif] text-white text-[14px] font-bold mt-2">
                     Năm Kinh Nghiệm
@@ -173,7 +176,7 @@ export default function GioiThieuPage() {
                 {/* Metric 2 */}
                 <div className="flex flex-col items-center text-center px-4 pt-4 lg:pt-0">
                   <div className="font-['Montserrat',sans-serif] text-[36px] sm:text-[44px] font-extrabold tracking-tight leading-none text-[#acedff]">
-                    10.000<span className="text-[#F58232]">+</span>
+                    <Counter value={10000} suffix="+" />
                   </div>
                   <div className="font-['Montserrat',sans-serif] text-white text-[14px] font-bold mt-2">
                     Sinh Viên Tốt Nghiệp
@@ -186,7 +189,7 @@ export default function GioiThieuPage() {
                 {/* Metric 3 */}
                 <div className="flex flex-col items-center text-center px-4 pt-4 lg:pt-0">
                   <div className="font-['Montserrat',sans-serif] text-[36px] sm:text-[44px] font-extrabold tracking-tight leading-none text-[#acedff]">
-                    98.5<span className="text-[#F58232]">%</span>
+                    <Counter value={98.5} suffix="%" decimals={1} />
                   </div>
                   <div className="font-['Montserrat',sans-serif] text-white text-[14px] font-bold mt-2">
                     Tỷ Lệ Có Việc Làm
@@ -199,7 +202,7 @@ export default function GioiThieuPage() {
                 {/* Metric 4 */}
                 <div className="flex flex-col items-center text-center px-4 pt-4 lg:pt-0">
                   <div className="font-['Montserrat',sans-serif] text-[36px] sm:text-[44px] font-extrabold tracking-tight leading-none text-[#acedff]">
-                    50<span className="text-[#F58232]">+</span>
+                    <Counter value={50} suffix="+" />
                   </div>
                   <div className="font-['Montserrat',sans-serif] text-white text-[14px] font-bold mt-2">
                     Doanh Nghiệp Ký Kết
@@ -763,6 +766,7 @@ export default function GioiThieuPage() {
                     100% học sinh tốt nghiệp THCS học thẳng trung cấp được nhà nước hỗ trợ cấp bù học
                     phí theo Nghị định 81/2021/NĐ-CP của Chính phủ.
                   </p>
+                  <PolicyDisclosure className="mt-2" />
                 </div>
               </div>
             </div>

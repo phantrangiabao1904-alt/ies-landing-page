@@ -1,9 +1,10 @@
 'use client';
 import Icon from '@/components/ui/Icon';
 
-import { useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { submitLeadAction } from '@/actions/lead-submit';
 import { schoolContact } from '@/lib/school-info';
+import { admissionMajors, resolveAdmissionMajor } from '@/lib/majors';
 
 interface LeadFormProps {
   id?: string;
@@ -19,7 +20,17 @@ export default function LeadForm({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
+  const [phoneError, setPhoneError] = useState('');
   const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const requestedMajor = resolveAdmissionMajor(params.get('major') ?? params.get('nganh'));
+    if (requestedMajor) {
+      const majorSelect = formRef.current?.querySelector<HTMLSelectElement>('select[name="major"]');
+      if (majorSelect) majorSelect.value = requestedMajor;
+    }
+  }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -90,9 +101,25 @@ export default function LeadForm({
               required
               autoComplete="tel"
               inputMode="tel"
+              pattern="^(0|\+84)[0-9]{9}$"
+              aria-invalid={Boolean(phoneError)}
+              aria-describedby={phoneError ? `${id}-phone-error` : undefined}
+              onChange={(event) => {
+                const value = event.currentTarget.value.trim();
+                setPhoneError(value.length >= 10 && !/^(0|\+84)[0-9]{9}$/.test(value)
+                  ? 'Số điện thoại cần có 10 số hoặc đầu số +84.'
+                  : '');
+              }}
+              onBlur={(event) => {
+                const value = event.currentTarget.value.trim();
+                setPhoneError(value && !/^(0|\+84)[0-9]{9}$/.test(value)
+                  ? 'Vui lòng nhập số điện thoại Việt Nam hợp lệ.'
+                  : '');
+              }}
               placeholder="Ví dụ: 0908123456"
               className="h-11 px-4 rounded-lg bg-[#F5F8FA] text-[#263849] font-['Inter',sans-serif] text-[15px] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3764AF] transition-all"
             />
+            {phoneError && <p id={`${id}-phone-error`} className="text-sm font-semibold text-rose-700" role="alert">{phoneError}</p>}
           </div>
         </div>
 
@@ -123,12 +150,7 @@ export default function LeadForm({
               required
               className="h-11 px-4 rounded-lg bg-[#F5F8FA] text-[#263849] font-['Inter',sans-serif] text-[15px] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#3764AF] transition-all"
             >
-              <option value="Công nghệ thông tin">Công nghệ thông tin</option>
-              <option value="Thiết kế đồ họa">Thiết kế đồ họa</option>
-              <option value="Quản trị mạng">Quản trị mạng</option>
-              <option value="Kế toán">Kế toán</option>
-              <option value="Quản trị kinh doanh">Quản trị kinh doanh</option>
-              <option value="Thương mại điện tử">Thương mại điện tử</option>
+              {admissionMajors.map((major) => <option key={major} value={major}>{major}</option>)}
               <option value="other">Cần Ban Tư Vấn Hướng Nghiệp Thêm</option>
             </select>
           </div>

@@ -6,6 +6,8 @@ import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import LeadForm from '@/components/forms/LeadForm';
 import { decree24DocumentUrl, decree81SearchUrl } from '@/lib/school-info';
+import AudienceGuide from '@/components/home/AudienceGuide';
+import PolicyDisclosure from '@/components/ui/PolicyDisclosure';
 
 export const metadata = {
   title: 'Thông Tin Tuyển Sinh 2026 — IES Saigon',
@@ -33,11 +35,24 @@ const admissionFaq = [
     answer:
       'Bạn có thể tìm hiểu sáu ngành đào tạo hoặc làm bài khám phá sở thích ở trang Ngành đào tạo, sau đó trao đổi thêm với Ban tư vấn.',
   },
+  {
+    question: 'Điều kiện hỗ trợ học phí nghề là gì?',
+    answer:
+      'Chính sách áp dụng theo đối tượng, hồ sơ và quy định hiện hành. Vui lòng liên hệ Ban tư vấn để được xác nhận điều kiện cụ thể trước khi nộp.',
+  },
+  {
+    question: 'Ký túc xá có điều kiện và chi phí như thế nào?',
+    answer: 'Thông tin về khả năng tiếp nhận, điều kiện và chi phí: [CẦN XÁC NHẬN].',
+  },
+  {
+    question: 'Thời gian học của từng hệ là bao lâu?',
+    answer: 'Thời lượng phụ thuộc lộ trình và ngành học; vui lòng xác nhận với Ban tư vấn theo hồ sơ cụ thể.',
+  },
 ] as const;
 
 export default function TuyenSinhPage() {
   return (
-    <div className="site-page bg-surface font-body-md text-on-surface min-h-screen flex flex-col">
+    <div className="site-page vibe-site bg-surface font-body-md text-on-surface min-h-screen flex flex-col">
       <SiteHeader />
 
       <main id="main-content" tabIndex={-1} className="w-full pt-28 bg-surface min-h-[calc(100vh-28rem)] flex-1">
@@ -120,6 +135,7 @@ export default function TuyenSinhPage() {
                   <p className="text-xs leading-relaxed text-on-surface-variant">
                     * Điều kiện và mức hỗ trợ học phí được áp dụng theo đối tượng, hồ sơ và quy định hiện hành.
                   </p>
+                  <PolicyDisclosure className="mt-1" />
 
                   {/* CTAs */}
                   <div className="flex flex-wrap items-center gap-space-md pt-space-xs">
@@ -202,6 +218,8 @@ export default function TuyenSinhPage() {
               </div>
             </div>
           </section>
+
+          <AudienceGuide />
 
           {/* ĐỐI TƯỢNG & PHƯƠNG THỨC XÉT TUYỂN */}
           <section className="w-full bg-surface-container-low py-space-2xl">
@@ -437,6 +455,9 @@ export default function TuyenSinhPage() {
                 <h2 className="font-headline-lg text-headline-lg text-primary font-bold mt-1">Hồ Sơ Nhập Học Cần Chuẩn Bị</h2>
                 <p className="font-body-md text-body-md text-on-surface-variant mt-2">Thí sinh có thể nộp trực tiếp tại văn phòng tuyển sinh hoặc gửi qua đường bưu điện.</p>
               </div>
+              <p className="mb-space-lg text-center text-sm font-semibold text-[#5D6B78]">
+                Hạn nộp hồ sơ: [CẦN BỔ SUNG ngày chính thức]
+              </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
                 <div className="site-card bg-surface-container-lowest p-space-lg rounded-xl shadow-sm border border-outline-variant/30 flex flex-col gap-space-sm">
@@ -445,9 +466,9 @@ export default function TuyenSinhPage() {
                   </div>
                   <h3 className="font-title text-title text-primary font-bold">1. Giấy Tờ Học Tập</h3>
                   <ul className="space-y-2 text-body-sm text-on-surface-variant">
-                    <li>• Học bạ THCS hoặc THPT (Bản sao công chứng)</li>
-                    <li>• Bằng tốt nghiệp hoặc Giấy chứng nhận tốt nghiệp tạm thời</li>
-                    <li>• Phiếu đăng ký xét tuyển theo mẫu của trường IES</li>
+                    <li><label className="admission-check-item"><input type="checkbox" /><span>Học bạ THCS hoặc THPT (Bản sao công chứng)</span></label></li>
+                    <li><label className="admission-check-item"><input type="checkbox" /><span>Bằng tốt nghiệp hoặc Giấy chứng nhận tốt nghiệp tạm thời</span></label></li>
+                    <li><label className="admission-check-item"><input type="checkbox" /><span>Phiếu đăng ký xét tuyển theo mẫu của trường IES</span></label></li>
                   </ul>
                 </div>
 
@@ -457,9 +478,9 @@ export default function TuyenSinhPage() {
                   </div>
                   <h3 className="font-title text-title text-primary font-bold">2. Giấy Tờ Tùy Thân</h3>
                   <ul className="space-y-2 text-body-sm text-on-surface-variant">
-                    <li>• Căn cước công dân (CCCD) của thí sinh (Bản sao)</li>
-                    <li>• Giấy khai sinh (Bản sao trích lục)</li>
-                    <li>• 04 ảnh thẻ kích thước 3x4 (Chụp trong vòng 6 tháng)</li>
+                    <li><label className="admission-check-item"><input type="checkbox" /><span>Căn cước công dân (CCCD) của thí sinh (Bản sao)</span></label></li>
+                    <li><label className="admission-check-item"><input type="checkbox" /><span>Giấy khai sinh (Bản sao trích lục)</span></label></li>
+                    <li><label className="admission-check-item"><input type="checkbox" /><span>04 ảnh thẻ kích thước 3x4 (Chụp trong vòng 6 tháng)</span></label></li>
                   </ul>
                 </div>
 
@@ -469,9 +490,9 @@ export default function TuyenSinhPage() {
                   </div>
                   <h3 className="font-title text-title text-primary font-bold">3. Hồ Sơ Nhận Miễn Học Phí</h3>
                   <ul className="space-y-2 text-body-sm text-on-surface-variant">
-                    <li>• Đơn đề nghị miễn giảm học phí theo mẫu Nghị định 81/CP</li>
-                    <li>• Giấy xác nhận thông tin cư trú (Mẫu CT07)</li>
-                    <li>• Hỗ trợ hoàn thiện hồ sơ gửi về địa phương miễn phí</li>
+                    <li><label className="admission-check-item"><input type="checkbox" /><span>Đơn đề nghị miễn giảm học phí theo mẫu Nghị định 81/CP</span></label></li>
+                    <li><label className="admission-check-item"><input type="checkbox" /><span>Giấy xác nhận thông tin cư trú (Mẫu CT07)</span></label></li>
+                    <li><label className="admission-check-item"><input type="checkbox" /><span>Hỗ trợ hoàn thiện hồ sơ gửi về địa phương miễn phí</span></label></li>
                   </ul>
                 </div>
               </div>
@@ -513,6 +534,9 @@ export default function TuyenSinhPage() {
                     </summary>
                     <p className="pt-space-sm text-body-sm leading-relaxed text-on-surface-variant">
                       {item.answer}
+                      {item.question.startsWith('Điều kiện hỗ trợ') && (
+                        <strong className="mt-2 block">Áp dụng theo điều kiện và quy định hiện hành.</strong>
+                      )}
                       {item.question.startsWith('Chưa biết chọn ngành') && (
                         <>
                           {' '}

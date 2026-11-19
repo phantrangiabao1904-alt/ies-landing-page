@@ -1,4 +1,3 @@
-'use client';
 import Icon from '@/components/ui/Icon';
 
 import Link from 'next/link';
@@ -21,30 +20,30 @@ import SiteFooter from '@/components/layout/SiteFooter';
 import StickyLeadForm from '@/app/components/forms/StickyLeadForm';
 import HomeCmsSection from '@/components/home/HomeCmsSection';
 import ScrollProgress from '@/components/home/ScrollProgress';
-import { useInView } from '@/hooks/useInView';
 import { decree24DocumentUrl, decree81SearchUrl, schoolContact } from '@/lib/school-info';
+import Reveal from '@/components/home/Reveal';
+import HomeViewportEffects from '@/components/home/HomeViewportEffects';
+import MajorFinder from '@/components/home/MajorFinder';
+import AudienceGuide from '@/components/home/AudienceGuide';
+import StudentStories from '@/components/home/StudentStories';
+import CampusCards from '@/components/home/CampusCards';
+import HomeFAQs from '@/components/home/HomeFAQs';
+import HomeNextStep from '@/components/home/HomeNextStep';
+import Accordion from '@/components/ui/Accordion';
+import PolicyDisclosure from '@/components/ui/PolicyDisclosure';
 
 export default function HomePage() {
-  const { ref: heroSectionRef, isInView: isHeroInView } = useInView<HTMLElement>({
-    threshold: 0.05,
-  });
-  const { ref: leadSectionRef, isInView: isLeadSectionInView } = useInView<HTMLElement>({
-    threshold: 0.01,
-    rootMargin: '120px 0px 120px 0px',
-  });
-
   return (
-    <div className="site-page home-page bg-surface font-body-md text-on-surface min-h-screen flex flex-col pb-[76px] md:pb-0">
+    <div className="site-page vibe-site home-page bg-surface font-body-md text-on-surface min-h-screen flex flex-col pb-[76px] md:pb-0">
       <ScrollProgress />
       <SiteHeader enableScrollEffects />
 
       {/* MAIN */}
+      <HomeViewportEffects>
       <main id="main-content" tabIndex={-1} className="w-full pt-28 bg-surface min-h-[calc(100vh-28rem)] flex-1">
         <div className="flex flex-col w-full">
           {/* HERO SECTION */}
           <section
-            ref={heroSectionRef}
-            data-motion-in-view={isHeroInView}
             className="home-hero-section relative w-full overflow-hidden py-space-xl text-white md:py-space-2xl"
           >
             <HeroAtmosphere />
@@ -112,6 +111,12 @@ export default function HomePage() {
             </div>
           </section>
 
+          <MajorFinder />
+          <MajorQuiz />
+          <HomeStats decree81Url={decree81SearchUrl} decree24Url={decree24DocumentUrl} />
+          <PartnersMarquee />
+          <AudienceGuide />
+
           <section className="w-full">
             <Image
               src="/images/home-admissions-banner-2026.png"
@@ -123,11 +128,7 @@ export default function HomePage() {
             />
           </section>
 
-          <HomeStats decree81Url={decree81SearchUrl} decree24Url={decree24DocumentUrl} />
-
           <HomeCmsSection />
-
-          <PartnersMarquee />
 
           {/* SPECIAL SECTION: CHÍNH SÁCH "HỌC NGHỀ 0 ĐỒNG - VỮNG VÀNG TƯƠNG LAI" */}
           <section className="w-full py-space-2xl bg-surface-container-lowest">
@@ -245,10 +246,51 @@ export default function HomePage() {
                   <Icon name="open_in_new" className="text-[18px]" />
                 </Link>
               </div>
+              <div className="mx-auto mt-space-xl max-w-3xl">
+                <Accordion
+                  className="home-policy-accordion"
+                  items={[
+                    {
+                      question: 'Điều kiện và hồ sơ hỗ trợ học phí cần chuẩn bị?',
+                      answer: (
+                        <div>
+                          <p>
+                            Điều kiện và giấy tờ cần thiết phụ thuộc đối tượng, hồ sơ và quy định áp
+                            dụng; vui lòng liên hệ Ban tư vấn để được rà soát trước khi nộp.
+                          </p>
+                          <p className="mt-2 font-semibold">
+                            Áp dụng theo điều kiện và quy định hiện hành.
+                          </p>
+                          <div className="mt-2 flex flex-wrap gap-3">
+                            <a href={decree81SearchUrl} target="_blank" rel="noopener noreferrer">
+                              Nghị định 81/2021/NĐ-CP
+                            </a>
+                            <a href={decree24DocumentUrl} target="_blank" rel="noopener noreferrer">
+                              Nghị định 24/2022/NĐ-CP
+                            </a>
+                          </div>
+                        </div>
+                      ),
+                    },
+                  ]}
+                />
+                <PolicyDisclosure className="mt-3" />
+              </div>
             </div>
           </section>
 
           <LearningPath />
+          <section className="home-manifesto" aria-labelledby="home-manifesto-title">
+            <Reveal variant="up" className="mx-auto max-w-[1100px] px-margin-sm py-space-2xl text-center md:px-margin">
+              <p className="home-manifesto__eyebrow">Triết lý đào tạo IES</p>
+              <h2 id="home-manifesto-title">
+                Thực học <span>–</span> thực hành <span>–</span> thực nghiệp
+              </h2>
+              <p>
+                Học qua trải nghiệm, rèn kỹ năng nghề và tìm hiểu cơ hội thực tập phù hợp.
+              </p>
+            </Reveal>
+          </section>
 
           {/* WHY CHOOSE IES SECTION */}
           <section className="w-full py-space-2xl bg-surface-container-low">
@@ -348,13 +390,14 @@ export default function HomePage() {
           </section>
 
           <StudentLifeCarousel />
+          <StudentStories />
           <HomeGallery />
-          <MajorQuiz />
+          <CampusCards />
+          <HomeFAQs />
+          <HomeNextStep />
 
           {/* ADMISSIONS SECTION */}
           <section
-            ref={leadSectionRef}
-            data-lead-form-in-view={isLeadSectionInView}
             className="w-full py-space-2xl bg-[#0F5587] text-white relative overflow-hidden"
             id="form-xet-tuyen"
           >
@@ -454,22 +497,36 @@ export default function HomePage() {
 
       <SiteFooter />
       <div
-        data-compact={isLeadSectionInView}
-        className="mobile-sticky-cta fixed inset-x-0 bottom-0 z-[60] flex items-center justify-between gap-3 border-t border-white/20 bg-[#0F5587] px-4 py-3 text-white shadow-[0_-4px_16px_rgba(0,0,0,0.16)] md:hidden"
+        data-compact="false"
+        className="mobile-sticky-cta fixed inset-x-0 bottom-0 z-[60] flex items-center justify-between gap-2 border-t border-white/20 bg-[#0F5587] px-3 py-2 text-white shadow-[0_-4px_16px_rgba(0,0,0,0.16)] md:hidden"
       >
-        <span
-          aria-hidden={isLeadSectionInView}
-          className="mobile-sticky-cta__offer text-xs font-extrabold leading-tight sm:text-sm"
+        <a
+          href={schoolContact.phoneNumbers[0].href}
+          aria-label={`Gọi ${schoolContact.phoneNumbers[0].number}`}
+          className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center gap-1 rounded-lg border border-white/35 px-2 text-sm font-bold"
         >
-          HỖ TRỢ HỌC PHÍ NGHỀ
-        </span>
+          <Icon name="call" className="text-[18px]" /> Gọi
+        </a>
+        {process.env.NEXT_PUBLIC_ZALO_URL ? (
+          <a
+            href={process.env.NEXT_PUBLIC_ZALO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-[44px] items-center justify-center gap-1 rounded-lg border border-white/35 px-2 text-sm font-bold"
+          >
+            <Icon name="chat" className="text-[18px]" /> Zalo
+          </a>
+        ) : (
+          <span className="px-1 text-[11px] font-semibold text-white/75">Zalo [CẦN BỔ SUNG]</span>
+        )}
         <a
           href="#home-sticky-lead-form"
-          className="mobile-sticky-cta__button inline-flex min-h-[44px] flex-shrink-0 items-center justify-center rounded-lg bg-[#A84300] px-4 text-sm font-bold text-white hover:bg-[#873400]"
+          className="mobile-sticky-cta__button inline-flex min-h-[44px] flex-shrink-0 items-center justify-center rounded-lg bg-[#A84300] px-3 text-sm font-bold text-white hover:bg-[#873400]"
         >
-          ĐĂNG KÝ NGAY
+          Đăng ký
         </a>
       </div>
+      </HomeViewportEffects>
       <FloatingContactActions />
       <CustomCursor />
     </div>

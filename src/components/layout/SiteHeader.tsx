@@ -14,13 +14,14 @@ const navLinks = [
   { label: 'Chương Trình Học', href: '/chuong-trinh-hoc' },
   { label: 'Ngành Đào Tạo', href: '/nganh-dao-tao' },
   { label: 'Tuyển Sinh', href: '/tuyen-sinh' },
+  { label: 'Đăng Ký', href: '/dang-ky' },
 ];
 
 interface SiteHeaderProps {
   enableScrollEffects?: boolean;
 }
 
-export default function SiteHeader({ enableScrollEffects = false }: SiteHeaderProps) {
+export default function SiteHeader({ enableScrollEffects = true }: SiteHeaderProps) {
   const pathname = usePathname();
   const headerRef = useRef<HTMLElement>(null);
   const [isCompact, setIsCompact] = useState(false);
@@ -76,12 +77,12 @@ export default function SiteHeader({ enableScrollEffects = false }: SiteHeaderPr
       ref={headerRef}
       aria-hidden={shouldHide || undefined}
       inert={shouldHide || undefined}
-      className={`site-header-motion fixed top-0 z-50 w-full shadow-[0_4px_18px_rgba(0,29,52,0.08)] ${
+      className={`site-header-motion vibe-site-header fixed top-0 z-50 w-full shadow-[0_4px_18px_rgba(0,29,52,0.08)] ${
         shouldCompact ? 'is-compact' : ''
       } ${shouldHide ? 'is-hidden' : ''}`}
     >
       {/* Announcement Bar */}
-      <div className="bg-[#0F5587] text-white py-1.5 px-4 md:px-8 text-center overflow-hidden">
+      <div className="vibe-announcement-bar bg-[#0F5587] text-white py-1.5 px-4 md:px-8 text-center overflow-hidden">
         <div className="max-w-[1240px] mx-auto flex items-center justify-center gap-2 font-['Montserrat',sans-serif] text-[9px] leading-4 font-semibold tracking-[0.04em] sm:text-[11px] sm:leading-5">
           <Icon name="campaign" className="text-[16px] text-[#acedff]" />
           <span className="sm:hidden">
@@ -94,7 +95,7 @@ export default function SiteHeader({ enableScrollEffects = false }: SiteHeaderPr
       </div>
 
       {/* Main Nav Bar */}
-      <div className="h-16 bg-white/95 backdrop-blur-md">
+      <div className="vibe-nav-shell h-16 bg-white/95 backdrop-blur-md">
         <div className="max-w-[1240px] h-full mx-auto px-4 sm:px-6 flex items-center justify-between gap-2 md:gap-4">
           {/* Logo */}
           <Link href="/" className="flex items-center flex-shrink-0">
@@ -135,13 +136,13 @@ export default function SiteHeader({ enableScrollEffects = false }: SiteHeaderPr
             </div>
             <Link
               href="/dang-ky"
-              className="min-h-[44px] whitespace-nowrap bg-[#A84300] hover:bg-[#873400] text-white px-3 py-1.5 rounded-lg font-['Montserrat',sans-serif] text-[11px] font-bold tracking-[0.02em] shadow-sm hover:shadow-md transition-all flex items-center gap-1"
+              className="vibe-header-cta min-h-[44px] whitespace-nowrap bg-[#A84300] hover:bg-[#873400] text-white px-3 py-1.5 rounded-lg font-['Montserrat',sans-serif] text-[11px] font-bold tracking-[0.02em] shadow-sm hover:shadow-md transition-all flex items-center gap-1"
             >
               <Icon name="how_to_reg" className="text-[14px]" />
               <span>Đăng Ký</span>
             </Link>
 
-            <details className="relative lg:hidden">
+            <details className="vibe-mobile-menu relative lg:hidden">
               <summary
                 className="flex h-11 w-11 list-none cursor-pointer items-center justify-center rounded-lg transition-colors hover:bg-[#F5F8FA] [&::-webkit-details-marker]:hidden"
                 aria-label="Mở menu điều hướng"

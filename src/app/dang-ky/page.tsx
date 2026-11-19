@@ -1,18 +1,50 @@
 'use client';
 import Icon from '@/components/ui/Icon';
 
-import React, { useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import { submitLeadAction } from '@/actions/lead-submit';
 import { schoolContact } from '@/lib/school-info';
+import { resolveAdmissionMajor } from '@/lib/majors';
+import PolicyDisclosure from '@/components/ui/PolicyDisclosure';
 
 export default function DangKyPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formMsg, setFormMsg] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
+  const [activeFormStep, setActiveFormStep] = useState(1);
+  const [phoneValue, setPhoneValue] = useState('');
+  const [phoneError, setPhoneError] = useState('');
   const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const requestedMajor = resolveAdmissionMajor(params.get('major') ?? params.get('nganh'));
+    const majorSelect = formRef.current?.querySelector<HTMLSelectElement>('#application-primary-major');
+    if (requestedMajor && majorSelect) majorSelect.value = requestedMajor;
+  }, []);
+
+  useEffect(() => {
+    const form = formRef.current;
+    if (!form || typeof IntersectionObserver === 'undefined') return;
+
+    const steps = form.querySelectorAll<HTMLElement>('[data-form-step]');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const activeEntry = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        const step = Number(activeEntry?.target.getAttribute('data-form-step'));
+        if (step >= 1 && step <= 3) setActiveFormStep(step);
+      },
+      { rootMargin: '-25% 0px -55% 0px', threshold: [0, 0.2, 0.5, 0.8] },
+    );
+
+    steps.forEach((step) => observer.observe(step));
+    return () => observer.disconnect();
+  }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -27,6 +59,8 @@ export default function DangKyPage() {
 
       if (res.success) {
         formRef.current?.reset();
+        setPhoneValue('');
+        setPhoneError('');
       }
     } catch {
       setIsSuccess(false);
@@ -37,7 +71,7 @@ export default function DangKyPage() {
   }
 
   return (
-    <div className="site-page bg-surface font-body-md text-on-surface min-h-screen flex flex-col">
+    <div className="site-page vibe-site bg-surface font-body-md text-on-surface min-h-screen flex flex-col">
       <SiteHeader />
 
       <main id="main-content" tabIndex={-1} className="w-full pt-28 bg-[#f5f8fa] min-h-[calc(100vh-28rem)] flex-1 pb-16">
@@ -74,6 +108,7 @@ export default function DangKyPage() {
             <p className="font-body-md text-sm md:text-base text-on-surface-variant max-w-3xl leading-relaxed">
               Gửi thông tin xét tuyển ban đầu miễn phí. Ban tuyển sinh sẽ liên hệ tư vấn ngành học, điều kiện xét tuyển và hướng dẫn hoàn thiện hồ sơ; bạn chưa cần nộp giấy tờ trong biểu mẫu này.
             </p>
+            <PolicyDisclosure className="mt-3" />
           </div>
 
           <div className="site-card mt-4 rounded-xl border border-primary/20 bg-white p-4 shadow-sm">
@@ -88,10 +123,10 @@ export default function DangKyPage() {
                 </p>
               </div>
             </div>
-            <ol aria-label="Các phần trong biểu mẫu" className="mt-3 grid grid-cols-1 gap-2 text-xs font-semibold text-[#0F5587] sm:grid-cols-3">
-              <li className="rounded-lg bg-[#F5F8FA] px-3 py-2">1. Thông tin liên hệ</li>
-              <li className="rounded-lg bg-[#F5F8FA] px-3 py-2">2. Học vấn</li>
-              <li className="rounded-lg bg-[#F5F8FA] px-3 py-2">3. Ngành và cơ sở</li>
+            <ol aria-label={`Đang xem phần ${activeFormStep} trong biểu mẫu`} className="vibe-registration-progress mt-3 grid grid-cols-1 gap-2 text-xs font-semibold text-[#0F5587] sm:grid-cols-3">
+              <li aria-current={activeFormStep === 1 ? 'step' : undefined} data-active={activeFormStep === 1} className="rounded-lg bg-[#F5F8FA] px-3 py-2">1. Thông tin liên hệ</li>
+              <li aria-current={activeFormStep === 2 ? 'step' : undefined} data-active={activeFormStep === 2} className="rounded-lg bg-[#F5F8FA] px-3 py-2">2. Học vấn</li>
+              <li aria-current={activeFormStep === 3 ? 'step' : undefined} data-active={activeFormStep === 3} className="rounded-lg bg-[#F5F8FA] px-3 py-2">3. Ngành và cơ sở</li>
             </ol>
           </div>
         </div>
@@ -103,7 +138,7 @@ export default function DangKyPage() {
             <div className="site-card lg:col-span-8 bg-white rounded-2xl shadow-md border border-[#D9E2EA] p-6 md:p-8">
               <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-8">
                 {/* SECTION 1 */}
-                <div className="flex flex-col gap-4">
+                <div data-form-step="1" className="flex flex-col gap-4">
                   <div className="flex items-center gap-2.5 pb-2 border-b border-slate-100">
                     <span className="w-7 h-7 rounded-lg bg-[#0F5587] text-white flex items-center justify-center font-bold text-xs">
                       1
@@ -172,9 +207,28 @@ export default function DangKyPage() {
                         autoComplete="tel"
                         inputMode="tel"
                         pattern="^(0|\+84)[0-9]{9}$"
+                        aria-invalid={Boolean(phoneError)}
+                        aria-describedby={phoneError ? 'application-phone-error' : undefined}
+                        value={phoneValue}
+                        onChange={(event) => {
+                          const value = event.currentTarget.value;
+                          setPhoneValue(value);
+                          setPhoneError(
+                            value.trim().length >= 10 && !/^(0|\+84)[0-9]{9}$/.test(value.trim())
+                              ? 'Số điện thoại cần có 10 số hoặc đầu số +84.'
+                              : '',
+                          );
+                        }}
+                        onBlur={() => {
+                          const value = phoneValue.trim();
+                          setPhoneError(value && !/^(0|\+84)[0-9]{9}$/.test(value)
+                            ? 'Vui lòng nhập số điện thoại Việt Nam hợp lệ.'
+                            : '');
+                        }}
                         placeholder="09xx xxx xxx"
                         className="min-h-[44px] w-full px-3.5 py-2.5 text-sm bg-[#F5F8FA] border border-[#D9E2EA] rounded-xl focus:bg-white focus:ring-2 focus:ring-[#0F5587] outline-none transition-all text-[#263849]"
                       />
+                      {phoneError && <p id="application-phone-error" className="mt-1 text-sm font-semibold text-rose-700" role="alert">{phoneError}</p>}
                     </div>
 
                     <div>
@@ -237,7 +291,7 @@ export default function DangKyPage() {
                 </div>
 
                 {/* SECTION 2 */}
-                <div className="flex flex-col gap-4">
+                <div data-form-step="2" className="flex flex-col gap-4">
                   <div className="flex items-center gap-2.5 pb-2 border-b border-slate-100">
                     <span className="w-7 h-7 rounded-lg bg-[#0F5587] text-white flex items-center justify-center font-bold text-xs">
                       2
@@ -311,7 +365,7 @@ export default function DangKyPage() {
                 </div>
 
                 {/* SECTION 3 */}
-                <div className="flex flex-col gap-4">
+                <div data-form-step="3" className="flex flex-col gap-4">
                   <div className="flex items-center gap-2.5 pb-2 border-b border-slate-100">
                     <span className="w-7 h-7 rounded-lg bg-[#0F5587] text-white flex items-center justify-center font-bold text-xs">
                       3
@@ -422,6 +476,11 @@ export default function DangKyPage() {
                       {formMsg}
                     </div>
                   )}
+                  {isSuccess && (
+                    <div className="registration-success" role="status">
+                      Thông tin đã được gửi. Ban tư vấn sẽ liên hệ theo thông tin bạn cung cấp.
+                    </div>
+                  )}
 
                   <button
                     type="submit"
@@ -468,6 +527,26 @@ export default function DangKyPage() {
                     </a>
                   ))}
                   <span className="text-[11px] text-[#5D6B78]">(Zalo / Điện thoại trực tiếp)</span>
+                </div>
+              </div>
+
+              <div className="site-card rounded-2xl border border-[#D9E2EA] bg-white p-5 shadow-sm">
+                <h4 className="font-title text-base font-bold text-[#0F5587]">Hai cơ sở IES</h4>
+                <div className="mt-3 space-y-4">
+                  {schoolContact.campuses.map((campus) => (
+                    <div key={campus.value}>
+                      <p className="font-semibold text-[#263849]">{campus.name}</p>
+                      <p className="mt-1 text-xs leading-relaxed text-[#5D6B78]">{campus.address}</p>
+                      <a
+                        className="mt-2 inline-flex min-h-11 items-center gap-1 font-bold text-[#0F5587] underline underline-offset-2"
+                        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(campus.address)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Icon name="directions" className="text-[18px]" /> Chỉ đường
+                      </a>
+                    </div>
+                  ))}
                 </div>
               </div>
 

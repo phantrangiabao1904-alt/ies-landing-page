@@ -6,7 +6,7 @@ function renderWords(text: string, startIndex: number) {
       key={`${startIndex}-${index}`}
       className="hero-title-word"
       style={{
-        animationDelay: `${(startIndex + index) * 60}ms`,
+        animationDelay: `${(startIndex + index) * 36}ms`,
         marginInlineEnd: index < words.length - 1 ? '0.2em' : undefined,
       }}
     >

@@ -1,19 +1,20 @@
 import Icon from '@/components/ui/Icon';
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import LeadForm from '@/components/forms/LeadForm';
 import MajorQuiz from '@/components/home/MajorQuiz';
 import { schoolContact } from '@/lib/school-info';
+import MajorCatalog, { type Major } from '@/components/majors/MajorCatalog';
+import PolicyDisclosure from '@/components/ui/PolicyDisclosure';
 
 export const metadata = {
   title: 'Hệ Thống Ngành Đào Tạo Thực Chiến — IES Saigon',
   description: 'Danh mục ngành đào tạo năm 2026: Công nghệ thông tin, Thiết kế đồ họa, Quản trị mạng, Kế toán, Quản trị kinh doanh và Thương mại điện tử.',
 };
 
-const majors = [
+const majors: Major[] = [
   {
     id: '01',
     code: 'CNTT',
@@ -169,119 +170,7 @@ export default function NganhDaoTaoPage() {
             </div>
           </section>
 
-          {/* LIST OF 6 MAJORS */}
-          <section className="w-full bg-surface-container-lowest py-space-xl">
-            <div className="max-w-[1240px] mx-auto px-margin-sm md:px-margin">
-              <div className="flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-space-md">
-                <div>
-                  <span className="font-label-md text-label-md font-bold text-primary uppercase tracking-wider block mb-1">
-                    CHƯƠNG TRÌNH ĐÀO TẠO TIÊN TIẾN CHUẨN NGHỀ
-                  </span>
-                  <h2 className="font-display text-display-sm text-primary font-bold">
-                    Danh Mục 06 Chuyên Ngành Trọng Điểm
-                  </h2>
-                </div>
-                <p className="font-body-md text-on-surface-variant max-w-md">
-                  Chương trình được kiểm định chất lượng, tích hợp chứng chỉ nghề quốc gia và kỹ năng mềm thiết yếu.
-                </p>
-              </div>
-
-              {[
-                { label: 'Khối Tin học', items: majors.filter((major) => major.category === 'cong-nghe') },
-                { label: 'Khối Kinh tế', items: majors.filter((major) => major.category === 'kinh-te') },
-              ].map((group) => (
-                <div key={group.label} className="mb-space-xl last:mb-0">
-                  <h3 className="mb-space-md border-l-4 border-[#F58232] pl-3 font-display text-headline-md font-bold text-primary">
-                    {group.label}
-                  </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-xl">
-                    {group.items.map((m) => (
-                  <div
-                    key={m.id}
-                    className="site-card bg-white rounded-2xl overflow-hidden border border-outline-variant/40 hover:border-primary/40 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group"
-                  >
-                    {/* Image Header with Badge */}
-                    <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-[#0F5587] to-[#063b5e]">
-                      <div className="absolute -right-8 -top-14 h-56 w-56 rounded-full bg-white/10" />
-                      <div className="absolute inset-0 bg-gradient-to-r from-[#003d66]/95 via-[#003d66]/70 to-transparent" />
-                      <div className="absolute right-4 top-1/2 z-10 flex aspect-[4/3] w-[42%] max-w-[190px] -translate-y-1/2 items-center justify-center overflow-hidden rounded-xl border border-white/20 shadow-lg transition-transform duration-500 group-hover:scale-[1.03]">
-                        <Image
-                          src={m.img}
-                          alt={`Minh họa ngành ${m.title}`}
-                          width={800}
-                          height={600}
-                          className="h-full w-full object-cover"
-                        />
-                      </div>
-                      <div className="absolute left-4 top-4 z-20 rounded-md bg-white/15 px-2.5 py-1 font-code text-xs font-bold uppercase tracking-wide text-white">
-                        {m.code} • CHUYÊN NGÀNH {m.id}
-                      </div>
-                      <div className="absolute bottom-4 left-4 right-[45%] z-20 text-white">
-                        <span className="font-label-md text-[10px] text-[#2DBEDC] uppercase tracking-wider block font-bold">
-                          {m.enTitle}
-                        </span>
-                        <h3 className="font-title text-title-lg text-white font-bold leading-snug drop-shadow-sm">
-                          {m.title}
-                        </h3>
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-space-lg flex flex-col flex-1 gap-space-md">
-                      <p className="font-body-sm text-on-surface-variant leading-relaxed">
-                        {m.desc}
-                      </p>
-
-                      {/* Skills Tags */}
-                      <div>
-                        <span className="font-label-md text-[11px] font-bold text-on-surface-variant uppercase tracking-wider block mb-2">
-                          Kỹ Năng Đào Tạo Cốt Lõi:
-                        </span>
-                        <div className="flex flex-wrap gap-1.5">
-                          {m.skills.map((skill, idx) => (
-                            <span
-                              key={idx}
-                              className="bg-[#f0f4f8] text-primary text-xs px-2.5 py-1 rounded-lg font-medium border border-outline-variant/30"
-                            >
-                              {skill}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Salary Bar */}
-                      <div className="p-space-sm bg-[#F6EEE5]/60 border border-[#F58232]/20 rounded-xl flex items-center justify-between mt-auto">
-                        <div className="flex items-center gap-2">
-                          <Icon name="payments" className="text-[#F58232] text-[20px]" />
-                          <span className="font-label-md text-xs font-bold text-on-surface">Thu nhập tham khảo:</span>
-                        </div>
-                        <span className="font-title text-sm font-bold text-[#F58232]">{m.salary}</span>
-                      </div>
-
-                      {/* Actions */}
-                      <div className="grid grid-cols-2 gap-space-sm pt-space-xs">
-                        <Link
-                          href={`/chuong-trinh-hoc`}
-                          className="min-h-[44px] w-full px-3 py-2.5 rounded-xl border border-outline font-title text-sm font-semibold text-center text-on-surface hover:bg-surface-container transition-colors"
-                        >
-                          Xem chi tiết
-                        </Link>
-                        <Link
-                          href={`/dang-ky?nganh=${encodeURIComponent(m.title)}`}
-                          className="min-h-[44px] w-full px-3 py-2.5 rounded-xl bg-primary hover:bg-[#0c446c] text-white font-title text-sm font-bold text-center transition-colors shadow-sm flex items-center justify-center gap-1"
-                        >
-                          <span>Đăng ký ngành này</span>
-                          <Icon name="arrow_forward" className="text-[16px]" />
-                        </Link>
-                      </div>
-                    </div>
-                    </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
+          <MajorCatalog majors={majors} />
 
           <MajorQuiz consultationHref="#form-xet-tuyen-nganh" />
 
@@ -326,6 +215,7 @@ export default function NganhDaoTaoPage() {
                   <p className="font-body-sm text-on-surface-variant leading-relaxed">
                     Nhà nước cấp bù học phí nghề theo Nghị định 81/CP cho học sinh tốt nghiệp THCS. Quỹ học bổng IES Talent Fund trao tặng lên tới 3.000.000đ.
                   </p>
+                  <PolicyDisclosure className="mt-1" />
                 </div>
               </div>
             </div>

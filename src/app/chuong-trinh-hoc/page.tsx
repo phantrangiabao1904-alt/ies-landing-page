@@ -7,6 +7,9 @@ import SiteFooter from '@/components/layout/SiteFooter';
 import LeadForm from '@/components/forms/LeadForm';
 import ScrollTimeline from '@/components/home/ScrollTimeline';
 import { decree24DocumentUrl, decree81SearchUrl, schoolContact } from '@/lib/school-info';
+import Accordion from '@/components/ui/Accordion';
+import SectionTitle from '@/components/ui/SectionTitle';
+import PolicyDisclosure from '@/components/ui/PolicyDisclosure';
 
 export const metadata = {
   title: 'Chương Trình Học — Trường Trung cấp Tin học Kinh tế Sài Gòn (IES)',
@@ -15,7 +18,7 @@ export const metadata = {
 
 export default function ChuongTrinhHocPage() {
   return (
-    <div className="site-page bg-surface font-body-md text-on-surface min-h-screen flex flex-col">
+    <div className="site-page vibe-site bg-surface font-body-md text-on-surface min-h-screen flex flex-col">
       <SiteHeader />
 
       <main id="main-content" tabIndex={-1} className="w-full pt-28 bg-surface min-h-[calc(100vh-28rem)] flex-1">
@@ -92,6 +95,7 @@ export default function ChuongTrinhHocPage() {
                     <span className="text-[11px] leading-relaxed text-on-surface-variant">
                       Áp dụng theo đối tượng, điều kiện và hồ sơ quy định.
                     </span>
+                    <PolicyDisclosure className="mt-1" />
                   </div>
                 </div>
                 {/* CTA Buttons Group */}
@@ -155,6 +159,57 @@ export default function ChuongTrinhHocPage() {
             </div>
           </section>
 
+          <section className="w-full bg-surface-container-low py-space-2xl">
+            <div className="mx-auto max-w-[1080px] px-margin-sm md:px-margin">
+              <SectionTitle
+                eyebrow="Tỷ lệ học tập"
+                title="Học kiến thức, dành nhiều thời gian thực hành"
+                description="Tỷ lệ 70% thực hành – 30% lý thuyết theo thông tin chương trình hiện có; lộ trình cụ thể được xác nhận theo ngành và đối tượng."
+              />
+              <div className="program-ratio mt-8" role="img" aria-label="70 phần trăm thực hành và 30 phần trăm lý thuyết">
+                <span className="program-ratio__practice">70% Thực hành</span>
+                <span className="program-ratio__theory">30% Lý thuyết</span>
+              </div>
+              <div className="mt-8">
+                <Accordion
+                  items={[
+                    {
+                      question: 'Lộ trình Hệ 9+ dành cho học sinh sau THCS',
+                      answer: (
+                        <p>
+                          Chương trình kết hợp học văn hóa và nghề theo nội dung công bố trên website.
+                          Thời lượng và điều kiện từng hồ sơ cần được Ban tư vấn xác nhận.
+                        </p>
+                      ),
+                    },
+                    {
+                      question: 'Lộ trình dành cho người đã tốt nghiệp THPT',
+                      answer: (
+                        <p>
+                          Chương trình tập trung vào chuyên môn nghề theo thông tin hiện có. Thời
+                          lượng học và kế hoạch từng ngành: [CẦN XÁC NHẬN].
+                        </p>
+                      ),
+                    },
+                  ]}
+                />
+              </div>
+              <div className="mt-10">
+                <h2 className="text-center text-2xl font-extrabold text-primary">Sản phẩm học viên</h2>
+                <p className="mt-2 text-center text-on-surface-variant">
+                  Hình ảnh và sản phẩm học tập đã được xác minh: [CẦN BỔ SUNG]
+                </p>
+                <div className="mt-5 grid gap-4 sm:grid-cols-3">
+                  {[1, 2, 3].map((item) => (
+                    <div className="student-work-placeholder" key={item}>
+                      Sản phẩm thực tế {item} · [CẦN BỔ SUNG]
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* DUAL CORE TRAINING SYSTEMS (2 HỆ ĐÀO TẠO TRỌNG TÂM) */}
           <section className="w-full bg-surface-container-low py-space-2xl px-margin-sm md:px-margin">
             <div className="max-w-[1240px] mx-auto flex flex-col gap-space-xl">
@@ -193,6 +248,7 @@ export default function ChuongTrinhHocPage() {
                         <span>Rút ngắn thời gian đại học: Đủ điều kiện thi liên thông thẳng lên Đại học/Cao đẳng chỉ từ 1.5 năm tiếp theo.</span>
                       </li>
                     </ul>
+                    <PolicyDisclosure className="mt-2" />
                   </div>
                   <div className="pt-space-md flex items-center justify-between">
                     <span className="font-label-md text-label-md text-primary font-bold uppercase">Hệ 9+ Sài Gòn IES</span>
@@ -482,6 +538,7 @@ export default function ChuongTrinhHocPage() {
                   </tbody>
                 </table>
               </div>
+              <PolicyDisclosure className="mt-3" />
             </div>
           </section>
 

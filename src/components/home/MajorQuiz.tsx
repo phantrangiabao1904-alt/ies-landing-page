@@ -117,7 +117,7 @@ const questions: readonly QuizQuestion[] = [
 ];
 
 export default function MajorQuiz({
-  consultationHref = '#home-sticky-lead-form',
+  consultationHref = '/dang-ky',
 }: {
   consultationHref?: string;
 }) {
@@ -184,10 +184,15 @@ export default function MajorQuiz({
   const result = majorDetails[recommendedMajor];
   const imageSrc =
     hasResult && isInView && !prefersReducedMotion ? result.svg : result.image;
+  const [consultationPath, consultationHash = ''] = consultationHref.split('#');
+  const consultationHrefWithMajor = `${consultationPath}${
+    consultationPath.includes('?') ? '&' : '?'
+  }major=${encodeURIComponent(result.name)}${consultationHash ? `#${consultationHash}` : ''}`;
 
   return (
     <section
       ref={ref}
+      id="major-quiz"
       aria-labelledby="major-quiz-title"
       className="major-quiz-section w-full overflow-hidden bg-[#0E1830] py-space-2xl text-white"
       data-motion-in-view={isInView}
@@ -266,7 +271,7 @@ export default function MajorQuiz({
                     Tìm hiểu ngành học
                   </Link>
                   <a
-                    href={consultationHref}
+                    href={consultationHrefWithMajor}
                     className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[#F58232] px-5 font-bold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white hover:bg-[#df6f22]"
                   >
                     Đăng ký xét tuyển

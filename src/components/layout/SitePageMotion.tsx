@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import ScrollProgress from '@/components/home/ScrollProgress';
+import BackToTopButton from '@/components/layout/BackToTopButton';
+import MobileContactBar from '@/components/layout/MobileContactBar';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 export default function SitePageMotion({ children }: { children: ReactNode }) {
@@ -20,7 +22,7 @@ export default function SitePageMotion({ children }: { children: ReactNode }) {
     }
 
     const targets = root.querySelectorAll<HTMLElement>(
-      '.site-page main section, .site-page main .site-card',
+      '.site-page main section, .site-page main .site-card, .site-page main h1',
     );
     const observer = new IntersectionObserver(
       (entries) => {
@@ -34,10 +36,16 @@ export default function SitePageMotion({ children }: { children: ReactNode }) {
     );
 
     targets.forEach((target) => {
-      const cardIndex = Array.from(target.parentElement?.children ?? [])
-        .filter((sibling) => sibling.classList.contains('site-card'))
-        .indexOf(target);
-      const delay = Math.min(Math.max(cardIndex, 0), 4) * 65;
+      const siblings = target.parentElement?.children
+        ? Array.from(target.parentElement.children)
+        : [];
+      const staggerIndex = siblings.indexOf(target);
+      const isCard = target.classList.contains('site-card');
+      const delay = isCard
+        ? Math.min(Math.max(staggerIndex, 0), 5) * 70
+        : target.matches('h1')
+          ? 90
+          : 0;
 
       target.setAttribute('data-page-motion-ready', 'true');
       target.setAttribute('data-page-motion-visible', 'false');
@@ -52,6 +60,8 @@ export default function SitePageMotion({ children }: { children: ReactNode }) {
     <div ref={rootRef}>
       {hasProgress && <ScrollProgress className="site-scroll-progress" />}
       {children}
+      {hasProgress && <MobileContactBar />}
+      <BackToTopButton />
     </div>
   );
 }

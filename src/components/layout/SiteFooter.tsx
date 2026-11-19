@@ -5,7 +5,7 @@ import { schoolContact } from '@/lib/school-info';
 
 export default function SiteFooter() {
   return (
-    <footer className="w-full bg-[#0F5587] text-white pt-16 pb-8">
+    <footer className="vibe-site-footer w-full bg-[#0F5587] text-white pt-16 pb-8">
       <div className="max-w-[1240px] mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-white/15">
           {/* Col 1: Logo + Description */}
