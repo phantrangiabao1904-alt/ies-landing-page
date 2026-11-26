@@ -6,7 +6,6 @@ import { schoolContact } from '@/lib/school-info';
 import {
   MapPin,
   Phone,
-  Mail,
   Globe,
   Users,
   Activity, 
@@ -49,15 +48,6 @@ export default function PortalFooter() {
                   <a href={schoolContact.websiteUrl} target="_blank" rel="noreferrer" className="hover:underline">
                     <strong>Website:</strong> {schoolContact.website}
                   </a>
-                </p>
-                <p className="flex items-center gap-2">
-                  <Mail className="w-4 h-4 text-[#2DBEDC] flex-shrink-0" />
-                  <span>
-                    <strong>Email:</strong>{' '}
-                    <a href={`mailto:${schoolContact.email}`} className="hover:underline">
-                      {schoolContact.email}
-                    </a>
-                  </span>
                 </p>
               </div>
 

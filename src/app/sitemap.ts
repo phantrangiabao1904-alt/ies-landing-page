@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { schoolContact } from '@/lib/school-info';
 
-const routes = ['', '/gioi-thieu', '/chuong-trinh-hoc', '/nganh-dao-tao', '/tuyen-sinh', '/dang-ky', '/giang-vien'];
+const routes = ['', '/gioi-thieu', '/chuong-trinh-hoc', '/nganh-dao-tao', '/tuyen-sinh', '/dang-ky', '/tin-tuc'];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((route) => ({

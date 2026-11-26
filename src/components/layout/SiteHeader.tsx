@@ -13,6 +13,7 @@ const navLinks = [
   { label: 'Ngành đào tạo', href: '/nganh-dao-tao' },
   { label: 'Học phí & chính sách', href: '/tuyen-sinh' },
   { label: 'Đời sống & thực tập', href: '/gioi-thieu' },
+  { label: 'Tin tức', href: '/tin-tuc' },
 ];
 
 interface SiteHeaderProps {

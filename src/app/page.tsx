@@ -52,7 +52,7 @@ export default function HomePage() {
         {/* Hero */}
         <section className="relative overflow-hidden bg-[#0F5587] text-white">
           <div className="absolute inset-0">
-            <Image src="/images/stitch/photos/khuon-vien.png" alt="" fill priority sizes="100vw" className="object-cover opacity-25" />
+            <Image src="/images/stitch/photos/phong-may-lab.png" alt="" fill priority sizes="100vw" className="object-cover opacity-25" />
           </div>
           <div className="relative mx-auto grid max-w-[1240px] items-center gap-12 px-4 py-20 md:px-8 lg:grid-cols-2 lg:py-28">
             <div>
@@ -76,11 +76,10 @@ export default function HomePage() {
               </div>
               <p className="mt-6 text-sm text-white/80">
                 Tư vấn nhanh: <a href={schoolContact.phoneNumbers[0].href} className="font-bold text-white underline-offset-4 hover:underline">{schoolContact.phoneNumbers[0].number}</a>
-                {' '}· {schoolContact.phoneNumbers[1].number}
               </p>
             </div>
             <div className="relative hidden aspect-[4/5] overflow-hidden rounded-[28px] border-4 border-white/20 shadow-2xl lg:block">
-              <Image src="/images/stitch/photos/cong-truong.png" alt="Cổng trường IES Sài Gòn" fill sizes="50vw" className="object-cover" />
+              <Image src="/images/stitch/photos/phong-may-lab.png" alt="Phòng máy thực hành tại IES Sài Gòn" fill sizes="50vw" className="object-cover" />
             </div>
           </div>
         </section>

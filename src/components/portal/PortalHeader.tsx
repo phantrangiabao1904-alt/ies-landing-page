@@ -7,7 +7,6 @@ import { schoolContact } from '@/lib/school-info';
 import {
   Search,
   Phone,
-  Mail,
   MapPin,
   Home,
   ChevronDown,
@@ -53,13 +52,6 @@ export default function PortalHeader() {
                 ))}
               </span>
             </span>
-            <a
-              href={`mailto:${schoolContact.email}`}
-              className="hidden md:inline-flex items-center gap-1.5 hover:text-[#2DBEDC] transition-colors"
-            >
-              <Mail className="w-3.5 h-3.5 text-[#2DBEDC]" />
-              {schoolContact.email}
-            </a>
           </div>
 
           <div className="flex items-center gap-4">
