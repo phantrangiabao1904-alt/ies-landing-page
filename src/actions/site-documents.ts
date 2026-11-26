@@ -117,7 +117,6 @@ export async function createDocument(formData: FormData): Promise<DocumentResult
     file_url: urlData.publicUrl,
     published_year: data.published_year ?? null,
     status: data.status,
-    created_by: 'staff',
     updated_at: now,
   });
   if (error) {
