@@ -6,16 +6,14 @@ import { useEffect, useState } from 'react';
 const STORAGE_KEY = 'ies-home-promo-dismissed';
 
 export default function HomePromoPopup() {
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
+  const [open, setOpen] = useState(() => {
     try {
-      if (window.sessionStorage.getItem(STORAGE_KEY) === '1') return;
+      return window.sessionStorage.getItem(STORAGE_KEY) !== '1';
     } catch {
       // Trình duyệt chặn sessionStorage: vẫn hiển thị popup.
+      return true;
     }
-    setOpen(true);
-  }, []);
+  });
 
   const close = () => {
     setOpen(false);

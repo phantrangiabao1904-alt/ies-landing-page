@@ -3,7 +3,6 @@
 import { revalidatePath } from 'next/cache';
 import { z } from 'zod';
 import { createAnonServerClient } from '@/lib/supabase/server-client';
-import { POST_CATEGORIES } from '@/lib/posts/categories';
 import { requireStaff } from '@/lib/supabase/staff';
 
 const BUCKET = 'site-media';

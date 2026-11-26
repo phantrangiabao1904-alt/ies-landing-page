@@ -20,6 +20,9 @@ export default async function AdminMediaPage() {
             <h1 className="mt-1 text-3xl font-extrabold text-[#0F5587]">Thay ảnh website</h1>
           </div>
           <div className="flex flex-wrap items-center gap-2">
+            <Link href="/admin/documents" className="min-h-[44px] inline-flex items-center rounded-lg px-3 font-semibold text-[#0F5587] hover:bg-sky-50">
+              Học phí & Chính sách
+            </Link>
             <Link href="/admin/content" className="min-h-[44px] inline-flex items-center rounded-lg px-3 font-semibold text-[#0F5587] hover:bg-sky-50">
               Quản lý Landing Page
             </Link>

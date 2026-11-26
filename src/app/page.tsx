@@ -64,7 +64,7 @@ export default async function HomePage() {
             <div>
               <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#F6EEE5]">
                 <Icon name="stars" className="text-[15px]" /> Tuyển sinh 2026 - Đợt 1
-              </span>
+                </span>
               <h1 className="mt-5 font-[var(--font-montserrat)] text-4xl font-extrabold leading-tight md:text-6xl">
                 Học nghề thực chiến,<br />
                 <span className="text-[#2DBEDC]">sẵn sàng việc làm.</span>
@@ -86,8 +86,8 @@ export default async function HomePage() {
             </div>
             <div className="relative hidden aspect-[4/5] overflow-hidden rounded-[28px] border-4 border-white/20 shadow-2xl lg:block">
               <Image src={heroImage} alt="Phòng máy thực hành tại IES Sài Gòn" fill sizes="50vw" unoptimized className="object-cover" />
-            </div>
-          </div>
+                  </div>
+                </div>
         </section>
 
         {/* Metrics */}
@@ -99,8 +99,8 @@ export default async function HomePage() {
                 <p className="mt-1 text-sm text-slate-600">{m.label}</p>
               </div>
             ))}
-          </div>
-        </section>
+            </div>
+          </section>
 
         {/* Partners */}
         <section className="border-y border-slate-200 bg-[#F6EEE5] py-8">
@@ -110,7 +110,7 @@ export default async function HomePage() {
               <span key={p} className="rounded-full border border-slate-300 bg-white px-4 py-1.5 text-sm font-semibold text-[#0F5587]">{p}</span>
             ))}
           </div>
-        </section>
+          </section>
 
         {/* Majors */}
         <section className="bg-[#F5F8FA] py-20">
@@ -123,7 +123,7 @@ export default async function HomePage() {
               <Link href="/nganh-dao-tao" className="flex items-center gap-1 font-bold text-[#0F5587] hover:underline">
                 Xem chi tiết các ngành <Icon name="arrow_forward" className="text-[18px]" />
               </Link>
-            </div>
+                    </div>
             <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {majors.map((m) => (
                 <Link key={m.name} href={m.href} className="group rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
@@ -133,8 +133,8 @@ export default async function HomePage() {
                 </Link>
               ))}
             </div>
-          </div>
-        </section>
+            </div>
+          </section>
 
         {/* Quiz */}
         <section className="bg-white py-20">
@@ -148,7 +148,7 @@ export default async function HomePage() {
               <Link href="/dang-ky" className="mt-6 inline-flex rounded-full bg-[#0F5587] px-7 py-3 font-bold text-white hover:bg-[#3764AF]">
                 Nhận tư vấn hướng nghiệp
               </Link>
-            </div>
+                    </div>
             <ol className="flex flex-col gap-4">
               {quiz.map((item, i) => (
                 <li key={item.q} className="rounded-xl border border-slate-200 bg-[#F5F8FA] p-5">
@@ -160,8 +160,8 @@ export default async function HomePage() {
                 </li>
               ))}
             </ol>
-          </div>
-        </section>
+            </div>
+          </section>
 
         {/* Stories */}
         <section className="bg-[#F5F8FA] py-20">
@@ -181,9 +181,9 @@ export default async function HomePage() {
                   </figcaption>
                 </figure>
               ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
         {/* CTA */}
         <section className="bg-[#0F5587] py-16 text-white">
@@ -195,8 +195,8 @@ export default async function HomePage() {
             <Link href="/dang-ky" className="rounded-full bg-[#F58232] px-8 py-4 font-bold text-white shadow-lg hover:brightness-105">
               Đăng ký ngay
             </Link>
-          </div>
-        </section>
+            </div>
+          </section>
       </main>
 
       <SiteFooter />

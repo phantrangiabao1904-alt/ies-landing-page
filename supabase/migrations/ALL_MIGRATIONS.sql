@@ -1,5 +1,5 @@
 -- ==================== MIGRATIONS ALL-IN-ONE ====================
--- Chạy file này trên Supabase SQL Editor để khởi tạo site_media và site_posts.
+-- Chạy file này trên Supabase SQL Editor để khởi tạo site_media, site_posts và site_documents.
 
 -- ==================== 1. SITE_MEDIA ==================== 
 create table if not exists public.site_media (
@@ -18,7 +18,7 @@ grant select, insert, update, delete on table public.site_media to service_role;
 create policy site_media_public_read on public.site_media for select to anon, authenticated using (true);
 
 insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
-values ('site-media', 'site-media', true, 5242880, array['image/jpeg', 'image/png', 'image/webp'])
+values ('site-media', 'site-media', true, 20971520, array['image/jpeg', 'image/png', 'image/webp', 'application/pdf'])
 on conflict (id) do update
   set public = excluded.public, file_size_limit = excluded.file_size_limit, allowed_mime_types = excluded.allowed_mime_types;
 
@@ -52,7 +52,32 @@ create policy site_posts_public_read_published on public.site_posts for select t
 create index idx_site_posts_published on public.site_posts(status, published_at desc);
 create index idx_site_posts_category on public.site_posts(category, status);
 
--- ==================== 3. KHỞI TẠO DỮ LIỆU SITE_MEDIA ====================
+-- ==================== 3. SITE_DOCUMENTS ====================
+-- Tài liệu PDF (học phí, chính sách, thông tư) do admin tải lên.
+create table if not exists public.site_documents (
+  id bigserial primary key,
+  title text not null check (length(btrim(title)) between 5 and 200),
+  category text not null check (category in ('hocphi', 'chinhsach', 'thongtu', 'quyche')),
+  description text not null default '' check (length(description) <= 500),
+  file_url text not null check (length(btrim(file_url)) between 8 and 500),
+  published_year integer check (published_year between 2000 and 2100),
+  status text not null default 'draft' check (status in ('draft', 'published')),
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+alter table public.site_documents enable row level security;
+revoke all on table public.site_documents from anon, authenticated;
+grant select on table public.site_documents to anon, authenticated;
+grant all on table public.site_documents to service_role;
+grant usage, select on sequence public.site_documents_id_seq to service_role;
+
+create policy site_documents_public_read_published on public.site_documents for select to anon, authenticated
+  using (status = 'published');
+
+create index idx_site_documents_published on public.site_documents(status, category);
+
+-- ==================== 4. KHỞI TẠO DỮ LIỆU SITE_MEDIA ====================
 -- Mục đích: Mỗi slot tương ứng 1 vị trí ảnh trên website. Admin có thể tải ảnh mới bằng /admin/media.
 -- Trang chủ (5 vị trí):
 insert into public.site_media (slot, label, url, alt) values

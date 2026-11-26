@@ -35,6 +35,9 @@ export default async function AdminPage() {
             <Link href="/admin/media" className="min-h-[44px] inline-flex items-center rounded-lg px-3 font-semibold text-[#0F5587] transition-colors hover:bg-sky-50 hover:underline">
               Thay ảnh website
             </Link>
+            <Link href="/admin/documents" className="min-h-[44px] inline-flex items-center rounded-lg px-3 font-semibold text-[#0F5587] transition-colors hover:bg-sky-50 hover:underline">
+              Học phí & Chính sách
+            </Link>
             <Link href="/analytics" className="min-h-[44px] inline-flex items-center rounded-lg px-3 font-semibold text-[#0F5587] transition-colors hover:bg-sky-50 hover:underline">
               Xem Analytics
             </Link>

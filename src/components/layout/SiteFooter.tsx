@@ -5,7 +5,7 @@ import { schoolContact } from '@/lib/school-info';
 const quickLinks = [
   { label: 'Chọn lộ trình', href: '/chuong-trinh-hoc' },
   { label: 'Ngành đào tạo', href: '/nganh-dao-tao' },
-  { label: 'Học phí & chính sách', href: '/tuyen-sinh' },
+  { label: 'Học phí & chính sách', href: '/chinh-sach' },
   { label: 'Đời sống & thực tập', href: '/gioi-thieu' },
   { label: 'Tin tức', href: '/tin-tuc' },
   { label: 'Đăng ký tư vấn', href: '/dang-ky' },

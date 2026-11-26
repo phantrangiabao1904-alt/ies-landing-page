@@ -107,9 +107,9 @@ export default async function TuyenSinhPage() {
               <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-slate-200 shadow-xl">
                 <Image src={media['admission-banner']} alt="Khuôn viên trường IES Sài Gòn" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" priority />
               </div>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
         {/* Highlights */}
         <section className="bg-[#F5F8FA] py-16">
@@ -121,8 +121,8 @@ export default async function TuyenSinhPage() {
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">{item.desc}</p>
               </div>
             ))}
-          </div>
-        </section>
+            </div>
+          </section>
 
         {/* Majors & quota */}
         <section id="nganh" className="bg-white py-20">
@@ -131,7 +131,7 @@ export default async function TuyenSinhPage() {
               <span className="text-xs font-bold uppercase tracking-wider text-[#3764AF]">Chỉ tiêu đợt 1</span>
               <h2 className="mt-2 font-[var(--font-montserrat)] text-3xl font-extrabold text-[#0F5587]">Chỉ tiêu tuyển sinh 6 ngành</h2>
               <p className="mt-2 text-sm text-slate-600">Tổng chỉ tiêu 750. Chỉ tiêu dựa trên dữ liệu tuyển sinh năm 2026, có thể điều chỉnh theo quyết định của nhà trường.</p>
-            </div>
+                  </div>
             <div className="overflow-x-auto rounded-xl border border-slate-200">
               <table className="w-full min-w-[640px] text-left text-sm">
                 <thead className="bg-[#e3efff] text-[#0F5587]">
@@ -157,8 +157,8 @@ export default async function TuyenSinhPage() {
             <p className="mt-4 text-sm text-slate-600">
               Xem chi tiết từng ngành tại <Link href="/nganh-dao-tao" className="font-semibold text-[#3764AF] hover:underline">trang Ngành đào tạo</Link>.
             </p>
-          </div>
-        </section>
+            </div>
+          </section>
 
         {/* Steps */}
         <section className="bg-[#F6EEE5] py-20">
@@ -173,7 +173,7 @@ export default async function TuyenSinhPage() {
                 </li>
               ))}
             </ol>
-          </div>
+              </div>
         </section>
 
         {/* Documents & FAQ */}
@@ -206,9 +206,9 @@ export default async function TuyenSinhPage() {
                   </details>
                 ))}
               </div>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
         {/* Form */}
         <section id="dang-ky" className="bg-[#0F5587] py-20 text-white">
@@ -229,7 +229,7 @@ export default async function TuyenSinhPage() {
             <div className="rounded-2xl bg-white p-6 text-slate-800 shadow-xl sm:p-8">
               <LeadForm id="form-tuyen-sinh-2026" source="tuyen_sinh_2026" />
             </div>
-          </div>
+        </div>
         </section>
       </main>
 

@@ -45,11 +45,11 @@ export default function ChuongTrinhHocPage() {
         <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
           <h1 className="text-3xl font-extrabold leading-tight text-[#0F5587] sm:text-4xl">
             Chọn lộ trình phù hợp với bạn
-          </h1>
+                </h1>
           <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600">
             IES có hai lộ trình. Bảng dưới đây so sánh nhanh để bạn chọn đúng điểm xuất phát của mình.
           </p>
-        </section>
+          </section>
 
         <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-6" aria-labelledby="so-sanh">
           <h2 id="so-sanh" className="sr-only">So sánh hai lộ trình</h2>
@@ -64,8 +64,8 @@ export default function ChuongTrinhHocPage() {
                       <span className="text-base font-bold text-[#0F5587]">{col.name}</span>
                     </th>
                   ))}
-                </tr>
-              </thead>
+                    </tr>
+                  </thead>
               <tbody className="divide-y divide-slate-100">
                 {rows.map((row) => (
                   <tr key={row.label}>
@@ -73,11 +73,11 @@ export default function ChuongTrinhHocPage() {
                     {row.values.map((value, i) => (
                       <td key={i} className="p-4 leading-relaxed text-slate-600">{value}</td>
                     ))}
-                  </tr>
+                    </tr>
                 ))}
-              </tbody>
-            </table>
-          </div>
+                  </tbody>
+                </table>
+              </div>
           <p className="mt-4 text-sm text-slate-500">
             Điều kiện hỗ trợ học phí áp dụng theo đối tượng và hồ sơ.{' '}
             <a href={decree81SearchUrl} target="_blank" rel="noopener noreferrer" className="underline">Nghị định 81/2021/NĐ-CP</a>
@@ -85,7 +85,7 @@ export default function ChuongTrinhHocPage() {
             <a href={decree24DocumentUrl} target="_blank" rel="noopener noreferrer" className="underline">Nghị định 24/2022/NĐ-CP (PDF)</a>
           </p>
           <div className="mt-4"><PolicyDisclosure /></div>
-        </section>
+          </section>
 
         <section className="bg-slate-50 py-16">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -98,8 +98,8 @@ export default function ChuongTrinhHocPage() {
                 </li>
               ))}
             </ol>
-          </div>
-        </section>
+            </div>
+          </section>
 
         <section id="dang-ky-tu-van" className="bg-[#0F5587] py-16 text-white">
           <div className="mx-auto grid max-w-6xl items-start gap-10 px-4 sm:px-6 lg:grid-cols-2">
@@ -110,8 +110,8 @@ export default function ChuongTrinhHocPage() {
               </p>
             </div>
             <LeadForm source="chuong_trinh_hoc" />
-          </div>
-        </section>
+            </div>
+          </section>
       </main>
       <SiteFooter />
     </div>

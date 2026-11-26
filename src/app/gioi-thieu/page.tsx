@@ -51,11 +51,11 @@ export default async function GioiThieuPage() {
                 <Link href="/" className="hover:text-[#0F5587]">Trang chủ</Link>
                 <Icon name="chevron_right" className="text-[13px]" />
                 <span className="font-semibold text-[#0F5587]">Giới thiệu</span>
-              </nav>
+            </nav>
               <span className="text-xs font-bold uppercase tracking-wider text-[#3764AF]">Về chúng tôi</span>
               <h1 className="mt-3 font-[var(--font-montserrat)] text-3xl font-extrabold leading-tight text-[#0F5587] md:text-5xl">
                 Trường nghề của những người trẻ muốn làm được việc
-              </h1>
+                </h1>
               <p className="mt-5 leading-relaxed text-slate-600">
                 Trường Trung cấp Tin học Kinh tế Sài Gòn (IES) đào tạo trung cấp các ngành công nghệ và kinh tế, lấy thực hành làm trung tâm. Chúng tôi xây dựng tư duy nghề nghiệp chuyên nghiệp, tính kỷ luật và năng lực ứng dụng công nghệ thực tế.
               </p>
@@ -116,7 +116,7 @@ export default async function GioiThieuPage() {
 
         <section className="bg-[#0F5587] py-16 text-white">
           <div className="mx-auto flex max-w-[1240px] flex-col items-start justify-between gap-6 px-4 md:flex-row md:items-center md:px-8">
-            <div>
+                <div>
               <h2 className="font-[var(--font-montserrat)] text-2xl font-extrabold">Sẵn sàng bắt đầu cùng IES?</h2>
               <p className="mt-2 text-white/85">Để lại thông tin, ban tuyển sinh sẽ liên hệ trong ngày làm việc.</p>
             </div>
