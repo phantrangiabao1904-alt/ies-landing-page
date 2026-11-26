@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
+import HomePromoPopup from '@/components/home/HomePromoPopup';
 import Icon from '@/components/ui/Icon';
 import { schoolContact } from '@/lib/school-info';
 
@@ -46,6 +47,7 @@ const stories = [
 export default function HomePage() {
   return (
     <div className="site-page flex min-h-screen flex-col bg-[#F5F8FA] text-[#263849]">
+      <HomePromoPopup />
       <SiteHeader />
 
       <main id="main-content" tabIndex={-1} className="flex-1">
