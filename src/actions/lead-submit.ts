@@ -79,6 +79,15 @@ const LeadSchema = z.object({
     .optional()
     .transform(sanitizeText)
     .pipe(z.string().max(300, 'Địa chỉ quá dài')),
+  province: z
+    .string()
+    .optional()
+    .transform(sanitizeText)
+    .pipe(z.string().max(120, 'Khu vực sinh sống quá dài')),
+  dormitory: z
+    .string()
+    .optional()
+    .transform((v) => v === 'on' || v === 'true'),
   consent: z
     .string()
     .regex(/^(on|true)$/, 'Vui lòng đồng ý để IES liên hệ tư vấn.'),
@@ -103,6 +112,8 @@ export async function submitLeadAction(formData: FormData) {
     campus: formData.get('campus') || formData.get('reg-campus') || 'pham-van-chieu',
     idCard: formData.get('idCard') || '',
     address: formData.get('address') || '',
+    province: formData.get('province') || '',
+    dormitory: formData.get('dormitory') || '',
     consent: formData.get('consent') || '',
     source: formData.get('source') || 'landing_page',
   };
@@ -156,6 +167,8 @@ export async function submitLeadAction(formData: FormData) {
       campus: validatedData.data.campus,
       id_card: validatedData.data.idCard || null,
       address: validatedData.data.address || null,
+      province: validatedData.data.province || null,
+      dormitory: validatedData.data.dormitory,
       consent: true,
       source: validatedData.data.source,
       status: 'NEW',

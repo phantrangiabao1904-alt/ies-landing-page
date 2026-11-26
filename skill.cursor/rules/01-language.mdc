@@ -1,0 +1,35 @@
+---
+description: Language policy — Vietnamese outside code, English inside code
+alwaysApply: true
+---
+
+# Language Policy
+
+## Communication outside code
+
+- Always respond in **Vietnamese (Tiếng Việt)** for explanations and guidance.
+- Never use Chinese in any form.
+- If the user writes in another language, still answer in Vietnamese unless the user explicitly requests another language.
+
+## Technical vocabulary
+
+Thuật ngữ lập trình web giữ nguyên tiếng Anh khi đó là thuật ngữ chuẩn. Không dịch. Ví dụ:
+
+| English (giữ) | Bản dịch không dùng |
+|---|---|
+| Server Action, middleware, route | ~~hành động máy chủ, bộ trung gian~~ |
+| RLS, policy, migration | ~~chính sách hàng, di chuyển~~ |
+| hydration, component, state | ~~thủy hợp, thành phần, trạng thái~~ |
+
+Chỉ dịch phần giải thích xung quanh; giữ nguyên thuật ngữ.
+
+## Code
+
+- **Identifiers** (variables, functions, classes): English.
+- **Comments and docstrings**: English.
+- Scientific terms can remain English when commonly used in the field.
+
+## Rule priority
+
+- This is the **highest-priority** rule for any output text.
+- If any Chinese text appears in the response, rewrite it fully in Vietnamese before sending.

@@ -13,6 +13,7 @@ export interface Major {
   desc: string;
   skills: string[];
   salary: string;
+  careers: string[];
   img: string;
   category: 'cong-nghe' | 'kinh-te';
 }
@@ -30,7 +31,7 @@ export default function MajorCatalog({ majors }: { majors: Major[] }) {
     const normalizedQuery = query.trim().toLocaleLowerCase('vi-VN');
     return majors.filter((major) => {
       const matchesCategory = activeFilter === 'all' || major.category === activeFilter;
-      const searchableText = [major.title, major.desc, ...major.skills]
+      const searchableText = [major.title, major.desc, ...major.skills, ...major.careers]
         .join(' ')
         .toLocaleLowerCase('vi-VN');
       return matchesCategory && (!normalizedQuery || searchableText.includes(normalizedQuery));
@@ -104,9 +105,17 @@ export default function MajorCatalog({ majors }: { majors: Major[] }) {
                       {major.skills.map((skill) => <span className="major-skill-chip" key={skill}>{skill}</span>)}
                     </div>
                   </div>
-                  <p className="mt-4 rounded-lg bg-[#F5F8FA] p-3 text-xs leading-relaxed text-[#5D6B78]">
-                    Thời lượng và chương trình theo từng lộ trình: trao đổi trực tiếp với Ban tư vấn để được xác nhận theo hồ sơ.
-                  </p>
+                  <div className="mt-4">
+                    <p className="text-xs font-bold uppercase tracking-wide text-on-surface-variant">Ra trường có thể làm</p>
+                    <ul className="mt-2 flex flex-col gap-1.5">
+                      {major.careers.map((career) => (
+                        <li key={career} className="flex items-start gap-2 text-sm text-[#263849]">
+                          <Icon name="work" className="mt-0.5 text-[16px] flex-shrink-0 text-[#0F5587]" />
+                          <span>{career}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                   <div className="mt-3 flex items-center justify-between gap-2 rounded-xl border border-[#F58232]/20 bg-[#F6EEE5]/60 p-3">
                     <span className="text-xs font-bold text-on-surface">Thu nhập tham khảo:</span>
                     <span className="text-sm font-bold text-[#A84300]">{major.salary}</span>
@@ -143,7 +152,7 @@ export default function MajorCatalog({ majors }: { majors: Major[] }) {
                     <th scope="row">{major.title}</th>
                     <td>{major.category === 'cong-nghe' ? 'Công nghệ' : 'Kinh tế'}</td>
                     <td>{major.skills.slice(0, 2).join(' · ')}</td>
-                    <td>Xác nhận theo ngành và lộ trình đăng ký</td>
+                    <td>{major.careers.slice(0, 2).join(' · ')}</td>
                   </tr>
                 ))}
               </tbody>

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, JetBrains_Mono, Montserrat } from 'next/font/google';
+import { Inter, Montserrat } from 'next/font/google';
 import AnalyticsTracker from '@/components/home/AnalyticsTracker';
 import './globals.css';
 
@@ -11,11 +11,6 @@ const inter = Inter({
 const montserrat = Montserrat({
   subsets: ['latin', 'vietnamese'],
   variable: '--font-montserrat',
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-jetbrains-mono',
 });
 
 export const metadata: Metadata = {
@@ -41,7 +36,7 @@ export default function RootLayout({
   return (
     <html
       lang="vi"
-      className={`${inter.variable} ${montserrat.variable} ${jetbrainsMono.variable} scroll-smooth`}
+      className={`${inter.variable} ${montserrat.variable} scroll-smooth`}
     >
       <head>
         <meta charSet="utf-8" />

@@ -1,4 +1,4 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 /* =========================================================
    STITCH DESIGN TOKENS (CSS VARIABLES)
@@ -6,7 +6,19 @@
 :root {
   --ies-night-950: #0e1830;
   --ies-night-900: #1d2d4f;
-  --ies-blue: #7aa2f7;
+  /* Token thương hiệu IES */
+  --ies-blue: #0F5587;
+  --ies-blue-2: #3764AF;
+  --ies-cyan: #2DBEDC;
+  --ies-orange: #F58232;
+  --ies-sand: #F6EEE5;
+  --ies-white: #FFFFFF;
+  --ies-text: #263849;
+  --ies-text-muted: #5D6B78;
+  --ies-border: #D9E2EA;
+  --ies-surface: #F5F8FA;
+  --ies-font-heading: "Montserrat", "Poppins", Arial, sans-serif;
+  --ies-font-body: "Inter", "Roboto", Arial, sans-serif;
   --ies-violet: #bb9af7;
   --ies-green: #9ece6a;
   --ies-amber: #e0af68;
@@ -124,7 +136,7 @@ body {
 .font-body-lg { font-family: var(--font-inter), sans-serif !important; }
 .font-body-md { font-family: var(--font-inter), sans-serif !important; }
 .font-body-sm { font-family: var(--font-inter), sans-serif !important; }
-.font-code { font-family: var(--font-jetbrains-mono), monospace !important; }
+.font-code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !important; }
 
 /* Stitch Text Sizes & Line Heights (100% exact match) */
 .text-display { font-size: 48px !important; line-height: 56px !important; letter-spacing: -0.02em !important; font-weight: 700; }
@@ -1989,7 +2001,7 @@ html[data-custom-cursor='true'] [contenteditable='true'] {
   gap: 0.5rem;
   margin: 0;
   color: #95e9e7;
-  font-family: var(--font-jetbrains-mono), monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -2064,7 +2076,7 @@ html[data-custom-cursor='true'] [contenteditable='true'] {
   padding: 0.6rem 1rem;
   color: #a7aac3;
   background: rgba(255, 255, 255, 0.035);
-  font-family: var(--font-jetbrains-mono), monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.65rem;
 }
 
@@ -2107,7 +2119,7 @@ html[data-custom-cursor='true'] [contenteditable='true'] {
 
 .vibe-code-window__prompt-mark {
   color: #9e8cff;
-  font-family: var(--font-jetbrains-mono), monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-weight: 800;
 }
 
@@ -2126,7 +2138,7 @@ html[data-custom-cursor='true'] [contenteditable='true'] {
   margin: 0;
   padding: 0.85rem 0;
   color: #e5e6f4;
-  font-family: var(--font-jetbrains-mono), monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: clamp(0.65rem, 1.2vw, 0.78rem);
   line-height: 2;
 }
@@ -2172,7 +2184,7 @@ html[data-custom-cursor='true'] [contenteditable='true'] {
   align-items: center;
   gap: 0.6rem;
   color: rgba(239, 241, 255, 0.8);
-  font-family: var(--font-jetbrains-mono), monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.72rem;
 }
 
@@ -2805,19 +2817,6 @@ html[data-custom-cursor='true'] [contenteditable='true'] {
     background: #e6f4f8;
   }
 
-  .student-work-placeholder {
-    display: grid;
-    min-height: 8rem;
-    place-items: center;
-    border: 1px dashed rgba(15, 85, 135, 0.35);
-    border-radius: 1rem;
-    padding: 1rem;
-    color: #0f5587;
-    background: linear-gradient(135deg, #f5f8fa, #eaf5f9);
-    font-weight: 750;
-    text-align: center;
-  }
-
   .admission-check-item {
     display: flex;
     min-height: 2.75rem;
@@ -3185,3 +3184,17 @@ html[data-custom-cursor='true'] [contenteditable='true'] {
     transition: none !important;
   }
 }
+
+/* Visual calm: bỏ hiệu ứng lặp vô hạn, orb, lưới nền trong hero; giữ chuyển động vào trang nhẹ */
+.home-hero-orb,
+.home-hero-grid { display: none; }
+.home-hero-mesh,
+.home-hero-orb__float,
+.magnetic-cta::before,
+.home-page .home-ambient,
+.home-page .home-ambient-reverse,
+.floating-contact-actions,
+.hero-carousel-image.is-active { animation: none !important; }
+.home-hero-mesh { opacity: 0.6; }
+.home-page .home-hero-section { background: linear-gradient(135deg, var(--ies-night-950), var(--ies-night-900)); }
+

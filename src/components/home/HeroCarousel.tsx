@@ -8,7 +8,7 @@ import Icon from '@/components/ui/Icon';
 
 const slides = [
   {
-    src: '/images/home-dual-program-2026.png',
+    src: '/images/home-dual-program-2026.webp',
     alt: 'Học song bằng văn hóa và nghề tại IES',
     fit: 'contain',
   },
@@ -133,7 +133,7 @@ export default function HeroCarousel() {
                 alt={slide.alt}
                 fill
                 priority={index === 0}
-                sizes="(min-width: 1024px) 42vw, 100vw"
+                sizes="(min-width: 1280px) 497px, (min-width: 1024px) 42vw, 100vw"
                 className={`hero-carousel-image ${
                   slide.fit === 'contain' ? 'object-contain p-2' : 'object-cover'
                 } ${index === activeIndex ? 'is-active' : ''}`}

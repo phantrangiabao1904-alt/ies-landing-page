@@ -1,276 +1,170 @@
-import Icon from '@/components/ui/Icon';
-import React from 'react';
+import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
-import LeadForm from '@/components/forms/LeadForm';
-import MajorQuiz from '@/components/home/MajorQuiz';
+import Icon from '@/components/ui/Icon';
 import { schoolContact } from '@/lib/school-info';
-import MajorCatalog, { type Major } from '@/components/majors/MajorCatalog';
-import PolicyDisclosure from '@/components/ui/PolicyDisclosure';
 
-export const metadata = {
-  title: 'Hệ Thống Ngành Đào Tạo Thực Chiến — IES Saigon',
-  description: 'Danh mục ngành đào tạo năm 2026: Công nghệ thông tin, Thiết kế đồ họa, Quản trị mạng, Kế toán, Quản trị kinh doanh và Thương mại điện tử.',
+export const metadata: Metadata = {
+  title: '6 Ngành đào tạo trung cấp 2026 | IES Sài Gòn',
+  description:
+    'Công nghệ thông tin, Thiết kế đồ họa, Quản trị mạng, Kế toán doanh nghiệp số, Quản trị kinh doanh và Thương mại điện tử tại IES Sài Gòn. Thời gian 1.5 - 2 năm.',
+  alternates: { canonical: '/nganh-dao-tao' },
 };
 
-const majors: Major[] = [
+const majors = [
   {
-    id: '01',
-    code: 'CNTT',
-    title: 'Công nghệ thông tin',
-    enTitle: 'INFORMATION TECHNOLOGY',
-    desc: 'Trang bị nền tảng công nghệ thông tin, lập trình ứng dụng, cơ sở dữ liệu và kỹ năng triển khai sản phẩm số theo yêu cầu thực tế.',
-    skills: ['Lập trình ứng dụng', 'Cơ sở dữ liệu', 'Phát triển web', 'Làm việc nhóm'],
-    salary: '10.000.000 - 18.000.000 VNĐ',
-    img: '/images/majors/cong-nghe-thong-tin.svg',
-    category: 'cong-nghe',
+    code: 'IES-01',
+    name: 'Công nghệ thông tin',
+    icon: 'terminal',
+    image: '/images/stitch/photos/phong-may-lab.png',
+    desc: 'Lập trình web, phần mềm ứng dụng và cơ sở dữ liệu.',
+    skills: ['Tư duy thuật toán & SQL', 'JavaScript & Python ứng dụng', 'Quy trình Git & Agile'],
+    jobs: ['Junior Web Developer', 'Software Tester', 'IT Support'],
+    quota: 150,
   },
   {
-    id: '02',
-    code: 'TKĐH',
-    title: 'Thiết kế Đồ họa & Đa Phương tiện',
-    enTitle: 'GRAPHIC DESIGN & MULTIMEDIA',
-    desc: 'Thực hành Photoshop, Illustrator, Premiere và After Effects; rèn tư duy mỹ thuật ứng dụng để thiết kế ấn phẩm truyền thông, video cho mạng xã hội và đồ họa chuyển động.',
-    skills: ['Thiết kế 2D/3D', 'Ấn phẩm thương hiệu', 'Biên tập Video & Motion', 'UI/UX cơ bản'],
-    salary: '9.000.000 - 15.000.000 VNĐ',
-    img: '/images/majors/thiet-ke-do-hoa.svg',
-    category: 'cong-nghe',
+    code: 'IES-02',
+    name: 'Thiết kế đồ họa',
+    icon: 'palette',
+    image: '/images/stitch/photos/phong-thiet-ke.png',
+    desc: 'Mỹ thuật số, nhận diện thương hiệu, UI/UX và truyền thông số.',
+    skills: ['Photoshop, Illustrator, Figma', 'Motion graphics & video ngắn', 'Typography & bao bì'],
+    jobs: ['Graphic Designer', 'Junior UI/UX Designer', 'Digital Content Creator'],
+    quota: 120,
   },
   {
-    id: '03',
-    code: 'QTM',
-    title: 'Quản trị Mạng & An ninh Mạng',
-    enTitle: 'NETWORK ADMINISTRATION & CYBER SECURITY',
-    desc: 'Làm chủ hạ tầng CNTT doanh nghiệp: Thiết lập hệ thống mạng Cisco, máy chủ Windows Server/Linux, bảo mật tường lửa, phòng chống xâm nhập và quản trị đám mây AWS/Google Cloud.',
-    skills: ['Hạ tầng mạng Cisco CCNA', 'Quản trị Linux / Windows Server', 'An toàn thông tin', 'Điện toán đám mây Cloud'],
-    salary: '9.000.000 - 16.000.000 VNĐ',
-    img: '/images/majors/quan-tri-mang.svg',
-    category: 'cong-nghe',
+    code: 'IES-03',
+    name: 'Quản trị mạng & An ninh mạng',
+    icon: 'security',
+    image: '/images/stitch/photos/space-lab.png',
+    desc: 'Hạ tầng mạng, máy chủ Windows Server & Linux, bảo mật thông tin.',
+    skills: ['Cấu hình Router/Switch Cisco', 'Quản trị Windows Server & Linux', 'Giám sát an ninh mạng'],
+    jobs: ['Kỹ thuật viên hạ tầng mạng', 'System Admin', 'Helpdesk & bảo mật'],
+    quota: 110,
   },
   {
-    id: '04',
-    code: 'KT',
-    title: 'Kế toán Doanh nghiệp Số',
-    enTitle: 'DIGITAL ACCOUNTING & CORPORATE FINANCE',
-    desc: 'Thực hành kế toán thực tế trên phần mềm MISA, FAST. Nắm vững kê khai thuế điện tử, quyết toán thuế, lập báo cáo tài chính doanh nghiệp và ứng dụng chuyển đổi số trong quản trị tài chính.',
-    skills: ['Phần mềm kế toán MISA/FAST', 'Kê khai thuế & Báo cáo tài chính', 'Hóa đơn điện tử', 'Tư duy tài chính doanh nghiệp'],
-    salary: '8.000.000 - 14.000.000 VNĐ',
-    img: '/images/majors/ke-toan.svg',
-    category: 'kinh-te',
+    code: 'IES-04',
+    name: 'Kế toán doanh nghiệp số',
+    icon: 'calculate',
+    image: '/images/stitch/photos/thu-vien.png',
+    desc: 'Chứng từ kế toán, kê khai thuế số và phần mềm kế toán thực hành.',
+    skills: ['Kê khai thuế & báo cáo tài chính', 'Thành thạo MISA, FAST', 'Kế toán kho & lương số hóa'],
+    jobs: ['Kế toán viên tổng hợp', 'Chuyên viên kê khai thuế', 'Thủ quỹ, kiểm soát chi'],
+    quota: 120,
   },
   {
-    id: '05',
-    code: 'QTKD',
-    title: 'Quản trị kinh doanh',
-    enTitle: 'BUSINESS ADMINISTRATION',
-    desc: 'Học các nghiệp vụ quản trị, bán hàng, chăm sóc khách hàng và lập kế hoạch kinh doanh qua bài tập tình huống thực tế.',
-    skills: ['Nghiệp vụ kinh doanh', 'Bán hàng', 'Chăm sóc khách hàng', 'Lập kế hoạch'],
-    salary: '8.500.000 - 15.000.000 VNĐ',
-    img: '/images/majors/quan-tri-kinh-doanh.svg',
-    category: 'kinh-te',
+    code: 'IES-05',
+    name: 'Quản trị kinh doanh & Dịch vụ',
+    icon: 'business_center',
+    image: '/images/stitch/photos/tu-van.png',
+    desc: 'Bán hàng, vận hành kinh doanh, đàm phán và chăm sóc khách hàng.',
+    skills: ['Lập kế hoạch bán hàng & KPI', 'Đàm phán & CRM số', 'Điều phối cửa hàng & nhân sự'],
+    jobs: ['Nhân viên kinh doanh B2B/B2C', 'Trợ lý vận hành', 'Giám sát bán hàng'],
+    quota: 110,
   },
   {
-    id: '06',
-    code: 'TMĐT',
-    title: 'Thương mại Điện tử & Logistics',
-    enTitle: 'E-COMMERCE & SMART LOGISTICS',
-    desc: 'Quản trị gian hàng đa sàn TMĐT (Shopee, Lazada, TikTok Shop), tối ưu chuỗi cung ứng, quản lý kho thông minh và xử lý đơn hàng tự động bám sát nhu cầu bùng nổ của nền kinh tế số.',
-    skills: ['Vận hành gian hàng Shopee/TikTok Shop', 'Quản trị kho vận Logistics', 'Xử lý đơn hàng & CSKH tự động', 'Phân tích dữ liệu bán lẻ'],
-    salary: '8.500.000 - 15.000.000 VNĐ',
-    img: '/images/majors/thuong-mai-dien-tu.svg',
-    category: 'kinh-te',
+    code: 'IES-06',
+    name: 'Thương mại điện tử',
+    icon: 'shopping_bag',
+    image: '/images/stitch/photos/livestream.png',
+    desc: 'Vận hành sàn TMĐT, digital marketing, livestream bán hàng và TikTok Shop.',
+    skills: ['Livestream & host bán hàng', 'Vận hành Shopee & TikTok Shop', 'Quảng cáo Meta/TikTok căn bản'],
+    jobs: ['Chuyên viên vận hành sàn', 'Quản lý gian hàng đa kênh', 'Content creator'],
+    quota: 140,
   },
-];
+] as const;
+
+const model = [
+  { icon: 'school', title: 'Nhà trường', desc: 'Xây dựng chương trình và quản lý đào tạo.' },
+  { icon: 'business_center', title: 'Doanh nghiệp', desc: 'Tham gia thẩm định giáo trình, giảng dạy và nhận thực tập.' },
+  { icon: 'person', title: 'Người học', desc: 'Thực hành trên thiết bị thật và dự án thực tế.' },
+] as const;
 
 export default function NganhDaoTaoPage() {
   return (
-    <div className="site-page bg-surface font-body-md text-on-surface min-h-screen flex flex-col">
+    <div className="site-page flex min-h-screen flex-col bg-[#F5F8FA] text-[#263849]">
       <SiteHeader />
 
-      <main id="main-content" tabIndex={-1} className="w-full pt-28 bg-surface min-h-[calc(100vh-28rem)] flex-1">
-        <div className="flex flex-col w-full">
-          {/* BREADCRUMB */}
-          <section className="w-full bg-surface-container-low py-space-sm border-b border-outline-variant/30">
-            <div className="max-w-[1240px] mx-auto px-margin-sm md:px-margin flex items-center justify-between">
-              <nav aria-label="Breadcrumb" className="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
-                <Link href="/" className="hover:text-primary transition-colors flex items-center gap-1">
-                  <Icon name="home" className="text-[16px]" />
-                  <span>Trang Chủ</span>
-                </Link>
-                <Icon name="chevron_right" className="text-[14px] text-outline" />
-                <span className="text-primary font-bold">Ngành Đào Tạo</span>
-              </nav>
-              <div className="hidden md:flex items-center gap-space-xs font-code text-code text-primary bg-surface-container px-space-sm py-1 rounded-lg">
-                <span className="inline-block w-2 h-2 rounded-full bg-[#F58232] animate-pulse"></span>
-                <span>Tuyển sinh năm 2026 • Xét tuyển học bạ</span>
-              </div>
+      <main id="main-content" tabIndex={-1} className="flex-1">
+        <section className="bg-[#0F5587] py-20 text-white">
+          <div className="mx-auto max-w-[1240px] px-4 md:px-8">
+            <nav aria-label="Breadcrumb" className="mb-5 flex items-center gap-2 text-xs text-[#F6EEE5]">
+              <Link href="/" className="hover:text-white">Trang chủ</Link>
+              <Icon name="chevron_right" className="text-[13px]" />
+              <span className="font-semibold text-white">Ngành đào tạo</span>
+            </nav>
+            <span className="text-xs font-bold uppercase tracking-wider text-[#2DBEDC]">Chương trình đào tạo 2026</span>
+            <h1 className="mt-3 font-[var(--font-montserrat)] text-3xl font-extrabold md:text-5xl">6 ngành đào tạo trọng điểm</h1>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/90">
+              Đào tạo chuyên sâu kỹ năng thực hành, bám sát nhu cầu nhân lực số của doanh nghiệp tại TP.HCM. Thời gian 1.5 - 2 năm.
+            </p>
+          </div>
+        </section>
+
+        <section className="bg-white py-16">
+          <div className="mx-auto max-w-[1240px] px-4 md:px-8">
+            <div className="grid gap-5 md:grid-cols-3">
+              {model.map((m) => (
+                <div key={m.title} className="rounded-xl border border-slate-200 bg-[#F5F8FA] p-6">
+                  <Icon name={m.icon} className="text-[28px] text-[#3764AF]" />
+                  <h3 className="mt-3 font-bold text-[#0F5587]">{m.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{m.desc}</p>
+                </div>
+              ))}
             </div>
-          </section>
+          </div>
+        </section>
 
-          {/* HERO SECTION */}
-          <section className="relative w-full bg-surface py-space-xl overflow-hidden">
-            <div className="max-w-[1240px] mx-auto px-margin-sm md:px-margin relative z-10">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
-                <div className="lg:col-span-8 flex flex-col gap-space-md">
-                  <div className="inline-flex items-center gap-space-xs bg-[#e3efff] text-primary px-space-md py-1.5 rounded-full font-label-md text-label-md font-bold w-fit border border-primary/20">
-                    <Icon name="verified" className="text-[18px]" />
-                    <span>ĐÀO TẠO THỰC HÀNH CHIẾM 70% THỜI LƯỢNG HỌC TẬP</span>
+        <section className="bg-[#F5F8FA] py-16">
+          <div className="mx-auto grid max-w-[1240px] gap-8 px-4 md:grid-cols-2 md:px-8 lg:grid-cols-3">
+            {majors.map((m) => (
+              <article key={m.code} id={m.code} className="flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+                <div className="relative aspect-video w-full bg-slate-100">
+                  <Image src={m.image} alt={`Hình ảnh ngành ${m.name}`} fill sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" className="object-cover" />
+                </div>
+                <div className="flex flex-1 flex-col gap-4 p-6">
+                  <div className="flex items-center gap-3">
+                    <Icon name={m.icon} className="text-[24px] text-[#3764AF]" />
+                    <h2 className="font-[var(--font-montserrat)] text-lg font-bold text-[#0F5587]">{m.name}</h2>
                   </div>
-                  <h1 className="font-display text-2xl sm:text-4xl lg:text-5xl text-primary tracking-tight font-extrabold leading-tight">
-                    Hệ Thống Ngành Đào Tạo Thực Chiến — Đón Đầu Nhu Cầu Tuyển Dụng 4.0
-                  </h1>
-                  <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                    Các chuyên ngành đào tạo tại IES được thiết kế theo định hướng ứng dụng. Học viên được thực hành trên phòng máy và làm bài tập, dự án gắn với nghiệp vụ của từng ngành.
-                  </p>
-                </div>
-
-                <div className="lg:col-span-4 bg-gradient-to-br from-[#0F5587] to-[#3764AF] text-white p-space-lg rounded-2xl shadow-xl flex flex-col gap-space-md border border-white/10">
-                  <div className="flex items-center gap-space-sm">
-                    <div className="w-10 h-10 rounded-xl bg-[#F58232] flex items-center justify-center text-white font-bold shadow-md">
-                      <Icon name="verified_user" className="text-[24px]" />
-                    </div>
-                    <div>
-                      <span className="font-label-md text-[11px] text-[#2DBEDC] uppercase tracking-wider block font-bold">Hỗ trợ hướng nghiệp</span>
-                      <h4 className="font-title text-title text-white font-bold">Kết nối thực tập, việc làm</h4>
-                    </div>
-                  </div>
-                  <p className="font-body-sm text-white/90 leading-relaxed text-sm">
-                    IES hỗ trợ định hướng và kết nối cơ hội thực tập, việc làm phù hợp. Vị trí tuyển dụng và thu nhập phụ thuộc năng lực, yêu cầu doanh nghiệp và nhu cầu thị trường.
-                  </p>
-                  <Link
-                    href="/dang-ky"
-                    className="inline-flex items-center justify-center gap-space-xs bg-[#F58232] hover:bg-[#d96a1e] text-white font-title text-title font-bold py-space-sm px-space-md rounded-xl transition-all shadow-md text-center"
-                  >
-                    <span>Đăng Ký Nhận Tư Vấn Ngay</span>
-                    <Icon name="arrow_forward" className="text-[18px]" />
-                  </Link>
-                </div>
-              </div>
-
-              {/* STATS STRIP */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-space-md mt-space-xl p-space-lg bg-surface-container-low rounded-2xl border border-outline-variant/40">
-                <div className="flex flex-col">
-                  <span className="font-display text-display-sm text-primary font-bold">06</span>
-                  <span className="font-body-sm text-on-surface-variant">Ngành đào tạo đón đầu số</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-display text-display-sm text-primary font-bold">70%</span>
-                  <span className="font-body-sm text-on-surface-variant">Thực hành trên máy tính</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-display text-display-sm text-primary font-bold">02</span>
-                  <span className="font-body-sm text-on-surface-variant">Khối ngành đào tạo</span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-display text-display-sm text-primary font-bold">Hỗ trợ</span>
-                  <span className="font-body-sm text-on-surface-variant">Kết nối thực tập, việc làm</span>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <MajorCatalog majors={majors} />
-
-          <MajorQuiz consultationHref="#form-xet-tuyen-nganh" />
-
-          {/* 3 PILLARS: DAC QUYEN DAO TAO */}
-          <section className="w-full bg-surface py-space-xl">
-            <div className="max-w-[1240px] mx-auto px-margin-sm md:px-margin">
-              <div className="text-center max-w-2xl mx-auto mb-space-xl">
-                <span className="font-label-md text-label-md font-bold text-primary uppercase tracking-wider block mb-1">
-                  ĐẶC QUYỀN ĐÀO TẠO THỰC HỌC — THỰC NGHIỆP
-                </span>
-                <h2 className="font-display text-display-sm text-primary font-bold">
-                  Tại Sao Sinh Viên Chọn Học Nghề Tại IES?
-                </h2>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
-                <div className="bg-surface-container-low p-space-lg rounded-2xl border border-outline-variant/40 flex flex-col gap-space-sm">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold">
-                    <Icon name="school" className="text-[28px]" />
-                  </div>
-                  <h3 className="font-title text-title text-primary font-bold">Học Bằng Thực Lực</h3>
-                  <p className="font-body-sm text-on-surface-variant leading-relaxed">
-                    Đào tạo bám sát chuẩn nghề quốc gia. 70% thời lượng là bài tập thực hành, đồ án capstone và xử lý bài toán thực tế của doanh nghiệp.
-                  </p>
-                </div>
-
-                <div className="bg-surface-container-low p-space-lg rounded-2xl border border-outline-variant/40 flex flex-col gap-space-sm">
-                  <div className="w-12 h-12 rounded-xl bg-[#2DBEDC]/10 text-[#0F5587] flex items-center justify-center font-bold">
-                    <Icon name="handshake" className="text-[28px]" />
-                  </div>
-                  <h3 className="font-title text-title text-primary font-bold">Doanh Nghiệp Đồng Hành</h3>
-                  <p className="font-body-sm text-on-surface-variant leading-relaxed">
-                    IES hỗ trợ học viên tìm hiểu cơ hội thực tập và việc làm phù hợp với ngành học, năng lực và nhu cầu tuyển dụng.
-                  </p>
-                </div>
-
-                <div className="bg-surface-container-low p-space-lg rounded-2xl border border-outline-variant/40 flex flex-col gap-space-sm">
-                  <div className="w-12 h-12 rounded-xl bg-[#F58232]/10 text-[#F58232] flex items-center justify-center font-bold">
-                    <Icon name="savings" className="text-[28px]" />
-                  </div>
-                  <h3 className="font-title text-title text-primary font-bold">Học Phí 0 Đồng</h3>
-                  <p className="font-body-sm text-on-surface-variant leading-relaxed">
-                    Nhà nước cấp bù học phí nghề theo Nghị định 81/CP cho học sinh tốt nghiệp THCS. Quỹ học bổng IES Talent Fund trao tặng lên tới 3.000.000đ.
-                  </p>
-                  <PolicyDisclosure className="mt-1" />
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* LEAD CAPTURE FORM SECTION */}
-          <section className="w-full bg-gradient-to-r from-[#0F5587] to-[#3764AF] py-space-xl text-white">
-            <div className="max-w-[1240px] mx-auto px-margin-sm md:px-margin">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
-                <div className="lg:col-span-6 flex flex-col gap-space-md">
-                  <div className="inline-flex items-center gap-space-xs bg-[#F58232] text-white px-space-sm py-1 rounded-full font-label-md text-label-md font-bold w-fit">
-                    <Icon name="redeem" className="text-[16px]" />
-                    <span>SUẤT HỌC BỔNG ĐẦU VÀO 2.000.000Đ</span>
-                  </div>
-                  <h2 className="font-display text-display-md text-white font-bold leading-tight">
-                    Đăng Ký Xét Tuyển Online — Nhận Học Bổng Đầu Vào Ngay Hôm Nay
-                  </h2>
-                  <p className="font-body-md text-white/90 leading-relaxed">
-                    Nộp hồ sơ trực tuyến trong hôm nay để giữ chỉ tiêu ngành yêu thích và nhận gói hỗ trợ tài chính đặc biệt từ Quỹ Hỗ trợ Phát triển Giáo dục IES.
-                  </p>
-                  <ul className="flex flex-col gap-space-xs text-white/95 font-body-sm">
-                    <li className="flex items-center gap-2">
-                      <Icon name="check_circle" className="text-[#2DBEDC]" />
-                      <span>Xét tuyển thẳng bằng học bạ — Không thi tuyển áp lực</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Icon name="check_circle" className="text-[#2DBEDC]" />
-                      <span>Tặng gói học bổng tân sinh viên trị giá 2.000.000đ</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Icon name="check_circle" className="text-[#2DBEDC]" />
-                      <span>Miễn 100% lệ phí xét tuyển &amp; tư vấn hồ sơ miễn phí</span>
-                    </li>
-                  </ul>
-                  <div className="mt-space-sm flex items-center gap-space-sm font-code text-sm">
-                    <Icon name="call" className="text-[#2DBEDC]" />
-                    <span>
-                      Hotline Tuyển sinh:{' '}
-                      {schoolContact.phoneNumbers.map((phone, index) => (
-                        <React.Fragment key={phone.number}>
-                          {index > 0 && ' / '}
-                          <a href={phone.href}><strong>{phone.number}</strong></a>
-                        </React.Fragment>
+                  <p className="text-sm leading-relaxed text-slate-600">{m.desc}</p>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-wider text-[#3764AF]">Kỹ năng cốt lõi</p>
+                    <ul className="mt-2 flex flex-col gap-1.5 text-sm text-slate-700">
+                      {m.skills.map((s) => (
+                        <li key={s} className="flex gap-2"><Icon name="check" className="mt-0.5 text-[16px] text-[#2DBEDC]" />{s}</li>
                       ))}
-                    </span>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-wider text-[#3764AF]">Vị trí việc làm</p>
+                    <p className="mt-2 text-sm text-slate-700">{m.jobs.join(' · ')}</p>
+                  </div>
+                  <div className="mt-auto flex items-center justify-between border-t border-slate-200 pt-4 text-sm">
+                    <span className="text-slate-500">Chỉ tiêu đợt 1: <strong className="text-[#0F5587]">{m.quota}</strong></span>
+                    <Link href={`/dang-ky?major=${encodeURIComponent(m.name)}`} className="font-bold text-[#F58232] hover:underline">
+                      Đăng ký ngành này
+                    </Link>
                   </div>
                 </div>
+              </article>
+            ))}
+          </div>
+        </section>
 
-                <div className="lg:col-span-6">
-                  <LeadForm id="form-xet-tuyen-nganh" source="page_nganh_dao_tao" />
-                </div>
-              </div>
+        <section className="bg-[#0F5587] py-16 text-white">
+          <div className="mx-auto flex max-w-[1240px] flex-col items-start justify-between gap-6 px-4 md:flex-row md:items-center md:px-8">
+            <div>
+              <h2 className="font-[var(--font-montserrat)] text-2xl font-extrabold">Chưa chắc ngành nào phù hợp?</h2>
+              <p className="mt-2 text-white/85">Gọi tư vấn để được hướng nghiệp miễn phí.</p>
             </div>
-          </section>
-        </div>
+            <a href={schoolContact.phoneNumbers[0].href} className="rounded-full bg-[#F58232] px-7 py-3 font-bold text-white shadow-md hover:brightness-105">
+              Gọi {schoolContact.phoneNumbers[0].number}
+            </a>
+          </div>
+        </section>
       </main>
 
       <SiteFooter />
