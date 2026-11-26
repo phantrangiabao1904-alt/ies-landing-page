@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Montserrat } from 'next/font/google';
 import AnalyticsTracker from '@/components/home/AnalyticsTracker';
+import FacebookFloatingButton from '@/components/layout/FacebookFloatingButton';
 import './globals.css';
 
 const inter = Inter({
@@ -48,6 +49,7 @@ export default function RootLayout({
         </a>
         <AnalyticsTracker />
         {children}
+        <FacebookFloatingButton />
       </body>
     </html>
   );
