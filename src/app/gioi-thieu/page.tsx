@@ -24,13 +24,7 @@ const facilities = [
   { src: '/images/stitch/photos/studio.png', title: 'Studio sáng tạo', desc: 'Sản xuất nội dung và đồ họa số.' },
   { src: '/images/stitch/photos/thu-vien.png', title: 'Thư viện số', desc: 'Không gian đọc mở và tài liệu số.' },
   { src: '/images/stitch/photos/ky-tuc-xa.png', title: 'Ký túc xá', desc: 'Nơi ở an toàn cho học sinh xa nhà.' },
-  { src: '/images/stitch/photos/khuon-vien.png', title: 'Khuôn viên trường', desc: 'Không gian học tập xanh, thoáng.' },
-];
-
-const leaders = [
-  { src: '/images/stitch/photos/hieu-truong.png', name: 'Thầy Nguyễn Văn Nam', role: 'Hiệu trưởng', desc: 'Hơn 20 năm xây dựng mô hình giáo dục nghề nghiệp gắn kết nhà trường và doanh nghiệp.' },
-  { src: '/images/stitch/photos/pho-hieu-truong-nu.png', name: 'Cô Trần Thị Mai', role: 'Phó Hiệu trưởng', desc: 'Phụ trách chuyên môn đào tạo, bám sát yêu cầu năng lực thực tế thị trường.' },
-  { src: '/images/stitch/photos/pho-hieu-truong-nam.png', name: 'Thầy Lê Quốc Bảo', role: 'Phó Hiệu trưởng', desc: 'Phụ trách hỗ trợ học sinh, định hướng nghề nghiệp và liên kết việc làm.' },
+  { src: '/images/stitch/photos/khuon-vien-moi.jpg', title: 'Khuôn viên trường', desc: 'Không gian học tập xanh, thoáng.' },
 ];
 
 const timeline = [
@@ -96,25 +90,6 @@ export default function GioiThieuPage() {
                     <p className="mt-1 text-sm text-slate-600">{f.desc}</p>
                   </figcaption>
                 </figure>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-[#F6EEE5] py-20">
-          <div className="mx-auto max-w-[1240px] px-4 md:px-8">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#3764AF]">Đội ngũ</span>
-            <h2 className="mt-2 font-[var(--font-montserrat)] text-3xl font-extrabold text-[#0F5587]">Lãnh đạo & giảng viên tiêu biểu</h2>
-            <div className="mt-10 grid gap-6 md:grid-cols-3">
-              {leaders.map((p) => (
-                <div key={p.name} className="rounded-xl border border-slate-200 bg-white p-6">
-                  <div className="relative mx-auto aspect-square w-40 overflow-hidden rounded-full border-4 border-white shadow-md">
-                    <Image src={p.src} alt={p.name} fill sizes="160px" className="object-cover" />
-                  </div>
-                  <h3 className="mt-5 text-center font-bold text-[#0F5587]">{p.name}</h3>
-                  <p className="text-center text-sm font-semibold text-[#F58232]">{p.role}</p>
-                  <p className="mt-3 text-center text-sm leading-relaxed text-slate-600">{p.desc}</p>
-                </div>
               ))}
             </div>
           </div>

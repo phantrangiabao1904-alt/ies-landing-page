@@ -7,8 +7,8 @@ const quickLinks = [
   { label: 'Ngành đào tạo', href: '/nganh-dao-tao' },
   { label: 'Học phí & chính sách', href: '/tuyen-sinh' },
   { label: 'Đời sống & thực tập', href: '/gioi-thieu' },
+  { label: 'Tin tức', href: '/tin-tuc' },
   { label: 'Đăng ký tư vấn', href: '/dang-ky' },
-  { label: 'Dành cho giảng viên', href: '/giang-vien' },
 ];
 
 export default function SiteFooter() {
@@ -35,9 +35,6 @@ export default function SiteFooter() {
               Hotline: {phone.number}
             </a>
           ))}
-          <a href={`mailto:${schoolContact.email}`} className="hover:text-white">
-            {schoolContact.email}
-          </a>
         </div>
 
         <nav aria-label="Liên kết nhanh" className="flex flex-col gap-3 text-sm">
