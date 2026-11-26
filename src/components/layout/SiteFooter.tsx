@@ -48,8 +48,8 @@ export default function SiteFooter() {
       </div>
 
       <div className="border-t border-white/15">
-        <p className="mx-auto max-w-6xl px-4 py-5 text-xs leading-relaxed text-white/60 sm:px-6">
-          © 2026 {schoolContact.name}. Website ghi nhận lượt xem và tương tác ở dạng tổng hợp; không lưu địa chỉ IP thô.
+        <p className="mx-auto max-w-6xl px-4 py-5 text-center text-xs leading-relaxed text-white/60 sm:px-6">
+          © 2026 {schoolContact.name}
         </p>
       </div>
     </footer>
