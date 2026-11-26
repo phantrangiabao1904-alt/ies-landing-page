@@ -4,6 +4,7 @@ import Link from 'next/link';
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import HomePromoPopup from '@/components/home/HomePromoPopup';
+import { getSiteMediaUrls } from '@/actions/site-media';
 import Icon from '@/components/ui/Icon';
 import { schoolContact } from '@/lib/school-info';
 
@@ -39,12 +40,15 @@ const quiz = [
 ];
 
 const stories = [
-  { img: '/images/stitch/photos/sv-le-hoang-phuc.png', name: 'Lê Hoàng Phúc', major: 'Công nghệ thông tin', quote: 'Thầy cô hướng dẫn thực hành sát sao. Sau kỳ thực tập, em đã có việc làm đúng ngành.' },
-  { img: '/images/stitch/photos/sv-nguyen-minh-khoi.png', name: 'Nguyễn Minh Khôi', major: 'Quản trị mạng', quote: 'Học trên hệ thống máy chủ thật giúp em tự tin khi làm việc tại doanh nghiệp.' },
-  { img: '/images/stitch/photos/sv-tran-thu-ha.png', name: 'Trần Thu Hà', major: 'Thiết kế đồ họa', quote: 'Dự án thực tế với doanh nghiệp giúp portfolio của em nổi bật khi đi phỏng vấn.' },
+  { slot: 'home-story-1', img: '/images/stitch/photos/sv-le-hoang-phuc.png', name: 'Lê Hoàng Phúc', major: 'Công nghệ thông tin', quote: 'Thầy cô hướng dẫn thực hành sát sao. Sau kỳ thực tập, em đã có việc làm đúng ngành.' },
+  { slot: 'home-story-2', img: '/images/stitch/photos/sv-nguyen-minh-khoi.png', name: 'Nguyễn Minh Khôi', major: 'Quản trị mạng', quote: 'Học trên hệ thống máy chủ thật giúp em tự tin khi làm việc tại doanh nghiệp.' },
+  { slot: 'home-story-3', img: '/images/stitch/photos/sv-tran-thu-ha.png', name: 'Trần Thu Hà', major: 'Thiết kế đồ họa', quote: 'Dự án thực tế với doanh nghiệp giúp portfolio của em nổi bật khi đi phỏng vấn.' },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const media = await getSiteMediaUrls();
+  const heroImage = media['home-hero'] ?? '/images/stitch/photos/phong-may-lab.png';
+
   return (
     <div className="site-page flex min-h-screen flex-col bg-[#F5F8FA] text-[#263849]">
       <HomePromoPopup />
@@ -54,7 +58,7 @@ export default function HomePage() {
         {/* Hero */}
         <section className="relative overflow-hidden bg-[#0F5587] text-white">
           <div className="absolute inset-0">
-            <Image src="/images/stitch/photos/phong-may-lab.png" alt="" fill priority sizes="100vw" className="object-cover opacity-25" />
+            <Image src={heroImage} alt="" fill priority sizes="100vw" unoptimized className="object-cover opacity-25" />
           </div>
           <div className="relative mx-auto grid max-w-[1240px] items-center gap-12 px-4 py-20 md:px-8 lg:grid-cols-2 lg:py-28">
             <div>
@@ -81,7 +85,7 @@ export default function HomePage() {
               </p>
             </div>
             <div className="relative hidden aspect-[4/5] overflow-hidden rounded-[28px] border-4 border-white/20 shadow-2xl lg:block">
-              <Image src="/images/stitch/photos/phong-may-lab.png" alt="Phòng máy thực hành tại IES Sài Gòn" fill sizes="50vw" className="object-cover" />
+              <Image src={heroImage} alt="Phòng máy thực hành tại IES Sài Gòn" fill sizes="50vw" unoptimized className="object-cover" />
             </div>
           </div>
         </section>
@@ -168,7 +172,7 @@ export default function HomePage() {
               {stories.map((s) => (
                 <figure key={s.name} className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
                   <div className="relative aspect-[4/3] bg-slate-100">
-                    <Image src={s.img} alt={`Sinh viên ${s.name}`} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
+                    <Image src={media[s.slot as keyof typeof media] ?? s.img} alt={`Sinh viên ${s.name}`} fill unoptimized sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
                   </div>
                   <figcaption className="p-6">
                     <blockquote className="text-sm leading-relaxed text-slate-700">&ldquo;{s.quote}&rdquo;</blockquote>
