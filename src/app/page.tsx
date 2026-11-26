@@ -132,7 +132,7 @@ export default async function HomePage() {
                   <p className="mt-2 text-sm leading-relaxed text-slate-600">{m.desc}</p>
                 </Link>
               ))}
-            </div>
+              </div>
             </div>
           </section>
 
@@ -191,10 +191,10 @@ export default async function HomePage() {
             <div>
               <h2 className="font-[var(--font-montserrat)] text-2xl font-extrabold md:text-3xl">Đợt 1 tuyển sinh đến 30/08/2026</h2>
               <p className="mt-2 text-white/85">Ưu tiên 500 suất đầu tiên. Hỗ trợ học phí theo Nghị định 81/2021/NĐ-CP.</p>
-            </div>
+                </div>
             <Link href="/dang-ky" className="rounded-full bg-[#F58232] px-8 py-4 font-bold text-white shadow-lg hover:brightness-105">
               Đăng ký ngay
-            </Link>
+                  </Link>
             </div>
           </section>
       </main>
