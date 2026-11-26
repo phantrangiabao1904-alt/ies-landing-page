@@ -9,15 +9,15 @@ import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 const slides = [
   {
-    src: '/images/gioi-thieu/le-tot-nghiep-1.jpg',
+    src: '/images/gioi-thieu/le-tot-nghiep-1.webp',
     alt: 'Lễ tốt nghiệp tại Trường Trung cấp Tin học Kinh tế Sài Gòn',
   },
   {
-    src: '/images/gioi-thieu/le-tot-nghiep-2.jpg',
+    src: '/images/gioi-thieu/le-tot-nghiep-2.webp',
     alt: 'Sinh viên tham dự lễ tốt nghiệp tại IES',
   },
   {
-    src: '/images/gioi-thieu/le-tot-nghiep-3.jpg',
+    src: '/images/gioi-thieu/le-tot-nghiep-3.webp',
     alt: 'Khoảnh khắc trong lễ tốt nghiệp tại IES',
   },
 ] as const;

@@ -14,19 +14,19 @@ interface Slide {
 const SLIDES: Slide[] = [
   {
     id: 1,
-    src: '/images/gioi-thieu/le-tot-nghiep-1.jpg',
+    src: '/images/gioi-thieu/le-tot-nghiep-1.webp',
     alt: 'Lễ tốt nghiệp - Thầy cô và học sinh nhận bằng tốt nghiệp tại IES Saigon',
     caption: 'Lễ tốt nghiệp trang trọng tại Trường Trung cấp Tin học Kinh tế Sài Gòn (IES)',
   },
   {
     id: 2,
-    src: '/images/gioi-thieu/le-tot-nghiep-2.jpg',
+    src: '/images/gioi-thieu/le-tot-nghiep-2.webp',
     alt: 'Khoảnh khắc rạng rỡ của tân khoa IES trong ngày nhận bằng tốt nghiệp',
     caption: 'Học sinh IES rạng rỡ nhận bằng tốt nghiệp chính quy ở tuổi 18',
   },
   {
     id: 3,
-    src: '/images/gioi-thieu/le-tot-nghiep-3.jpg',
+    src: '/images/gioi-thieu/le-tot-nghiep-3.webp',
     alt: 'Tân khoa IES chào đón tương lai nghề nghiệp vững vàng',
     caption: 'Kiến tạo nghề nghiệp - Tự tin vững bước tương lai cùng IES Saigon',
   },
@@ -73,8 +73,7 @@ export default function AboutHeroSlider() {
                 alt={slide.alt}
                 fill
                 priority={index === 0}
-                quality={100}
-                unoptimized
+                quality={80}
                 className="object-cover object-center"
                 sizes="100vw"
               />

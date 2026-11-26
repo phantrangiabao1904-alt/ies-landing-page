@@ -11,6 +11,11 @@ npm run dev
 
 Copy `.env.example` to `.env.local` and set the Supabase project URL, anon key, and service-role key. Keep the service-role key server-only; it is used by rate-limited Server Actions and after staff authorization checks.
 
+Optional public experience settings:
+
+- `NEXT_PUBLIC_ZALO_URL`: the school's verified Zalo contact link. Leave it empty until the official URL is confirmed; the UI will omit unverified Zalo links.
+- `NEXT_PUBLIC_HERO_VIDEO_URL`: an optional muted, looping hero video. The first hero image is used as its poster, and the video is not loaded when this setting is empty.
+
 Apply the SQL files in `supabase/migrations/` to the Supabase project, in filename order. Public lead submissions go through a validated, rate-limited Next.js Server Action; the `anon` and `authenticated` database roles have no direct access to the `leads` table. RLS stays enabled, and the server-only service role is used for database writes.
 
 The second migration also creates:

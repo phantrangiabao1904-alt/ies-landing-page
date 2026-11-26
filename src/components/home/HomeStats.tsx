@@ -12,8 +12,8 @@ interface HomeStatsProps {
 
 const metrics = [
   {
-    value: (progress: number) => `MIỄN ${Math.round(100 * progress)}%`,
-    label: 'HỌC PHÍ',
+    value: (progress: number) => `MIỄN ${Math.round(100 * progress)}% HỌC PHÍ`,
+    label: 'Miễn học phí nghề',
   },
   {
     value: (progress: number) => `${Math.round(0 * progress)} ĐỒNG`,
@@ -80,7 +80,7 @@ export default function HomeStats({ decree81Url, decree24Url }: HomeStatsProps) 
 
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {metrics.map((metric, index) => (
-            <Reveal key={metric.label} delayMs={index * 80} className="h-full">
+            <Reveal key={`${index}-${metric.label}`} delayMs={index * 80} className="h-full">
               <div
                 className={`flex min-h-32 flex-col items-center justify-center rounded-2xl border p-4 text-center ${
                   index === 0
@@ -90,7 +90,6 @@ export default function HomeStats({ decree81Url, decree24Url }: HomeStatsProps) 
               >
                 <span className="font-headline-lg text-xl font-black leading-tight text-primary sm:text-2xl">
                   {metric.value(displayedProgress)}
-                  {index === 0 && <span className="ml-1">HỌC PHÍ</span>}
                 </span>
                 {index !== 0 && (
                   <span className="mt-2 text-base font-semibold leading-snug text-on-surface-variant">
