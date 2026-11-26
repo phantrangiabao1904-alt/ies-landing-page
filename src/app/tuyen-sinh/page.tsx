@@ -7,6 +7,8 @@ import LeadForm from '@/components/forms/LeadForm';
 import Icon from '@/components/ui/Icon';
 import { schoolContact } from '@/lib/school-info';
 
+import { getResolvedSiteMedia } from '@/lib/media/site-media-urls';
+
 export const metadata: Metadata = {
   title: 'Tuyển sinh 2026 - Xét tuyển học bạ | IES Sài Gòn',
   description:
@@ -64,7 +66,8 @@ const faqs = [
   },
 ];
 
-export default function TuyenSinhPage() {
+export default async function TuyenSinhPage() {
+  const media = await getResolvedSiteMedia();
   return (
     <div className="site-page flex min-h-screen flex-col bg-[#F5F8FA] text-[#263849]">
       <SiteHeader />
@@ -102,7 +105,7 @@ export default function TuyenSinhPage() {
             <div className="relative lg:col-span-6">
               <div className="absolute inset-0 translate-x-3 translate-y-3 rounded-[28px] bg-[#F6EEE5]" aria-hidden="true" />
               <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-slate-200 shadow-xl">
-                <Image src="/images/stitch/photos/cong-truong.png" alt="Khuôn viên trường IES Sài Gòn" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" priority />
+                <Image src={media['admission-banner']} alt="Khuôn viên trường IES Sài Gòn" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" priority />
               </div>
             </div>
           </div>

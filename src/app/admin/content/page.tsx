@@ -49,6 +49,9 @@ export default async function AdminContentPage() {
             <Link href="/admin" className="min-h-[44px] inline-flex items-center rounded-lg px-3 font-semibold text-[#0F5587] transition-colors hover:bg-sky-50 hover:underline">
               Danh sách hồ sơ
             </Link>
+            <Link href="/admin/media" className="min-h-[44px] inline-flex items-center rounded-lg px-3 font-semibold text-[#0F5587] transition-colors hover:bg-sky-50 hover:underline">
+              Thay ảnh website
+            </Link>
             <form action={logoutStaff}>
               <button className="min-h-[44px] rounded-lg border border-slate-300 px-4 font-semibold text-slate-700 hover:bg-white">
                 Đăng xuất

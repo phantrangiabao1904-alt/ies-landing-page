@@ -5,6 +5,7 @@ import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import Icon from '@/components/ui/Icon';
 import { schoolContact } from '@/lib/school-info';
+import { getResolvedSiteMedia } from '@/lib/media/site-media-urls';
 
 export const metadata: Metadata = {
   title: '6 Ngành đào tạo trung cấp 2026 | IES Sài Gòn',
@@ -13,12 +14,12 @@ export const metadata: Metadata = {
   alternates: { canonical: '/nganh-dao-tao' },
 };
 
-const majors = [
+const majorsDefaults = [
   {
     code: 'IES-01',
+    slot: 'major-cntt' as const,
     name: 'Công nghệ thông tin',
     icon: 'terminal',
-    image: '/images/stitch/photos/phong-may-lab.png',
     desc: 'Lập trình web, phần mềm ứng dụng và cơ sở dữ liệu.',
     skills: ['Tư duy thuật toán & SQL', 'JavaScript & Python ứng dụng', 'Quy trình Git & Agile'],
     jobs: ['Junior Web Developer', 'Software Tester', 'IT Support'],
@@ -28,7 +29,7 @@ const majors = [
     code: 'IES-02',
     name: 'Thiết kế đồ họa',
     icon: 'palette',
-    image: '/images/stitch/photos/phong-thiet-ke.png',
+    slot: 'major-thietke' as const,
     desc: 'Mỹ thuật số, nhận diện thương hiệu, UI/UX và truyền thông số.',
     skills: ['Photoshop, Illustrator, Figma', 'Motion graphics & video ngắn', 'Typography & bao bì'],
     jobs: ['Graphic Designer', 'Junior UI/UX Designer', 'Digital Content Creator'],
@@ -38,7 +39,7 @@ const majors = [
     code: 'IES-03',
     name: 'Quản trị mạng & An ninh mạng',
     icon: 'security',
-    image: '/images/stitch/photos/space-lab.png',
+    slot: 'major-quantrimang' as const,
     desc: 'Hạ tầng mạng, máy chủ Windows Server & Linux, bảo mật thông tin.',
     skills: ['Cấu hình Router/Switch Cisco', 'Quản trị Windows Server & Linux', 'Giám sát an ninh mạng'],
     jobs: ['Kỹ thuật viên hạ tầng mạng', 'System Admin', 'Helpdesk & bảo mật'],
@@ -48,7 +49,7 @@ const majors = [
     code: 'IES-04',
     name: 'Kế toán doanh nghiệp số',
     icon: 'calculate',
-    image: '/images/stitch/photos/thu-vien.png',
+    slot: 'major-ketoan' as const,
     desc: 'Chứng từ kế toán, kê khai thuế số và phần mềm kế toán thực hành.',
     skills: ['Kê khai thuế & báo cáo tài chính', 'Thành thạo MISA, FAST', 'Kế toán kho & lương số hóa'],
     jobs: ['Kế toán viên tổng hợp', 'Chuyên viên kê khai thuế', 'Thủ quỹ, kiểm soát chi'],
@@ -58,7 +59,7 @@ const majors = [
     code: 'IES-05',
     name: 'Quản trị kinh doanh & Dịch vụ',
     icon: 'business_center',
-    image: '/images/stitch/photos/tu-van.png',
+    slot: 'major-tuvan' as const,
     desc: 'Bán hàng, vận hành kinh doanh, đàm phán và chăm sóc khách hàng.',
     skills: ['Lập kế hoạch bán hàng & KPI', 'Đàm phán & CRM số', 'Điều phối cửa hàng & nhân sự'],
     jobs: ['Nhân viên kinh doanh B2B/B2C', 'Trợ lý vận hành', 'Giám sát bán hàng'],
@@ -68,7 +69,7 @@ const majors = [
     code: 'IES-06',
     name: 'Thương mại điện tử',
     icon: 'shopping_bag',
-    image: '/images/stitch/photos/livestream.png',
+    slot: 'major-livestream' as const,
     desc: 'Vận hành sàn TMĐT, digital marketing, livestream bán hàng và TikTok Shop.',
     skills: ['Livestream & host bán hàng', 'Vận hành Shopee & TikTok Shop', 'Quảng cáo Meta/TikTok căn bản'],
     jobs: ['Chuyên viên vận hành sàn', 'Quản lý gian hàng đa kênh', 'Content creator'],
@@ -82,7 +83,10 @@ const model = [
   { icon: 'person', title: 'Người học', desc: 'Thực hành trên thiết bị thật và dự án thực tế.' },
 ] as const;
 
-export default function NganhDaoTaoPage() {
+export default async function NganhDaoTaoPage() {
+  const media = await getResolvedSiteMedia();
+  const majors = majorsDefaults.map((m) => ({ ...m, image: media[m.slot] }));
+
   return (
     <div className="site-page flex min-h-screen flex-col bg-[#F5F8FA] text-[#263849]">
       <SiteHeader />

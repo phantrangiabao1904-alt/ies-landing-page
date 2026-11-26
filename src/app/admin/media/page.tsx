@@ -23,6 +23,9 @@ export default async function AdminMediaPage() {
             <Link href="/admin/content" className="min-h-[44px] inline-flex items-center rounded-lg px-3 font-semibold text-[#0F5587] hover:bg-sky-50">
               Quản lý Landing Page
             </Link>
+            <Link href="/admin/posts" className="min-h-[44px] inline-flex items-center rounded-lg px-3 font-semibold text-[#0F5587] hover:bg-sky-50">
+              Bài tin tức
+            </Link>
             <Link href="/admin" className="min-h-[44px] inline-flex items-center rounded-lg px-3 font-semibold text-[#0F5587] hover:bg-sky-50">
               Danh sách hồ sơ
             </Link>

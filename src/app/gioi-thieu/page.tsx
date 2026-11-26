@@ -5,6 +5,7 @@ import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import Icon from '@/components/ui/Icon';
 import { schoolContact } from '@/lib/school-info';
+import { getResolvedSiteMedia } from '@/lib/media/site-media-urls';
 
 export const metadata: Metadata = {
   title: 'Giới thiệu trường | IES Sài Gòn',
@@ -19,12 +20,11 @@ const values: { icon: 'verified' | 'business_center' | 'group'; title: string; d
   { icon: 'group', title: 'Đồng hành đến cùng', desc: 'Thầy cô theo sát học sinh từ ngày nhập học đến khi có việc làm.' },
 ];
 
-const facilities = [
-  { src: '/images/stitch/photos/phong-may-lab.png', title: 'Phòng lab máy tính', desc: 'Cấu hình cao, phục vụ CNTT và đồ họa.' },
-  { src: '/images/stitch/photos/studio.png', title: 'Studio sáng tạo', desc: 'Sản xuất nội dung và đồ họa số.' },
-  { src: '/images/stitch/photos/thu-vien.png', title: 'Thư viện số', desc: 'Không gian đọc mở và tài liệu số.' },
-  { src: '/images/stitch/photos/ky-tuc-xa.png', title: 'Ký túc xá', desc: 'Nơi ở an toàn cho học sinh xa nhà.' },
-  { src: '/images/stitch/photos/khuon-vien-moi.jpg', title: 'Khuôn viên trường', desc: 'Không gian học tập xanh, thoáng.' },
+const facilitiesDefaults = [
+  { slot: 'about-facility-1' as const, title: 'Phòng lab máy tính', desc: 'Cấu hình cao, phục vụ CNTT và đồ họa.' },
+  { slot: 'about-facility-2' as const, title: 'Studio sáng tạo', desc: 'Sản xuất nội dung và đồ họa số.' },
+  { slot: 'about-facility-3' as const, title: 'Thư viện số', desc: 'Không gian đọc mở và tài liệu số.' },
+  { slot: 'about-facility-4' as const, title: 'Ký túc xá', desc: 'Nơi ở an toàn cho học sinh xa nhà.' },
 ];
 
 const timeline = [
@@ -35,7 +35,10 @@ const timeline = [
   { step: 'Hiện tại', title: '2026', desc: 'Đào tạo song bằng: Trung cấp chính quy và văn hóa THPT.' },
 ];
 
-export default function GioiThieuPage() {
+export default async function GioiThieuPage() {
+  const media = await getResolvedSiteMedia();
+  const facilities = facilitiesDefaults.map((f) => ({ ...f, src: media[f.slot] }));
+
   return (
     <div className="site-page flex min-h-screen flex-col bg-[#F5F8FA] text-[#263849]">
       <SiteHeader />
@@ -58,7 +61,7 @@ export default function GioiThieuPage() {
               </p>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] border border-slate-200 shadow-xl">
-              <Image src="/images/stitch/photos/hop-tac-ky-ket.png" alt="Giảng viên và học viên tại IES Sài Gòn" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+              <Image src={media['about-banner']} alt="Khuôn viên và không gian học tập IES Sài Gòn" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
             </div>
           </div>
         </section>
